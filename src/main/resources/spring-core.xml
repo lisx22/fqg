@@ -27,13 +27,16 @@
     <bean name="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <!--指定登录界面-->
-        <property name="loginUrl" value="/login.jsp"/>
+        <property name="loginUrl" value="login_manager.html"/>
 
         <!--=============================================================================================-->
         <property name="filterChainDefinitions">
             <value>
                 <!--anon不需要登录-->
-
+                /assets/**=anon
+                /html/**=anon
+                /index_manager.html=anon
+                /login_manager.html=anon
                 /user/login=anon
                 /css/**=anon
                 /css5/**=anon
