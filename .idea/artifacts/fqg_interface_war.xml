@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fqg_interface:war">
+    <output-path>$PROJECT_DIR$/fqg_interface/target</output-path>
+    <root id="archive" name="fqg_interface.war">
+      <element id="artifact" artifact-name="fqg_interface:war exploded" />
+    </root>
+  </artifact>
+</component>
