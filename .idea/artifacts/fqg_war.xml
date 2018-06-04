@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="fqg:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="rebuy2.war">
+    <root id="archive" name="fqg.war">
       <element id="artifact" artifact-name="fqg:war exploded" />
     </root>
   </artifact>
