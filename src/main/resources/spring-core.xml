@@ -33,20 +33,20 @@
         <property name="filterChainDefinitions">
             <value>
                 <!--anon不需要登录-->
-                /assets/**=anon
-                /html/**=anon
-                /index_manager.html=anon
-                /login_manager.html=anon
-                /user/login=anon
-                /css/**=anon
-                /css5/**=anon
-                /dist/**=anon
-                /images/**=anon
-                /js/**=anon
-                /vendor/**=anon
-                <!--authc需要登录才能访问-->
-                <!--user配合rememberMe使用有效，authc不能配合rememberMe使用-->
-                /**=user
+                <!--/assets/**=anon-->
+                <!--/html/**=anon-->
+                <!--/index_manager.html=anon-->
+                <!--/login_manager.html=anon-->
+                <!--/user/login=anon-->
+                <!--/css/**=anon-->
+                <!--/css5/**=anon-->
+                <!--/dist/**=anon-->
+                <!--/images/**=anon-->
+                <!--/js/**=anon-->
+                <!--/vendor/**=anon-->
+                <!--&lt;!&ndash;authc需要登录才能访问&ndash;&gt;-->
+                <!--&lt;!&ndash;user配合rememberMe使用有效，authc不能配合rememberMe使用&ndash;&gt;-->
+                <!--/**=user-->
             </value>
         </property>
         <!--=============================================================================================-->

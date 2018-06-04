@@ -16,6 +16,7 @@ public class TestController {
     @Resource
     private TestServiceImpl testService;
 
+    @ResponseBody
     @RequestMapping("/cs")
     public String queryOrder(){
          testService.test();
