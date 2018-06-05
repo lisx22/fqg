@@ -15,7 +15,17 @@ public class Evaluate implements Serializable {
 
     private String evaluateContent;
 
+    private Integer star;
+
     private Date createTime;
+
+    public Integer getStar() {
+        return star;
+    }
+
+    public void setStar(Integer star) {
+        this.star = star;
+    }
 
     public String getCustomerName() {
         return customerName;

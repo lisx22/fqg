@@ -1,6 +1,7 @@
 package com.fqg.dao;
 
 import com.fqg.entity.Evaluate;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,5 +23,8 @@ public interface EvaluateMapper {
      * @param commodityId
      * @return
      */
-    List<Evaluate> selectEvaluateListByCommodityId(Integer commodityId);
+    List<Evaluate> selectByCommodityIdPaging(
+            @Param("commodityId") Integer commodityId,
+            @Param("startPage") Integer startPage,
+            @Param("pageSize") Integer pageSize);
 }

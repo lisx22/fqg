@@ -1,6 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.Commodity;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CommodityMapper {
 
@@ -16,5 +19,8 @@ public interface CommodityMapper {
 
     int updateByPrimaryKey(Commodity record);
 
-
+    List<Commodity> selectByTypeOnePaging(
+            @Param("typeOneId") Integer typeOneId,
+            @Param("startPage") Integer startPage,
+            @Param("pageSize") Integer pageSize);
 }

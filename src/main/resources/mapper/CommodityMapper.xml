@@ -28,13 +28,16 @@
   </resultMap>
   <sql id="Base_Column_List">
     commodity_id, commodity_name, commodity_price, commodity_description, number, create_time, 
-    update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id
+    update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id ,nointerest_stage
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from commodity
     where commodity_id = #{commodityId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTypeOnePaging" resultType="com.fqg.entity.Commodity">
+    
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from commodity
@@ -44,10 +47,10 @@
     insert into commodity (commodity_id, commodity_name, commodity_price, 
       commodity_description, number, create_time, 
       update_time, delete_time, commodity_status, 
-      three_type_id, two_type_id, one_type_id
+      three_type_id, two_type_id, one_type_id,nointerest_stage
       )
     values (#{commodityId,jdbcType=INTEGER}, #{commodityName,jdbcType=VARCHAR}, #{commodityPrice,jdbcType=INTEGER}, 
-      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{nointerest_stage,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, #{commodityStatus,jdbcType=INTEGER}, 
       #{threeTypeId,jdbcType=INTEGER}, #{twoTypeId,jdbcType=INTEGER}, #{oneTypeId,jdbcType=INTEGER}
       )
@@ -69,6 +72,9 @@
       </if>
       <if test="number != null">
         number,
+      </if>
+      <if test="nointerest_stage != null">
+        nointerest_stage,
       </if>
       <if test="createTime != null">
         create_time,
@@ -108,6 +114,9 @@
       <if test="number != null">
         #{number,jdbcType=INTEGER},
       </if>
+      <if test="nointerest_stage != null">
+        #{nointerest_stage,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -146,6 +155,9 @@
       <if test="number != null">
         number = #{number,jdbcType=INTEGER},
       </if>
+      <if test="nointerest_stage != null">
+        nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -176,6 +188,7 @@
       commodity_price = #{commodityPrice,jdbcType=INTEGER},
       commodity_description = #{commodityDescription,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
+      nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       delete_time = #{deleteTime,jdbcType=TIMESTAMP},
