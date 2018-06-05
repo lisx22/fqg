@@ -37,7 +37,7 @@
     where commodity_id = #{commodityId,jdbcType=INTEGER}
   </select>
   <select id="selectByTypeOnePaging" resultType="com.fqg.entity.Commodity">
-    
+
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from commodity
