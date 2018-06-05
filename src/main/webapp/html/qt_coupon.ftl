@@ -4,14 +4,14 @@
         <base href="/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>退换货管理</title>
-		<link rel="stylesheet" href="../../assets/css/amazeui.css" />
+		<title>优惠券发布</title>
+		<link rel="stylesheet" href="../assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../../assets/css/core.css" />
-		<link rel="stylesheet" href="../../assets/css/menu.css" />
-		<link rel="stylesheet" href="../../assets/css/index.css" />
-		<link rel="stylesheet" href="../../assets/css/admin.css" />
-		<link rel="stylesheet" href="../../assets/css/page/typography.css" />
+		<link rel="stylesheet" href="../assets/css/core.css" />
+		<link rel="stylesheet" href="../assets/css/menu.css" />
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/admin.css" />
+		<link rel="stylesheet" href="../assets/css/page/typography.css" />
 	</head>
 	<body>
 		<!-- Begin page -->
@@ -23,7 +23,7 @@
 			<div class="contain">
 				<ul class="am-nav am-navbar-nav am-navbar-left">
 
-					<li><h4 class="page-title">饼状图</h4></li>
+					<li><h4 class="page-title">柱状图</h4></li>
 				</ul>
 				
 				<ul class="am-nav am-navbar-nav am-navbar-right">
@@ -31,7 +31,7 @@
 					<li class="hidden-xs am-hide-sm-only">
                         <form role="search" class="app-search">
                             <input type="text" placeholder="Search..." class="form-control">
-                            <a href=""><img src="../../assets/img/search.png"></a>
+                            <a href=""><img src="../assets/img/search.png"></a>
                         </form>
                     </li>
 				</ul>
@@ -52,7 +52,7 @@
 				    	<!-- User -->
 						<div class="user-box am-hide-sm-only">
 	                        <div class="user-img">
-	                            <img src="../../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+	                            <img src="../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 	                            <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 	                        </div>
 	                        <h5><a href="#">Mat Helme</a> </h5>
@@ -77,7 +77,7 @@
 							<li class="admin-parent">
 								<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 								<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-									<li><a href="gl_user.ftl" class="am-cf">用户管理</span></a></li>
+									<li><a href="gl_user.jsp" class="am-cf">用户管理</span></a></li>
 									<li><a href="gl_commodity.ftl">商品管理</a></li>
 									<li><a href="gl_orders.ftl">订单管理</a></li>
 									<li><a href="gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>
@@ -123,14 +123,14 @@
 					<div class="am-u-md-6" >
 						<!-- 折线图堆叠 -->
 						<div class="card-box">
-							<div  id="pie1" style="width: 100%;height: 400px;"></div>
+							<div  id="columnar1" style="width: 100%;height: 400px;"></div>
 						</div>
 					</div>
 					
 					<div class="am-u-md-6">
 						<!-- 堆叠区域图  -->
 						<div class="card-box">
-							<div  id="pie2" style="width: 100%;height: 400px;"></div>
+							<div  id="columnar2" style="width: 100%;height: 400px;"></div>
 						</div>
 					</div>
 				</div>
@@ -139,14 +139,14 @@
 					<div class="am-u-md-6">
 						<!-- Step Line -->
 						<div class="card-box">
-							<div  id="pie3" style="width: 100%;height: 400px;"></div>
+							<div  id="columnar3" style="width: 100%;height: 400px;"></div>
 						</div>
 					</div>
 					
 					<div class="am-u-md-6">
 						<!-- 大数据面积图  -->
 						<div class="card-box">
-							<div  id="pie4" style="width: 100%;height: 400px;"></div>
+							<div  id="columnar4" style="width: 100%;height: 400px;"></div>
 						</div>
 					</div>
 				</div>
@@ -161,12 +161,12 @@
 		<!-- navbar -->
 		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 		
-		<script type="text/javascript" src="../../assets/js/jquery-2.1.0.js" ></script>
-		<script type="text/javascript" src="../../assets/js/amazeui.min.js"></script>
-		<script type="text/javascript" src="../../assets/js/app.js" ></script>
-		<script type="text/javascript" src="../../assets/js/blockUI.js" ></script>
-		<script type="text/javascript" src="../../assets/js/charts/echarts.min.js" ></script>
-		<script type="text/javascript" src="../../assets/js/charts/pieChart.js" ></script>
+		<script type="text/javascript" src="../assets/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="../assets/js/amazeui.min.js"></script>
+		<script type="text/javascript" src="../assets/js/app.js" ></script>
+		<script type="text/javascript" src="../assets/js/blockUI.js" ></script>
+		<script type="text/javascript" src="../assets/js/charts/echarts.min.js" ></script>
+		<script type="text/javascript" src="../assets/js/charts/columnarChart.js" ></script>
 	</body>
 	
 </html>

@@ -19,7 +19,11 @@
 
     <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"/>
+<<<<<<< HEAD
         <property name="suffix" value=".ftl"/>
+=======
+        <property name="suffix" value=".jsp"/>
+>>>>>>> cf57fa33c5600e7620cdff592fbadb42ee9f7cc0
     </bean>
 
     <!---********************************************-->
@@ -27,7 +31,11 @@
         <!--<property name="templateLoaderPath" value="ftl/" />-->
         <!--<property name="defaultEncoding" value="UTF-8" />-->
     <!--</bean>-->
+<<<<<<< HEAD
     <!-- freemarker视图解析器 -->
+=======
+    <!--&lt;!&ndash; freemarker视图解析器 &ndash;&gt;-->
+>>>>>>> cf57fa33c5600e7620cdff592fbadb42ee9f7cc0
     <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
         <!--<property name="viewClass"-->
                   <!--value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />-->
