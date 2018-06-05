@@ -3,7 +3,7 @@
 <mapper namespace="com.fqg.dao.CustomerMapper">
   <resultMap id="BaseResultMap" type="com.fqg.entity.Customer">
     <id column="customer_id" jdbcType="INTEGER" property="customerId" />
-    <result column="phone_number" jdbcType="INTEGER" property="phoneNumber" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
     <result column="pay_password" jdbcType="VARCHAR" property="payPassword" />
@@ -19,6 +19,14 @@
     customer_id, phone_number, username, login_password, pay_password, true_name, ID_number, 
     all_quota, quota, create_time, company_name, school_name
   </sql>
+
+  <select id="selectByPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    limit #{first},#{pageSize}
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

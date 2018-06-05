@@ -1,6 +1,6 @@
 <html>
 <body>
 <h2>Hello Worldfqg!</h2>
-<a href="ftl/index_manager.ftl">aaa</a>
+<a href="manager_index.jsp">aaa</a>
 </body>
 </html>

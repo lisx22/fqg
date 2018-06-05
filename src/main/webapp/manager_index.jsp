@@ -1,20 +1,25 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2018/5/8 0008
+  Time: 下午 4:33
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-	<head>
-        <base href="/"/>
+<head>
+        <base href="<%=request.getContextPath()%>/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>后台管理</title>
-		<link rel="stylesheet" href="assets/css/amazeui.css" />
-		<link rel="stylesheet" href="assets/css/core.css" />
-		<link rel="stylesheet" href="assets/css/menu.css" />
-		<link rel="stylesheet" href="assets/css/index.css" />
-		<link rel="stylesheet" href="assets/css/admin.css" />
-		<link rel="stylesheet" href="assets/css/page/typography.css" />
-		<link rel="stylesheet" href="assets/css/page/form.css" />
-		<link rel="stylesheet" href="assets/css/component.css" />
+		<link rel="stylesheet" href="assets/css/amazeui.css" type="text/css"/>
+		<link rel="stylesheet" href="assets/css/core.css" type="text/css" />
+		<link rel="stylesheet" href="assets/css/menu.css" type="text/css"/>
+		<link rel="stylesheet" href="assets/css/index.css" type="text/css" />
+		<link rel="stylesheet" href="assets/css/admin.css" type="text/css"/>
+		<link rel="stylesheet" href="assets/css/page/typography.css" type="text/css" />
+		<link rel="stylesheet" href="assets/css/page/form.css" type="text/css"/>
+		<link rel="stylesheet" href="assets/css/component.css" type="text/css"/>
 	</head>
 	<body>
 		<!-- Begin page -->
@@ -76,11 +81,11 @@
 	                    <!-- End User -->
 
                         <ul class="am-list admin-sidebar-list">
-                            <li><a href="../index.ftl"><span class="am-icon-home"></span> 首页</a></li>
+                            <li><a href=""><span class="am-icon-home"></span> 首页</a></li>
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-                                    <li><a href="html/gl_user.ftl" class="am-cf">用户管理</span></a></li>
+                                    <li><a href="customer/customerList/0" class="am-cf">用户管理</span></a></li>
                                     <li><a href="html/gl_commodity.ftl">商品管理</a></li>
                                     <li><a href="html/gl_orders.ftl">订单管理</a></li>
                                     <li><a href="html/gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>

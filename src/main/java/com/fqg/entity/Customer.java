@@ -6,7 +6,7 @@ import java.util.Date;
 public class Customer implements Serializable {
     private Integer customerId;
 
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     private String username;
 
@@ -17,9 +17,9 @@ public class Customer implements Serializable {
     private String trueName;
 
     private String idNumber;
-
+//所有额度
     private Integer allQuota;
-
+    //当前额度
     private Integer quota;
 
     private Date createTime;
@@ -36,11 +36,11 @@ public class Customer implements Serializable {
         this.customerId = customerId;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

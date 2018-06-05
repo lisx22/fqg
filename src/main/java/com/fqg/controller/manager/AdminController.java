@@ -24,13 +24,15 @@ public class AdminController {
             jsonResult.setMsg("账号或密码错误");
             jsonResult.setCode(1);
             System.out.println("shibai");
+            return "manager_login";
         }else{
             jsonResult.setMsg("登录成功");
             jsonResult.setCode(0);
             System.out.println("chenggong");
+            return "manager_index";
         }
 
-        return  "index_manager";
+
     }
 
 }

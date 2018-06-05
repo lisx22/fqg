@@ -1,8 +1,14 @@
-
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2018/5/8 0008
+  Time: 下午 4:33
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-	<head>
-        <base href="/"/>
+<head>
+		<base href="<%=request.getContextPath()%>/"/>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title></title>	
@@ -13,6 +19,7 @@
 		<link rel="stylesheet" href="assets/css/page/form.css" />
 	</head>
 	<body>
+	<img src="assets/img/search.png">
 		<div class="account-pages">
 			<div class="wrapper-page">
 				<div class="text-center">
