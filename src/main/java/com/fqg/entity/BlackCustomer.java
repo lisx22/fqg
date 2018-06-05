@@ -1,8 +1,9 @@
 package com.fqg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BlackCustomer {
+public class BlackCustomer implements Serializable {
     private Integer blackCustomerId;
 
     private Integer idNumber;

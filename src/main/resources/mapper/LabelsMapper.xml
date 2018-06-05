@@ -14,6 +14,16 @@
     from labels
     where label_id = #{labelId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectLabelListByCommodityId" resultMap="BaseResultMap">
+    select
+    l.label_id, label_name
+    from labels l
+    inner join commodity_label cl
+    on l.label_id = cl.cl_label_id
+    where cl.cl_commodity_id = #{commodityId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from labels
     where label_id = #{labelId,jdbcType=INTEGER}

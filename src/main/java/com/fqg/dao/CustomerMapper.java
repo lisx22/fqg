@@ -14,4 +14,11 @@ public interface CustomerMapper {
     int updateByPrimaryKeySelective(Customer record);
 
     int updateByPrimaryKey(Customer record);
+
+    /**
+     * 通过主键查询真实姓名
+     * @param customerId
+     * @return
+     */
+    String selectTrueNameById(Integer customerId);
 }

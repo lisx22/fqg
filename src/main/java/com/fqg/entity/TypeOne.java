@@ -1,9 +1,22 @@
 package com.fqg.entity;
 
-public class TypeOne {
+import java.io.Serializable;
+import java.util.List;
+
+public class TypeOne implements Serializable {
     private Integer typeOneId;
 
     private String typeOneName;
+
+    private List<Brand> brandList;
+
+    public List<Brand> getBrandList() {
+        return brandList;
+    }
+
+    public void setBrandList(List<Brand> brandList) {
+        this.brandList = brandList;
+    }
 
     public Integer getTypeOneId() {
         return typeOneId;

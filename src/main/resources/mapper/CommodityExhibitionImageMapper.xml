@@ -15,6 +15,14 @@
     from commodity_exhibition_image
     where exhibition_image_id = #{exhibitionImageId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectExhibitionImageListByCommodityId" resultMap="BaseResultMap">
+    select
+    exhibition_image_path
+    from commodity_exhibition_image
+    where commodity_id = #{commodityId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from commodity_exhibition_image
     where exhibition_image_id = #{exhibitionImageId,jdbcType=INTEGER}

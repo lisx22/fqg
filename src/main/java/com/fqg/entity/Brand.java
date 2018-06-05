@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class Brand {
+import java.io.Serializable;
+
+public class Brand implements Serializable {
     private Integer brandId;
 
     private String brandName;

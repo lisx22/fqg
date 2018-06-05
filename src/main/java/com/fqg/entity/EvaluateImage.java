@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class EvaluateImage {
+import java.io.Serializable;
+
+public class EvaluateImage implements Serializable {
     private Integer evaluateImageId;
 
     private Integer evaluateId;

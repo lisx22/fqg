@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class LikeCommodity {
+import java.io.Serializable;
+
+public class LikeCommodity implements Serializable {
     private Integer likeId;
 
     private Integer customerId;

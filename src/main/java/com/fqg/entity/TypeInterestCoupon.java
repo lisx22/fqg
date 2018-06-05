@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class TypeInterestCoupon {
+import java.io.Serializable;
+
+public class TypeInterestCoupon implements Serializable {
     private Integer couponId;
 
     private Integer nointerestContent;

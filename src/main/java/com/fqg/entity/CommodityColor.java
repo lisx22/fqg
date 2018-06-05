@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class CommodityColor {
+import java.io.Serializable;
+
+public class CommodityColor implements Serializable {
     private Integer commodityColorId;
 
     private Integer commodityId;

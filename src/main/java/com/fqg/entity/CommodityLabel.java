@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class CommodityLabel {
+import java.io.Serializable;
+
+public class CommodityLabel implements Serializable {
     private Integer commodityLabelId;
 
     private Integer clCommodityId;

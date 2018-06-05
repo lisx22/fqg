@@ -14,6 +14,15 @@
     from brand
     where brand_id = #{brandId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectBrandListByTypeOneId" resultMap="BaseResultMap">
+    select brand_name
+    from brand b
+    inner join brand_type bt
+    on b.brand_id = bt.bt_brand_id
+    where bt.bt_type_id = #{typeOneId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from brand
     where brand_id = #{brandId,jdbcType=INTEGER}

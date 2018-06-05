@@ -1,8 +1,9 @@
 package com.fqg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Orders {
+public class Orders implements Serializable {
     private Integer orderId;
 
     private Integer customerId;

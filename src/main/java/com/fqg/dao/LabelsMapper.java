@@ -2,6 +2,8 @@ package com.fqg.dao;
 
 import com.fqg.entity.Labels;
 
+import java.util.List;
+
 public interface LabelsMapper {
     int deleteByPrimaryKey(Integer labelId);
 
@@ -14,4 +16,11 @@ public interface LabelsMapper {
     int updateByPrimaryKeySelective(Labels record);
 
     int updateByPrimaryKey(Labels record);
+
+    /**
+     * 通过商品ID查询标签集合（支持7天无理由退货）
+     * @param commodityId
+     * @return
+     */
+    List<Labels> selectLabelListByCommodityId(Integer commodityId);
 }

@@ -2,6 +2,8 @@ package com.fqg.dao;
 
 import com.fqg.entity.CommodityInfoImage;
 
+import java.util.List;
+
 public interface CommodityInfoImageMapper {
     int deleteByPrimaryKey(Integer infoImageId);
 
@@ -14,4 +16,11 @@ public interface CommodityInfoImageMapper {
     int updateByPrimaryKeySelective(CommodityInfoImage record);
 
     int updateByPrimaryKey(CommodityInfoImage record);
+
+    /**
+     * 通过商品ID查询详情图（购买页下面的大图）
+     * @param commodityId
+     * @return
+     */
+    List<CommodityInfoImage> selectInfoImageListByCommodityId(Integer commodityId);
 }

@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class BankCard {
+import java.io.Serializable;
+
+public class BankCard implements Serializable {
     private Integer bankCardId;
 
     private Integer customerId;

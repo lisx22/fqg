@@ -15,6 +15,16 @@
     from info
     where info_id = #{infoId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectInfoListByCommodityId" resultMap="BaseResultMap">
+    select
+    i.info_id, property_id, info_name
+    from info i
+    inner join commodity_info ci
+    on i.info_id = ci.ci_info_id
+    where ci.ci_commodity_id = #{commodityId};
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from info
     where info_id = #{infoId,jdbcType=INTEGER}

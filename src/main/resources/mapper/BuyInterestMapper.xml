@@ -9,12 +9,22 @@
   <sql id="Base_Column_List">
     interest_id, stage, percent
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from buy_interest
     where interest_id = #{interestId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectBuyInterestListByCommodityId" resultMap="BaseResultMap">
+    select b.interest_id,stage,percent
+    from buy_interest b
+    inner join commodity_interest c
+    on b.interest_id = c.ci_interest_id
+    where c.ci_commodity_id = #{commodityId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from buy_interest
     where interest_id = #{interestId,jdbcType=INTEGER}

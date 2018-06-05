@@ -1,17 +1,29 @@
 package com.fqg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Evaluate {
+public class Evaluate implements Serializable {
+
     private Integer evaluateId;
 
     private Integer customerId;
+
+    private String customerName;
 
     private Integer commodityId;
 
     private String evaluateContent;
 
     private Date createTime;
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
     public Integer getEvaluateId() {
         return evaluateId;

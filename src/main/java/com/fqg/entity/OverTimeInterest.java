@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class OverTimeInterest {
+import java.io.Serializable;
+
+public class OverTimeInterest implements Serializable {
     private Double outtimeInterest;
 
     public Double getOuttimeInterest() {

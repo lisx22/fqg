@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class BuyInterest {
+import java.io.Serializable;
+
+public class BuyInterest implements Serializable {
     private Integer interestId;
 
     private Integer stage;

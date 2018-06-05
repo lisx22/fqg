@@ -7,6 +7,7 @@
     <result column="price" jdbcType="INTEGER" property="price" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <association property="commodity" column="commodity_id" select="com.fqg.dao.CommodityMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Base_Column_List">
     new_uer_commodity_id, commodity_id, price, create_time, update_time

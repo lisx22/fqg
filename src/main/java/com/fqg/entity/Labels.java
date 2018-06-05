@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class Labels {
+import java.io.Serializable;
+
+public class Labels implements Serializable {
     private Integer labelId;
 
     private String labelName;

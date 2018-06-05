@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class Color {
+import java.io.Serializable;
+
+public class Color implements Serializable {
     private Integer colorId;
 
     private String colorName;

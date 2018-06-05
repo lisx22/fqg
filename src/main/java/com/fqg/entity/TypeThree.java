@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class TypeThree {
+import java.io.Serializable;
+
+public class TypeThree implements Serializable {
     private Integer typeThreeId;
 
     private Integer typeTwoId;

@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.fqg.entity.TypeOne">
     <id column="type_one_id" jdbcType="INTEGER" property="typeOneId" />
     <result column="type_one_name" jdbcType="VARCHAR" property="typeOneName" />
+    <collection property="brandList" column="type_one_id" select="com.fqg.dao.BrandMapper.selectBrandListByTypeOneId"></collection>
   </resultMap>
   <sql id="Base_Column_List">
     type_one_id, type_one_name

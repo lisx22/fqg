@@ -1,10 +1,11 @@
 package com.fqg.entity;
 
-import java.awt.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Commodity {
+public class Commodity implements Serializable {
+
     private Integer commodityId;
 
     private String commodityName;
@@ -29,24 +30,114 @@ public class Commodity {
 
     private Integer oneTypeId;
 
-    private Integer noInterest;
+    private Integer noInterestStage;
 
-    private List<CommodityColor> colors;
+    private TypeOne typeOne;
 
-    private List<CommodityInfo> commodityInfos;
+    private TypeTwo typeTwo;
+
+    private TypeThree typeThree;
+
+    private List<Color> colorList;
+
+    private List<Info> infoList;
 
     private List<CommodityInfoImage> commodityInfoImages;
 
-    private List<CommodityLabel>  commodityLabels;
+    private List<Labels> labelsList;
 
     private List<CommodityExhibitionImage> commodityExhibitionImages;
 
-    public List<CommodityColor> getColors() {
-        return colors;
+    private List<Evaluate> evaluateList;
+
+    public List<Evaluate> getEvaluateList() {
+        return evaluateList;
     }
 
-    public void setColors(List<CommodityColor> colors) {
-        this.colors = colors;
+    public void setEvaluateList(List<Evaluate> evaluateList) {
+        this.evaluateList = evaluateList;
+    }
+
+    private List<BuyInterest> buyInterestList;
+
+    public List<BuyInterest> getBuyInterestList() {
+        return buyInterestList;
+    }
+
+    public void setBuyInterestList(List<BuyInterest> buyInterestList) {
+        this.buyInterestList = buyInterestList;
+    }
+
+    public List<Color> getColorList() {
+        return colorList;
+    }
+
+    public void setColorList(List<Color> colorList) {
+        this.colorList = colorList;
+    }
+
+    public List<Labels> getLabelsList() {
+        return labelsList;
+    }
+
+    public void setLabelsList(List<Labels> labelsList) {
+        this.labelsList = labelsList;
+    }
+
+    public List<Info> getInfoList() {
+        return infoList;
+    }
+
+    public void setInfoList(List<Info> infoList) {
+        this.infoList = infoList;
+    }
+
+    public List<CommodityInfoImage> getCommodityInfoImages() {
+        return commodityInfoImages;
+    }
+
+    public void setCommodityInfoImages(List<CommodityInfoImage> commodityInfoImages) {
+        this.commodityInfoImages = commodityInfoImages;
+    }
+
+    public List<CommodityExhibitionImage> getCommodityExhibitionImages() {
+        return commodityExhibitionImages;
+    }
+
+    public void setCommodityExhibitionImages(List<CommodityExhibitionImage> commodityExhibitionImages) {
+        this.commodityExhibitionImages = commodityExhibitionImages;
+    }
+
+    public Integer getNoInterestStage() {
+        return noInterestStage;
+    }
+
+    public void setNoInterestStage(Integer noInterestStage) {
+        this.noInterestStage = noInterestStage;
+    }
+
+    public TypeOne getTypeOne() {
+        return typeOne;
+    }
+
+    public void setTypeOne(TypeOne typeOne) {
+        this.typeOne = typeOne;
+    }
+
+    public TypeTwo getTypeTwo() {
+        return typeTwo;
+    }
+
+    public void setTypeTwo(TypeTwo typeTwo) {
+        this.typeTwo = typeTwo;
+    }
+
+    public TypeThree getTypeThree() {
+        return typeThree;
+    }
+
+    public void setTypeThree(TypeThree typeThree) {
+        this.typeThree = typeThree;
     }
 
     public Integer getCommodityId() {

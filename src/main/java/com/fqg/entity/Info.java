@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class Info {
+import java.io.Serializable;
+
+public class Info implements Serializable {
     private Integer infoId;
 
     private Integer propertyId;

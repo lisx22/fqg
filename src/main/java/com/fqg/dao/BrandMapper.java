@@ -2,6 +2,8 @@ package com.fqg.dao;
 
 import com.fqg.entity.Brand;
 
+import java.util.List;
+
 public interface BrandMapper {
     int deleteByPrimaryKey(Integer brandId);
 
@@ -14,4 +16,12 @@ public interface BrandMapper {
     int updateByPrimaryKeySelective(Brand record);
 
     int updateByPrimaryKey(Brand record);
+
+    /**
+     * 通过大类型ID查询品牌集合
+     * @param typeOneId
+     * @return
+     */
+    List<Brand> selectBrandListByTypeOneId(Integer typeOneId);
+
 }

@@ -7,6 +7,7 @@
     <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
     <result column="evaluate_content" jdbcType="VARCHAR" property="evaluateContent" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <association property="customerName" column="customer_id" select="com.fqg.dao.CustomerMapper.selectTrueNameById"></association>
   </resultMap>
   <sql id="Base_Column_List">
     evaluate_id, customer_id, commodity_id, evaluate_content, create_time
@@ -17,6 +18,14 @@
     from evaluate
     where evaluate_id = #{evaluateId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectEvaluateListByCommodityId" resultMap="BaseResultMap">
+    select
+    evaluate_id, customer_id, commodity_id, evaluate_content, create_time
+    from evaluate
+    where commodity_id = #{commodityId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from evaluate
     where evaluate_id = #{evaluateId,jdbcType=INTEGER}

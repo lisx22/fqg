@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class CommodityExhibitionImage {
+import java.io.Serializable;
+
+public class CommodityExhibitionImage implements Serializable {
     private Integer exhibitionImageId;
 
     private Integer commodityId;

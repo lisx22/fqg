@@ -1,6 +1,8 @@
 package com.fqg.entity;
 
-public class Repay {
+import java.io.Serializable;
+
+public class Repay implements Serializable {
     private Integer repayId;
 
     private Integer customerId;

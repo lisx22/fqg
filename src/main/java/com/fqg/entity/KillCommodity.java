@@ -1,11 +1,14 @@
 package com.fqg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class KillCommodity {
+public class KillCommodity implements Serializable {
     private Integer killCommodityId;
 
     private Integer commodityId;
+
+    private Commodity commodity;
 
     private Integer price;
 
@@ -14,6 +17,14 @@ public class KillCommodity {
     private Date createTime;
 
     private Date updateTime;
+
+    public Commodity getCommodity() {
+        return commodity;
+    }
+
+    public void setCommodity(Commodity commodity) {
+        this.commodity = commodity;
+    }
 
     public Integer getKillCommodityId() {
         return killCommodityId;

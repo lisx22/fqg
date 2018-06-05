@@ -3,6 +3,7 @@ package com.fqg.dao;
 import com.fqg.entity.Commodity;
 
 public interface CommodityMapper {
+
     int deleteByPrimaryKey(Integer commodityId);
 
     int insert(Commodity record);
@@ -14,4 +15,6 @@ public interface CommodityMapper {
     int updateByPrimaryKeySelective(Commodity record);
 
     int updateByPrimaryKey(Commodity record);
+
+
 }

@@ -14,7 +14,17 @@
     <result column="three_type_id" jdbcType="INTEGER" property="threeTypeId" />
     <result column="two_type_id" jdbcType="INTEGER" property="twoTypeId" />
     <result column="one_type_id" jdbcType="INTEGER" property="oneTypeId" />
-    <collection property="colors" column="commodity_id" select="com.fqg.dao.CommodityColorMapper.selectByCommodityId"/>
+    <result column="nointerest_stage" jdbcType="INTEGER" property="noInterestStage"></result>
+    <association property="typeOne" column="one_type_id" select="com.fqg.dao.TypeOneMapper.selectByPrimaryKey"></association>
+    <association property="typeTwo" column="two_type_id" select="com.fqg.dao.TypeTwoMapper.selectByPrimaryKey"></association>
+    <association property="typeThree" column="three_type_id" select="com.fqg.dao.TypeThreeMapper.selectByPrimaryKey"></association>
+    <collection property="commodityExhibitionImages" column="commodity_id" select="com.fqg.dao.CommodityExhibitionImageMapper.selectExhibitionImageListByCommodityId"></collection>
+    <collection property="commodityInfoImages" column="commodity_id" select="com.fqg.dao.CommodityInfoImageMapper.selectInfoImageListByCommodityId"></collection>
+    <collection property="colorList" column="commodity_id" select="com.fqg.dao.ColorMapper.selectColorListByCommodityId"/>
+    <collection property="infoList" column="commodity_id" select="com.fqg.dao.InfoMapper.selectInfoListByCommodityId"></collection>
+    <collection property="labelsList" column="commodity_id" select="com.fqg.dao.LabelsMapper.selectLabelListByCommodityId"></collection>
+    <collection property="buyInterestList" column="commodity_id" select="com.fqg.dao.BuyInterestMapper.selectBuyInterestListByCommodityId"></collection>
+    <collection property="evaluateList" column="commodity_id" select="com.fqg.dao.EvaluateMapper.selectEvaluateListByCommodityId"></collection>
   </resultMap>
   <sql id="Base_Column_List">
     commodity_id, commodity_name, commodity_price, commodity_description, number, create_time, 
