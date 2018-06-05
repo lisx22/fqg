@@ -10,6 +10,14 @@
   <sql id="Base_Column_List">
     admin_id, admin_name, admin_password, create_time
   </sql>
+
+  <select id="login"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from admin
+    where admin_name = #{adminName} and admin_password = #{adminPassword}
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

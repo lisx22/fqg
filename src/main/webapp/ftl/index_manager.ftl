@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 	<head>
-        <base href="<%=request.getContextPath()%>/"/>
+        <base href="/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>后台管理</title>
@@ -18,7 +20,7 @@
 		<!-- Begin page -->
 		<header class="am-topbar am-topbar-fixed-top">		
 			<div class="am-topbar-left am-hide-sm-only">
-                <a href="index.html" class="logo"><span>Admin<span>to</span></span><i class="zmdi zmdi-layers"></i></a>
+                <a href="index.ftl" class="logo"><span>Admin<span>to</span></span><i class="zmdi zmdi-layers"></i></a>
             </div>
 	
 			<div class="contain">
@@ -74,32 +76,32 @@
 	                    <!-- End User -->
 
                         <ul class="am-list admin-sidebar-list">
-                            <li><a href="../index.html"><span class="am-icon-home"></span> 首页</a></li>
+                            <li><a href="../index.ftl"><span class="am-icon-home"></span> 首页</a></li>
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-                                    <li><a href="html/gl_user.html" class="am-cf">用户管理</span></a></li>
-                                    <li><a href="html/gl_commodity.html">商品管理</a></li>
-                                    <li><a href="html/gl_orders.html">订单管理</a></li>
-                                    <li><a href="html/gl_change.html" class="am-cf"> 退换货管理</span></a></li>
-                                    <li><a href="html/gl_activity.html" class="am-cf"> 活动管理</span></a></li>
-                                    <li><a href="html/gl_blackCustomer.html" class="am-cf"> 黑名单管理</span></a></li>
-                                    <li><a href="html/gl_interest.html" class="am-cf"> 利息管理</span></a></li>
+                                    <li><a href="html/gl_user.ftl" class="am-cf">用户管理</span></a></li>
+                                    <li><a href="html/gl_commodity.ftl">商品管理</a></li>
+                                    <li><a href="html/gl_orders.ftl">订单管理</a></li>
+                                    <li><a href="html/gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>
+                                    <li><a href="html/gl_activity.ftl" class="am-cf"> 活动管理</span></a></li>
+                                    <li><a href="html/gl_blackCustomer.ftl" class="am-cf"> 黑名单管理</span></a></li>
+                                    <li><a href="html/gl_interest.ftl" class="am-cf"> 利息管理</span></a></li>
                                 </ul>
                             </li>
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-                                    <li><a href="html/qt_coupon.html" class="am-cf"> 优惠券发布</span></a></li>
-                                    <li><a href="html/qt_repay.html" class="am-cf">还款信息</span></a></li>
+                                    <li><a href="html/qt_coupon.ftl" class="am-cf"> 优惠券发布</span></a></li>
+                                    <li><a href="html/qt_repay.ftl" class="am-cf">还款信息</span></a></li>
 
                                 </ul>
                             </li>
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 上架 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
-                                    <li><a href="html/sj_kill.html" class="am-cf"> 秒杀商品上架</a></li>
-                                    <li><a href="html/sj_new_user.html">新人优惠商品上架</a></li>
+                                    <li><a href="html/sj_kill.ftl" class="am-cf"> 秒杀商品上架</a></li>
+                                    <li><a href="html/sj_new_user.ftl">新人优惠商品上架</a></li>
                                 </ul>
                             </li>
                         </ul>

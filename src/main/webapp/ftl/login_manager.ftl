@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<!--<base href="<%=request.getContextPath()%>/"/>-->
+        <base href="/"/>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title></title>	
@@ -22,15 +23,16 @@
 	            	<div class="text-center">
 	                    <h4 class="text-uppercase font-bold m-b-0">Sign In</h4>
 	                </div>
+
 	                <div class="panel-body">
-	                	<form class="am-form">
+	                	<form class="am-form" action="/fqg/managerUser/amdinLogin" method="post">
 	                		<div class="am-g">
 	                			<div class="am-form-group">
-							      <input type="email" class="am-radius"  placeholder="Username">
+							      <input type="text" class="am-radius"  name="username" placeholder="Username">
 							    </div>
 							
 							    <div class="am-form-group form-horizontal m-t-20">
-							      <input type="password" class="am-radius"  placeholder="Password">
+							      <input type="password" class="am-radius"  name="password" placeholder="Password">
 							    </div>
 							    
 							    <div class="am-form-group ">
@@ -40,7 +42,7 @@
 		                        </div>
 		                        
 		                        <div class="am-form-group ">
-		                        	<button type="button" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 100%;">Log In</button>
+		                        	<button type="submit" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 100%;">Log In</button>
 		                        </div>
 		                        
 		                        <div class="am-form-group ">
