@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.BlackCustomerMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.BlackCustomer">
+    <id column="black_customer_id" jdbcType="INTEGER" property="blackCustomerId" />
+    <result column="ID_number" jdbcType="INTEGER" property="idNumber" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    black_customer_id, ID_number, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from black_customer
+    where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from black_customer
+    where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.BlackCustomer">
+    insert into black_customer (black_customer_id, ID_number, create_time
+      )
+    values (#{blackCustomerId,jdbcType=INTEGER}, #{idNumber,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.BlackCustomer">
+    insert into black_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="blackCustomerId != null">
+        black_customer_id,
+      </if>
+      <if test="idNumber != null">
+        ID_number,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="blackCustomerId != null">
+        #{blackCustomerId,jdbcType=INTEGER},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.BlackCustomer">
+    update black_customer
+    <set>
+      <if test="idNumber != null">
+        ID_number = #{idNumber,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.BlackCustomer">
+    update black_customer
+    set ID_number = #{idNumber,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}
+  </update>
+</mapper>

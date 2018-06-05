@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.TypeOneMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.TypeOne">
+    <id column="type_one_id" jdbcType="INTEGER" property="typeOneId" />
+    <result column="type_one_name" jdbcType="VARCHAR" property="typeOneName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    type_one_id, type_one_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from type_one
+    where type_one_id = #{typeOneId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from type_one
+    where type_one_id = #{typeOneId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.TypeOne">
+    insert into type_one (type_one_id, type_one_name)
+    values (#{typeOneId,jdbcType=INTEGER}, #{typeOneName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.TypeOne">
+    insert into type_one
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="typeOneId != null">
+        type_one_id,
+      </if>
+      <if test="typeOneName != null">
+        type_one_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="typeOneId != null">
+        #{typeOneId,jdbcType=INTEGER},
+      </if>
+      <if test="typeOneName != null">
+        #{typeOneName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.TypeOne">
+    update type_one
+    <set>
+      <if test="typeOneName != null">
+        type_one_name = #{typeOneName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where type_one_id = #{typeOneId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.TypeOne">
+    update type_one
+    set type_one_name = #{typeOneName,jdbcType=VARCHAR}
+    where type_one_id = #{typeOneId,jdbcType=INTEGER}
+  </update>
+</mapper>

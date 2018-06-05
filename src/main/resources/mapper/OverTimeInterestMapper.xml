@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.OverTimeInterestMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.OverTimeInterest">
+    <id column="outtime_interest" jdbcType="DOUBLE" property="outtimeInterest" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+    delete from over_time_interest
+    where outtime_interest = #{outtimeInterest,jdbcType=DOUBLE}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.OverTimeInterest">
+    insert into over_time_interest (outtime_interest)
+    values (#{outtimeInterest,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.OverTimeInterest">
+    insert into over_time_interest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="outtimeInterest != null">
+        outtime_interest,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="outtimeInterest != null">
+        #{outtimeInterest,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

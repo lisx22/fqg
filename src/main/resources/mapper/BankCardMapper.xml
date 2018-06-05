@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.BankCardMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.BankCard">
+    <id column="bank_card_id" jdbcType="INTEGER" property="bankCardId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="bank" jdbcType="VARCHAR" property="bank" />
+    <result column="card_num" jdbcType="VARCHAR" property="cardNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bank_card_id, customer_id, bank, card_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bank_card
+    where bank_card_id = #{bankCardId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bank_card
+    where bank_card_id = #{bankCardId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.BankCard">
+    insert into bank_card (bank_card_id, customer_id, bank, 
+      card_num)
+    values (#{bankCardId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{bank,jdbcType=VARCHAR}, 
+      #{cardNum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.BankCard">
+    insert into bank_card
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bankCardId != null">
+        bank_card_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="bank != null">
+        bank,
+      </if>
+      <if test="cardNum != null">
+        card_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bankCardId != null">
+        #{bankCardId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="bank != null">
+        #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null">
+        #{cardNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.BankCard">
+    update bank_card
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="bank != null">
+        bank = #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null">
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bank_card_id = #{bankCardId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.BankCard">
+    update bank_card
+    set customer_id = #{customerId,jdbcType=INTEGER},
+      bank = #{bank,jdbcType=VARCHAR},
+      card_num = #{cardNum,jdbcType=VARCHAR}
+    where bank_card_id = #{bankCardId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.LikeCommodityMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.LikeCommodity">
+    <id column="like_id" jdbcType="INTEGER" property="likeId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    like_id, customer_id, commodity_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from like_commodity
+    where like_id = #{likeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from like_commodity
+    where like_id = #{likeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.LikeCommodity">
+    insert into like_commodity (like_id, customer_id, commodity_id
+      )
+    values (#{likeId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{commodityId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.LikeCommodity">
+    insert into like_commodity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="likeId != null">
+        like_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="commodityId != null">
+        commodity_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="likeId != null">
+        #{likeId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="commodityId != null">
+        #{commodityId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.LikeCommodity">
+    update like_commodity
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="commodityId != null">
+        commodity_id = #{commodityId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where like_id = #{likeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.LikeCommodity">
+    update like_commodity
+    set customer_id = #{customerId,jdbcType=INTEGER},
+      commodity_id = #{commodityId,jdbcType=INTEGER}
+    where like_id = #{likeId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.AllInterestCouponMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.AllInterestCoupon">
+    <id column="coupon_id" jdbcType="INTEGER" property="couponId" />
+    <result column="nointerest_content" jdbcType="INTEGER" property="nointerestContent" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    coupon_id, nointerest_content, number
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from allinterestcoupon
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from allinterestcoupon
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.AllInterestCoupon">
+    insert into allinterestcoupon (coupon_id, nointerest_content, number
+      )
+    values (#{couponId,jdbcType=INTEGER}, #{nointerestContent,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.AllInterestCoupon">
+    insert into allinterestcoupon
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="nointerestContent != null">
+        nointerest_content,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="nointerestContent != null">
+        #{nointerestContent,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.AllInterestCoupon">
+    update allinterestcoupon
+    <set>
+      <if test="nointerestContent != null">
+        nointerest_content = #{nointerestContent,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=INTEGER},
+      </if>
+    </set>
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.AllInterestCoupon">
+    update allinterestcoupon
+    set nointerest_content = #{nointerestContent,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER}
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </update>
+</mapper>

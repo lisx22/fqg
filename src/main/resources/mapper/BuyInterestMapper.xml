@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.BuyInterestMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.BuyInterest">
+    <id column="interest_id" jdbcType="INTEGER" property="interestId" />
+    <result column="stage" jdbcType="INTEGER" property="stage" />
+    <result column="percent" jdbcType="DOUBLE" property="percent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    interest_id, stage, percent
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from buy_interest
+    where interest_id = #{interestId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from buy_interest
+    where interest_id = #{interestId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.BuyInterest">
+    insert into buy_interest (interest_id, stage, percent
+      )
+    values (#{interestId,jdbcType=INTEGER}, #{stage,jdbcType=INTEGER}, #{percent,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.BuyInterest">
+    insert into buy_interest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="interestId != null">
+        interest_id,
+      </if>
+      <if test="stage != null">
+        stage,
+      </if>
+      <if test="percent != null">
+        percent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="interestId != null">
+        #{interestId,jdbcType=INTEGER},
+      </if>
+      <if test="stage != null">
+        #{stage,jdbcType=INTEGER},
+      </if>
+      <if test="percent != null">
+        #{percent,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.BuyInterest">
+    update buy_interest
+    <set>
+      <if test="stage != null">
+        stage = #{stage,jdbcType=INTEGER},
+      </if>
+      <if test="percent != null">
+        percent = #{percent,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where interest_id = #{interestId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.BuyInterest">
+    update buy_interest
+    set stage = #{stage,jdbcType=INTEGER},
+      percent = #{percent,jdbcType=DOUBLE}
+    where interest_id = #{interestId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.TypeThreeMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.TypeThree">
+    <id column="type_three_id" jdbcType="INTEGER" property="typeThreeId" />
+    <result column="type_two_id" jdbcType="INTEGER" property="typeTwoId" />
+    <result column="type_three_name" jdbcType="VARCHAR" property="typeThreeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    type_three_id, type_two_id, type_three_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from type_three
+    where type_three_id = #{typeThreeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from type_three
+    where type_three_id = #{typeThreeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.TypeThree">
+    insert into type_three (type_three_id, type_two_id, type_three_name
+      )
+    values (#{typeThreeId,jdbcType=INTEGER}, #{typeTwoId,jdbcType=INTEGER}, #{typeThreeName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.TypeThree">
+    insert into type_three
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="typeThreeId != null">
+        type_three_id,
+      </if>
+      <if test="typeTwoId != null">
+        type_two_id,
+      </if>
+      <if test="typeThreeName != null">
+        type_three_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="typeThreeId != null">
+        #{typeThreeId,jdbcType=INTEGER},
+      </if>
+      <if test="typeTwoId != null">
+        #{typeTwoId,jdbcType=INTEGER},
+      </if>
+      <if test="typeThreeName != null">
+        #{typeThreeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.TypeThree">
+    update type_three
+    <set>
+      <if test="typeTwoId != null">
+        type_two_id = #{typeTwoId,jdbcType=INTEGER},
+      </if>
+      <if test="typeThreeName != null">
+        type_three_name = #{typeThreeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where type_three_id = #{typeThreeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.TypeThree">
+    update type_three
+    set type_two_id = #{typeTwoId,jdbcType=INTEGER},
+      type_three_name = #{typeThreeName,jdbcType=VARCHAR}
+    where type_three_id = #{typeThreeId,jdbcType=INTEGER}
+  </update>
+</mapper>

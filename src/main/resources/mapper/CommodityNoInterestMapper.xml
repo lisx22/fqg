@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.CommodityNoInterestMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.CommodityNoInterest">
+    <id column="commodity_nointerest_id" jdbcType="INTEGER" property="commodityNointerestId" />
+    <result column="cn_commodity_id" jdbcType="INTEGER" property="cnCommodityId" />
+    <result column="cn_nointerest_id" jdbcType="INTEGER" property="cnNointerestId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    commodity_nointerest_id, cn_commodity_id, cn_nointerest_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from commodity_nointerest
+    where commodity_nointerest_id = #{commodityNointerestId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from commodity_nointerest
+    where commodity_nointerest_id = #{commodityNointerestId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.CommodityNoInterest">
+    insert into commodity_nointerest (commodity_nointerest_id, cn_commodity_id, 
+      cn_nointerest_id)
+    values (#{commodityNointerestId,jdbcType=INTEGER}, #{cnCommodityId,jdbcType=INTEGER}, 
+      #{cnNointerestId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.CommodityNoInterest">
+    insert into commodity_nointerest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commodityNointerestId != null">
+        commodity_nointerest_id,
+      </if>
+      <if test="cnCommodityId != null">
+        cn_commodity_id,
+      </if>
+      <if test="cnNointerestId != null">
+        cn_nointerest_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commodityNointerestId != null">
+        #{commodityNointerestId,jdbcType=INTEGER},
+      </if>
+      <if test="cnCommodityId != null">
+        #{cnCommodityId,jdbcType=INTEGER},
+      </if>
+      <if test="cnNointerestId != null">
+        #{cnNointerestId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.CommodityNoInterest">
+    update commodity_nointerest
+    <set>
+      <if test="cnCommodityId != null">
+        cn_commodity_id = #{cnCommodityId,jdbcType=INTEGER},
+      </if>
+      <if test="cnNointerestId != null">
+        cn_nointerest_id = #{cnNointerestId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where commodity_nointerest_id = #{commodityNointerestId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.CommodityNoInterest">
+    update commodity_nointerest
+    set cn_commodity_id = #{cnCommodityId,jdbcType=INTEGER},
+      cn_nointerest_id = #{cnNointerestId,jdbcType=INTEGER}
+    where commodity_nointerest_id = #{commodityNointerestId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.RepayMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.Repay">
+    <id column="repay_id" jdbcType="INTEGER" property="repayId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="paid_stage" jdbcType="INTEGER" property="paidStage" />
+    <result column="unpadi_stage" jdbcType="INTEGER" property="unpadiStage" />
+    <result column="will_pay_amount" jdbcType="INTEGER" property="willPayAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    repay_id, customer_id, order_id, paid_stage, unpadi_stage, will_pay_amount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from repay
+    where repay_id = #{repayId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from repay
+    where repay_id = #{repayId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.Repay">
+    insert into repay (repay_id, customer_id, order_id, 
+      paid_stage, unpadi_stage, will_pay_amount
+      )
+    values (#{repayId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, 
+      #{paidStage,jdbcType=INTEGER}, #{unpadiStage,jdbcType=INTEGER}, #{willPayAmount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.Repay">
+    insert into repay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="repayId != null">
+        repay_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="paidStage != null">
+        paid_stage,
+      </if>
+      <if test="unpadiStage != null">
+        unpadi_stage,
+      </if>
+      <if test="willPayAmount != null">
+        will_pay_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="repayId != null">
+        #{repayId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="paidStage != null">
+        #{paidStage,jdbcType=INTEGER},
+      </if>
+      <if test="unpadiStage != null">
+        #{unpadiStage,jdbcType=INTEGER},
+      </if>
+      <if test="willPayAmount != null">
+        #{willPayAmount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.Repay">
+    update repay
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="paidStage != null">
+        paid_stage = #{paidStage,jdbcType=INTEGER},
+      </if>
+      <if test="unpadiStage != null">
+        unpadi_stage = #{unpadiStage,jdbcType=INTEGER},
+      </if>
+      <if test="willPayAmount != null">
+        will_pay_amount = #{willPayAmount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where repay_id = #{repayId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.Repay">
+    update repay
+    set customer_id = #{customerId,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=INTEGER},
+      paid_stage = #{paidStage,jdbcType=INTEGER},
+      unpadi_stage = #{unpadiStage,jdbcType=INTEGER},
+      will_pay_amount = #{willPayAmount,jdbcType=INTEGER}
+    where repay_id = #{repayId,jdbcType=INTEGER}
+  </update>
+</mapper>

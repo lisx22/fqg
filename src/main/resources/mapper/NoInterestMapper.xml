@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.NoInterestMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.NoInterest">
+    <id column="nointerest_id" jdbcType="INTEGER" property="nointerestId" />
+    <result column="nointerest_content" jdbcType="INTEGER" property="nointerestContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    nointerest_id, nointerest_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from nointerest
+    where nointerest_id = #{nointerestId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from nointerest
+    where nointerest_id = #{nointerestId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.NoInterest">
+    insert into nointerest (nointerest_id, nointerest_content)
+    values (#{nointerestId,jdbcType=INTEGER}, #{nointerestContent,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.NoInterest">
+    insert into nointerest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nointerestId != null">
+        nointerest_id,
+      </if>
+      <if test="nointerestContent != null">
+        nointerest_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nointerestId != null">
+        #{nointerestId,jdbcType=INTEGER},
+      </if>
+      <if test="nointerestContent != null">
+        #{nointerestContent,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.NoInterest">
+    update nointerest
+    <set>
+      <if test="nointerestContent != null">
+        nointerest_content = #{nointerestContent,jdbcType=INTEGER},
+      </if>
+    </set>
+    where nointerest_id = #{nointerestId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.NoInterest">
+    update nointerest
+    set nointerest_content = #{nointerestContent,jdbcType=INTEGER}
+    where nointerest_id = #{nointerestId,jdbcType=INTEGER}
+  </update>
+</mapper>

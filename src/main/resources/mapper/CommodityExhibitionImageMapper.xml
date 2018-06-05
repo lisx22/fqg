@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.CommodityExhibitionImageMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.CommodityExhibitionImage">
+    <id column="exhibition_image_id" jdbcType="INTEGER" property="exhibitionImageId" />
+    <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
+    <result column="exhibition_image_path" jdbcType="VARCHAR" property="exhibitionImagePath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    exhibition_image_id, commodity_id, exhibition_image_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from commodity_exhibition_image
+    where exhibition_image_id = #{exhibitionImageId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from commodity_exhibition_image
+    where exhibition_image_id = #{exhibitionImageId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.CommodityExhibitionImage">
+    insert into commodity_exhibition_image (exhibition_image_id, commodity_id, exhibition_image_path
+      )
+    values (#{exhibitionImageId,jdbcType=INTEGER}, #{commodityId,jdbcType=INTEGER}, #{exhibitionImagePath,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.CommodityExhibitionImage">
+    insert into commodity_exhibition_image
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="exhibitionImageId != null">
+        exhibition_image_id,
+      </if>
+      <if test="commodityId != null">
+        commodity_id,
+      </if>
+      <if test="exhibitionImagePath != null">
+        exhibition_image_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="exhibitionImageId != null">
+        #{exhibitionImageId,jdbcType=INTEGER},
+      </if>
+      <if test="commodityId != null">
+        #{commodityId,jdbcType=INTEGER},
+      </if>
+      <if test="exhibitionImagePath != null">
+        #{exhibitionImagePath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.CommodityExhibitionImage">
+    update commodity_exhibition_image
+    <set>
+      <if test="commodityId != null">
+        commodity_id = #{commodityId,jdbcType=INTEGER},
+      </if>
+      <if test="exhibitionImagePath != null">
+        exhibition_image_path = #{exhibitionImagePath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where exhibition_image_id = #{exhibitionImageId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.CommodityExhibitionImage">
+    update commodity_exhibition_image
+    set commodity_id = #{commodityId,jdbcType=INTEGER},
+      exhibition_image_path = #{exhibitionImagePath,jdbcType=VARCHAR}
+    where exhibition_image_id = #{exhibitionImageId,jdbcType=INTEGER}
+  </update>
+</mapper>

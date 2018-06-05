@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.BrandTypeMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.BrandType">
+    <id column="brand_type_id" jdbcType="INTEGER" property="brandTypeId" />
+    <result column="bt_brand_id" jdbcType="INTEGER" property="btBrandId" />
+    <result column="bt_type_id" jdbcType="INTEGER" property="btTypeId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    brand_type_id, bt_brand_id, bt_type_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from brand_type
+    where brand_type_id = #{brandTypeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from brand_type
+    where brand_type_id = #{brandTypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.BrandType">
+    insert into brand_type (brand_type_id, bt_brand_id, bt_type_id
+      )
+    values (#{brandTypeId,jdbcType=INTEGER}, #{btBrandId,jdbcType=INTEGER}, #{btTypeId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.BrandType">
+    insert into brand_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="brandTypeId != null">
+        brand_type_id,
+      </if>
+      <if test="btBrandId != null">
+        bt_brand_id,
+      </if>
+      <if test="btTypeId != null">
+        bt_type_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="brandTypeId != null">
+        #{brandTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="btBrandId != null">
+        #{btBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="btTypeId != null">
+        #{btTypeId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.BrandType">
+    update brand_type
+    <set>
+      <if test="btBrandId != null">
+        bt_brand_id = #{btBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="btTypeId != null">
+        bt_type_id = #{btTypeId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where brand_type_id = #{brandTypeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.BrandType">
+    update brand_type
+    set bt_brand_id = #{btBrandId,jdbcType=INTEGER},
+      bt_type_id = #{btTypeId,jdbcType=INTEGER}
+    where brand_type_id = #{brandTypeId,jdbcType=INTEGER}
+  </update>
+</mapper>

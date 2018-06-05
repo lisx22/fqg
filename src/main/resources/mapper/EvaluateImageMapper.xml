@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.EvaluateImageMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.EvaluateImage">
+    <id column="evaluate_image_id" jdbcType="INTEGER" property="evaluateImageId" />
+    <result column="evaluate_id" jdbcType="INTEGER" property="evaluateId" />
+    <result column="evaluate_image_path" jdbcType="VARCHAR" property="evaluateImagePath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    evaluate_image_id, evaluate_id, evaluate_image_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from evaluate_image
+    where evaluate_image_id = #{evaluateImageId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from evaluate_image
+    where evaluate_image_id = #{evaluateImageId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fqg.entity.EvaluateImage">
+    insert into evaluate_image (evaluate_image_id, evaluate_id, evaluate_image_path
+      )
+    values (#{evaluateImageId,jdbcType=INTEGER}, #{evaluateId,jdbcType=INTEGER}, #{evaluateImagePath,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fqg.entity.EvaluateImage">
+    insert into evaluate_image
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="evaluateImageId != null">
+        evaluate_image_id,
+      </if>
+      <if test="evaluateId != null">
+        evaluate_id,
+      </if>
+      <if test="evaluateImagePath != null">
+        evaluate_image_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="evaluateImageId != null">
+        #{evaluateImageId,jdbcType=INTEGER},
+      </if>
+      <if test="evaluateId != null">
+        #{evaluateId,jdbcType=INTEGER},
+      </if>
+      <if test="evaluateImagePath != null">
+        #{evaluateImagePath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fqg.entity.EvaluateImage">
+    update evaluate_image
+    <set>
+      <if test="evaluateId != null">
+        evaluate_id = #{evaluateId,jdbcType=INTEGER},
+      </if>
+      <if test="evaluateImagePath != null">
+        evaluate_image_path = #{evaluateImagePath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where evaluate_image_id = #{evaluateImageId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fqg.entity.EvaluateImage">
+    update evaluate_image
+    set evaluate_id = #{evaluateId,jdbcType=INTEGER},
+      evaluate_image_path = #{evaluateImagePath,jdbcType=VARCHAR}
+    where evaluate_image_id = #{evaluateImageId,jdbcType=INTEGER}
+  </update>
+</mapper>
