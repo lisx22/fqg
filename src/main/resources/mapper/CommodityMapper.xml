@@ -20,11 +20,11 @@
     <association property="typeThree" column="three_type_id" select="com.fqg.dao.TypeThreeMapper.selectByPrimaryKey"></association>
     <collection property="commodityExhibitionImages" column="commodity_id" select="com.fqg.dao.CommodityExhibitionImageMapper.selectExhibitionImageListByCommodityId"></collection>
     <collection property="commodityInfoImages" column="commodity_id" select="com.fqg.dao.CommodityInfoImageMapper.selectInfoImageListByCommodityId"></collection>
-    <collection property="colorList" column="commodity_id" select="com.fqg.dao.ColorMapper.selectColorListByCommodityId"/>
-    <collection property="infoList" column="commodity_id" select="com.fqg.dao.InfoMapper.selectInfoListByCommodityId"></collection>
+    <collection property="ccList" column="commodity_id" select="com.fqg.dao.CommodityColorMapper.selectCCListByCommodityId"/>
+    <collection property="ciList" column="commodity_id" select="com.fqg.dao.CommodityInfoMapper.selectCIListByCommodityId"></collection>
     <collection property="labelsList" column="commodity_id" select="com.fqg.dao.LabelsMapper.selectLabelListByCommodityId"></collection>
     <collection property="buyInterestList" column="commodity_id" select="com.fqg.dao.BuyInterestMapper.selectBuyInterestListByCommodityId"></collection>
-    <collection property="evaluateList" column="commodity_id" select="com.fqg.dao.EvaluateMapper.selectEvaluateListByCommodityId"></collection>
+    <collection property="evaluateList" column="commodity_id" select="com.fqg.dao.EvaluateMapper.selectByCommodityIdPaging"></collection>
   </resultMap>
   <sql id="Base_Column_List">
     commodity_id, commodity_name, commodity_price, commodity_description, number, create_time, 

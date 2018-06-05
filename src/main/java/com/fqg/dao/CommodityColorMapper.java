@@ -2,6 +2,8 @@ package com.fqg.dao;
 
 import com.fqg.entity.CommodityColor;
 
+import java.util.List;
+
 public interface CommodityColorMapper {
     int deleteByPrimaryKey(Integer commodityColorId);
 
@@ -12,4 +14,6 @@ public interface CommodityColorMapper {
     int updateByPrimaryKeySelective(CommodityColor record);
 
     int updateByPrimaryKey(CommodityColor record);
+
+    List<CommodityColor> selectCCListByCommodityId(Integer commodityId);
 }

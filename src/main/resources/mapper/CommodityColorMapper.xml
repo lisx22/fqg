@@ -7,10 +7,19 @@
     <result column="color_id" jdbcType="INTEGER" property="colorId" />
     <result column="image_path" jdbcType="VARCHAR" property="imagePath" />
     <result column="price" jdbcType="INTEGER" property="price" />
+    <association property="color" column="color_id" select="com.fqg.dao.ColorMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Base_Column_List">
     commodity_color_id, commodity_id, color_id, image_path, price
   </sql>
+
+  <select id="selectCCListByCommodityId" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM commodity_color
+    WHERE commodity_id = #{commodityId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from commodity_color
     where commodity_color_id = #{commodityColorId,jdbcType=INTEGER}

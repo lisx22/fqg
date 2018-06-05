@@ -21,4 +21,7 @@
         <property name="maxTotal" value="200"/>
         <property name="maxIdle" value="20000"/>
     </bean>
+    <bean id="redisUtil" class="com.fqg.util.RedisUtil">
+        <property name="redisTemplate" ref="redisTemplate"></property>
+    </bean>
 </beans>

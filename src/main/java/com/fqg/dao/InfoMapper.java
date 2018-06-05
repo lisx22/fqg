@@ -17,10 +17,5 @@ public interface InfoMapper {
 
     int updateByPrimaryKey(Info record);
 
-    /**
-     * 通过商品ID查询此商品详情（32G）
-     * @param commodityId
-     * @return
-     */
-    List<Info> selectInfoListByCommodityId(Integer commodityId);
+
 }

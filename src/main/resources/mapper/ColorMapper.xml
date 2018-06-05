@@ -21,7 +21,7 @@
     from color c
     inner join commodity_color cc
     on c.color_id = cc.color_id
-    where cc.commodity_id = {commodityId}
+    where cc.commodity_id = #{commodityId}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

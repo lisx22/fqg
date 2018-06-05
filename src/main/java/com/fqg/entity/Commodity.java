@@ -38,9 +38,9 @@ public class Commodity implements Serializable {
 
     private TypeThree typeThree;
 
-    private List<Color> colorList;
+    private List<CommodityColor> ccList;
 
-    private List<Info> infoList;
+    private List<CommodityInfo> ciList;
 
     private List<CommodityInfoImage> commodityInfoImages;
 
@@ -60,6 +60,16 @@ public class Commodity implements Serializable {
 
     private List<BuyInterest> buyInterestList;
 
+    private List<Property> properties;
+
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
+    }
+
     public List<BuyInterest> getBuyInterestList() {
         return buyInterestList;
     }
@@ -68,13 +78,7 @@ public class Commodity implements Serializable {
         this.buyInterestList = buyInterestList;
     }
 
-    public List<Color> getColorList() {
-        return colorList;
-    }
 
-    public void setColorList(List<Color> colorList) {
-        this.colorList = colorList;
-    }
 
     public List<Labels> getLabelsList() {
         return labelsList;
@@ -84,12 +88,20 @@ public class Commodity implements Serializable {
         this.labelsList = labelsList;
     }
 
-    public List<Info> getInfoList() {
-        return infoList;
+    public List<CommodityColor> getCcList() {
+        return ccList;
     }
 
-    public void setInfoList(List<Info> infoList) {
-        this.infoList = infoList;
+    public void setCcList(List<CommodityColor> ccList) {
+        this.ccList = ccList;
+    }
+
+    public List<CommodityInfo> getCiList() {
+        return ciList;
+    }
+
+    public void setCiList(List<CommodityInfo> ciList) {
+        this.ciList = ciList;
     }
 
     public List<CommodityInfoImage> getCommodityInfoImages() {

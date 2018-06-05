@@ -11,6 +11,8 @@ public class CommodityInfo implements Serializable {
 
     private Integer price;
 
+    private Info info;
+
     public Integer getCommodityInfoId() {
         return commodityInfoId;
     }
@@ -41,5 +43,13 @@ public class CommodityInfo implements Serializable {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public Info getInfo() {
+        return info;
+    }
+
+    public void setInfo(Info info) {
+        this.info = info;
     }
 }

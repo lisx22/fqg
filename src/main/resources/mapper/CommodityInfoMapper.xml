@@ -6,10 +6,19 @@
     <result column="ci_commodity_id" jdbcType="INTEGER" property="ciCommodityId" />
     <result column="ci_info_id" jdbcType="INTEGER" property="ciInfoId" />
     <result column="price" jdbcType="INTEGER" property="price" />
+    <association property="info" column="ci_info_id" select="com.fqg.dao.InfoMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Base_Column_List">
     commodity_info_id, ci_commodity_id, ci_info_id, price
   </sql>
+
+  <select id="selectCIListByCommodityId" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM commodity_info
+    WHERE ci_commodity_id = #{commodityId}
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

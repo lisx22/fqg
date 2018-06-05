@@ -17,10 +17,5 @@ public interface ColorMapper {
 
     int updateByPrimaryKey(Color record);
 
-    /**
-     * 通过商品ID查询颜色集合
-     * @param commodityId
-     * @return
-     */
-    List<Color> selectColorListByCommodityId(Integer commodityId);
+
 }
