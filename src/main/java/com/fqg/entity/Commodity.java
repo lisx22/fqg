@@ -1,6 +1,7 @@
 package com.fqg.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Commodity {
     private Integer commodityId;
@@ -26,6 +27,16 @@ public class Commodity {
     private Integer twoTypeId;
 
     private Integer oneTypeId;
+
+    private List<CommodityColor> colors;
+
+    public List<CommodityColor> getColors() {
+        return colors;
+    }
+
+    public void setColors(List<CommodityColor> colors) {
+        this.colors = colors;
+    }
 
     public Integer getCommodityId() {
         return commodityId;

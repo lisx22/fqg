@@ -14,6 +14,7 @@
     <result column="three_type_id" jdbcType="INTEGER" property="threeTypeId" />
     <result column="two_type_id" jdbcType="INTEGER" property="twoTypeId" />
     <result column="one_type_id" jdbcType="INTEGER" property="oneTypeId" />
+    <collection property="colors" column="commodity_id" select="com.fqg.dao.CommodityColorMapper.selectByCommodityId"/>
   </resultMap>
   <sql id="Base_Column_List">
     commodity_id, commodity_name, commodity_price, commodity_description, number, create_time, 
