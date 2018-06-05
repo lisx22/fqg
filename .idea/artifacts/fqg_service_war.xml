@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="fqg_service:war">
-    <output-path>$PROJECT_DIR$/fqg_service/target</output-path>
-    <root id="archive" name="fqg_service.war">
-      <element id="artifact" artifact-name="fqg_service:war exploded" />
-    </root>
-  </artifact>
-</component>
