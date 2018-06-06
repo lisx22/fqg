@@ -3,17 +3,24 @@
 <mapper namespace="com.fqg.dao.TypeInterestCouponMapper">
   <resultMap id="BaseResultMap" type="com.fqg.entity.TypeInterestCoupon">
     <id column="coupon_id" jdbcType="INTEGER" property="couponId" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER"/>
     <result column="nointerest_content" jdbcType="INTEGER" property="nointerestContent" />
     <result column="number" jdbcType="INTEGER" property="number" />
   </resultMap>
   <sql id="Base_Column_List">
-    coupon_id, nointerest_content, number
+    coupon_id, nointerest_content,type_id, number
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from typeinterestcoupon
     where coupon_id = #{couponId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTypeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from typeinterestcoupon
+    where type_id = #{typeId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from typeinterestcoupon

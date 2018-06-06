@@ -32,11 +32,11 @@ public class CommodityInfoService implements ICommodityInfoService {
     public Commodity commodityInfo(int commodityId) {
         Gson gson = new Gson();
         //查询该商品数据
-
-//        String str = redisUtil.get("commodity"+commodityId).toString();
-//        if(str == null) {
-            System.out.println("haha");
-            Commodity commodity = commodityMapper.selectByPrimaryKey(commodityId);
+        Commodity commodity = new Commodity();
+        String str = "";
+        //先在redis中查询，若有值，返回，若无，在数据库中查询
+        if(redisUtil.get("commodity"+commodityId) == null) {
+            commodity = commodityMapper.selectByPrimaryKey(commodityId);
             //创建set集合用来装商品详情对应的属性id，和属性名
             List<Property> property = new ArrayList<>();
             Set<Integer> propertyId = new HashSet<>();
@@ -46,7 +46,6 @@ public class CommodityInfoService implements ICommodityInfoService {
             }
             //根据id查询该商品属性数据
             for (int i : propertyId) {
-                System.out.println(propertyMapper.selectByPrimaryKey(i).getPropertyName());
                 property.add(propertyMapper.selectByPrimaryKey(i));
             }
             //将属性列表存储到商品对象中
@@ -57,11 +56,12 @@ public class CommodityInfoService implements ICommodityInfoService {
                     interest.setPercent(0.0);
                 }
             }
-        System.out.println(commodity.getCreateTime());
-           String str = gson.toJson(commodity);
-        System.out.println(str);
-            redisUtil.set("commodity" + commodityId,gson.toJson(commodity));
-//        }
+            str = gson.toJson(commodity);
+            //将查询出来的数据存入缓存
+            redisUtil.set("commodity" + commodityId,str);
+        }else {
+            str = redisUtil.get("commodity"+commodityId).toString();
+        }
         commodity = JSON.parseObject(str,Commodity.class);
         System.out.println(commodity.getCreateTime());
         return commodity;

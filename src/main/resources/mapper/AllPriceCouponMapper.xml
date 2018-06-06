@@ -16,6 +16,12 @@
     from allpricecoupon
     where coupon_id = #{couponId,jdbcType=INTEGER}
   </select>
+  <select id="selectByPrice" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from allpricecoupon
+    where condition_amount &lt; #{price,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from allpricecoupon
     where coupon_id = #{couponId,jdbcType=INTEGER}

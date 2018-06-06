@@ -15,6 +15,12 @@
     from allinterestcoupon
     where coupon_id = #{couponId,jdbcType=INTEGER}
   </select>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from allinterestcoupon
+    where number > 0
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from allinterestcoupon
     where coupon_id = #{couponId,jdbcType=INTEGER}

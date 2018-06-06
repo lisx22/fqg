@@ -9,6 +9,16 @@ public class TypeInterestCoupon implements Serializable {
 
     private Integer number;
 
+    private Integer typeId;
+
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
     public Integer getCouponId() {
         return couponId;
     }
