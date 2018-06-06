@@ -52,6 +52,10 @@ public class Commodity implements Serializable {
 
     private List<Evaluate> evaluateList;
 
+    private List<BuyInterest> buyInterestList;
+
+    private List<Property> properties;
+
     public List<Evaluate> getEvaluateList() {
         return evaluateList;
     }
@@ -59,10 +63,6 @@ public class Commodity implements Serializable {
     public void setEvaluateList(List<Evaluate> evaluateList) {
         this.evaluateList = evaluateList;
     }
-
-    private List<BuyInterest> buyInterestList;
-
-    private List<Property> properties;
 
     public Integer getCommodityId() {
         return commodityId;

@@ -1,8 +1,6 @@
 package com.fqg.service.qiantai.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fqg.dao.CommodityMapper;
 import com.fqg.dao.PropertyMapper;
 import com.fqg.entity.*;

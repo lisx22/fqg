@@ -1,6 +1,5 @@
 package com.fqg.controller.qiantai;
 
-import com.fqg.entity.Commodity;
 import com.fqg.service.qiantai.impl.CommodityInfoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
