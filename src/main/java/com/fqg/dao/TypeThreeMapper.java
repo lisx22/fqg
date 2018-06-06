@@ -2,6 +2,8 @@ package com.fqg.dao;
 
 import com.fqg.entity.TypeThree;
 
+import java.util.List;
+
 public interface TypeThreeMapper {
     int deleteByPrimaryKey(Integer typeThreeId);
 
@@ -14,4 +16,6 @@ public interface TypeThreeMapper {
     int updateByPrimaryKeySelective(TypeThree record);
 
     int updateByPrimaryKey(TypeThree record);
+
+    List<TypeThree> selectByTypeTwo(Integer typeTwoId);
 }

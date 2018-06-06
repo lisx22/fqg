@@ -123,21 +123,4 @@ public class Customer implements Serializable {
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName == null ? null : schoolName.trim();
     }
-	@Override
-    public String toString() {
-        return "Customer{" +
-                "customerId=" + customerId +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", username='" + username + '\'' +
-                ", loginPassword='" + loginPassword + '\'' +
-                ", payPassword='" + payPassword + '\'' +
-                ", trueName='" + trueName + '\'' +
-                ", idNumber='" + idNumber + '\'' +
-                ", allQuota=" + allQuota +
-                ", quota=" + quota +
-                ", createTime=" + createTime +
-                ", companyName='" + companyName + '\'' +
-                ", schoolName='" + schoolName + '\'' +
-                '}';
-    }
 }

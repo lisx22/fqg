@@ -1,9 +1,6 @@
 package com.fqg.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 public class Commodity implements Serializable {
@@ -17,6 +14,8 @@ public class Commodity implements Serializable {
     private String commodityDescription;
 
     private Integer number;
+
+    private Integer sellNum;
 
     private String createTime;
 
@@ -52,9 +51,13 @@ public class Commodity implements Serializable {
 
     private List<Evaluate> evaluateList;
 
-    private List<BuyInterest> buyInterestList;
+    public Integer getSellNum() {
+        return sellNum;
+    }
 
-    private List<Property> properties;
+    public void setSellNum(Integer sellNum) {
+        this.sellNum = sellNum;
+    }
 
     public List<Evaluate> getEvaluateList() {
         return evaluateList;
@@ -63,6 +66,10 @@ public class Commodity implements Serializable {
     public void setEvaluateList(List<Evaluate> evaluateList) {
         this.evaluateList = evaluateList;
     }
+
+    private List<BuyInterest> buyInterestList;
+
+    private List<Property> properties;
 
     public Integer getCommodityId() {
         return commodityId;

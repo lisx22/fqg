@@ -22,6 +22,6 @@ public interface BrandMapper {
      * @param typeOneId
      * @return
      */
-    List<Brand> selectBrandListByTypeOneId(Integer typeOneId);
+    List<Brand> selectBrandListByTypeOne(Integer typeOneId);
 
 }
