@@ -19,8 +19,19 @@ public class CustomerServiceImpl implements CustomerService{
     @Resource
     private CustomerMapper customerDAO;
 
+    /**
+     *
+     * @param first 第几页？
+     * @return 当前页数的用户集合
+     */
     public List<Customer> selectByPage(@Param("first")int first){
-       return customerDAO.selectByPage(first, pageSize);
+        int page = first*pageSize;
+       return customerDAO.selectByPage(page, pageSize);
 
+    }
+
+    public int insert(Customer record){
+        customerDAO.insert(record);
+        return 0;
     }
 }
