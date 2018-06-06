@@ -33,18 +33,7 @@
     update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id ,nointerest_stage,sell_num
   </sql>
 
-  <select id="selectByPage" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from customer
-    limit #{first},#{pageSize}
-  </select>
 
-  <select id="selectCount"  resultType="java.lang.Integer">
-    select
-    count(customer_id)
-    from customer
-  </select>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
