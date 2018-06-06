@@ -1,5 +1,7 @@
 package com.fqg.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -16,11 +18,11 @@ public class Commodity implements Serializable {
 
     private Integer number;
 
-    private Date createTime;
+    private String createTime;
 
-    private Date updateTime;
+    private String updateTime;
 
-    private Date deleteTime;
+    private String deleteTime;
 
     private Integer commodityStatus;
 
@@ -62,62 +64,100 @@ public class Commodity implements Serializable {
 
     private List<Property> properties;
 
-    public List<Property> getProperties() {
-        return properties;
+    public Integer getCommodityId() {
+        return commodityId;
     }
 
-    public void setProperties(List<Property> properties) {
-        this.properties = properties;
+    public void setCommodityId(Integer commodityId) {
+        this.commodityId = commodityId;
     }
 
-    public List<BuyInterest> getBuyInterestList() {
-        return buyInterestList;
+    public String getCommodityName() {
+        return commodityName;
     }
 
-    public void setBuyInterestList(List<BuyInterest> buyInterestList) {
-        this.buyInterestList = buyInterestList;
+    public void setCommodityName(String commodityName) {
+        this.commodityName = commodityName;
     }
 
-
-
-    public List<Labels> getLabelsList() {
-        return labelsList;
+    public Integer getCommodityPrice() {
+        return commodityPrice;
     }
 
-    public void setLabelsList(List<Labels> labelsList) {
-        this.labelsList = labelsList;
+    public void setCommodityPrice(Integer commodityPrice) {
+        this.commodityPrice = commodityPrice;
     }
 
-    public List<CommodityColor> getCcList() {
-        return ccList;
+    public String getCommodityDescription() {
+        return commodityDescription;
     }
 
-    public void setCcList(List<CommodityColor> ccList) {
-        this.ccList = ccList;
+    public void setCommodityDescription(String commodityDescription) {
+        this.commodityDescription = commodityDescription;
     }
 
-    public List<CommodityInfo> getCiList() {
-        return ciList;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setCiList(List<CommodityInfo> ciList) {
-        this.ciList = ciList;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
-    public List<CommodityInfoImage> getCommodityInfoImages() {
-        return commodityInfoImages;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setCommodityInfoImages(List<CommodityInfoImage> commodityInfoImages) {
-        this.commodityInfoImages = commodityInfoImages;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public List<CommodityExhibitionImage> getCommodityExhibitionImages() {
-        return commodityExhibitionImages;
+    public String getUpdateTime() {
+        return updateTime;
     }
 
-    public void setCommodityExhibitionImages(List<CommodityExhibitionImage> commodityExhibitionImages) {
-        this.commodityExhibitionImages = commodityExhibitionImages;
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getDeleteTime() {
+        return deleteTime;
+    }
+
+    public void setDeleteTime(String deleteTime) {
+        this.deleteTime = deleteTime;
+    }
+
+    public Integer getCommodityStatus() {
+        return commodityStatus;
+    }
+
+    public void setCommodityStatus(Integer commodityStatus) {
+        this.commodityStatus = commodityStatus;
+    }
+
+    public Integer getThreeTypeId() {
+        return threeTypeId;
+    }
+
+    public void setThreeTypeId(Integer threeTypeId) {
+        this.threeTypeId = threeTypeId;
+    }
+
+    public Integer getTwoTypeId() {
+        return twoTypeId;
+    }
+
+    public void setTwoTypeId(Integer twoTypeId) {
+        this.twoTypeId = twoTypeId;
+    }
+
+    public Integer getOneTypeId() {
+        return oneTypeId;
+    }
+
+    public void setOneTypeId(Integer oneTypeId) {
+        this.oneTypeId = oneTypeId;
     }
 
     public Integer getNoInterestStage() {
@@ -152,99 +192,59 @@ public class Commodity implements Serializable {
         this.typeThree = typeThree;
     }
 
-    public Integer getCommodityId() {
-        return commodityId;
+    public List<CommodityColor> getCcList() {
+        return ccList;
     }
 
-    public void setCommodityId(Integer commodityId) {
-        this.commodityId = commodityId;
+    public void setCcList(List<CommodityColor> ccList) {
+        this.ccList = ccList;
     }
 
-    public String getCommodityName() {
-        return commodityName;
+    public List<CommodityInfo> getCiList() {
+        return ciList;
     }
 
-    public void setCommodityName(String commodityName) {
-        this.commodityName = commodityName == null ? null : commodityName.trim();
+    public void setCiList(List<CommodityInfo> ciList) {
+        this.ciList = ciList;
     }
 
-    public Integer getCommodityPrice() {
-        return commodityPrice;
+    public List<CommodityInfoImage> getCommodityInfoImages() {
+        return commodityInfoImages;
     }
 
-    public void setCommodityPrice(Integer commodityPrice) {
-        this.commodityPrice = commodityPrice;
+    public void setCommodityInfoImages(List<CommodityInfoImage> commodityInfoImages) {
+        this.commodityInfoImages = commodityInfoImages;
     }
 
-    public String getCommodityDescription() {
-        return commodityDescription;
+    public List<Labels> getLabelsList() {
+        return labelsList;
     }
 
-    public void setCommodityDescription(String commodityDescription) {
-        this.commodityDescription = commodityDescription == null ? null : commodityDescription.trim();
+    public void setLabelsList(List<Labels> labelsList) {
+        this.labelsList = labelsList;
     }
 
-    public Integer getNumber() {
-        return number;
+    public List<CommodityExhibitionImage> getCommodityExhibitionImages() {
+        return commodityExhibitionImages;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setCommodityExhibitionImages(List<CommodityExhibitionImage> commodityExhibitionImages) {
+        this.commodityExhibitionImages = commodityExhibitionImages;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public List<BuyInterest> getBuyInterestList() {
+        return buyInterestList;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setBuyInterestList(List<BuyInterest> buyInterestList) {
+        this.buyInterestList = buyInterestList;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public List<Property> getProperties() {
+        return properties;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Date getDeleteTime() {
-        return deleteTime;
-    }
-
-    public void setDeleteTime(Date deleteTime) {
-        this.deleteTime = deleteTime;
-    }
-
-    public Integer getCommodityStatus() {
-        return commodityStatus;
-    }
-
-    public void setCommodityStatus(Integer commodityStatus) {
-        this.commodityStatus = commodityStatus;
-    }
-
-    public Integer getThreeTypeId() {
-        return threeTypeId;
-    }
-
-    public void setThreeTypeId(Integer threeTypeId) {
-        this.threeTypeId = threeTypeId;
-    }
-
-    public Integer getTwoTypeId() {
-        return twoTypeId;
-    }
-
-    public void setTwoTypeId(Integer twoTypeId) {
-        this.twoTypeId = twoTypeId;
-    }
-
-    public Integer getOneTypeId() {
-        return oneTypeId;
-    }
-
-    public void setOneTypeId(Integer oneTypeId) {
-        this.oneTypeId = oneTypeId;
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
     }
 }

@@ -6,8 +6,8 @@
     <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
     <result column="price" jdbcType="INTEGER" property="price" />
     <result column="number" jdbcType="INTEGER" property="number" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
     <association property="commodity" column="commodity_id" select="com.fqg.dao.CommodityMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Base_Column_List">
@@ -28,7 +28,7 @@
       number, create_time, update_time
       )
     values (#{killCommodityId,jdbcType=INTEGER}, #{commodityId,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}, 
-      #{number,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      #{number,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.KillCommodity">
@@ -67,10 +67,10 @@
         #{number,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -87,10 +87,10 @@
         number = #{number,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=VARCHAR},
       </if>
     </set>
     where kill_commodity_id = #{killCommodityId,jdbcType=INTEGER}
@@ -100,8 +100,8 @@
     set commodity_id = #{commodityId,jdbcType=INTEGER},
       price = #{price,jdbcType=INTEGER},
       number = #{number,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR}
     where kill_commodity_id = #{killCommodityId,jdbcType=INTEGER}
   </update>
 </mapper>

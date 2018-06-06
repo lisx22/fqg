@@ -14,9 +14,9 @@ public class KillCommodity implements Serializable {
 
     private Integer number;
 
-    private Date createTime;
+    private String  createTime;
 
-    private Date updateTime;
+    private String  updateTime;
 
     public Commodity getCommodity() {
         return commodity;
@@ -58,19 +58,19 @@ public class KillCommodity implements Serializable {
         this.number = number;
     }
 
-    public Date getCreateTime() {
+    public String  getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String  getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String  updateTime) {
         this.updateTime = updateTime;
     }
 }

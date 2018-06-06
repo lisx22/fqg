@@ -11,7 +11,7 @@
     <result column="ID_number" jdbcType="VARCHAR" property="idNumber" />
     <result column="all_quota" jdbcType="INTEGER" property="allQuota" />
     <result column="quota" jdbcType="INTEGER" property="quota" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
   </resultMap>
@@ -52,7 +52,7 @@
     values (#{customerId,jdbcType=INTEGER}, #{phoneNumber,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
       #{loginPassword,jdbcType=VARCHAR}, #{payPassword,jdbcType=VARCHAR}, #{trueName,jdbcType=VARCHAR}, 
       #{idNumber,jdbcType=VARCHAR}, #{allQuota,jdbcType=INTEGER}, #{quota,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{companyName,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}
+      #{createTime,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.Customer">
@@ -124,7 +124,7 @@
         #{quota,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="companyName != null">
         #{companyName,jdbcType=VARCHAR},
@@ -162,7 +162,7 @@
         quota = #{quota,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="companyName != null">
         company_name = #{companyName,jdbcType=VARCHAR},
@@ -183,7 +183,7 @@
       ID_number = #{idNumber,jdbcType=VARCHAR},
       all_quota = #{allQuota,jdbcType=INTEGER},
       quota = #{quota,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=VARCHAR},
       company_name = #{companyName,jdbcType=VARCHAR},
       school_name = #{schoolName,jdbcType=VARCHAR}
     where customer_id = #{customerId,jdbcType=INTEGER}

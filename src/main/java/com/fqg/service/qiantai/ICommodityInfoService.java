@@ -12,5 +12,5 @@ import javax.annotation.Resource;
  */
 @Service
 public interface ICommodityInfoService {
-    String commodityInfo(int commodityId);
+    Commodity commodityInfo(int commodityId);
 }

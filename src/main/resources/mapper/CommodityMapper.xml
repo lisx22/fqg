@@ -7,9 +7,9 @@
     <result column="commodity_price" jdbcType="INTEGER" property="commodityPrice" />
     <result column="commodity_description" jdbcType="VARCHAR" property="commodityDescription" />
     <result column="number" jdbcType="INTEGER" property="number" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="delete_time" jdbcType="VARCHAR" property="deleteTime" />
     <result column="commodity_status" jdbcType="INTEGER" property="commodityStatus" />
     <result column="three_type_id" jdbcType="INTEGER" property="threeTypeId" />
     <result column="two_type_id" jdbcType="INTEGER" property="twoTypeId" />
@@ -50,8 +50,8 @@
       three_type_id, two_type_id, one_type_id,nointerest_stage
       )
     values (#{commodityId,jdbcType=INTEGER}, #{commodityName,jdbcType=VARCHAR}, #{commodityPrice,jdbcType=INTEGER}, 
-      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{nointerest_stage,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
-      #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, #{commodityStatus,jdbcType=INTEGER}, 
+      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{nointerest_stage,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=VARCHAR}, #{deleteTime,jdbcType=VARCHAR}, #{commodityStatus,jdbcType=INTEGER},
       #{threeTypeId,jdbcType=INTEGER}, #{twoTypeId,jdbcType=INTEGER}, #{oneTypeId,jdbcType=INTEGER}
       )
   </insert>
@@ -118,13 +118,13 @@
         #{nointerest_stage,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=VARCHAR},
       </if>
       <if test="deleteTime != null">
-        #{deleteTime,jdbcType=TIMESTAMP},
+        #{deleteTime,jdbcType=VARCHAR},
       </if>
       <if test="commodityStatus != null">
         #{commodityStatus,jdbcType=INTEGER},
@@ -159,13 +159,13 @@
         nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=VARCHAR},
       </if>
       <if test="deleteTime != null">
-        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
       </if>
       <if test="commodityStatus != null">
         commodity_status = #{commodityStatus,jdbcType=INTEGER},
@@ -189,9 +189,9 @@
       commodity_description = #{commodityDescription,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
       nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      delete_time = #{deleteTime,jdbcType=VARCHAR},
       commodity_status = #{commodityStatus,jdbcType=INTEGER},
       three_type_id = #{threeTypeId,jdbcType=INTEGER},
       two_type_id = #{twoTypeId,jdbcType=INTEGER},

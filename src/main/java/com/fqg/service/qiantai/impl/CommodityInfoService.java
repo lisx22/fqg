@@ -1,5 +1,6 @@
 package com.fqg.service.qiantai.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fqg.dao.CommodityMapper;
@@ -30,12 +31,12 @@ public class CommodityInfoService implements ICommodityInfoService {
     @Resource
     private RedisUtil redisUtil;
     @Override
-    public String commodityInfo(int commodityId) {
+    public Commodity commodityInfo(int commodityId) {
         Gson gson = new Gson();
         //查询该商品数据
 
-        String str = redisUtil.get("commodity"+commodityId).toString();
-        if(str == null) {
+//        String str = redisUtil.get("commodity"+commodityId).toString();
+//        if(str == null) {
             System.out.println("haha");
             Commodity commodity = commodityMapper.selectByPrimaryKey(commodityId);
             //创建set集合用来装商品详情对应的属性id，和属性名
@@ -58,9 +59,13 @@ public class CommodityInfoService implements ICommodityInfoService {
                     interest.setPercent(0.0);
                 }
             }
-            str = gson.toJson(commodity);
+        System.out.println(commodity.getCreateTime());
+           String str = gson.toJson(commodity);
+        System.out.println(str);
             redisUtil.set("commodity" + commodityId,gson.toJson(commodity));
-        }
-        return str;
+//        }
+        commodity = JSON.parseObject(str,Commodity.class);
+        System.out.println(commodity.getCreateTime());
+        return commodity;
     }
 }

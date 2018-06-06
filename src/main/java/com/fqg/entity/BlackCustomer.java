@@ -8,7 +8,7 @@ public class BlackCustomer implements Serializable {
 
     private Integer idNumber;
 
-    private Date createTime;
+    private String  createTime;
 
     public Integer getBlackCustomerId() {
         return blackCustomerId;
@@ -26,11 +26,11 @@ public class BlackCustomer implements Serializable {
         this.idNumber = idNumber;
     }
 
-    public Date getCreateTime() {
+    public String  getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
 }

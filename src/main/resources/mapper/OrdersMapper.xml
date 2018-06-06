@@ -8,8 +8,8 @@
     <result column="pay_money" jdbcType="INTEGER" property="payMoney" />
     <result column="number" jdbcType="INTEGER" property="number" />
     <result column="order_num" jdbcType="INTEGER" property="orderNum" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
     <result column="order_state" jdbcType="INTEGER" property="orderState" />
     <result column="stage" jdbcType="INTEGER" property="stage" />
     <result column="amount" jdbcType="INTEGER" property="amount" />
@@ -35,7 +35,7 @@
       stage, amount)
     values (#{orderId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{commodityId,jdbcType=INTEGER}, 
       #{payMoney,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, #{orderNum,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{orderState,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{orderState,jdbcType=INTEGER},
       #{stage,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.Orders">
@@ -95,10 +95,10 @@
         #{orderNum,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=VARCHAR},
       </if>
       <if test="orderState != null">
         #{orderState,jdbcType=INTEGER},
@@ -130,10 +130,10 @@
         order_num = #{orderNum,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=VARCHAR},
       </if>
       <if test="orderState != null">
         order_state = #{orderState,jdbcType=INTEGER},
@@ -154,8 +154,8 @@
       pay_money = #{payMoney,jdbcType=INTEGER},
       number = #{number,jdbcType=INTEGER},
       order_num = #{orderNum,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
       order_state = #{orderState,jdbcType=INTEGER},
       stage = #{stage,jdbcType=INTEGER},
       amount = #{amount,jdbcType=INTEGER}

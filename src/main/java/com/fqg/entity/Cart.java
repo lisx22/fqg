@@ -10,7 +10,7 @@ public class Cart implements Serializable {
 
     private Integer commodityId;
 
-    private Date createTime;
+    private String  createTime;
 
     public Integer getCartId() {
         return cartId;
@@ -36,11 +36,11 @@ public class Cart implements Serializable {
         this.commodityId = commodityId;
     }
 
-    public Date getCreateTime() {
+    public String  getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
 }

@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.fqg.entity.BlackCustomer">
     <id column="black_customer_id" jdbcType="INTEGER" property="blackCustomerId" />
     <result column="ID_number" jdbcType="INTEGER" property="idNumber" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">
     black_customer_id, ID_number, create_time
@@ -22,7 +22,7 @@
   <insert id="insert" parameterType="com.fqg.entity.BlackCustomer">
     insert into black_customer (black_customer_id, ID_number, create_time
       )
-    values (#{blackCustomerId,jdbcType=INTEGER}, #{idNumber,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+    values (#{blackCustomerId,jdbcType=INTEGER}, #{idNumber,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.BlackCustomer">
@@ -46,7 +46,7 @@
         #{idNumber,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -57,7 +57,7 @@
         ID_number = #{idNumber,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
     </set>
     where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}
@@ -65,7 +65,7 @@
   <update id="updateByPrimaryKey" parameterType="com.fqg.entity.BlackCustomer">
     update black_customer
     set ID_number = #{idNumber,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=VARCHAR}
     where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}
   </update>
 </mapper>

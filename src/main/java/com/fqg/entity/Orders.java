@@ -16,9 +16,9 @@ public class Orders implements Serializable {
 
     private Integer orderNum;
 
-    private Date createTime;
+    private String  createTime;
 
-    private Date updateTime;
+    private String  updateTime;
 
     private Integer orderState;
 
@@ -74,19 +74,19 @@ public class Orders implements Serializable {
         this.orderNum = orderNum;
     }
 
-    public Date getCreateTime() {
+    public String  getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String  getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String  updateTime) {
         this.updateTime = updateTime;
     }
 

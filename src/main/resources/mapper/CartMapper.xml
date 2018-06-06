@@ -5,7 +5,7 @@
     <id column="cart_id" jdbcType="INTEGER" property="cartId" />
     <result column="customer_id" jdbcType="INTEGER" property="customerId" />
     <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">
     cart_id, customer_id, commodity_id, create_time
@@ -24,7 +24,7 @@
     insert into cart (cart_id, customer_id, commodity_id, 
       create_time)
     values (#{cartId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{commodityId,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.Cart">
     insert into cart
@@ -53,7 +53,7 @@
         #{commodityId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -67,7 +67,7 @@
         commodity_id = #{commodityId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
     </set>
     where cart_id = #{cartId,jdbcType=INTEGER}
@@ -76,7 +76,7 @@
     update cart
     set customer_id = #{customerId,jdbcType=INTEGER},
       commodity_id = #{commodityId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=VARCHAR}
     where cart_id = #{cartId,jdbcType=INTEGER}
   </update>
 </mapper>

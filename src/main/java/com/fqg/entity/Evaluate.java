@@ -17,7 +17,7 @@ public class Evaluate implements Serializable {
 
     private Integer star;
 
-    private Date createTime;
+    private String  createTime;
 
     public Integer getStar() {
         return star;
@@ -67,11 +67,11 @@ public class Evaluate implements Serializable {
         this.evaluateContent = evaluateContent == null ? null : evaluateContent.trim();
     }
 
-    public Date getCreateTime() {
+    public String  getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
 }

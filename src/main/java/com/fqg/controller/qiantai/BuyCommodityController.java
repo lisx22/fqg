@@ -21,7 +21,8 @@ public class BuyCommodityController {
     //商品详情接口
     @RequestMapping("/commodityinfo")
     @ResponseBody
-    public String commodityInfo(String id){
+    public Object commodityInfo(String id){
         return infoService.commodityInfo(Integer.parseInt(id));
     }
+//    @RequestMapping("")
 }

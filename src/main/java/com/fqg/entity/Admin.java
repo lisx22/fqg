@@ -9,7 +9,7 @@ public class Admin {
 
     private String adminPassword;
 
-    private Date createTime;
+    private String  createTime;
 
     public Integer getAdminId() {
         return adminId;
@@ -35,11 +35,11 @@ public class Admin {
         this.adminPassword = adminPassword == null ? null : adminPassword.trim();
     }
 
-    public Date getCreateTime() {
+    public String  getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
 }

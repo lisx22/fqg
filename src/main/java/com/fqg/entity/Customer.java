@@ -22,7 +22,7 @@ public class Customer implements Serializable {
     //当前额度
     private Integer quota;
 
-    private Date createTime;
+    private String  createTime;
 
     private String companyName;
 
@@ -100,11 +100,11 @@ public class Customer implements Serializable {
         this.quota = quota;
     }
 
-    public Date getCreateTime() {
+    public String  getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
 

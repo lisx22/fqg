@@ -7,7 +7,7 @@
     <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
     <result column="evaluate_content" jdbcType="VARCHAR" property="evaluateContent" />
     <result column="star" jdbcType="INTEGER" property="star" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
     <association property="customerName" column="customer_id" select="com.fqg.dao.CustomerMapper.selectTrueNameById"></association>
   </resultMap>
   <sql id="Base_Column_List">
@@ -36,7 +36,7 @@
     insert into evaluate (evaluate_id, customer_id, commodity_id, 
       evaluate_content, create_time,star)
     values (#{evaluateId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{commodityId,jdbcType=INTEGER}, 
-      #{evaluateContent,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{evaluateContent,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.Evaluate">
     insert into evaluate
@@ -74,7 +74,7 @@
         #{evaluateContent,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="star != null">
         #{star,jdbcType=INTEGER},
@@ -94,7 +94,7 @@
         evaluate_content = #{evaluateContent,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=VARCHAR},
       </if>
       <if test="star != null">
         star = #{star,jdbcType=INTEGER},
@@ -108,7 +108,7 @@
       commodity_id = #{commodityId,jdbcType=INTEGER},
       star = #{star,jdbcType=INTEGER},
       evaluate_content = #{evaluateContent,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=VARCHAR}
     where evaluate_id = #{evaluateId,jdbcType=INTEGER}
   </update>
 </mapper>
