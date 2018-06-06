@@ -15,6 +15,14 @@
     from type_three
     where type_three_id = #{typeThreeId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByTypeTwo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from type_three
+    where type_two_id = #{typeTwoId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from type_three
     where type_three_id = #{typeThreeId,jdbcType=INTEGER}

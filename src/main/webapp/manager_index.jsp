@@ -6,8 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%	String basePath = request.getContextPath();%>
 <html>
 <head>
+
         <base href="<%=request.getContextPath()%>/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,7 +87,7 @@
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-                                    <li><a href="customer/customerList/0" class="am-cf">用户管理</span></a></li>
+                                    <li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
                                     <li><a href="html/gl_commodity.ftl">商品管理</a></li>
                                     <li><a href="html/gl_orders.ftl">订单管理</a></li>
                                     <li><a href="html/gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>

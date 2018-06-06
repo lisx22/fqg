@@ -15,6 +15,7 @@
     <result column="two_type_id" jdbcType="INTEGER" property="twoTypeId" />
     <result column="one_type_id" jdbcType="INTEGER" property="oneTypeId" />
     <result column="nointerest_stage" jdbcType="INTEGER" property="noInterestStage"></result>
+    <result column="sell_num" jdbcType="INTEGER" property="sellNum"></result>
     <association property="typeOne" column="one_type_id" select="com.fqg.dao.TypeOneMapper.selectByPrimaryKey"></association>
     <association property="typeTwo" column="two_type_id" select="com.fqg.dao.TypeTwoMapper.selectByPrimaryKey"></association>
     <association property="typeThree" column="three_type_id" select="com.fqg.dao.TypeThreeMapper.selectByPrimaryKey"></association>
@@ -26,19 +27,116 @@
     <collection property="buyInterestList" column="commodity_id" select="com.fqg.dao.BuyInterestMapper.selectBuyInterestListByCommodityId"></collection>
     <collection property="evaluateList" column="commodity_id" select="com.fqg.dao.EvaluateMapper.selectByCommodityIdPaging"></collection>
   </resultMap>
+
   <sql id="Base_Column_List">
     commodity_id, commodity_name, commodity_price, commodity_description, number, create_time, 
-    update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id ,nointerest_stage
+    update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id ,nointerest_stage,sell_num
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from commodity
     where commodity_id = #{commodityId,jdbcType=INTEGER}
   </select>
-  <select id="selectByTypeOnePaging" resultType="com.fqg.entity.Commodity">
 
+  <select id="selectByTypeOnePaging" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where one_type_id = #{typeOneId}
+    limit #{startPage},#{pageSize}
   </select>
+
+  <select id="selectByTypeTwoPaging" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where two_type_id = #{typeTwoId}
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeThreePaging" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where three_type_id = #{typeThreeId}
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeOneAndBrandPaging" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where one_type_id = #{typeOneId}
+    and brand_id = #{brandId}
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeTwoAndBrandPaging" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where two_type_id = #{typeTwoId}
+    and brand_id = #{brandId}
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeThreeAndBrandPaging" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where three_type_id = #{typeThreeId}
+    and brand_id = #{brandId}
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeOneAndPriceRangePaging" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where one_type_id = #{typeOneId}
+    and commodity_price &gt; #{startPrice}
+    and commodity_price &lt; #{endPrice}
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeOneOrderByPrice" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where one_type_id = #{typeOneId}
+    order by commodity_price
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeOneOrderByPriceDesc" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where one_type_id = #{typeOneId}
+    order by commodity_price desc
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeOneOrderBySellNum" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where one_type_id = #{typeOneId}
+    order by sell_num
+    limit #{startPage},#{pageSize}
+  </select>
+
+  <select id="selectByTypeOneOrderBySellNumDesc" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where one_type_id = #{typeOneId}
+    order by sell_num desc
+    limit #{startPage},#{pageSize}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from commodity
     where commodity_id = #{commodityId,jdbcType=INTEGER}
@@ -47,10 +145,10 @@
     insert into commodity (commodity_id, commodity_name, commodity_price, 
       commodity_description, number, create_time, 
       update_time, delete_time, commodity_status, 
-      three_type_id, two_type_id, one_type_id,nointerest_stage
+      three_type_id, two_type_id, one_type_id,nointerest_stage,sell_num
       )
     values (#{commodityId,jdbcType=INTEGER}, #{commodityName,jdbcType=VARCHAR}, #{commodityPrice,jdbcType=INTEGER}, 
-      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{nointerest_stage,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR},
+      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER},#{sellNum,jdbcType=INTEGER}, #{nointerest_stage,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR},
       #{updateTime,jdbcType=VARCHAR}, #{deleteTime,jdbcType=VARCHAR}, #{commodityStatus,jdbcType=INTEGER},
       #{threeTypeId,jdbcType=INTEGER}, #{twoTypeId,jdbcType=INTEGER}, #{oneTypeId,jdbcType=INTEGER}
       )
@@ -72,6 +170,9 @@
       </if>
       <if test="number != null">
         number,
+      </if>
+      <if test="sellNum != null">
+        sellNum,
       </if>
       <if test="nointerest_stage != null">
         nointerest_stage,
@@ -114,6 +215,9 @@
       <if test="number != null">
         #{number,jdbcType=INTEGER},
       </if>
+      <if test="sellNum != null">
+        #{sellNum,jdbcType=INTEGER},
+      </if>
       <if test="nointerest_stage != null">
         #{nointerest_stage,jdbcType=INTEGER},
       </if>
@@ -155,6 +259,9 @@
       <if test="number != null">
         number = #{number,jdbcType=INTEGER},
       </if>
+      <if test="sellNum != null">
+        sell_num = #{sellNum,jdbcType=INTEGER},
+      </if>
       <if test="nointerest_stage != null">
         nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
       </if>
@@ -188,6 +295,7 @@
       commodity_price = #{commodityPrice,jdbcType=INTEGER},
       commodity_description = #{commodityDescription,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
+      sell_num = #{sellNum,jdbcType=INTEGER},
       nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=VARCHAR},
