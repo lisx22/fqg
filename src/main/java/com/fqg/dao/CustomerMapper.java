@@ -7,7 +7,11 @@ import java.util.List;
 
 public interface CustomerMapper {
     int deleteByPrimaryKey(Integer customerId);
-
+    /**
+     * 添加一个customer
+     * @param record customer对象
+     * @return
+     */
     int insert(Customer record);
 
     int insertSelective(Customer record);
@@ -16,6 +20,11 @@ public interface CustomerMapper {
 
     int updateByPrimaryKeySelective(Customer record);
 
+    /**
+     * 修改用户信息
+     * @param record
+     * @return
+     */
     int updateByPrimaryKey(Customer record);
 
     /**
@@ -32,4 +41,6 @@ public interface CustomerMapper {
      * @return
      */
     List<Customer> selectByPage(@Param("first")int first, @Param("pageSize")int pageSize);
+
+    int selectCount();
 }

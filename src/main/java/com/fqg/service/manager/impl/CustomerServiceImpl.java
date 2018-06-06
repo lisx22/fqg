@@ -27,11 +27,33 @@ public class CustomerServiceImpl implements CustomerService{
     public List<Customer> selectByPage(@Param("first")int first){
         int page = first*pageSize;
        return customerDAO.selectByPage(page, pageSize);
-
     }
-
     public int insert(Customer record){
         customerDAO.insert(record);
         return 0;
+    }
+    public int updateByPrimaryKey(Customer record){
+        customerDAO.updateByPrimaryKey(record);
+        return 0;
+    }
+    public Customer selectByPrimaryKey(Integer customerId){
+        return customerDAO.selectByPrimaryKey(customerId);
+    }
+
+    public int deleteByPrimaryKey(Integer customerId){
+        customerDAO.deleteByPrimaryKey(customerId);
+        return 0;
+    }
+
+    public int selectCount(){
+        int count =  customerDAO.selectCount();
+        int pageCount;
+        if(count%pageSize==0){
+            pageCount = count/pageSize;
+        }else{
+            pageCount= count/pageSize+1;
+        }
+        return pageCount;
+
     }
 }
