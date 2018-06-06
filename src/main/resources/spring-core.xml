@@ -14,48 +14,40 @@
     <import resource="spring-redis.xml"/>
     <import resource="spring-session.xml"/>
     <!-- 扫描包下面的所有的类是否受spring的管理，需要spring创建对象 -->
-    <context:component-scan base-package="com.fqg.entity,com.fqg.service.qiantai,com.fqg.service.manager,com.fqg.dao,,com.fqg.controller.qiantai,com.fqg.controller.manager,com.fqg.cache,com.fqg.util"/>
+    <context:component-scan base-package="com.fqg.entity,com.fqg.service.*,com.fqg.dao,com.fqg.controller.*,com.fqg.cache"/>
 
 
     <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"/>
-<<<<<<< HEAD
-        <property name="suffix" value=".ftl"/>
-=======
         <property name="suffix" value=".jsp"/>
->>>>>>> cf57fa33c5600e7620cdff592fbadb42ee9f7cc0
     </bean>
 
     <!---********************************************-->
     <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
-        <!--<property name="templateLoaderPath" value="ftl/" />-->
-        <!--<property name="defaultEncoding" value="UTF-8" />-->
+    <!--<property name="templateLoaderPath" value="ftl/" />-->
+    <!--<property name="defaultEncoding" value="UTF-8" />-->
     <!--</bean>-->
-<<<<<<< HEAD
-    <!-- freemarker视图解析器 -->
-=======
     <!--&lt;!&ndash; freemarker视图解析器 &ndash;&gt;-->
->>>>>>> cf57fa33c5600e7620cdff592fbadb42ee9f7cc0
     <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
-        <!--<property name="viewClass"-->
-                  <!--value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />-->
-        <!--<property name="suffix" value=".ftl" />-->
-        <!--<property name="contentType" value="text/html;charset=UTF-8" />-->
-        <!--<property name="exposeRequestAttributes" value="true" />-->
-        <!--<property name="exposeSessionAttributes" value="true" />-->
-        <!--<property name="exposeSpringMacroHelpers" value="true" />-->
-        <!--&lt;!&ndash; 此变量值为pageContext.request, 页面使用方法：rc.contextPath &ndash;&gt;-->
-        <!--<property name="requestContextAttribute" value="request" />-->
-        <!--<property name="cache" value="true" />-->
-        <!--<property name="order" value="0" />-->
+    <!--<property name="viewClass"-->
+    <!--value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />-->
+    <!--<property name="suffix" value=".ftl" />-->
+    <!--<property name="contentType" value="text/html;charset=UTF-8" />-->
+    <!--<property name="exposeRequestAttributes" value="true" />-->
+    <!--<property name="exposeSessionAttributes" value="true" />-->
+    <!--<property name="exposeSpringMacroHelpers" value="true" />-->
+    <!--&lt;!&ndash; 此变量值为pageContext.request, 页面使用方法：rc.contextPath &ndash;&gt;-->
+    <!--<property name="requestContextAttribute" value="request" />-->
+    <!--<property name="cache" value="true" />-->
+    <!--<property name="order" value="0" />-->
     <!--</bean>-->
 
     <!--&lt;!&ndash;ViewResolver 视图解析器&ndash;&gt;-->
     <!--&lt;!&ndash;用于支持Servlet、JSP视图解析&ndash;&gt;-->
     <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
-        <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
-        <!--<property name="suffix" value=".jsp"/>-->
+    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+    <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
+    <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
     <!---*******************************************************->
 
@@ -148,7 +140,7 @@
 
 
     <!--<bean name="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">-->
-        <!--<property name="cookie" ref="rememberMeCookie"/>-->
+    <!--<property name="cookie" ref="rememberMeCookie"/>-->
     <!--</bean>-->
 
     <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
