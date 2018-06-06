@@ -19,7 +19,7 @@ import java.util.Set;
 /**
  *查询商品详情
  * @author 赵浩杰
- * 2018.6.5
+ * @time 2018.6.5
  */
 @Service
 public class CommodityInfoService implements ICommodityInfoService {
@@ -33,6 +33,7 @@ public class CommodityInfoService implements ICommodityInfoService {
     public String commodityInfo(int commodityId) {
         Gson gson = new Gson();
         //查询该商品数据
+
         String str = redisUtil.get("commodity"+commodityId).toString();
         if(str == null) {
             System.out.println("haha");
@@ -42,8 +43,7 @@ public class CommodityInfoService implements ICommodityInfoService {
             Set<Integer> propertyId = new HashSet<>();
             //过滤重复的id；减轻压力
             for (CommodityInfo commodityInfo : commodity.getCiList()) {
-                System.out.println(commodityInfo.getPrice());
-                //propertyId.add(info.getPropertyId());
+                propertyId.add(commodityInfo.getInfo().getPropertyId());
             }
             //根据id查询该商品属性数据
             for (int i : propertyId) {

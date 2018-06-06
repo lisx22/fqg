@@ -17,7 +17,7 @@ public class Customer implements Serializable {
     private String trueName;
 
     private String idNumber;
-//所有额度
+    //所有额度
     private Integer allQuota;
     //当前额度
     private Integer quota;
