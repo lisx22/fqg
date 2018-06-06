@@ -1,6 +1,7 @@
 package com.fqg.dao;
 
 import com.fqg.entity.CommodityInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,9 @@ public interface CommodityInfoMapper {
     int updateByPrimaryKey(CommodityInfo record);
 
     List<CommodityInfo> selectCIListByCommodityId(Integer commodityId);
+
+    Integer selectPriceByCommodityIdAndInfoId(
+            @Param("commodityId") Integer commodityId,
+            @Param("infoId") Integer infoId
+    );
 }

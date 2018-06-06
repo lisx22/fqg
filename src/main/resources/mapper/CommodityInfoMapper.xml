@@ -25,6 +25,14 @@
     from commodity_info
     where commodity_info_id = #{commodityInfoId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectPriceByCommodityIdAndInfoId" resultType="java.lang.Integer">
+    select
+    price
+    from commodity_info
+    where ci_commodity_id = #{commodityId}
+    and ci_info_id = #{infoId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from commodity_info
     where commodity_info_id = #{commodityInfoId,jdbcType=INTEGER}

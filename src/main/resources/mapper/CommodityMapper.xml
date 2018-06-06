@@ -137,6 +137,66 @@
     limit #{startPage},#{pageSize}
   </select>
 
+  <select id="countByTypeOne" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where one_type_id = #{typeOneId}
+  </select>
+
+  <select id="countByTypeTwo" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where two_type_id = #{typeTwoId}
+  </select>
+
+  <select id="countByTypeThree" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where three_type_id = #{typeThreeId}
+  </select>
+
+  <select id="countByTypeOneAndBrand" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where one_type_id = #{typeOneId}
+    and brand_id = #{brandId}
+  </select>
+
+  <select id="countByTypeTwoAndBrand" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where two_type_id = #{typeTwoId}
+    and brand_id = #{brandId}
+  </select>
+
+  <select id="countByTypeThreeAndBrand" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where three_type_id = #{typeThreeId}
+    and brand_id = #{brandId}
+  </select>
+
+  <select id="countByTypeOneAndPriceRange" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where one_type_id = #{typeOneId}
+    and commodity_price &gt; #{startPrice}
+    and commodity_price &lt; #{endPrice}
+  </select>
+  <select id="selectPriceById" resultType="java.lang.Integer">
+    select
+    commodity_price
+    from commodity
+    where commodity_id = #{commodityId}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from commodity
     where commodity_id = #{commodityId,jdbcType=INTEGER}

@@ -19,11 +19,15 @@ public interface CommodityMapper {
 
     int updateByPrimaryKey(Commodity record);
 
+    Integer selectPriceById(Integer commodityId);
+
     List<Commodity> selectByTypeOnePaging(
             @Param("typeOneId") Integer typeOneId,
             @Param("startPage") Integer startPage,
             @Param("pageSize") Integer pageSize
     );
+
+    Integer countByTypeOne(Integer typeOneId);
 
     List<Commodity> selectByTypeTwoPaging(
             @Param("typeTwoId") Integer typeTwoId,
@@ -31,17 +35,26 @@ public interface CommodityMapper {
             @Param("pageSize") Integer pageSize
     );
 
+    Integer countByTypeTwo(Integer typeTwoId);
+
     List<Commodity> selectByTypeThreePaging(
             @Param("typeThreeId") Integer typeThreeId,
             @Param("startPage") Integer startPage,
             @Param("pageSize") Integer pageSize
     );
 
+    Integer countByTypeThree(Integer typeThree);
+
     List<Commodity> selectByTypeOneAndBrandPaging(
             @Param("typeOneId") Integer typeOneId,
             @Param("brandId") Integer brandId,
             @Param("startPage") Integer startPage,
             @Param("pageSize") Integer pageSize
+    );
+
+    Integer countByTypeOneAndBrand(
+            @Param("typeOneId") Integer typeOneId,
+            @Param("brandId") Integer brandId
     );
 
     List<Commodity> selectByTypeTwoAndBrandPaging(
@@ -51,11 +64,21 @@ public interface CommodityMapper {
             @Param("pageSize") Integer pageSize
     );
 
+    Integer countByTypeTwoAndBrand(
+            @Param("typeTwoId") Integer typeTwoId,
+            @Param("brandId") Integer brandId
+    );
+
     List<Commodity> selectByTypeThreeAndBrandPaging(
             @Param("typeThreeId") Integer typeThreeId,
             @Param("brandId") Integer brandId,
             @Param("startPage") Integer startPage,
             @Param("pageSize") Integer pageSize
+    );
+
+    Integer countByTypeThreeAndBrand(
+            @Param("typeThreeId") Integer typeThreeId,
+            @Param("brandId") Integer brandId
     );
 
     List<Commodity> selectByTypeOneAndPriceRangePaging(
@@ -66,11 +89,18 @@ public interface CommodityMapper {
             @Param("pageSize") Integer pageSize
     );
 
+    Integer countByTypeOneAndPriceRange(
+            @Param("typeOneId") Integer typeOneId,
+            @Param("startPrice") Integer startPrice,
+            @Param("endPrice") Integer endPrice
+    );
+
     List<Commodity> selectByTypeOneOrderByPrice(
             @Param("typeOneId") Integer typeOneId,
             @Param("startPage") Integer startPage,
             @Param("pageSize") Integer pageSize
     );
+
 
     List<Commodity> selectByTypeOneOrderByPriceDesc(
             @Param("typeOneId") Integer typeOneId,
@@ -78,11 +108,13 @@ public interface CommodityMapper {
             @Param("pageSize") Integer pageSize
     );
 
+
     List<Commodity> selectByTypeOneOrderBySellNum(
             @Param("typeOneId") Integer typeOneId,
             @Param("startPage") Integer startPage,
             @Param("pageSize") Integer pageSize
     );
+
 
     List<Commodity> selectByTypeOneOrderBySellNumDesc(
             @Param("typeOneId") Integer typeOneId,
