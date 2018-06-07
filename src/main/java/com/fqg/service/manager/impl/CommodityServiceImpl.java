@@ -2,6 +2,7 @@ package com.fqg.service.manager.impl;
 
 import com.fqg.dao.*;
 import com.fqg.entity.Brand;
+import com.fqg.entity.Commodity;
 import com.fqg.entity.TypeOne;
 import com.fqg.service.manager.CommodityService;
 import org.springframework.stereotype.Service;

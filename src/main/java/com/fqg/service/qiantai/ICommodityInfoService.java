@@ -1,5 +1,6 @@
 package com.fqg.service.qiantai;
 
+import com.fqg.entity.Commodity;
 import org.springframework.stereotype.Service;
 
 /**

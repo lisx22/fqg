@@ -1,11 +1,16 @@
 package com.fqg.controller.qiantai;
 
+import com.fqg.entity.Commodity;
 import com.fqg.entity.CommodityCoupon;
+import com.fqg.service.qiantai.IBeforeAddOrderService;
+import com.fqg.service.qiantai.ICommodityCoupon;
+import com.fqg.service.qiantai.impl.BeforeAddOrderService;
 import com.fqg.service.qiantai.impl.CommodityCouponService;
 import com.fqg.service.qiantai.impl.CommodityInfoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -21,6 +26,8 @@ public class BuyCommodityController {
     private CommodityInfoService infoService;
     @Resource
     private CommodityCouponService iCommodityCoupon;
+    @Resource
+    private BeforeAddOrderService iBeforeAddOrderService;
     //商品详情接口
     @RequestMapping("/commodityinfo")
     public String commodityInfo(String id, Model model){
@@ -33,7 +40,7 @@ public class BuyCommodityController {
     //购买商品，加入订单表
     @RequestMapping("/addorder")
     public String addToOrder(String buyInfo){
-
-        return "";
+        String str = iBeforeAddOrderService.addToOrder(buyInfo);
+        return str;
     }
 }
