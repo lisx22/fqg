@@ -12,6 +12,13 @@
     commodity_id, commodity_name, commodity_price
   </sql>
 
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where commodity_id = #{commodityId}
+  </select>
+
   <!--<select id="selectByTypeOnePaging" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -163,9 +170,9 @@
     and commodity_price &lt; #{endPrice}
   </select>-->
 
-  <select id="selectByDynamicSQL" parameterType="com.fqg.entity.CommoditySelect" resultMap="BaseResultMap">
+  <select id="selectByDynamicSQL" parameterType="com.fqg.entity.CommoditySelect" resultType="java.lang.Integer">
       select
-      <include refid="Base_Column_List" />
+      commodity_id
       from commodity
       <where>
         <if test="typeOneId != null">
@@ -201,7 +208,7 @@
         limit #{startPage},#{pageSize}
       </where>
   </select>
-  <select id="countByDynamicSQL" resultType="java.lang.Integer">
+  <select id="countByDynamicSQL" parameterType="com.fqg.entity.CommoditySelect" resultType="java.lang.Integer">
     select
     count(commodity_id)
     from commodity
