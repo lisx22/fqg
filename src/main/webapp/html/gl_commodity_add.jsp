@@ -88,7 +88,7 @@
 								<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 								<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
 									<li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-									<li><a href="<%=basePath %>/commodity/commodityList/0,1">商品管理</a></li>
+									<li><a href="gl_commodity.ftl">商品管理</a></li>
 									<li><a href="gl_orders.ftl">订单管理</a></li>
 									<li><a href="gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>
 									<li><a href="gl_activity.ftl" class="am-cf"> 活动管理</span></a></li>
@@ -147,53 +147,71 @@
 								  </li>
 								</ul>
 								
-								<form action="/fqg/customer/add" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+								<form action="/fqg/commodity/add" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 								  <fieldset>
-								    <legend>新增用户</legend>
+								    <legend>新增商品</legend>
 								    <div class="am-form-group">
-								      <label for="doc-vld-name-2">账号名：</label>
-								      <input type="text" id="doc-vld-name-2" name="username" minlength="1" placeholder="输入用户名" required/>
+								      <label for="doc-vld-name-2">商品名：</label>
+								      <input type="text" id="doc-vld-name-2" name="commodityName" minlength="1" placeholder="输入商品名" required/>
 								    </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">姓名：</label>
-										  <input type="text" id="doc-vld-name-3" name="trueName" minlength="2" placeholder="输入姓名" required/>
+										  <label for="doc-vld-name-2">商品价格：</label>
+										  <input type="text" id="doc-vld-name-3" name="commodityPrice" minlength="1" placeholder="输入价格" required/>
 									  </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">身份证号码：</label>
-										  <input type="text" id="doc-vld-idNumber-3" name="idNumber" minlength="18" maxlength="18" placeholder="输入身份证" required/>
+										  <label for="doc-vld-name-2">商品描述：</label>
+										  <input type="text" id="doc-vld-idNumber-3" name="commodityDescription"  placeholder="商品描述" required/>
 									  </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">电话号码：</label>
-										  <input type="text" id="doc-vld-phone-3" name="phoneNumber" minlength="11" maxlength="11" placeholder="输入电话号码" required/>
+										  <label for="doc-vld-name-2">库存：</label>
+										  <input type="text" id="doc-vld-phone-3" name="number"  placeholder="输入库存" required/>
 									  </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">密码：</label>
-										  <input type="text" id="doc-vld-password-2" name="loginPassword" minlength="6" placeholder="输入密码" required/>
+										  <label for="doc-vld-name-2">免息期数：</label>
+										  <input type="text" id="doc-vld-password-2" name="noInterestStage"placeholder="免息期数" required/>
 									  </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">支付密码：</label>
-										  <input type="text" id="doc-vld-password-3" name="payPassword" minlength="6" placeholder="输入支付密码" required/>
+										  <label for="doc-vld-name-2">类型一：</label>
+										  <c:forEach var="typeones" items="${typeones}">
+										  <label class="am-radio-inline">
+											  <input type="radio"  value="${typeones.typeOneId}" name="oneTypeId" required>${typeones.typeOneName}
+										  </label>
+										   </c:forEach>
+										  <%--<input type="text" id="doc-vld-password-3" name="oneTypeId"  placeholder="类型一" required/>--%>
 									  </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">学校名：</label>
-										  <input type="text" id="doc-vld-school-3" name="schoolName" minlength="2" placeholder="输入学校名" required/>
+										  <label for="doc-vld-name-2">类型二：</label>
+										  <c:forEach var="typetwos" items="${typetwos}">
+											  <label class="am-radio-inline">
+												  <input type="radio"  value="${typetwos.typeTwoId}" name="twoTypeId" required>${typetwos.typeTwoName}
+											  </label>
+										  </c:forEach>
 									  </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">公司：</label>
-										  <input type="text" id="doc-vld-company-3" name="companyName" minlength="1" placeholder="输入公司" required/>
+										  <label for="doc-vld-name-2">类型三：</label>
+										  <c:forEach var="typethrees" items="${typethrees}">
+											  <label class="am-radio-inline">
+												  <input type="radio"  value="${typethrees.typeThreeId}" name="threeTypeId" required>${typethrees.typeThreeName}
+											  </label>
+										  </c:forEach>
 									  </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">额度：</label>
-										  <input type="text" id="doc-vld-allQuota-3" name="allQuota" minlength="1" placeholder="输入额度" required/>
+										  <label for="doc-vld-name-2">品牌：</label>
+										  <c:forEach var="Brands" items="${Brands}">
+											  <label class="am-radio-inline">
+												  <input type="radio"  value="${Brands.brandId}" name="brandId" required>${Brands.brandName}
+											  </label>
+										  </c:forEach>
 									  </div>
+
 								
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
 								  </fieldset>
@@ -204,9 +222,6 @@
 						</div>
 					<!-- Row end -->
 				</div>
-			
-			
-			
 			
 			</div>
 		</div>

@@ -16,6 +16,12 @@
     where type_three_id = #{typeThreeId,jdbcType=INTEGER}
   </select>
 
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from type_three
+  </select>
+
   <select id="selectByTypeTwo" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

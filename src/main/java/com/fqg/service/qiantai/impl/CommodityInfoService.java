@@ -1,7 +1,6 @@
 package com.fqg.service.qiantai.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.fqg.dao.CommodityMapper;
 import com.fqg.dao.PropertyMapper;
 import com.fqg.entity.*;
 import com.fqg.service.qiantai.ICommodityInfoService;

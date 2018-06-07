@@ -1,9 +1,6 @@
 package com.fqg.service.qiantai;
 
-import com.fqg.entity.Commodity;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * 商品详情接口

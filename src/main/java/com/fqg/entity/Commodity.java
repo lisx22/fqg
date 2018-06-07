@@ -39,6 +39,10 @@ public class Commodity implements Serializable {
 
     private TypeThree typeThree;
 
+    private Integer brandId;
+
+    private Brand brand;
+
     private List<CommodityColor> ccList;
 
     private List<CommodityInfo> ciList;
@@ -50,6 +54,22 @@ public class Commodity implements Serializable {
     private List<CommodityExhibitionImage> commodityExhibitionImages;
 
     private List<Evaluate> evaluateList;
+
+    public Integer getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
 
     public Integer getSellNum() {
         return sellNum;

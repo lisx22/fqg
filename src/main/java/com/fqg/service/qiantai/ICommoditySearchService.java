@@ -1,6 +1,7 @@
 package com.fqg.service.qiantai;
 
-import com.fqg.entity.Commodity;
+import com.fqg.entity.CommoditySelect;
+import com.fqg.entity.CommoditySmallVO;
 import com.fqg.entity.PageInfo;
 
 /**
@@ -12,47 +13,5 @@ import com.fqg.entity.PageInfo;
  */
 public interface ICommoditySearchService {
 
-    PageInfo<Commodity> selectByTypeOnePaging(
-            Integer typeOneId, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeTwoPaging(
-            Integer typeTwoId, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeThreePaging(
-            Integer typeThreeId, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeOneAndBrandPaging(
-            Integer typeOneId, Integer brandId, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeTwoAndBrandPaging(
-            Integer typeTwoId, Integer brandId, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeThreeAndBrandPaging(
-            Integer typeThreeId, Integer brandId, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeOneAndPriceRangePaging(
-            Integer typeOneId, Integer startPrice, Integer endPrice, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeOneOrderByPrice(
-            Integer typeOneId, Integer pageNo
-    );
-
-    PageInfo<Commodity> selectByTypeOneOrderByPriceDesc(
-            Integer typeOneId, Integer startPage, Integer pageSize
-    );
-
-    PageInfo<Commodity> selectByTypeOneOrderBySellNum(
-            Integer typeOneId, Integer startPage, Integer pageSize
-    );
-
-    PageInfo<Commodity> selectByTypeOneOrderBySellNumDesc(
-            Integer typeOneId, Integer startPage, Integer pageSize
-    );
+    PageInfo<CommoditySmallVO> selectByCommoditySelect(CommoditySelect commoditySelect);
 }

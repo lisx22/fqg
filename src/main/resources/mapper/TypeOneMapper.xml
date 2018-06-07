@@ -4,17 +4,25 @@
   <resultMap id="BaseResultMap" type="com.fqg.entity.TypeOne">
     <id column="type_one_id" jdbcType="INTEGER" property="typeOneId" />
     <result column="type_one_name" jdbcType="VARCHAR" property="typeOneName" />
-    <collection property="brandList" column="type_one_id" select="com.fqg.dao.BrandMapper.selectBrandListByTypeOneId"></collection>
+    <collection property="brandList" column="type_one_id" select="com.fqg.dao.BrandMapper.selectBrandListByTypeOne"></collection>
   </resultMap>
   <sql id="Base_Column_List">
     type_one_id, type_one_name
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from type_one
     where type_one_id = #{typeOneId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from type_one
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from type_one
     where type_one_id = #{typeOneId,jdbcType=INTEGER}

@@ -1,5 +1,6 @@
 package com.fqg.dao;
 
+import com.fqg.entity.TypeOne;
 import com.fqg.entity.TypeTwo;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface TypeTwoMapper {
     int updateByPrimaryKey(TypeTwo record);
 
     List<TypeTwo> selectByTypeOne(Integer typeOneId);
+
+    List<TypeOne> selectAll();
 }
