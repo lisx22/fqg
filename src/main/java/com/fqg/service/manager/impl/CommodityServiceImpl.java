@@ -48,7 +48,7 @@ public class CommodityServiceImpl implements CommodityService{
      * @return
      */
     public int insert(Commodity commodity){
-        commodityDAO.insert(commodity);
+        commodityDAO.insertSelective(commodity);
         return 0;
     }
 

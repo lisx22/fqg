@@ -28,4 +28,5 @@ public interface CommodityMapper {
     );
 
     int countByTypeOne(int typeOneId);
+
 }
