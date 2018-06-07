@@ -39,7 +39,7 @@ public class CommodityServiceImpl implements CommodityService{
      */
     public List<Commodity> selectByPage(int typeOneId,int first){
         int page = first*pageSize;
-        return commodityDAO.selectByTypeOneOrderBySellNum(typeOneId,page,pageSize);
+        return commodityDAO.selectByTypeOnePaging(typeOneId,page,pageSize);
     }
 
     /**
@@ -136,6 +136,5 @@ public class CommodityServiceImpl implements CommodityService{
     public TypeOne selectTypeName (int id){
         return typeOneDAO.selectByPrimaryKey(id);
     }
-
 
 }

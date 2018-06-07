@@ -74,6 +74,7 @@ public class CommodityController {
         commodity.setCreateTime(sdf.format(date));
         commodity.setUpdateTime(sdf.format(date));date
         commodity.setCommodityStatus(1);
+        commodityService.insert(commodity);
         return "redirect:/commodity/commodityList/0,1";
     }
 
