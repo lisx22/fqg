@@ -26,4 +26,6 @@ public interface CommodityMapper {
             @Param("startPage") Integer startPage,
             @Param("pageSize") Integer pageSize
     );
+
+    int countByTypeOne(int typeOneId);
 }

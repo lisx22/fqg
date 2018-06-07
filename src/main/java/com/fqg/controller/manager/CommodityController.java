@@ -1,6 +1,7 @@
 package com.fqg.controller.manager;
 
 import com.fqg.entity.Brand;
+import com.fqg.entity.Commodity;
 import com.fqg.entity.TypeOne;
 import com.fqg.service.manager.impl.CommodityServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -73,6 +74,7 @@ public class CommodityController {
         commodity.setCreateTime(sdf.format(date));
         commodity.setUpdateTime(sdf.format(date));
         commodity.setCommodityStatus(1);
+        commodityService.insert(commodity);
         return "redirect:/commodity/commodityList/0,1";
     }
 

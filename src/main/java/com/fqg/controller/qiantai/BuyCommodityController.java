@@ -1,5 +1,6 @@
 package com.fqg.controller.qiantai;
 
+import com.fqg.entity.Commodity;
 import com.fqg.entity.CommodityCoupon;
 import com.fqg.service.qiantai.impl.CommodityCouponService;
 import com.fqg.service.qiantai.impl.CommodityInfoService;

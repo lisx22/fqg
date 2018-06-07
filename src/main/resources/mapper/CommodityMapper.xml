@@ -34,7 +34,12 @@
     commodity_id, commodity_name, commodity_price, commodity_description, number, create_time, 
     update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id ,nointerest_stage,sell_num
   </sql>
-
+  <select id="countByTypeOne" resultType="java.lang.Integer">
+    select
+    count(*)
+    from commodity
+    where one_type_id = #{typeOneId}
+  </select>
   <select id="selectByTypeOnePaging" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

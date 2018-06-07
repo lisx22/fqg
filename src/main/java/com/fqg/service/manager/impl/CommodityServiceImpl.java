@@ -2,6 +2,7 @@ package com.fqg.service.manager.impl;
 
 import com.fqg.dao.*;
 import com.fqg.entity.Brand;
+import com.fqg.entity.Commodity;
 import com.fqg.entity.TypeOne;
 import com.fqg.service.manager.CommodityService;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class CommodityServiceImpl implements CommodityService{
      */
     public List<Commodity> selectByPage(int typeOneId,int first){
         int page = first*pageSize;
-        return commodityDAO.selectByTypeOneOrderBySellNum(typeOneId,page,pageSize);
+        return commodityDAO.selectByTypeOnePaging(typeOneId,page,pageSize);
     }
 
     /**
@@ -135,6 +136,5 @@ public class CommodityServiceImpl implements CommodityService{
     public TypeOne selectTypeName (int id){
         return typeOneDAO.selectByPrimaryKey(id);
     }
-
 
 }

@@ -1,5 +1,6 @@
 package com.fqg.service.manager;
 
+import com.fqg.entity.Commodity;
 import com.fqg.entity.TypeOne;
 
 import java.util.List;
