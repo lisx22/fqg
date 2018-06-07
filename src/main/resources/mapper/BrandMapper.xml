@@ -15,6 +15,12 @@
     where brand_id = #{brandId,jdbcType=INTEGER}
   </select>
 
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from  brand
+  </select>
+
   <select id="selectBrandListByTypeOne" resultMap="BaseResultMap">
     select
     b.brand_id, brand_name

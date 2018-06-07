@@ -5,11 +5,13 @@ import com.fqg.entity.Customer;
 import com.fqg.service.manager.CustomerService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
+@Transactional
 public class CustomerServiceImpl implements CustomerService{
     /**
      * 每页十五条记录

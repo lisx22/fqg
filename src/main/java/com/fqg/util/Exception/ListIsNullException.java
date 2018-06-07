@@ -1,4 +1,4 @@
-package com.fqg.Exception;
+package com.fqg.util.Exception;
 
 public class ListIsNullException extends RuntimeException{
 

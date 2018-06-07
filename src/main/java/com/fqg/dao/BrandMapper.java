@@ -1,7 +1,6 @@
 package com.fqg.dao;
 
 import com.fqg.entity.Brand;
-
 import java.util.List;
 
 public interface BrandMapper {
@@ -23,5 +22,7 @@ public interface BrandMapper {
      * @return
      */
     List<Brand> selectBrandListByTypeOne(Integer typeOneId);
+
+    List<Brand> selectAll();
 
 }

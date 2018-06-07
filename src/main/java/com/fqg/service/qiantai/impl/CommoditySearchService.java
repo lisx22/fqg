@@ -1,13 +1,13 @@
 package com.fqg.service.qiantai.impl;
 
-import com.fqg.dao.CommodityMapper;
-import com.fqg.entity.Commodity;
+import com.fqg.dao.CommoditySmallVOMapper;
+import com.fqg.entity.CommoditySelect;
+import com.fqg.entity.CommoditySmallVO;
 import com.fqg.entity.PageInfo;
 import com.fqg.service.qiantai.ICommoditySearchService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,10 +20,12 @@ import java.util.List;
 public class CommoditySearchService implements ICommoditySearchService {
 
     @Resource
-    private CommodityMapper commodityMapper;
+    private CommoditySmallVOMapper commoditySmallVOMapper;
 
     @Override
-    public PageInfo<Commodity> selectByTypeOnePaging(Integer typeOneId, Integer pageNo) {
+    public PageInfo<CommoditySmallVO> selectByCommoditySelect(CommoditySelect commoditySelect) {
+        /*String commodityKey = String.valueOf(commoditySelect.hashCode());
+        String countKey = String.valueOf(commoditySelect.hashCode()) + "count";
         int total=commodityMapper.countByTypeOne(typeOneId);
         int pageCount=total% PageInfo.PAGE_SIZE==0?
                 total/PageInfo.PAGE_SIZE:total/PageInfo.PAGE_SIZE+1;
@@ -33,56 +35,7 @@ public class CommoditySearchService implements ICommoditySearchService {
         page.setData(commodityList);
         page.setPageCount(pageCount);
         page.setPageNo(pageNo);
-        return page;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeTwoPaging(Integer typeTwoId, Integer pageNo) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeThreePaging(Integer typeThreeId, Integer pageNo) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeOneAndBrandPaging(Integer typeOneId, Integer brandId, Integer pageNo) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeTwoAndBrandPaging(Integer typeTwoId, Integer brandId, Integer pageNo) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeThreeAndBrandPaging(Integer typeThreeId, Integer brandId, Integer pageNo) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeOneAndPriceRangePaging(Integer typeOneId, Integer startPrice, Integer endPrice, Integer pageNo) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeOneOrderByPrice(Integer typeOneId, Integer pageNo) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeOneOrderByPriceDesc(Integer typeOneId, Integer startPage, Integer pageSize) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeOneOrderBySellNum(Integer typeOneId, Integer startPage, Integer pageSize) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<Commodity> selectByTypeOneOrderBySellNumDesc(Integer typeOneId, Integer startPage, Integer pageSize) {
+        return page;*/
         return null;
     }
 }

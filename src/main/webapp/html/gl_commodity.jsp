@@ -88,7 +88,7 @@
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
 						<li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-						<li><a href="<%=basePath %>/">商品管理</a></li>
+						<li><a href="<%=basePath %>/commodity/commodityList/0,0">商品管理</a></li>
 						<li><a href="<%=basePath %>/">订单管理</a></li>
 						<li><a href="<%=basePath %>/" class="am-cf"> 退换货管理</span></a></li>
 						<li><a href="<%=basePath %>/" class="am-cf"> 活动管理</span></a></li>
@@ -136,8 +136,20 @@
 						<div class="am-btn-toolbar">
 							<div class="am-btn-group am-btn-group-xs">
 								<button type="button" id="addBut" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-								<a href="<%=basePath %>/customer/preAdd/" id="add"></a>
+								<a href="<%=basePath %>/commodity/preAdd/" id="add"></a>
 								<button id="selectCustomers" type="button" onclick="deleteCustomers()" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+
+								<div class="am-form-group">
+									<select id="doc-select-1" onchange="selectOnclik()" required>
+										<option value="">${typeName}</option>
+										<c:forEach items="${types}" var="types">
+											<option value="${types.typeOneId}"  onclick="selectOnclik(${types.typeOneId})">${types.typeOneName}</option>
+										</c:forEach>
+
+									</select>
+									<span class="am-form-caret"></span>
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -159,43 +171,43 @@
 						<form class="am-form" action="<%=basePath %>/customer/deletes/" method="post">
 							<input type="submit" style="display: none" id="deleteone">
 
-							<table class="am-table am-table-striped am-table-hover table-main">
+							<table class="am-table am-table-striped am-table-hover table-main" style="table-layout: fixed;">
 								<thead>
 								<tr>
 									<th></th>
 									</th><th class="table-id">ID</th>
-									<th class="table-title">账号名</th>
-									<th class="table-type">姓名</th>
-									<th class="table-author am-hide-sm-only">密码</th>
-									<th class="table-date am-hide-sm-only">支付密码</th>
-									<th class="table-date am-hide-sm-only">学校名</th>
-									<th class="table-date am-hide-sm-only">公司名</th>
-									<th class="table-date am-hide-sm-only">当前额度</th>
-									<th class="table-date am-hide-sm-only">所有额度</th>
+									<th class="table-title">商品名</th>
+									<th class="table-type">商品价格</th>
+									<th class="table-author am-hide-sm-only">商品描述</th>
+									<th class="table-date am-hide-sm-only">商品库存</th>
+									<th class="table-date am-hide-sm-only">创建时间</th>
+									<th class="table-date am-hide-sm-only">修改时间</th>
+									<th class="table-date am-hide-sm-only">下架时间</th>
+									<th class="table-date am-hide-sm-only">商品状态</th>
 									<th class="table-set">操作</th>
 								</tr>
 								</thead>
 								<tbody>
 
-								<c:forEach  var="customers" items="${Customerlist}">
+								<c:forEach  var="commoditys" items="${CommodityList}">
 									<tr>
-										<td><input type="checkbox" name="costomerIds" value="${customers.customerId}"/></td>
-										<td>${customers.customerId}</td>
-										<td>${customers.username}</td>
-										<td>${customers.trueName}</td>
-										<td class="am-hide-sm-only">${customers.loginPassword}</td>
-										<td class="am-hide-sm-only">${customers.payPassword}</td>
-										<td class="am-hide-sm-only">${customers.schoolName}</td>
-										<td class="am-hide-sm-only">${customers.companyName}</td>
-										<td class="am-hide-sm-only">${customers.quota}</td>
-										<td class="am-hide-sm-only">${customers.allQuota}</td>
+										<td><input type="checkbox" name="commoditys" value="${commoditys.commodityId}"/></td>
+										<td>${commoditys.commodityId}</td>
+										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName}</td>
+										<td>${commoditys.commodityPrice}</td>
+										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription}</td>
+										<td class="am-hide-sm-only">${commoditys.number}</td>
+										<td class="am-hide-sm-only">${commoditys.createTime}</td>
+										<td class="am-hide-sm-only">${commoditys.updateTime}</td>
+										<td class="am-hide-sm-only">${commoditys.deleteTime}</td>
+										<td class="am-hide-sm-only">${commoditys.commodityStatus}</td>
 										<td>
 											<div class="am-btn-toolbar">
 												<div class="am-btn-group am-btn-group-xs">
-													<button id="updatebut${customers.customerId}" onclick="update(${customers.customerId})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-													<a href="<%=basePath %>/customer/preUpdateCustomer/${customers.customerId}" id="update${customers.customerId}"></a>
-													<button id="deletebut${customers.customerId}" onclick="deleteById(${customers.customerId})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-													<a href="<%=basePath %>/customer/deleteById/${customers.customerId}" id="delete${customers.customerId}"></a>
+													<button id="updatebut${commoditys.commodityId}" onclick="update(${commoditys.commodityId})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+													<a href="<%=basePath %>/customer/preUpdateCustomer/${commoditys.commodityId}" id="update${commoditys.commodityId}"></a>
+													<button id="deletebut${commoditys.commodityId}" onclick="deleteById(${commoditys.commodityId})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+													<a href="<%=basePath %>/customer/deleteById/${commoditys.commodityId}" id="delete${commoditys.commodityId}"></a>
 												</div>
 											</div>
 										</td>
@@ -212,11 +224,11 @@
 								<div class="am-fr">
 									<ul class="am-pagination">
 										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href="<%=basePath %>/customer/customerList/0">1</a></li>
-										<li><a href="<%=basePath %>/customer/customerList/1">2</a></li>
-										<li><a href="<%=basePath %>/customer/customerList/2">3</a></li>
-										<li><a href="<%=basePath %>/customer/customerList/3">4</a></li>
-										<li><a href="<%=basePath %>/customer/customerList/4">5</a></li>
+										<li><a href="<%=basePath %>/commodity/commodityList/0,1">1</a></li>
+										<li><a href="<%=basePath %>/commodity/commodityList/1,1">2</a></li>
+										<li><a href="<%=basePath %>/commodity/commodityList/2,1">3</a></li>
+										<li><a href="<%=basePath %>/commodity/commodityList/3,1">4</a></li>
+										<li><a href="<%=basePath %>/commodity/commodityList/4,1">5</a></li>
 										<li><a href="javascript:downPage()">»</a></li>
 
 									</ul>
@@ -273,7 +285,6 @@
 		}
 
 	}
-
 	function downPage() {
         var first = $("#first").val();
         var pageCount = $("#pageCount").val();
@@ -284,8 +295,12 @@
             window.location = "<%=basePath %>/customer/customerList/"+jian;
             $("#first").val(jian);
 		}
-
     }
+    function selectOnclik(){
+        var objS = document.getElementById("doc-select-1");
+        var grade = objS.options[objS.selectedIndex].value;
+        window.location = "<%=basePath %>/commodity/commodityList/0,"+grade;
+	}
 
 </script>
 </body>
