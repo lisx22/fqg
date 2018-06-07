@@ -32,7 +32,7 @@
 
   <sql id="Base_Column_List">
     commodity_id, commodity_name, commodity_price, commodity_description, number, create_time, 
-    update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id ,nointerest_stage,sell_num
+    update_time, delete_time, commodity_status, three_type_id, two_type_id, one_type_id ,nointerest_stage,sell_num,brand_id
   </sql>
   <select id="countByTypeOne" resultType="java.lang.Integer">
     select
@@ -67,15 +67,15 @@
     where commodity_id = #{commodityId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.fqg.entity.Commodity">
-    insert into commodity (commodity_id, commodity_name, commodity_price, 
+    insert into commodity (commodity_name, commodity_price,
       commodity_description, number, create_time, 
       update_time, delete_time, commodity_status, 
-      three_type_id, two_type_id, one_type_id,nointerest_stage,sell_num
+      three_type_id, two_type_id, one_type_id,nointerest_stage,brand_id,sell_num
       )
-    values (#{commodityId,jdbcType=INTEGER}, #{commodityName,jdbcType=VARCHAR}, #{commodityPrice,jdbcType=INTEGER}, 
-      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER},#{sellNum,jdbcType=INTEGER}, #{nointerest_stage,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR},
-      #{updateTime,jdbcType=VARCHAR}, #{deleteTime,jdbcType=VARCHAR}, #{commodityStatus,jdbcType=INTEGER},
-      #{threeTypeId,jdbcType=INTEGER}, #{twoTypeId,jdbcType=INTEGER}, #{oneTypeId,jdbcType=INTEGER}
+    values ( #{commodityName,jdbcType=VARCHAR}, #{commodityPrice,jdbcType=INTEGER},
+      #{commodityDescription,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER},#{createTime,jdbcType=VARCHAR},#{updateTime,jdbcType=VARCHAR},
+      #{deleteTime,jdbcType=VARCHAR}, #{commodityStatus,jdbcType=INTEGER},
+      #{threeTypeId,jdbcType=INTEGER}, #{twoTypeId,jdbcType=INTEGER}, #{oneTypeId,jdbcType=INTEGER},#{noInterestStage,jdbcType=INTEGER},#{brandId,jdbcType=INTEGER}, #{sellNum,jdbcType=INTEGER},
       )
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.Commodity">
@@ -99,7 +99,7 @@
       <if test="sellNum != null">
         sellNum,
       </if>
-      <if test="nointerest_stage != null">
+      <if test="noInterestStage != null">
         nointerest_stage,
       </if>
       <if test="createTime != null">
@@ -143,8 +143,8 @@
       <if test="sellNum != null">
         #{sellNum,jdbcType=INTEGER},
       </if>
-      <if test="nointerest_stage != null">
-        #{nointerest_stage,jdbcType=INTEGER},
+      <if test="noInterestStage != null">
+        #{noInterestStage,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=VARCHAR},
@@ -187,8 +187,8 @@
       <if test="sellNum != null">
         sell_num = #{sellNum,jdbcType=INTEGER},
       </if>
-      <if test="nointerest_stage != null">
-        nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
+      <if test="noInterestStage != null">
+        nointerest_stage = #{noInterestStage,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=VARCHAR},
@@ -221,7 +221,7 @@
       commodity_description = #{commodityDescription,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
       sell_num = #{sellNum,jdbcType=INTEGER},
-      nointerest_stage = #{nointerest_stage,jdbcType=INTEGER},
+      nointerest_stage = #{noInterestStage,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=VARCHAR},
       delete_time = #{deleteTime,jdbcType=VARCHAR},

@@ -274,4 +274,5 @@ public class Commodity implements Serializable {
     public void setProperties(List<Property> properties) {
         this.properties = properties;
     }
+
 }
