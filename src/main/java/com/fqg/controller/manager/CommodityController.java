@@ -72,7 +72,7 @@ public class CommodityController {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
         commodity.setCreateTime(sdf.format(date));
-        commodity.setUpdateTime(sdf.format(date));date
+        commodity.setUpdateTime(sdf.format(date));
         commodity.setCommodityStatus(1);
         commodityService.insert(commodity);
         return "redirect:/commodity/commodityList/0,1";

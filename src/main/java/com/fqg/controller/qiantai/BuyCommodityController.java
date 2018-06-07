@@ -43,4 +43,9 @@ public class BuyCommodityController {
         String str = iBeforeAddOrderService.addToOrder(buyInfo);
         return str;
     }
+    //加入收藏夹
+    @RequestMapping("/likecommodity")
+    public String addToLikeCommodity(String commodityId,String customerId){
+        return "";
+    }
 }
