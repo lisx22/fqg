@@ -120,4 +120,6 @@ public interface CommoditySmallVOMapper {
     List<Integer> selectByDynamicSQL(CommoditySelect commoditySelect);
 
     Integer countByDynamicSQL(CommoditySelect commoditySelect);
+
+    List<Integer> selectOrderByCreateTime();
 }

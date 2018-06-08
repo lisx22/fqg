@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,8 +19,8 @@ import javax.annotation.Resource;
  * @Time 20:23
  */
 @Controller
-@RequestMapping("/selectCommodity")
-public class SelectCommodityController {
+@RequestMapping("/commoditySmallVO")
+public class CommoditySmallVOController {
 
     @Resource
     private ICommoditySearchService iCommoditySearchService;
@@ -33,6 +34,13 @@ public class SelectCommodityController {
         PageInfo<CommoditySmallVO> pageInfo = iCommoditySearchService.
                 selectByCommoditySelect(commoditySelect, Integer.parseInt(pageNo));
         model.addAttribute("pageInfo",pageInfo);
+        return "";
+    }
+
+    @RequestMapping("/newCommodity")
+    public String newCommodity(Model model){
+        List<CommoditySmallVO> commoditySmallVOList = iCommoditySearchService.selectOrderByCreateTime();
+        model.addAttribute("commoditySmallVOList",commoditySmallVOList);
         return "";
     }
 }

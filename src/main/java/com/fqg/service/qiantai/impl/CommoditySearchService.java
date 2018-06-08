@@ -51,8 +51,25 @@ public class CommoditySearchService implements ICommoditySearchService {
         }
         int pageCount=total% PageInfo.PAGE_SIZE == 0?
                 total/PageInfo.PAGE_SIZE:total/PageInfo.PAGE_SIZE+1;
-        List<CommoditySmallVO> commoditySmallVOList = new ArrayList<>();
         List<Integer> commoditySmallVOIdList = commoditySmallVOMapper.selectByDynamicSQL(commoditySelect);
+        List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(gson, commoditySmallVOIdList);
+        PageInfo<CommoditySmallVO> page=new PageInfo<>();
+        page.setData(commoditySmallVOList);
+        page.setPageCount(pageCount);
+        page.setPageNo(pageNo);
+        return page;
+    }
+
+    @Override
+    public List<CommoditySmallVO> selectOrderByCreateTime() {
+        Gson gson = new Gson();
+        List<Integer> commoditySmallVOIdList = commoditySmallVOMapper.selectOrderByCreateTime();
+        List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(gson, commoditySmallVOIdList);
+        return commoditySmallVOList;
+    }
+
+    private List<CommoditySmallVO> selectCommoditySmallVOListById(Gson gson, List<Integer> commoditySmallVOIdList) {
+        List<CommoditySmallVO> commoditySmallVOList = new ArrayList<>();
         for (Integer commodityId : commoditySmallVOIdList) {
             String key2 = "commoditySmallVO" + commodityId;
             CommoditySmallVO commoditySmallVO;
@@ -72,10 +89,7 @@ public class CommoditySearchService implements ICommoditySearchService {
                 }
             }
         }
-        PageInfo<CommoditySmallVO> page=new PageInfo<>();
-        page.setData(commoditySmallVOList);
-        page.setPageCount(pageCount);
-        page.setPageNo(pageNo);
-        return page;
+        return commoditySmallVOList;
     }
+
 }

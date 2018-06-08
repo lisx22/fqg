@@ -234,4 +234,11 @@
       limit #{startPage},#{pageSize}
     </where>
   </select>
+  <select id="selectOrderByCreateTime" resultType="java.lang.Integer">
+    select
+    commodity_id
+    from commodity
+    order by create_time desc
+    limit 0,10
+  </select>
 </mapper>
