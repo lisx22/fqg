@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +35,7 @@ public class UserController {
 //    登录
     @RequestMapping("/login")
     public Object login(String username, String password, HttpServletRequest req,
-                        String vcode,Model model){
+                        String vcode,HttpSession session){
         System.out.println("进入方法1"+vcode);
         Object vcode1 = req.getSession().getAttribute("vcode");
         System.out.println(vcode1);
@@ -45,6 +46,7 @@ public class UserController {
                 return jsonResult;
             }
             userServiceImpl.login(username,password);
+            session.setAttribute("username",username);
             jsonResult = SystemTools.formatJsonResult(SystemParam.Login.CODE_SUCCESS,SystemParam.Login.MSG_SUCCESS);
         } catch (UnknownAccountException e) {
             e.printStackTrace();
