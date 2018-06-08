@@ -6,10 +6,19 @@
     <result column="type_id" property="typeId" jdbcType="INTEGER"/>
     <result column="nointerest_content" jdbcType="INTEGER" property="nointerestContent" />
     <result column="number" jdbcType="INTEGER" property="number" />
+    <association property="typeOne" column="type_id" select="com.fqg.dao.TypeOneMapper.selectByPrimaryKey"></association>
+
   </resultMap>
   <sql id="Base_Column_List">
     coupon_id, nointerest_content,type_id, number
   </sql>
+
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from typeinterestcoupon
+    where number > 0
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

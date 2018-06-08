@@ -99,7 +99,7 @@
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-                                    <li><a href="html/qt_coupon.ftl" class="am-cf"> 优惠券发布</span></a></li>
+                                    <li><a href="<%=basePath %>/coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
                                     <li><a href="html/qt_repay.ftl" class="am-cf">还款信息</span></a></li>
 
                                 </ul>

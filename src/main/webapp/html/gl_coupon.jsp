@@ -99,7 +99,7 @@
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-						<li><a href="<%=basePath %>/" class="am-cf"> 优惠券发布</span></a></li>
+						<li><a href="<%=basePath %>/coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
 						<li><a href="<%=basePath %>/" class="am-cf">还款信息</span></a></li>
 
 					</ul>
@@ -122,7 +122,6 @@
 	<!-- ========== Left Sidebar end ========== -->
 
 
-
 	<!--	<div class="am-g">-->
 	<!-- ============================================================== -->
 	<!-- Start right Content here -->
@@ -135,19 +134,12 @@
 					<div class="am-u-sm-12 am-u-md-6">
 						<div class="am-btn-toolbar">
 							<div class="am-btn-group am-btn-group-xs">
-								<button type="button" id="addBut" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-								<a href="<%=basePath %>/commodity/preAdd/" id="add"></a>
-								<button id="selectCustomers" type="button" onclick="deleteCustomers()" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+								<button type="button" id="addBut2" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
 
 								<div class="am-form-group">
-									<select id="doc-select-1" onchange="selectOnclik()" required>
-										<option value="">${typeName}</option>
-										<c:forEach items="${types}" var="types">
-											<option value="${types.typeOneId}"  onclick="selectOnclik(${types.typeOneId})">${types.typeOneName}</option>
-										</c:forEach>
-									</select>
-									<span class="am-form-caret"></span>
+
 								</div>
+
 
 							</div>
 						</div>
@@ -165,70 +157,143 @@
 				<!-- Row end -->
 
 				<!-- Row start -->
+				<h4>${typeName}:</h4>
 				<div class="am-g">
 					<div class="am-u-sm-12">
-						<form class="am-form" action="<%=basePath %>/commodity/deletes/" method="post">
-							<input type="submit" style="display: none" id="deleteone">
+						<form>
 
 							<table class="am-table am-table-striped am-table-hover table-main" style="table-layout: fixed;">
+								<c:if test="${ListType==1}">
 								<thead>
 								<tr>
-									<th></th>
 									</th><th class="table-id">ID</th>
-									<th class="table-title">商品名</th>
-									<th class="table-type">商品价格</th>
-									<th class="table-author am-hide-sm-only">商品描述</th>
-									<th class="table-date am-hide-sm-only">商品库存</th>
-									<th class="table-date am-hide-sm-only">创建时间</th>
-									<th class="table-date am-hide-sm-only">修改时间</th>
-									<th class="table-date am-hide-sm-only">下架时间</th>
-									<th class="table-date am-hide-sm-only">商品状态</th>
+									<th class="table-title">期数</th>
+									<th class="table-type">数量</th>
 									<th class="table-set">操作</th>
 								</tr>
 								</thead>
 								<tbody>
 
-								<c:forEach  var="commoditys" items="${CommodityList}">
+								<c:forEach  var="coupons" items="${CouponList}">
 									<tr>
-										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId}"/></td>
-										<td>${commoditys.commodityId}</td>
-										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName}</td>
-										<td>${commoditys.commodityPrice}</td>
-										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription}</td>
-										<td class="am-hide-sm-only">${commoditys.number}</td>
-										<td class="am-hide-sm-only">${commoditys.createTime}</td>
-										<td class="am-hide-sm-only">${commoditys.updateTime}</td>
-										<td class="am-hide-sm-only">${commoditys.deleteTime}</td>
-										<td class="am-hide-sm-only">${commoditys.commodityStatus}</td>
+										<td>${coupons.couponId}</td>
+										<td>${coupons.nointerestContent}</td>
+										<td>${coupons.number}</td>
+
 										<td>
 											<div class="am-btn-toolbar">
 												<div class="am-btn-group am-btn-group-xs">
-													<button id="updatebut${commoditys.commodityId}" onclick="update(${commoditys.commodityId})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-													<a href="<%=basePath %>/commodity/preUpdateCommodity/${commoditys.commodityId}" id="update${commoditys.commodityId}"></a>
-													<button id="deletebut${commoditys.commodityId}" onclick="deleteById(${commoditys.commodityId})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-													<a href="<%=basePath %>/commodity/deleteById/${commoditys.commodityId}" id="delete${commoditys.commodityId}"></a>
+													<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+													<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}" id="delete${coupons.couponId}${ListType}"></a>
 												</div>
 											</div>
 										</td>
 									</tr>
-
 								</c:forEach>
 
 
 								</tbody>
+								</c:if>
+
+								<c:if test="${ListType==2}">
+									<thead>
+									<tr>
+										</th><th class="table-id">ID</th>
+										<th class="table-title">应满足金额</th>
+										<th class="table-type">优惠金额</th>
+										<th class="table-set">操作</th>
+									</tr>
+									</thead>
+									<tbody>
+									<c:forEach  var="coupons" items="${CouponList}">
+										<tr>
+											<td>${coupons.couponId}</td>
+											<td>${coupons.conditionAmount}</td>
+											<td>${coupons.reduceAmount}</td>
+											<td>${coupons.number}</td>
+											<td>
+												<div class="am-btn-toolbar">
+													<div class="am-btn-group am-btn-group-xs">
+
+														<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+														<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</c:forEach>
+									</tbody>
+								</c:if>
+
+								<c:if test="${ListType==3}">
+									<thead>
+									<tr>
+										</th><th class="table-id">ID</th>
+										<th class="table-title">期数</th>
+										<th class="table-type">数量</th>
+										<th class="table-set">类型名称</th>
+									</tr>
+									</thead>
+									<tbody>
+									<c:forEach  var="coupons" items="${CouponList}">
+										<tr>
+											<td>${coupons.couponId}</td>
+											<td>${coupons.nointerestContent}</td>
+											<td>${coupons.number}</td>
+											<td>${coupons.typeOne.typeOneName}</td>
+											<td>
+												<div class="am-btn-toolbar">
+													<div class="am-btn-group am-btn-group-xs">
+														<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+														<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a>	</div>
+												</div>
+											</td>
+										</tr>
+									</c:forEach>
+									</tbody>
+								</c:if>
+
+								<c:if test="${ListType==4}">
+									<thead>
+									<tr>
+										</th><th class="table-id">ID</th>
+										<th class="table-title">满足金额</th>
+										<th class="table-type">优惠金额</th>
+										<th class="table-set">数量</th>
+										<th class="table-set">类型名称</th>
+									</tr>
+									</thead>
+									<tbody>
+									<c:forEach  var="coupons" items="${CouponList}">
+										<tr>
+											<td>${coupons.couponId}</td>
+											<td>${coupons.conditionAmount}</td>
+											<td>${coupons.reduceAmount}</td>
+											<td>${coupons.number}</td>
+											<td>${coupons.typeOne.typeOneName}</td>
+											<td>
+												<div class="am-btn-toolbar">
+													<div class="am-btn-group am-btn-group-xs">
+														<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+														<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a></div>
+												</div>
+											</td>
+										</tr>
+									</c:forEach>
+									</tbody>
+								</c:if>
 							</table>
+
 						</form>
 							<div class="am-cf">
-								共 ${pageSize} 条记录
 								<div class="am-fr">
 									<ul class="am-pagination">
-										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/0,${typeOneId}">1</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/1,${typeOneId}">2</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/2,${typeOneId}">3</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/3,${typeOneId}">4</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/4,${typeOneId}">5</a></li>
-										<li><a href="javascript:downPage()">»</a></li>
+
+										<li><a href="<%=basePath %>/coupon/couponList/1"> 利息优惠券</a></li>
+										<li><a href="<%=basePath %>/coupon/couponList/2">价格优惠券</a></li>
+										<li><a href="<%=basePath %>/coupon/couponList/3">类型利息优惠券</a></li>
+										<li><a href="<%=basePath %>/coupon/couponList/4">类型价格优惠券</a></li>
+
 
 									</ul>
 								</div>
@@ -239,6 +304,7 @@
 
 					</div>
 				</div>
+
 				<!-- Row end -->
 			</div>
 		</div>
@@ -260,46 +326,22 @@
 <script type="text/javascript" src="../assets/js/app.js" ></script>
 <script type="text/javascript" src="../assets/js/blockUI.js" ></script>
 <script>
-    document.getElementById("addBut").onclick=function(){
-        document.getElementById("add").click();
+
+
+
+    document.getElementById("addBut2").onclick=function(){
+        window.location = "<%=basePath %>/coupon/preAdd/"+${ListType};
     }
+
 	function update(cusid){
 		document.getElementById("update"+cusid).click();
     }
-    function deleteCustomers(){
-        document.getElementById("deleteone").click();
-	}
-    function deleteById(cusid){
-        document.getElementById("delete"+cusid).click();
+
+    function deleteById2(cusid,id){
+        document.getElementById("delete"+cusid+id).click();
     }
 
-    function upPage(){
-        var first = $("#first").val();
-        if(first=="0"){
-            alert("我已经翻不动了")
-		}else{
-            var add = parseInt(first)-1;
-            window.location = "<%=basePath %>/commodity/commodityList/"+add+${typeOneId};
-            $("#first").val(add);
-		}
 
-	}
-	function downPage() {
-        var first = $("#first").val();
-        var pageCount = $("#pageCount").val();
-        if(parseInt(first)>=parseInt(pageCount)-1){
-            alert("我已经翻不动了")
-		}else{
-            var jian = parseInt(first)+1;
-            window.location = "<%=basePath %>/commodity/commodityList/"+jian+${typeOneId};
-            $("#first").val(jian);
-		}
-    }
-    function selectOnclik(){
-        var objS = document.getElementById("doc-select-1");
-        var grade = objS.options[objS.selectedIndex].value;
-        window.location = "<%=basePath %>/commodity/commodityList/0,"+grade;
-	}
 
 
 

@@ -13,6 +13,16 @@ public class TypePriceCoupon implements Serializable {
 
     private Integer number;
 
+    private TypeOne typeOne;
+
+    public TypeOne getTypeOne() {
+        return typeOne;
+    }
+
+    public void setTypeOne(TypeOne typeOne) {
+        this.typeOne = typeOne;
+    }
+
     public Integer getCouponId() {
         return couponId;
     }

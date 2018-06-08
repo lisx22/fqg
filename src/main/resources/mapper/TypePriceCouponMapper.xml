@@ -7,10 +7,19 @@
     <result column="reduce_amount" jdbcType="INTEGER" property="reduceAmount" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
     <result column="number" jdbcType="INTEGER" property="number" />
+    <association property="typeOne" column="type_id" select="com.fqg.dao.TypeOneMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Base_Column_List">
     coupon_id, condition_amount, reduce_amount, type_id, number
   </sql>
+
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from typepricecoupon
+    where number > 0
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
