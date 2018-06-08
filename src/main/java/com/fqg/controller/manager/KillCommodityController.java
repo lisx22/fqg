@@ -27,7 +27,7 @@ public class KillCommodityController {
     private KillCommodityServiceImpl killCommodityService;
 
     @Resource
-    private CommodityService commodityDAO;
+    private CommodityService commodityService;
 
     static String getdata(){
         Date date = new Date();
@@ -53,21 +53,16 @@ public class KillCommodityController {
 
     @RequestMapping("/add")
     public String add(KillCommodity killCommodity, HttpServletRequest req){
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
-        String date2 = sdf.format(date);
-        System.out.println(date2+"设计师就是就是就是就是计算机");
         try {
             req.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        Commodity commodity2 = commodityDAO.selectByPrimaryKey(killCommodity.getCommodityId());
+        Commodity commodity2 = commodityService.selectByPrimaryKey(killCommodity.getCommodityId());
         if(commodity2!=null) {
-                killCommodity.setCreateTime(sdf.format(date));
-                killCommodity.setUpdateTime(sdf.format(date));
+                killCommodity.setCreateTime(getdata());
+                killCommodity.setUpdateTime(getdata());
                 killCommodityService.insert(killCommodity);
-
         }
         return "redirect:/killCommodity/killCommodityList/0";
     }

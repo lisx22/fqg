@@ -74,4 +74,17 @@ public class KillCommodity implements Serializable {
     public void setUpdateTime(String  updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "KillCommodity{" +
+                "killCommodityId=" + killCommodityId +
+                ", commodityId=" + commodityId +
+                ", commodity=" + commodity +
+                ", price=" + price +
+                ", number=" + number +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
+    }
 }

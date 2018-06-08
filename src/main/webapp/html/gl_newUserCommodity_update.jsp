@@ -13,7 +13,7 @@
 	<base href="<%=request.getContextPath()%>/html/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>修改用户信息</title>
+		<title>修改优惠商品</title>
 		<link rel="stylesheet" href="../assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../assets/css/core.css" />
@@ -147,29 +147,22 @@
 								  </li>
 								</ul>
 								
-								<form action="/fqg/killCommodity/update" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+								<form action="/fqg/newUserCommodity/update" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 								  <fieldset>
-								    <legend>修改秒杀商品信息</legend>
-									  <input type="hidden" id="doc-vld-id-2" name="killCommodityId" value="${killCommodity.killCommodityId}" required/>
-									  <input type="hidden" id="doc-vld-id-3" name="createTime" value="${killCommodity.createTime}" required/>
+								    <legend>修改优惠商品信息</legend>
+									  <input type="hidden" id="doc-vld-id-2" name="newUerCommodityId" value="${newUserCommodity.newUerCommodityId}" required/>
+									  <input type="hidden" id="doc-vld-id-3" name="createTime" value="${newUserCommodity.createTime}" required/>
 
 									  <div class="am-form-group">
 								      <label for="doc-vld-name-2">商品id</label>
-								      <input type="text" id="doc-vld-name-2" name="commodityId"  value="${killCommodity.commodityId}" required/>
+								      <input type="text" id="doc-vld-name-2" name="commodityId"  value="${newUserCommodity.commodityId}" required/>
 								    </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">秒杀价格</label>
-										  <input type="text" id="doc-vld-name-3" name="price"  value="${killCommodity.price}" required/>
+										  <label for="doc-vld-name-2">优惠价格</label>
+										  <input type="text" id="doc-vld-name-3" name="price"  value="${newUserCommodity.price}" required/>
 									  </div>
 
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">秒杀数量：</label>
-										  <input type="text" id="doc-vld-idNumber-3" name="number"  value="${killCommodity.number}"required/>
-									  </div>
-
-
-								
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
 								  </fieldset>
 								</form>

@@ -108,7 +108,7 @@
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 上架 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
                                     <li><a href="<%=basePath %>/killCommodity/killCommodityList/0" class="am-cf">秒杀商品上架</a></li>
-                                    <li><a href="html/sj_new_user.ftl">新人优惠商品上架</a></li>
+                                    <li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/0">新人优惠商品上架</a></li>
                                 </ul>
                             </li>
                         </ul>

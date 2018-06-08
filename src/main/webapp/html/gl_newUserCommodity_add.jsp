@@ -147,7 +147,7 @@
 								  </li>
 								</ul>
 								
-								<form action="/fqg/killCommodity/add" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+								<form action="/fqg/newUserCommodity/add" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 								  <fieldset>
 								    <legend>新增秒杀商品</legend>
 								    <div class="am-form-group">
@@ -156,14 +156,10 @@
 								    </div>
 
 									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">秒杀价格：</label>
+										  <label for="doc-vld-name-2">优惠价格：</label>
 										  <input type="text" id="doc-vld-name-3" name="price"  placeholder="输入价格" required/>
 									  </div>
 
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">参与秒杀数量：</label>
-										  <input type="text" id="doc-vld-idNumber-3" name="number"  placeholder="输入秒杀数量" required/>
-									  </div>
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
 								  </fieldset>
 								</form>

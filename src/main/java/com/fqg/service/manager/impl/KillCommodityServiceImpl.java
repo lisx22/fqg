@@ -33,6 +33,7 @@ public class KillCommodityServiceImpl implements KillCommodityService{
         return 0;
     }
     public int updateByPrimaryKey(KillCommodity record){
+        System.out.println(record.toString());
         killCommodityDAO.updateByPrimaryKey(record);
         return 0;
     }

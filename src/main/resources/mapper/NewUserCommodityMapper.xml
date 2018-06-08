@@ -12,6 +12,20 @@
   <sql id="Base_Column_List">
     new_uer_commodity_id, commodity_id, price, create_time, update_time
   </sql>
+
+  <select id="selectByPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from new_user_commodity
+    limit #{first},#{pageSize}
+  </select>
+
+  <select id="selectCount"  resultType="java.lang.Integer">
+    select
+    count(new_uer_commodity_id)
+    from new_user_commodity
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

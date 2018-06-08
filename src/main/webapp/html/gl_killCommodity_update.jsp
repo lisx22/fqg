@@ -150,7 +150,8 @@
 								<form action="/fqg/killCommodity/update" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 								  <fieldset>
 								    <legend>修改秒杀商品信息</legend>
-									  <input type="hidden" id="doc-vld-id-2" name="customerId" value="${killCommodity.killCommodityId}" required/>
+									  <input type="hidden" id="doc-vld-id-2" name="killCommodityId" value="${killCommodity.killCommodityId}" required/>
+									  <input type="hidden" id="doc-vld-id-3" name="createTime" value="${killCommodity.createTime}" required/>
 
 									  <div class="am-form-group">
 								      <label for="doc-vld-name-2">商品id</label>
