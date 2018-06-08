@@ -52,6 +52,13 @@
     from customer
     where customer_id = #{customerId}
   </select>
+  <select id="selectByPhoneNumber" resultMap="BaseResultMap">
+    select
+    customer_id, phone_number, username, true_name, ID_number,
+    all_quota, quota, create_time, company_name, school_name
+    from customer
+    where phone_number = #{phoneNumber}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from customer
     where customer_id = #{customerId,jdbcType=INTEGER}

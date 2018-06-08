@@ -3,7 +3,7 @@
 
   <!-- 当启动项目后，直接访问项目默认启动的页面 -->
   <welcome-file-list>
-    <welcome-file>/WEB-INF/pages/login.jsp</welcome-file>
+    <welcome-file>/wedding.ftl</welcome-file>
   </welcome-file-list>
 
   <!-- 加载spring的IOC（业务对象（dao、biz）等对象的创建和管理）和AOP（声明式事务）功能的配置文件，即applicationContext.xml（spring.xml） -->
@@ -33,6 +33,15 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <filter>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
   <!-- 配置编码的过滤器 -->
   <filter>

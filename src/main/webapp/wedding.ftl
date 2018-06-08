@@ -38,8 +38,8 @@
             <div class="container fn-clear">
     <div class="site-nav-bd">
         <div class="nav-text">
-                            <a href="login.html" style="font-size: 13px;" class="fn-left a17" >登录</a>
-                <a class="fn-left a17" style="font-size: 13px;margin-left: 10px" href="register.html" >注册</a>
+                            <a href="login.ftl" style="font-size: 13px;" class="fn-left a17" >登录</a>
+                <a class="fn-left a17" style="font-size: 13px;margin-left: 10px" href="register.ftl" >注册</a>
             
     </div>
 </div>                <div class="fn-right top-icon">
@@ -88,7 +88,7 @@
                             <div class="aside-nav-body">
                                 <ul id="category_nav" class="">
                                                                         <li class="first" data-category-id="66">
-                                        <a class="lp" href="https://channel.fenqile.com/10.html" title="" data-fql-stat="WWW.MAIN.NAV.MOBILE" data-fql-ftag="WWW.MAIN.NAV.MOBILE">
+                                        <a class="lp" href="/commoditySmallVO/select?typeOneId=1" title="" data-fql-stat="WWW.MAIN.NAV.MOBILE" data-fql-ftag="WWW.MAIN.NAV.MOBILE">
                                             <i class="i-phone"></i>手机通讯<span class="i-right-ico"></span>
                                         </a>
                                         <span class="line"></span>

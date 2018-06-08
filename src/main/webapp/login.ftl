@@ -196,7 +196,7 @@
                 function (data) {
                     alert(data.code);
                     if (data.code==0){
-                        window.location.href = "wedding.html";
+                        window.location.href = "wedding.ftl";
                     } else {
                         alert("手机号或密码错误");
                         alert("请重新输入手机号和密码");

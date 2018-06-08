@@ -200,7 +200,7 @@
                 "loginpassword":loginpassword,"inputCode":inputCode},
             function (data) {
                 if (data.code==0){
-                    window.location.href = "login.html";
+                    window.location.href = "login.ftl";
                 } else {
                     alert(data.msg);
                 }
