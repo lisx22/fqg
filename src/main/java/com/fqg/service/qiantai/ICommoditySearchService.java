@@ -13,5 +13,5 @@ import com.fqg.entity.PageInfo;
  */
 public interface ICommoditySearchService {
 
-    PageInfo<CommoditySmallVO> selectByCommoditySelect(CommoditySelect commoditySelect);
+    PageInfo<CommoditySmallVO> selectByCommoditySelect(CommoditySelect commoditySelect , Integer pageNo);
 }

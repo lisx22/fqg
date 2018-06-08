@@ -14,6 +14,8 @@ import java.util.List;
  */
 public interface CommoditySmallVOMapper {
 
+    CommoditySmallVO selectByPrimaryKey(Integer commodityId);
+
     /*List<CommoditySmallVO> selectByTypeOnePaging(
             @Param("typeOneId") Integer typeOneId,
             @Param("startPage") Integer startPage,
@@ -115,7 +117,7 @@ public interface CommoditySmallVOMapper {
             @Param("pageSize") Integer pageSize
     );*/
 
-    List<CommoditySmallVO> selectByDynamicSQL(CommoditySelect commoditySelect);
+    List<Integer> selectByDynamicSQL(CommoditySelect commoditySelect);
 
     Integer countByDynamicSQL(CommoditySelect commoditySelect);
 }

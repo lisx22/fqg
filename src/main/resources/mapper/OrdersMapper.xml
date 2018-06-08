@@ -42,6 +42,12 @@
     from orders
     where order_id = #{orderId,jdbcType=INTEGER}
   </select>
+  <select id="selectByNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select
+    order_id
+    from orders
+    where order_num = #{num,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from orders
     where order_id = #{orderId,jdbcType=INTEGER}

@@ -29,5 +29,13 @@ public class PageInfo<T> implements Serializable{
 	public static int getPageSize() {
 		return PAGE_SIZE;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "PageInfo{" +
+				"data=" + data +
+				", pageNo=" + pageNo +
+				", pageCount=" + pageCount +
+				'}';
+	}
 }
