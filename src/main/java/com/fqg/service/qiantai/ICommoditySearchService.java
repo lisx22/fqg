@@ -18,4 +18,5 @@ public interface ICommoditySearchService {
     PageInfo<CommoditySmallVO> selectByCommoditySelect(CommoditySelect commoditySelect , Integer pageNo);
 
     List<CommoditySmallVO> selectOrderByCreateTime();
+
 }

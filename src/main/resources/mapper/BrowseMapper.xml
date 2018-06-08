@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.BrowseMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.Browse">
+    <id column="browse_id" jdbcType="INTEGER" property="browseId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    browse_id, customer_id, commodity_id, create_time
+  </sql>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from browse
+    where browse_id = #{browseId}
+  </delete>
+
+  <select id="selectByCustomer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from browse
+    where customer_id = #{customerId}
+  </select>
+
+  <insert id="insert" parameterType="com.fqg.entity.Browse">
+    insert into browse (browse_id, customer_id, commodity_id, create_time)
+    values (#{browseId}, #{customerId}, #{commodityId},
+      #{createTime})
+  </insert>
+
+</mapper>

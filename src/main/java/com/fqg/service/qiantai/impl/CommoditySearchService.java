@@ -68,6 +68,8 @@ public class CommoditySearchService implements ICommoditySearchService {
         return commoditySmallVOList;
     }
 
+
+
     private List<CommoditySmallVO> selectCommoditySmallVOListById(Gson gson, List<Integer> commoditySmallVOIdList) {
         List<CommoditySmallVO> commoditySmallVOList = new ArrayList<>();
         for (Integer commodityId : commoditySmallVOIdList) {
