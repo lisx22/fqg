@@ -16,7 +16,7 @@ public interface CustomerMapper {
 
     int insertSelective(Customer record);
 
-    Customer selectByPrimaryKey(Integer customerId);
+    Customer selectByPrimaryKey(String customerId);
 
     int updateByPrimaryKeySelective(Customer record);
 

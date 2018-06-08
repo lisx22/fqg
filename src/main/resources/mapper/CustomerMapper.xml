@@ -33,11 +33,11 @@
     from customer
   </select>
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from customer
-    where customer_id = #{customerId,jdbcType=INTEGER}
+    where phone_number = #{customerId,jdbcType=VARCHAR}
   </select>
   <select id="selectTrueNameById" resultType="java.lang.String">
     select
