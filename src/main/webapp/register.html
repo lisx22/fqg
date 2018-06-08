@@ -57,52 +57,52 @@
                 <li class="form-input clear js-input-wrap">
                     <label class="fl tit">手机号码</label>
                     <div class="fl">
-                        <input type="text" name="mobile" id="mobile" placeholder="请输入有效手机号" data-type="mobile" maxlength="11" data-required="" data-behavior-collection="true" data-collection-key="mobile" minlength="11" class="js-g-module-form-el">
+                        <input type="text" name="mobile" id="username" placeholder="请输入有效手机号" data-type="mobile" maxlength="11" data-required="" data-behavior-collection="true" data-collection-key="mobile" minlength="11" class="js-g-module-form-el">
                         
                     </div>
                 </li>
-                <li class="form-sms clear js-input-wrap fn-hide" id="img_code_wrap">
-                    <label class="fl tit">验证码</label>
-                    <div class="fl">
-                        <input class="fl js-g-module-form-el" type="text" id="imgcode" name="imgcode" placeholder="图片验证码" autocomplete="off" maxlength="4" data-type="imgCode" data-behavior-collection="" data-collection-key="imgcode" required="" minlength="4" autocorrect="off" autocapitalize="characters">
-                        <a href="javascript:;"><img src="./register_files/getimage" width="80" height="46" alt="图片验证码" id="refresh_imgcode" align="top"></a>
-                    </div>
-                </li>
+                <!--<li class="form-sms clear js-input-wrap fn-hide" id="img_code_wrap">-->
+                    <!--<label class="fl tit">验证码</label>-->
+                    <!--<div class="fl">-->
+                        <!--<input class="fl js-g-module-form-el" type="text" id="imgcode" name="imgcode" placeholder="图片验证码" autocomplete="off" maxlength="4" data-type="imgCode" data-behavior-collection="" data-collection-key="imgcode" required="" minlength="4" autocorrect="off" autocapitalize="characters">-->
+                        <!--&lt;!&ndash;<a href="javascript:;"><img src="./register_files/getimage" width="80" height="46" alt="图片验证码" id="refresh_imgcode" align="top"></a>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</li>-->
                 <li class="form-sms clear js-input-wrap">
                     <label class="fl tit">短信验证码</label>
                     <div class="fl">
-                        <input class="fl js-g-module-form-el" type="text" name="sms_code" id="sms_code" placeholder="请输入验证码" data-type="smsCode" maxlength="6" data-required="" data-behavior-collection="true" data-collection-key="sms_code" minlength="6">
-                    <button type="button" class="btn js-g-module-countdown-button-1528078066434a436264603161990340" id="get_sms_code" data-seconds="60" data-tip="$!{second}秒后重试" data-disable-class="btn-disabled">获取验证码</button>
+                        <input class="fl js-g-module-form-el" type="text" name="sms_code" id="inputCode" placeholder="请输入验证码" data-type="smsCode" maxlength="6" data-required="" data-behavior-collection="true" data-collection-key="sms_code" minlength="6">
+                        <button type="button" class="btn js-g-module-countdown-button-1528078066434a436264603161990340" id="sendCode">获取验证码</button>
                     </div>
                 </li>
                 <li class="form-input clear js-input-wrap">
                     <label class="fl tit">登录密码</label>
                     <div class="fl">
-                        <input type="password" name="passwd" id="passwd" placeholder="请输入6-16位字符或数字" maxlength="16" data-type="password" data-required="" data-min-length="6" data-short="密码长度至少6位" data-behavior-collection="true" data-collection-key="passwd" minlength="6" class="js-g-module-form-el">
+                        <input type="password" name="passwd" id="password" placeholder="请输入6-16位字符或数字" maxlength="16" data-type="password" data-required="" data-min-length="6" data-short="密码长度至少6位" data-behavior-collection="true" data-collection-key="passwd" minlength="6" class="js-g-module-form-el">
                     </div>
                 </li>
-                <li class="form-input clear js-input-wrap fn-hide">
-                    <label class="fl tit">确定密码</label>
-                    <div class="fl">
-                        <input type="password" placeholder="确认登录密码" maxlength="16" data-type="password" data-matches="#passwd" data-required="" data-diff="与登录密码不一致" data-name="确认密码" minlength="6" class="js-g-module-form-el">
-                    </div>
-                </li>
+                <!--<li class="form-input clear js-input-wrap fn-hide">-->
+                    <!--<label class="fl tit">确定密码</label>-->
+                    <!--<div class="fl">-->
+                        <!--<input type="password" placeholder="确认登录密码" maxlength="16" data-type="password" data-matches="#passwd" data-required="" data-diff="与登录密码不一致" data-name="确认密码" minlength="6" class="js-g-module-form-el">-->
+                    <!--</div>-->
+                <!--</li>-->
                 <li class="form-input clear js-input-wrap">
                     <label class="fl tit">交易密码</label>
                     <div class="fl">
-                        <input type="password" name="pay_pwd" id="pay_pwd" placeholder="与登录密码不同" maxlength="16" data-type="password" data-different="#passwd" data-required="" data-min-length="6" data-same="交易密码和登录密码不能相同" data-short="密码长度至少6位" data-behavior-collection="true" data-collection-key="pay_pwd" minlength="6" class="js-g-module-form-el">
+                        <input type="password" name="pay_pwd" id="loginpassword" placeholder="与登录密码不同" maxlength="16" data-type="password" data-different="#passwd" data-required="" data-min-length="6" data-same="交易密码和登录密码不能相同" data-short="密码长度至少6位" data-behavior-collection="true" data-collection-key="pay_pwd" minlength="6" class="js-g-module-form-el">
                     </div>
                 </li>
-                <li class="form-input clear js-input-wrap">
-                    <label class="fl tit">确定密码</label>
-                    <div class="fl">
-                         <input type="password" placeholder="确认交易密码" maxlength="16" data-type="password" data-matches="#pay_pwd" data-required="" data-diff="与交易密码不一致" data-name="确认密码" minlength="6" class="js-g-module-form-el">
-                    </div>
-                </li>
+                <!--<li class="form-input clear js-input-wrap">-->
+                    <!--<label class="fl tit">确定密码</label>-->
+                    <!--<div class="fl">-->
+                         <!--<input type="password" placeholder="确认交易密码" maxlength="16" data-type="password" data-matches="#pay_pwd" data-required="" data-diff="与交易密码不一致" data-name="确认密码" minlength="6" class="js-g-module-form-el">-->
+                    <!--</div>-->
+                <!--</li>-->
                 <li class="form-btn clear">
                     <label class="fl tit">&nbsp;</label>
                     <div class="fl">
-                        <button class="btn" id="register_btn" data-loading-text="注册中...">同意协议并注册</button>
+                        <button onclick="login()"  class="btn" id="submit1" data-loading-text="注册中...">同意协议并注册</button>
                     </div>
                 </li>
                 <li class="clear form-protocol">
@@ -188,3 +188,33 @@
     })();
 </script>
 <div tabindex="-1" id="fql_box_152807806640147290" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div><div tabindex="-1" id="fql_box_152807806642243274" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div></body></html>
+<script type="text/javascript">
+    function login() {
+        var name = $("#username").val();
+        var password = $("#password").val();
+        var loginpassword = $("#loginpassword").val();
+        var inputCode = $("#inputCode").val();
+        $.post(
+            "user/save",
+            {"username":name,"password":password,
+                "loginpassword":loginpassword,"inputCode":inputCode},
+            function (data) {
+                if (data.code==0){
+                    window.location.href = "login.html";
+                } else {
+                    alert(data.msg);
+                }
+            }
+        );
+    }
+</script>
+<script>
+        $("#sendCode").click(function () {
+            var tel=$("#username").val();
+            $.ajax({
+                url: "user/send",
+                data: {userTel: tel},
+                async: true,
+            });
+        });
+</script>
