@@ -79,6 +79,7 @@ public class CommodityServiceImpl implements CommodityService{
 
     public int deleteByPrimaryKey(Integer commodityId){
         commodityDAO.deleteByPrimaryKey(commodityId);
+        System.out.println("");
         return 0;
     }
 

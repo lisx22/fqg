@@ -18,6 +18,7 @@ public class KillCommodity implements Serializable {
 
     private String  updateTime;
 
+
     public Commodity getCommodity() {
         return commodity;
     }

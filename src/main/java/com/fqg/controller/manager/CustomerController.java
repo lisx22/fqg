@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,12 @@ import java.util.List;
 public class CustomerController {
     @Resource
     private CustomerServiceImpl customerService;
+
+    static String getdata(){
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
+        return sdf.format(date);
+    }
 
     @RequestMapping(value="/customerList/{first}", method = RequestMethod.GET)
     public String customerList(@PathVariable("first")int first, Model model){

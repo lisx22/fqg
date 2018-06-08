@@ -13,7 +13,7 @@
 	<base href="<%=request.getContextPath()%>/jsp/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>商品管理</title>
+		<title>订单管理</title>
 		<link rel="stylesheet" href="../assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../assets/css/core.css" />
@@ -88,8 +88,8 @@
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
 						<li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-						<li><a href="<%=basePath %>/commodity/commodityList/0,0">商品管理</a></li>
-						<li><a href="<%=basePath %>/">订单管理</a></li>
+						<li><a href="<%=basePath %>/commodity/commodityList/0,1">商品管理</a></li>
+						<li><a href="<%=basePath %>/orders/ordersList/0">订单管理</a></li>
 						<li><a href="<%=basePath %>/" class="am-cf"> 退换货管理</span></a></li>
 						<li><a href="<%=basePath %>/" class="am-cf"> 活动管理</span></a></li>
 						<li><a href="<%=basePath %>/" class="am-cf"> 黑名单管理</span></a></li>
@@ -134,23 +134,7 @@
 				<div class="am-g">
 					<div class="am-u-sm-12 am-u-md-6">
 						<div class="am-btn-toolbar">
-							<div class="am-btn-group am-btn-group-xs">
-								<button type="button" id="addBut" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-								<a href="<%=basePath %>/commodity/preAdd/" id="add"></a>
-								<button id="selectCustomers" type="button" onclick="deleteCustomers()" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
 
-								<div class="am-form-group">
-									<select id="doc-select-1" onchange="selectOnclik()" required>
-										<option value="">${typeName}</option>
-										<c:forEach items="${types}" var="types">
-											<option value="${types.typeOneId}"  onclick="selectOnclik(${types.typeOneId})">${types.typeOneName}</option>
-										</c:forEach>
-
-									</select>
-									<span class="am-form-caret"></span>
-								</div>
-
-							</div>
 						</div>
 					</div>
 
@@ -168,49 +152,36 @@
 				<!-- Row start -->
 				<div class="am-g">
 					<div class="am-u-sm-12">
-						<form class="am-form" action="<%=basePath %>/commodity/deletes/" method="post">
+						<form class="am-form" action="<%=basePath %>/customer/deletes/" method="post">
 							<input type="submit" style="display: none" id="deleteone">
 
-							<table class="am-table am-table-striped am-table-hover table-main" style="table-layout: fixed;">
+							<table class="am-table am-table-striped am-table-hover table-main">
 								<thead>
 								<tr>
 									<th></th>
 									</th><th class="table-id">ID</th>
-									<th class="table-title">商品名</th>
-									<th class="table-type">商品价格</th>
-									<th class="table-author am-hide-sm-only">商品描述</th>
-									<th class="table-date am-hide-sm-only">商品库存</th>
-									<th class="table-date am-hide-sm-only">创建时间</th>
-									<th class="table-date am-hide-sm-only">修改时间</th>
-									<th class="table-date am-hide-sm-only">下架时间</th>
-									<th class="table-date am-hide-sm-only">商品状态</th>
-									<th class="table-set">操作</th>
+									<th class="table-title">用户姓名</th>
+									<th class="table-type">商品名称</th>
+									<th class="table-author am-hide-sm-only">总金额</th>
+									<th class="table-date am-hide-sm-only">购买数量</th>
+									<th class="table-date am-hide-sm-only">订单编号</th>
+									<th class="table-date am-hide-sm-only">期数</th>
+									<th class="table-date am-hide-sm-only">每期应还金额</th>
 								</tr>
 								</thead>
 								<tbody>
 
-								<c:forEach  var="commoditys" items="${CommodityList}">
+								<c:forEach  var="orders" items="${orderslist}">
 									<tr>
-										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId}"/></td>
-										<td>${commoditys.commodityId}</td>
-										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName}</td>
-										<td>${commoditys.commodityPrice}</td>
-										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription}</td>
-										<td class="am-hide-sm-only">${commoditys.number}</td>
-										<td class="am-hide-sm-only">${commoditys.createTime}</td>
-										<td class="am-hide-sm-only">${commoditys.updateTime}</td>
-										<td class="am-hide-sm-only">${commoditys.deleteTime}</td>
-										<td class="am-hide-sm-only">${commoditys.commodityStatus}</td>
-										<td>
-											<div class="am-btn-toolbar">
-												<div class="am-btn-group am-btn-group-xs">
-													<button id="updatebut${commoditys.commodityId}" onclick="update(${commoditys.commodityId})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-													<a href="<%=basePath %>/commodity/preUpdateCommodity/${commoditys.commodityId}" id="update${commoditys.commodityId}"></a>
-													<button id="deletebut${commoditys.commodityId}" onclick="deleteById(${commoditys.commodityId})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-													<a href="<%=basePath %>/commodity/deleteById/${commoditys.commodityId}" id="delete${commoditys.commodityId}"></a>
-												</div>
-											</div>
-										</td>
+										<td></td>
+										<td>${orders.orderId}</td>
+										<td>${orders.customer.username}</td>
+										<td>${orders.commodity.commodityName}</td>
+										<td>${orders.payMoney}</td>
+										<td class="am-hide-sm-only">${orders.number}</td>
+										<td class="am-hide-sm-only">${orders.orderNum}</td>
+										<td class="am-hide-sm-only">${orders.stage}</td>
+										<td class="am-hide-sm-only">${orders.amount}</td>
 									</tr>
 
 								</c:forEach>
@@ -224,11 +195,11 @@
 								<div class="am-fr">
 									<ul class="am-pagination">
 										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/0,${typeOneId}">1</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/1,${typeOneId}">2</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/2,${typeOneId}">3</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/3,${typeOneId}">4</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/4,${typeOneId}">5</a></li>
+										<li><a href="<%=basePath %>/orders/ordersList/0">1</a></li>
+										<li><a href="<%=basePath %>/orders/ordersList/1">2</a></li>
+										<li><a href="<%=basePath %>/orders/ordersList/2">3</a></li>
+										<li><a href="<%=basePath %>/orders/ordersList/3">4</a></li>
+										<li><a href="<%=basePath %>/orders/ordersList/4">5</a></li>
 										<li><a href="javascript:downPage()">»</a></li>
 
 									</ul>
@@ -280,11 +251,12 @@
             alert("我已经翻不动了")
 		}else{
             var add = parseInt(first)-1;
-            window.location = "<%=basePath %>/commodity/commodityList/"+add+${typeOneId};
+            window.location = "<%=basePath %>/orders/ordersList/"+add;
             $("#first").val(add);
 		}
 
 	}
+
 	function downPage() {
         var first = $("#first").val();
         var pageCount = $("#pageCount").val();
@@ -292,15 +264,11 @@
             alert("我已经翻不动了")
 		}else{
             var jian = parseInt(first)+1;
-            window.location = "<%=basePath %>/commodity/commodityList/"+jian+${typeOneId};
+            window.location = "<%=basePath %>/orders/ordersList/"+jian;
             $("#first").val(jian);
 		}
+
     }
-    function selectOnclik(){
-        var objS = document.getElementById("doc-select-1");
-        var grade = objS.options[objS.selectedIndex].value;
-        window.location = "<%=basePath %>/commodity/commodityList/0,"+grade;
-	}
 
 </script>
 </body>

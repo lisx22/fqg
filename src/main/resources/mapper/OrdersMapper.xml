@@ -13,11 +13,29 @@
     <result column="order_state" jdbcType="INTEGER" property="orderState" />
     <result column="stage" jdbcType="INTEGER" property="stage" />
     <result column="amount" jdbcType="INTEGER" property="amount" />
+
+    <association property="commodity" column="commodity_id" select="com.fqg.dao.CommodityMapper.selectByPrimaryKey"></association>
+
+    <association property="customer" column="customer_id" select="com.fqg.dao.CustomerMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Base_Column_List">
     order_id, customer_id, commodity_id, pay_money, number, order_num, create_time, update_time, 
     order_state, stage, amount
   </sql>
+
+  <select id="selectByPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from orders
+    limit #{first},#{pageSize}
+  </select>
+
+  <select id="selectCount"  resultType="java.lang.Integer">
+    select
+    count(order_id)
+    from orders
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

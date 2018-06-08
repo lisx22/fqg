@@ -2,6 +2,7 @@ package com.fqg.controller.manager;
 
 import com.fqg.entity.Brand;
 import com.fqg.entity.Commodity;
+import com.fqg.entity.Customer;
 import com.fqg.entity.TypeOne;
 import com.fqg.service.manager.impl.CommodityServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +24,12 @@ import java.util.List;
 public class CommodityController {
     @Resource
     private CommodityServiceImpl commodityService;
+
+    static String getdata(){
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
+        return sdf.format(date);
+    }
 
     @RequestMapping(value="/commodityList/{first},{typeOneId}", method = RequestMethod.GET)
     public String customerList(@PathVariable("first")int first,@PathVariable("typeOneId")int typeOneId,Model model){
@@ -69,13 +77,52 @@ public class CommodityController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
-        commodity.setCreateTime(sdf.format(date));
-        commodity.setUpdateTime(sdf.format(date));
+
+        commodity.setCreateTime(getdata());
+        commodity.setUpdateTime(getdata());
         commodity.setCommodityStatus(1);
         commodityService.insert(commodity);
         return "redirect:/commodity/commodityList/0,1";
+    }
+
+    @RequestMapping(value="/deletes/", method = RequestMethod.POST)
+    public String delete(@RequestParam(value="commodityIds",required = false)List<Integer> commodityIds, Model model) throws Exception{
+        if(commodityIds==null){
+            return "redirect:/commodity/commodityList/0,1";
+        }else{
+            for (int id :commodityIds) {
+                commodityService.deleteByPrimaryKey(id);
+            }
+            return"redirect:/commodity/commodityList/0,1";
+        }
+    }
+
+    @RequestMapping(value="/deleteById/{commodityId}", method = RequestMethod.GET)
+    public String deleteById(@PathVariable("commodityId") int commodityId, Model model){
+        System.out.println("deleteById");
+        commodityService.deleteByPrimaryKey(commodityId);
+        return"redirect:/commodity/commodityList/0,1";
+    }
+
+
+    @RequestMapping(value="/preUpdateCommodity/{commodityId}", method = RequestMethod.GET)
+    public String preUpdateCustomer(@PathVariable("commodityId")int commodityId, Model model){
+        Commodity commodity = commodityService.selectByPrimaryKey(commodityId);
+        model.addAttribute("commodity",commodity);
+        return "html/gl_commodity_update";
+    }
+
+    @RequestMapping("/update")
+    public String updateCustomer(Commodity commodity, HttpServletRequest req){
+        try {
+            req.setCharacterEncoding("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        commodity.setUpdateTime(getdata());
+        commodityService.updateByPrimaryKey(commodity);
+        return"redirect:/commodity/commodityList/0,1";
     }
 
 }

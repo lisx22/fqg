@@ -26,6 +26,26 @@ public class Orders implements Serializable {
 
     private Integer amount;
 
+    private Customer customer;
+
+    private Commodity commodity;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Commodity getCommodity() {
+        return commodity;
+    }
+
+    public void setCommodity(Commodity commodity) {
+        this.commodity = commodity;
+    }
+
     public Integer getOrderId() {
         return orderId;
     }
