@@ -37,7 +37,7 @@ public class UserRealm extends AuthorizingRealm{
         //跟数据库的用户名进行对比
         Customer customer = null;
         try {
-            customer = customerMapper.selectByPrimaryKey(username);
+            customer = customerMapper.selectByNum(username);
         } catch (Exception e) {
             e.printStackTrace();
 
