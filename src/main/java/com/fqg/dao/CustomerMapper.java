@@ -18,6 +18,8 @@ public interface CustomerMapper {
 
     Customer selectByPrimaryKey(Integer customerId);
 
+    Customer selectByNum(String customerId);
+
     int updateByPrimaryKeySelective(Customer record);
 
     /**

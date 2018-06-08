@@ -39,6 +39,13 @@
     from customer
     where customer_id = #{customerId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByNum" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    where phone_number = #{customerId,jdbcType=VARCHAR}
+  </select>
   <select id="selectTrueNameById" resultType="java.lang.String">
     select
     true_name
