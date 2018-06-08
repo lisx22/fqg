@@ -45,4 +45,6 @@ public interface CustomerMapper {
     List<Customer> selectByPage(@Param("first")int first, @Param("pageSize")int pageSize);
 
     int selectCount();
+
+    Customer selectByPhoneNumber(String phoneNumber);
 }

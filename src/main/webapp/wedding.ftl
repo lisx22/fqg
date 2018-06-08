@@ -88,7 +88,7 @@
                             <div class="aside-nav-body">
                                 <ul id="category_nav" class="">
                                                                         <li class="first" data-category-id="66">
-                                        <a class="lp" href="https://channel.fenqile.com/10.html" title="" data-fql-stat="WWW.MAIN.NAV.MOBILE" data-fql-ftag="WWW.MAIN.NAV.MOBILE">
+                                        <a class="lp" href="/commoditySmallVO/select?typeOneId=1" title="" data-fql-stat="WWW.MAIN.NAV.MOBILE" data-fql-ftag="WWW.MAIN.NAV.MOBILE">
                                             <i class="i-phone"></i>手机通讯<span class="i-right-ico"></span>
                                         </a>
                                         <span class="line"></span>

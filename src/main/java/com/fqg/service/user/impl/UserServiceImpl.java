@@ -25,6 +25,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Customer selectByPhoneNumber(String phoneNumber) {
+        return customerMapper.selectByPhoneNumber(phoneNumber);
+    }
+
+    @Override
     public void login(String username, String password) throws AuthenticationException {
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username,password);

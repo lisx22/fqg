@@ -19,4 +19,5 @@ public interface ICommoditySearchService {
 
     List<CommoditySmallVO> selectOrderByCreateTime();
 
+    List<CommoditySmallVO> selectBrowseCommodityByCustomer(Integer customerId);
 }

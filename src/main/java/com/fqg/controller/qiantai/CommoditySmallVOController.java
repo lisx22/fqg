@@ -2,6 +2,7 @@ package com.fqg.controller.qiantai;
 
 import com.fqg.entity.CommoditySelect;
 import com.fqg.entity.CommoditySmallVO;
+import com.fqg.entity.Customer;
 import com.fqg.entity.PageInfo;
 import com.fqg.service.qiantai.ICommoditySearchService;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -34,7 +36,7 @@ public class CommoditySmallVOController {
         PageInfo<CommoditySmallVO> pageInfo = iCommoditySearchService.
                 selectByCommoditySelect(commoditySelect, Integer.parseInt(pageNo));
         model.addAttribute("pageInfo",pageInfo);
-        return "";
+        return "commoditySmallVO";
     }
 
     @RequestMapping("/newCommodity")
@@ -42,5 +44,19 @@ public class CommoditySmallVOController {
         List<CommoditySmallVO> commoditySmallVOList = iCommoditySearchService.selectOrderByCreateTime();
         model.addAttribute("commoditySmallVOList",commoditySmallVOList);
         return "";
+    }
+
+    @RequestMapping("/browseCommodity")
+    public String browseCommodity(Model model , HttpSession httpSession){
+        Customer customer = (Customer) httpSession.getAttribute("customer");
+        List<CommoditySmallVO> commoditySmallVOList = iCommoditySearchService.selectBrowseCommodityByCustomer(customer.getCustomerId());
+        model.addAttribute("commoditySmallVOList",commoditySmallVOList);
+        return "";
+    }
+
+    @RequestMapping("/toMay")
+    public String toMay(Model model){
+        model.addAttribute("name","ckp");
+        return "may";
     }
 }
