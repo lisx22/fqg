@@ -33,7 +33,7 @@ public class OrdersController {
         model.addAttribute("first",first);
         model.addAttribute("pageCount",pageCount);
         model.addAttribute("pageSize",orderslist.size());
-        return "html/gl_orders";
+        return "html/gl_orders.jsp";
     }
 
 
