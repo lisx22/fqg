@@ -11,6 +11,7 @@
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
     <!--<import resource="spring-mybatis.xml"/>-->
+    <import resource="rabbitmq-content.xml"/>
     <import resource="spring-redis.xml"/>
     <import resource="spring-session.xml"/>
     <!-- 扫描包下面的所有的类是否受spring的管理，需要spring创建对象 -->

@@ -7,12 +7,19 @@ import com.fqg.service.qiantai.ICommodityCoupon;
 import com.fqg.service.qiantai.impl.BeforeAddOrderService;
 import com.fqg.service.qiantai.impl.CommodityCouponService;
 import com.fqg.service.qiantai.impl.CommodityInfoService;
+//import com.fqg.service.qiantai.impl.Producer;
+import com.fqg.service.qiantai.impl.Producer;
+import com.fqg.util.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 购买相关controller
@@ -28,6 +35,33 @@ public class BuyCommodityController {
     private CommodityCouponService iCommodityCoupon;
     @Resource
     private BeforeAddOrderService iBeforeAddOrderService;
+    @Autowired
+    private Producer producer;
+
+
+    /**
+     * @Description: 消息队列
+     * @Author:
+     * @CreateTime:
+     */
+    @Autowired
+    RedisUtil redisUtil;
+    @ResponseBody
+    @RequestMapping("/sendQueue")
+    public String testQueue() {
+        try {
+            String queueId = "test_queue";
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("data", "hello rabbitmq");
+            // 注意：第二个属性是 Queue 与 交换机绑定的路由
+            producer.sendQueue("test_mq_exchange" , "test_mq_patt", map);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(redisUtil.get("消息消费者"));
+        return "发送完毕";
+    }
+
     //商品详情接口
     @RequestMapping("/commodityinfo")
     public String commodityInfo(String id, Model model){
