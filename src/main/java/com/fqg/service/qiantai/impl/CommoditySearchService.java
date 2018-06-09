@@ -32,7 +32,6 @@ public class CommoditySearchService implements ICommoditySearchService {
 
     @Override
     public PageInfo<CommoditySmallVO> selectByCommoditySelect(CommoditySelect commoditySelect ,Integer pageNo) {
-        Gson gson = new Gson();
         commoditySelect.setStartPage((pageNo-1)*PageInfo.PAGE_SIZE);
         commoditySelect.setPageSize(PageInfo.PAGE_SIZE);
         Integer total;
@@ -52,7 +51,7 @@ public class CommoditySearchService implements ICommoditySearchService {
         int pageCount=total% PageInfo.PAGE_SIZE == 0?
                 total/PageInfo.PAGE_SIZE:total/PageInfo.PAGE_SIZE+1;
         List<Integer> commoditySmallVOIdList = commoditySmallVOMapper.selectByDynamicSQL(commoditySelect);
-        List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(gson, commoditySmallVOIdList);
+        List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(commoditySmallVOIdList);
         PageInfo<CommoditySmallVO> page=new PageInfo<>();
         page.setData(commoditySmallVOList);
         page.setPageCount(pageCount);
@@ -62,28 +61,36 @@ public class CommoditySearchService implements ICommoditySearchService {
 
     @Override
     public List<CommoditySmallVO> selectOrderByCreateTime() {
-        Gson gson = new Gson();
         List<Integer> commoditySmallVOIdList = commoditySmallVOMapper.selectOrderByCreateTime();
-        List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(gson, commoditySmallVOIdList);
+        List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(commoditySmallVOIdList);
         return commoditySmallVOList;
     }
 
-    private List<CommoditySmallVO> selectCommoditySmallVOListById(Gson gson, List<Integer> commoditySmallVOIdList) {
+    @Override
+    public List<CommoditySmallVO> selectBrowseCommodityByCustomer(Integer customerId) {
+        List<Integer> commoditySmallVOIdList = commoditySmallVOMapper.selectBrowseCommodityByCustomer(customerId);
+        List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(commoditySmallVOIdList);
+        return commoditySmallVOList;
+    }
+
+
+    private List<CommoditySmallVO> selectCommoditySmallVOListById(List<Integer> commoditySmallVOIdList) {
+        Gson gson = new Gson();
         List<CommoditySmallVO> commoditySmallVOList = new ArrayList<>();
         for (Integer commodityId : commoditySmallVOIdList) {
-            String key2 = "commoditySmallVO" + commodityId;
+            String key = "commoditySmallVO" + commodityId;
             CommoditySmallVO commoditySmallVO;
             try {
-                commoditySmallVO = JSON.parseObject(redisUtil.get(key2).toString(), CommoditySmallVO.class);
+                commoditySmallVO = JSON.parseObject(redisUtil.get(key).toString(), CommoditySmallVO.class);
                 commoditySmallVOList.add(commoditySmallVO);
             } catch (NullPointerException e1) {
-                synchronized (key2) {
+                synchronized (key) {
                     try {
-                        commoditySmallVO = JSON.parseObject(redisUtil.get(key2).toString(), CommoditySmallVO.class);
+                        commoditySmallVO = JSON.parseObject(redisUtil.get(key).toString(), CommoditySmallVO.class);
                         commoditySmallVOList.add(commoditySmallVO);
                     } catch (NullPointerException e2){
                         commoditySmallVO = commoditySmallVOMapper.selectByPrimaryKey(commodityId);
-                        redisUtil.set(key2, gson.toJson(commoditySmallVO));
+                        redisUtil.set(key, gson.toJson(commoditySmallVO));
                         commoditySmallVOList.add(commoditySmallVO);
                     }
                 }

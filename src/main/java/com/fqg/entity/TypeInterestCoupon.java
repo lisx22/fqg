@@ -11,6 +11,16 @@ public class TypeInterestCoupon implements Serializable {
 
     private Integer typeId;
 
+    private TypeOne typeOne;
+
+    public TypeOne getTypeOne() {
+        return typeOne;
+    }
+
+    public void setTypeOne(TypeOne typeOne) {
+        this.typeOne = typeOne;
+    }
+
     public Integer getTypeId() {
         return typeId;
     }

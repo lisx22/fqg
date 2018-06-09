@@ -32,7 +32,7 @@ public class CommodityController {
     }
 
     @RequestMapping(value="/commodityList/{first},{typeOneId}", method = RequestMethod.GET)
-    public String customerList(@PathVariable("first")int first,@PathVariable("typeOneId")int typeOneId,Model model){
+    public String commodityList(@PathVariable("first")int first,@PathVariable("typeOneId")int typeOneId,Model model){
         System.out.println("first"+first);
         List<Commodity> CommodityList =  commodityService.selectByPage(typeOneId,first);
         if(CommodityList==null){

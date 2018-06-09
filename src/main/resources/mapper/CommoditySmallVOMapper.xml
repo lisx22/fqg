@@ -241,4 +241,12 @@
     order by create_time desc
     limit 0,10
   </select>
+  <select id="selectBrowseCommodityByCustomer" resultType="java.lang.Integer">
+    select
+    c.commodity_id
+    from commodity c
+    inner join browse b
+    on c.commodity_id = b.commodity_id
+    where b.customer_id = #{customerId}
+  </select>
 </mapper>

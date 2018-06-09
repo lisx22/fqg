@@ -1,5 +1,6 @@
 package com.fqg.dao;
 
+import com.fqg.entity.AllInterestCoupon;
 import com.fqg.entity.AllPriceCoupon;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface AllPriceCouponMapper {
     int updateByPrimaryKeySelective(AllPriceCoupon record);
 
     int updateByPrimaryKey(AllPriceCoupon record);
+
+    List<AllPriceCoupon> selectAll();
 }
