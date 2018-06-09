@@ -81,13 +81,18 @@ public class BeforeAddOrderService implements IBeforeAddOrderService {
                 orders.setOrderState(1);
                 Date d = new Date();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
-                SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHH");
+                SimpleDateFormat sdf1 = new SimpleDateFormat("yyMMddHHss");
                 orders.setNumber(buyNum);
                 orders.setOrderNum(Integer.parseInt(sdf1.format(d)));
                 orders.setCreateTime(sdf.format(d));
                 Gson gson = new Gson();
                 System.out.println(gson.toJson(orders));
                 boolean b = service.addToOrder(orders);
+                if (b){
+                    str = "购买成功";
+                }else {
+                    str = "购买失败";
+                }
             }else{
                     str = "可以额度不够";
             }

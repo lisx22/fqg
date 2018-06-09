@@ -1,15 +1,12 @@
 package com.fqg.controller.qiantai;
 
-import com.fqg.entity.Commodity;
-import com.fqg.entity.CommodityCoupon;
+import com.fqg.entity.*;
 import com.fqg.service.qiantai.IBeforeAddOrderService;
 import com.fqg.service.qiantai.ICommodityCoupon;
-import com.fqg.service.qiantai.impl.BeforeAddOrderService;
-import com.fqg.service.qiantai.impl.CommodityCouponService;
-import com.fqg.service.qiantai.impl.CommodityInfoService;
+import com.fqg.service.qiantai.impl.*;
 //import com.fqg.service.qiantai.impl.Producer;
-import com.fqg.service.qiantai.impl.Producer;
 import com.fqg.util.RedisUtil;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -19,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,32 +33,13 @@ public class BuyCommodityController {
     private CommodityCouponService iCommodityCoupon;
     @Resource
     private BeforeAddOrderService iBeforeAddOrderService;
-    @Autowired
+    @Resource
     private Producer producer;
+    @Resource
+    private AddLikeCommodity addLikeCommodity;
+    @Resource
+    private AddToCartService addToCartService;
 
-
-    /**
-     * @Description: 消息队列
-     * @Author:
-     * @CreateTime:
-     */
-    @Autowired
-    RedisUtil redisUtil;
-    @ResponseBody
-    @RequestMapping("/sendQueue")
-    public String testQueue() {
-        try {
-            String queueId = "test_queue";
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("data", "hello rabbitmq");
-            // 注意：第二个属性是 Queue 与 交换机绑定的路由
-            producer.sendQueue("test_mq_exchange" , "test_mq_patt", map);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println(redisUtil.get("消息消费者"));
-        return "发送完毕";
-    }
 
     //商品详情接口
     @RequestMapping("/commodityinfo")
@@ -79,7 +58,17 @@ public class BuyCommodityController {
     }
     //加入收藏夹
     @RequestMapping("/likecommodity")
-    public String addToLikeCommodity(String commodityId,String customerId){
+    public String addToLikeCommodity(String commodityId,Customer customer,Model model){
+        List<LikeCommodity> likeCommodities = addLikeCommodity.addLikeCommodity(customer,Integer.parseInt(commodityId));
+        model.addAttribute("likeCommodities",likeCommodities);
+        return "";
+    }
+    //加入购物车
+    @RequestMapping("/addcart")
+    public String addToCart(Customer customer,String str,Model model){
+
+        List<Cart> carts = addToCartService.addToCart(customer,str);
+        model.addAttribute("carts",carts);
         return "";
     }
 }

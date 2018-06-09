@@ -2,6 +2,8 @@ package com.fqg.dao;
 
 import com.fqg.entity.LikeCommodity;
 
+import java.util.List;
+
 public interface LikeCommodityMapper {
     int deleteByPrimaryKey(Integer likeId);
 
@@ -14,4 +16,6 @@ public interface LikeCommodityMapper {
     int updateByPrimaryKeySelective(LikeCommodity record);
 
     int updateByPrimaryKey(LikeCommodity record);
+
+    List<LikeCommodity> selectByCustomer(Integer customerId);
 }

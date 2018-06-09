@@ -5,10 +5,10 @@
     <id column="cart_id" jdbcType="INTEGER" property="cartId" />
     <result column="customer_id" jdbcType="INTEGER" property="customerId" />
     <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
-    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="commodity_info" jdbcType="VARCHAR" property="commodityInfo" />
   </resultMap>
   <sql id="Base_Column_List">
-    cart_id, customer_id, commodity_id, create_time
+    cart_id, customer_id, commodity_id, commodity_info
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -16,15 +16,21 @@
     from cart
     where cart_id = #{cartId,jdbcType=INTEGER}
   </select>
+  <select id="selectByCustomerId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cart
+    where customer_id = #{customerId,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from cart
     where cart_id = #{cartId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.fqg.entity.Cart">
     insert into cart (cart_id, customer_id, commodity_id, 
-      create_time)
+      commodity_info)
     values (#{cartId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{commodityId,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=VARCHAR})
+      #{commodityInfo,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.fqg.entity.Cart">
     insert into cart
@@ -38,8 +44,8 @@
       <if test="commodityId != null">
         commodity_id,
       </if>
-      <if test="createTime != null">
-        create_time,
+      <if test="commodityInfo != null">
+        commodity_info,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -52,8 +58,8 @@
       <if test="commodityId != null">
         #{commodityId,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=VARCHAR},
+      <if test="commodity_info != null">
+        #{commodityInfo,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -66,8 +72,8 @@
       <if test="commodityId != null">
         commodity_id = #{commodityId,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=VARCHAR},
+      <if test="commodityInfo != null">
+        commodity_info = #{commodityInfo,jdbcType=VARCHAR},
       </if>
     </set>
     where cart_id = #{cartId,jdbcType=INTEGER}
@@ -76,7 +82,7 @@
     update cart
     set customer_id = #{customerId,jdbcType=INTEGER},
       commodity_id = #{commodityId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=VARCHAR}
+      commodity_info = #{commodityInfo,jdbcType=VARCHAR}
     where cart_id = #{cartId,jdbcType=INTEGER}
   </update>
 </mapper>

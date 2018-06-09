@@ -9,6 +9,16 @@ public class LikeCommodity implements Serializable {
 
     private Integer commodityId;
 
+    private CommoditySmallVO commoditySmallVO;
+
+    public CommoditySmallVO getCommoditySmallVO() {
+        return commoditySmallVO;
+    }
+
+    public void setCommoditySmallVO(CommoditySmallVO commoditySmallVO) {
+        this.commoditySmallVO = commoditySmallVO;
+    }
+
     public Integer getLikeId() {
         return likeId;
     }
