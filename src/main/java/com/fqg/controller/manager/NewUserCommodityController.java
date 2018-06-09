@@ -42,11 +42,11 @@ public class NewUserCommodityController {
         model.addAttribute("first",first);
         model.addAttribute("pageCount",pageCount);
         model.addAttribute("pageSize",newUserCommodityList.size());
-        return "html/gl_newUserCommodity";
+        return "html/gl_newUserCommodity.jsp";
     }
     @RequestMapping("/preAdd")
     public String preAdd(){
-        return"html/gl_newUserCommodity_add";
+        return"html/gl_newUserCommodity_add.jsp";
     }
 
     @RequestMapping("/add")
@@ -71,7 +71,7 @@ public class NewUserCommodityController {
     public String preUpdateCommodity(@PathVariable("killCommodityId")int killCommodityId, Model model){
         NewUserCommodity newUserCommodity = newUserCommodityService.selectByPrimaryKey(killCommodityId);
         model.addAttribute("newUserCommodity",newUserCommodity);
-        return "html/gl_newUserCommodity_update";
+        return "html/gl_newUserCommodity_update.jsp";
     }
 
     @RequestMapping("/update")

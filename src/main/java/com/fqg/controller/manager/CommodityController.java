@@ -52,7 +52,7 @@ public class CommodityController {
         model.addAttribute("typeOneId",typeOneId);
         model.addAttribute("typeName",typeName);
         System.out.println(CommodityList.get(0).getCommodityName());
-        return "html/gl_commodity";
+        return "html/gl_commodity.jsp";
     }
 
     @RequestMapping("/preAdd")
@@ -66,7 +66,7 @@ public class CommodityController {
         model.addAttribute("typetwos",typetwos);
         model.addAttribute("typethrees",typethrees);
         model.addAttribute("Brands",Brands);
-        return"html/gl_commodity_add";
+        return"html/gl_commodity_add.jsp";
     }
 
     @RequestMapping("/add")
@@ -109,7 +109,7 @@ public class CommodityController {
     public String preUpdateCustomer(@PathVariable("commodityId")int commodityId, Model model){
         Commodity commodity = commodityService.selectByPrimaryKey(commodityId);
         model.addAttribute("commodity",commodity);
-        return "html/gl_commodity_update";
+        return "html/gl_commodity_update.jsp";
     }
 
     @RequestMapping("/update")

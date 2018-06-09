@@ -50,14 +50,14 @@ public class CouponController {
                 break;
         }
 
-        return "html/gl_coupon";
+        return "html/gl_coupon.jsp";
     }
 
     @RequestMapping(value="/preAdd/{type}", method = RequestMethod.GET)
     public String preAdd(@PathVariable("type")int type, Model model){
         model.addAttribute("ListType",type);
         System.out.println("type="+type);
-        return"html/gl_coupon_add";
+        return"html/gl_coupon_add.jsp";
     }
 
     @RequestMapping("/add1")

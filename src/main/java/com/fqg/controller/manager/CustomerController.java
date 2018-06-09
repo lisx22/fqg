@@ -36,12 +36,12 @@ public class CustomerController {
         model.addAttribute("first",first);
         model.addAttribute("pageCount",pageCount);
         model.addAttribute("pageSize",Customerlist.size());
-         return "html/gl_user";
+         return "html/gl_user.jsp";
     }
 
     @RequestMapping("/preAdd")
     public String preAdd(){
-        return"html/gl_user_add";
+        return"html/gl_user_add.jsp";
     }
 
     @RequestMapping("/add")
@@ -61,7 +61,7 @@ public class CustomerController {
     public String preUpdateCustomer(@PathVariable("costomerId")int costomerId, Model model){
         Customer customer = customerService.selectByPrimaryKey(costomerId);
         model.addAttribute("customer",customer);
-        return "html/gl_user_update";
+        return "html/gl_user_update.jsp";
     }
 
     @RequestMapping("/update")

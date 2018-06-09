@@ -43,12 +43,12 @@ public class KillCommodityController {
         model.addAttribute("first",first);
         model.addAttribute("pageCount",pageCount);
         model.addAttribute("pageSize",KillCommodityList.size());
-        return "html/gl_killCommodity";
+        return "html/gl_killCommodity.jsp";
     }
 
     @RequestMapping("/preAdd")
     public String preAdd(){
-        return"html/gl_killCommodity_add";
+        return"html/gl_killCommodity_add.jsp";
     }
 
     @RequestMapping("/add")
@@ -71,7 +71,7 @@ public class KillCommodityController {
     public String preUpdateCommodity(@PathVariable("killCommodityId")int killCommodityId, Model model){
         KillCommodity killCommodity = killCommodityService.selectByPrimaryKey(killCommodityId);
         model.addAttribute("killCommodity",killCommodity);
-        return "html/gl_killCommodity_update";
+        return "html/gl_killCommodity_update.jsp";
     }
 
     @RequestMapping("/update")
