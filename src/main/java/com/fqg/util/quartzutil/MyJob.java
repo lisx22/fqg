@@ -10,7 +10,6 @@ import org.quartz.JobExecutionException;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,6 +23,8 @@ public class MyJob implements Job{
     private KillCommodityMapper killCommodityMapper;
     @Resource
     private RedisUtil redisUtil;
+
+    @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException  {
         //查询所有秒杀商品
         List<KillCommodity> killCommodities = killCommodityMapper.selectAll();

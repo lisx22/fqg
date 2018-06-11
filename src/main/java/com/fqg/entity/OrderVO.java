@@ -11,6 +11,8 @@ public class OrderVO {
 
     private Integer orderId;
 
+    private Integer repayId;
+
     private CommoditySmallVO commoditySmallVO;
 
     private Integer payMoney;
@@ -22,6 +24,14 @@ public class OrderVO {
     private Integer unPaidStage;
 
     private Integer unPaidMoney;
+
+    public Integer getRepayId() {
+        return repayId;
+    }
+
+    public void setRepayId(Integer repayId) {
+        this.repayId = repayId;
+    }
 
     public Integer getOrderId() {
         return orderId;
@@ -83,6 +93,7 @@ public class OrderVO {
     public String toString() {
         return "OrderVO{" +
                 "orderId=" + orderId +
+                ", repayId=" + repayId +
                 ", commoditySmallVO=" + commoditySmallVO +
                 ", payMoney=" + payMoney +
                 ", totalStage=" + totalStage +

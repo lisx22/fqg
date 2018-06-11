@@ -8,8 +8,6 @@ import com.fqg.entity.KillCommodity;
 import com.fqg.entity.Orders;
 import com.fqg.entity.Repay;
 import com.fqg.util.RedisUtil;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +30,8 @@ public class RabbitmqService implements MessageListener {
     private OrdersMapper ordersMapper;
     @Resource
     private RepayMapper repayMapper;
+
+    @Override
     public void onMessage(Message message) {
        String[] str =  message.toString().split("-fgf-");
         Customer customer = JSONObject.parseObject(str[0],Customer.class);

@@ -9,4 +9,10 @@ package com.fqg.service.qiantai;
  */
 public interface IRepayService {
     Integer selectWillRepayMoneyByCustomer(Integer customerId);
+
+    void doWillRepay(Integer customerId);
+
+    void reCalc();
+
+    void doOneOrderRepay(Integer repayId,Integer unPaidMoney);
 }
