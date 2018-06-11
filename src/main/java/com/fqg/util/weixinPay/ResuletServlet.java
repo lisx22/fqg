@@ -1,8 +1,7 @@
 package com.fqg.util.weixinPay;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,17 +15,21 @@ import java.util.*;
  * @Date 2018/6/11
  * @Time 11:04
  */
-@Controller
-@RequestMapping("/payment")
+@WebServlet("/payment/result")
 public class ResuletServlet extends HttpServlet {
-
-    @RequestMapping("/result")
-    public void result(HttpServletRequest req, HttpServletResponse resp){
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
+            ServletException, IOException {
         try {
             weixin_notify(req,resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
+            ServletException, IOException {
+        this.doGet(req, resp);
     }
 
     public void weixin_notify(HttpServletRequest request,HttpServletResponse

@@ -1,8 +1,7 @@
 package com.fqg.util.weixinPay;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,15 +16,15 @@ import java.util.Random;
  * @Date 2018/6/11
  * @Time 9:57
  */
-@Controller
-@RequestMapping("/payment")
+@WebServlet("/payment/test")
 public class TestServlet extends HttpServlet {
     Random random = new Random();
-
-    @RequestMapping("/test")
-    public void test(HttpServletRequest req, HttpServletResponse resp,String body) throws IOException {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
+            ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         String price = "1";
+        String body = req.getParameter("body");
         if (req.getMethod().equalsIgnoreCase("get")) {
             body = new String(body.getBytes("ISO8859-1"), "UTF-8");
         }
@@ -37,7 +36,11 @@ public class TestServlet extends HttpServlet {
             req.getSession().setAttribute("image", image);
             resp.sendRedirect("payment.jsp");
         } catch (Exception e) {
-            e.printStackTrace();
-        }
+            e.printStackTrace();}
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
+            ServletException, IOException {
+        this.doGet(req, resp);
     }
 }
