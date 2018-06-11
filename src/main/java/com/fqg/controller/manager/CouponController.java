@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/coupon")
@@ -50,13 +49,13 @@ public class CouponController {
                 break;
         }
 
-        return "html/gl_coupon.jsp";
+        return "html/gl_coupon.ftl";
     }
 
     @RequestMapping(value="/preAdd/{type}", method = RequestMethod.GET)
     public String preAdd(@PathVariable("type")int type, Model model){
         model.addAttribute("ListType",type);
-        return"html/gl_coupon_add.jsp";
+        return "html/gl_coupon_add.ftl";
     }
 
     @RequestMapping("/add1")

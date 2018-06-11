@@ -1,19 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/5/8 0008
-  Time: 下午 4:33
-  To change this template use File | Settings | File Templates.
---%>
-<%	String basePath = request.getContextPath();%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-	<base href="<%=request.getContextPath()%>/html/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>修改用户信息</title>
+		<title>新人优惠商品上架</title>
+<#assign base=request.contextPath />
+    <base id="base" href="${base}/"/>
 		<link rel="stylesheet" href="../assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../assets/css/core.css" />
@@ -33,7 +25,7 @@
 			<div class="contain">
 				<ul class="am-nav am-navbar-nav am-navbar-left">
 
-					<li><h4 class="page-title">修改信息</h4></li>
+					<li><h4 class="page-title">表单验证</h4></li>
 				</ul>
 				
 				<ul class="am-nav am-navbar-nav am-navbar-right">
@@ -83,12 +75,12 @@
 	                    <!-- End User -->
 
 						<ul class="am-list admin-sidebar-list">
-							<li><a href="<%=basePath %>/manager_index.jsp"><span class="am-icon-home"></span> 首页</a></li>
+							<li><a href="<%=basePath %>/manager_index.ftl"><span class="am-icon-home"></span> 首页</a></li>
 							<li class="admin-parent">
 								<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 								<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
 									<li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-									<li><a href="<%=basePath %>/commodity/commodityList/0,1">商品管理</a></li>
+									<li><a href="gl_commodity.ftl">商品管理</a></li>
 									<li><a href="gl_orders.ftl">订单管理</a></li>
 									<li><a href="gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>
 									<li><a href="gl_activity.ftl" class="am-cf"> 活动管理</span></a></li>
@@ -121,7 +113,7 @@
 		</div>-->
 		<!-- ========== Left Sidebar end ========== -->
 		
-		
+
 		
 	<!--	<div class="am-g">-->
 		<!-- ============================================================== -->
@@ -146,57 +138,99 @@
 								    </ul>
 								  </li>
 								</ul>
-								
-								<form action="/fqg/commodity/update" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
-								  <fieldset>
-								    <legend>商品修改</legend>
-									  <input type="hidden" id="doc-vld-id-2" name="commodityId" value="${commodity.commodityId}" required/>
+<#if type?? && type == "1">
 
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">商品名称：</label>
-										  <input type="text" id="doc-vld-name-1" name="commodityName"  placeholder="输入名称" value="${commodity.commodityName}" required/>
-									  </div>
-
-									  <div class="am-form-group">
-								      <label for="doc-vld-name-2">商品价格：</label>
-								      <input type="text" id="doc-vld-name-2" name="commodityPrice"  placeholder="输入价格" value="${commodity.commodityPrice}" required/>
-								    </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">商品描述：</label>
-										  <input type="text" id="doc-vld-name-3" name="commodityDescription" placeholder="描述" value="${commodity.commodityDescription}" required/>
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">商品库存：</label>
-										  <input type="text" id="doc-vld-idNumber-3" name="number"  placeholder="输入身份证" value="${commodity.number}"required/>
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">商品状态：</label>
-										  <input type="text" id="doc-vld-phone-3" name="commodityStatus" placeholder="是否下架"value="${commodity.commodityStatus}" required/>
-									  </div>
-									  <input type="hidden" name="createTime"value="${commodity.createTime}" required/>
-									  <input type="hidden"  name="deleteTime" value="${commodity.deleteTime}" required/>
-									  <input type="hidden"  name="oneTypeId"value="${commodity.oneTypeId}" required/>
-									  <input type="hidden"  name="twoTypeId"value="${commodity.twoTypeId}" required/>
-
-									  <input type="hidden"  name="threeTypeId" value="${commodity.threeTypeId}" required/>
-									  <input type="hidden"  name="noInterestStage" value="${commodity.noInterestStage}" required/>
-									  <input type="hidden"  name="brandId" value="${commodity.brandId}" required/>
-									  <input type="hidden"  name="sellNum" value="${commodity.sellNum}" required/>
-									  <button class="am-btn am-btn-secondary" type="submit">提交</button>
-								  </fieldset>
+								<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+									<fieldset>
+										<legend>新增优惠券</legend>
+										<div class="am-form-group">
+											<label for="doc-vld-name-2">期数：</label>
+											<input type="text" id="doc-vld-name-2" name="nointerestContent"  placeholder="输入期数" required/>
+										</div>
+										<div class="am-form-group">
+											<label for="doc-vld-name-2">数量：</label>
+											<input type="text" id="doc-vld-name-3" name="number"  placeholder="输入数量" required/>
+										</div>
+										<button class="am-btn am-btn-secondary" type="submit">提交</button>
+									</fieldset>
 								</form>
-								
+</#if>
+							<#if type?? && type == "2">
+									<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+										<fieldset>
+											<legend>新增优惠券</legend>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">可使用金额：</label>
+												<input type="text" id="doc-vld-name-4" name="conditionAmount"  placeholder="输入金額" required/>
+											</div>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">减免金额：</label>
+												<input type="text" id="doc-vld-name-5" name="reduceAmount"  placeholder="输入金額" required/>
+											</div>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">数量：</label>
+												<input type="text" id="doc-vld-name-6" name="number"  placeholder="输入数量" required/>
+											</div>
+											<button class="am-btn am-btn-secondary" type="submit">提交</button>
+										</fieldset>
+									</form>
+							</#if>
+
+<#if type?? && type == "3">
+									<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+										<fieldset>
+											<legend>新增优惠券</legend>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">期数：</label>
+												<input type="text" id="doc-vld-name-12" name="nointerestContent"  placeholder="输入期数" required/>
+											</div>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">数量：</label>
+												<input type="text" id="doc-vld-name-13" name="number"  placeholder="输入数量" required/>
+											</div>
+
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">商品id</label>
+												<input type="text" id="doc-vld-name-14" name="typeId"  placeholder="输入id" required/>
+											</div>
+
+											<button class="am-btn am-btn-secondary" type="submit">提交</button>
+										</fieldset>
+									</form>
+</#if>
+
+<#if type?? && type == "4">
+									<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+										<fieldset>
+											<legend>新增优惠券</legend>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">可使用金额：</label>
+												<input type="text" id="doc-vld-name-114" name="conditionAmount"  placeholder="输入期数" required/>
+											</div>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">减免金额：</label>
+												<input type="text" id="doc-vld-name-15" name="reduceAmount"  placeholder="输入数量" required/>
+											</div>
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">数量：</label>
+												<input type="text" id="doc-vld-name-16" name="number"  placeholder="输入数量" required/>
+											</div>
+
+											<div class="am-form-group">
+												<label for="doc-vld-name-2">商品id</label>
+												<input type="text" id="doc-vld-name-17" name="typeId"  placeholder="输入id" required/>
+											</div>
+
+											<button class="am-btn am-btn-secondary" type="submit">提交</button>
+										</fieldset>
+									</form>
+</#if>
+
 								
 							</div>
 						</div>
 					<!-- Row end -->
 				</div>
-			
-			
-			
 			
 			</div>
 		</div>

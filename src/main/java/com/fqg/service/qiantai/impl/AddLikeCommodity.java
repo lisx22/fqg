@@ -23,8 +23,8 @@ public class AddLikeCommodity implements IAddLikeCommodity{
     private LikeCommodityMapper likeCommodityMapper;
     @Resource
     private CommoditySmallVOMapper commoditySmallVOMapper;
-    @Resource
-    LikeCommodity likeCommodity;
+
+    private LikeCommodity likeCommodity = new LikeCommodity();
     @Override
     public List<LikeCommodity> addLikeCommodity(Customer customer, int commodityId) {
         // 将商品纯入收藏列表

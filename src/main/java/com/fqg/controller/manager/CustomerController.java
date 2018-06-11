@@ -2,14 +2,12 @@ package com.fqg.controller.manager;
 
 import com.fqg.entity.Customer;
 import com.fqg.service.manager.impl.CustomerServiceImpl;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,12 +34,12 @@ public class CustomerController {
         model.addAttribute("first",first);
         model.addAttribute("pageCount",pageCount);
         model.addAttribute("pageSize",Customerlist.size());
-         return "html/gl_user.jsp";
+         return "html/gl_user.ftl";
     }
 
     @RequestMapping("/preAdd")
     public String preAdd(){
-        return"html/gl_user_add.jsp";
+        return "html/gl_user_add.ftl";
     }
 
     @RequestMapping("/add")
@@ -61,7 +59,7 @@ public class CustomerController {
     public String preUpdateCustomer(@PathVariable("costomerId")int costomerId, Model model){
         Customer customer = customerService.selectByPrimaryKey(costomerId);
         model.addAttribute("customer",customer);
-        return "html/gl_user_update.jsp";
+        return "html/gl_user_update.ftl";
     }
 
     @RequestMapping("/update")

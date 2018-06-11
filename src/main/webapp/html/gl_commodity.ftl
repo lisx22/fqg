@@ -1,27 +1,19 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/5/8 0008
-  Time: 下午 4:33
-  To change this template use File | Settings | File Templates.
---%>
-<%	String basePath = request.getContextPath();%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-	<base href="<%=request.getContextPath()%>/jsp/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>商品管理</title>
-		<link rel="stylesheet" href="../assets/css/amazeui.css" />
+<#assign base=request.contextPath />
+	<base id="base" href="${base}/"/>
+		<link rel="stylesheet" href=" assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../assets/css/core.css" />
-		<link rel="stylesheet" href="../assets/css/menu.css" />
-		<link rel="stylesheet" href="../assets/css/index.css" />
-		<link rel="stylesheet" href="../assets/css/admin.css" />
-		<link rel="stylesheet" href="../assets/css/page/typography.css" />
-		<link rel="stylesheet" href="../assets/css/page/form.css" />
+		<link rel="stylesheet" href=" assets/css/core.css" />
+		<link rel="stylesheet" href=" assets/css/menu.css" />
+		<link rel="stylesheet" href=" assets/css/index.css" />
+		<link rel="stylesheet" href=" assets/css/admin.css" />
+		<link rel="stylesheet" href=" assets/css/page/typography.css" />
+		<link rel="stylesheet" href=" assets/css/page/form.css" />
 	</head>
 <body>
 <!-- Begin page -->
@@ -41,7 +33,7 @@
 			<li class="hidden-xs am-hide-sm-only">
 				<form role="search" class="app-search">
 					<input type="text" placeholder="Search..." class="form-control">
-					<a href=""><img src="../assets/img/search.png"></a>
+					<a href=""><img src=" assets/img/search.png"></a>
 				</form>
 			</li>
 		</ul>
@@ -62,7 +54,7 @@
 			<!-- User -->
 			<div class="user-box am-hide-sm-only">
 				<div class="user-img">
-					<img src="../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+					<img src=" assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 					<div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 				</div>
 				<h5><a href="#">Mat Helme</a> </h5>
@@ -136,15 +128,16 @@
 						<div class="am-btn-toolbar">
 							<div class="am-btn-group am-btn-group-xs">
 								<button type="button" id="addBut" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-								<a href="<%=basePath %>/commodity/preAdd/" id="add"></a>
+								<a href=" commodity/preAdd/" id="add"></a>
 								<button id="selectCustomers" type="button" onclick="deleteCustomers()" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
 
 								<div class="am-form-group">
 									<select id="doc-select-1" onchange="selectOnclik()" required>
-										<option value="">${typeName}</option>
-										<c:forEach items="${types}" var="types">
-											<option value="${types.typeOneId}"  onclick="selectOnclik(${types.typeOneId})">${types.typeOneName}</option>
-										</c:forEach>
+										<option value="">${typeName!}</option>
+									<#list types as types>
+											<option value="${types.typeOneId!}"  onclick="selectOnclik(${types.typeOneId!})">${types.typeOneName1}</option>
+
+									</#list>
 									</select>
 									<span class="am-form-caret"></span>
 								</div>
@@ -167,7 +160,7 @@
 				<!-- Row start -->
 				<div class="am-g">
 					<div class="am-u-sm-12">
-						<form class="am-form" action="<%=basePath %>/commodity/deletes/" method="post">
+						<form class="am-form" action=" commodity/deletes/" method="post">
 							<input type="submit" style="display: none" id="deleteone">
 
 							<table class="am-table am-table-striped am-table-hover table-main" style="table-layout: fixed;">
@@ -187,32 +180,30 @@
 								</tr>
 								</thead>
 								<tbody>
-
-								<c:forEach  var="commoditys" items="${CommodityList}">
+								<#list CommodityList as commoditys>
 									<tr>
-										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId}"/></td>
+										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId1}"/></td>
 										<td>${commoditys.commodityId}</td>
-										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName}</td>
-										<td>${commoditys.commodityPrice}</td>
-										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription}</td>
-										<td class="am-hide-sm-only">${commoditys.number}</td>
-										<td class="am-hide-sm-only">${commoditys.createTime}</td>
-										<td class="am-hide-sm-only">${commoditys.updateTime}</td>
-										<td class="am-hide-sm-only">${commoditys.deleteTime}</td>
-										<td class="am-hide-sm-only">${commoditys.commodityStatus}</td>
+										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName1}</td>
+										<td>${commoditys.commodityPrice1}</td>
+										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription1}</td>
+										<td class="am-hide-sm-only">${commoditys.number1}</td>
+										<td class="am-hide-sm-only">${commoditys.createTime1}</td>
+										<td class="am-hide-sm-only">${commoditys.updateTime1}</td>
+										<td class="am-hide-sm-only">${commoditys.deleteTime1}</td>
+										<td class="am-hide-sm-only">${commoditys.commodityStatus1}</td>
 										<td>
 											<div class="am-btn-toolbar">
 												<div class="am-btn-group am-btn-group-xs">
 													<button id="updatebut${commoditys.commodityId}" onclick="update(${commoditys.commodityId})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-													<a href="<%=basePath %>/commodity/preUpdateCommodity/${commoditys.commodityId}" id="update${commoditys.commodityId}"></a>
+													<a href=" commodity/preUpdateCommodity/${commoditys.commodityId}" id="update${commoditys.commodityId}"></a>
 													<button id="deletebut${commoditys.commodityId}" onclick="deleteById(${commoditys.commodityId})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-													<a href="<%=basePath %>/commodity/deleteById/${commoditys.commodityId}" id="delete${commoditys.commodityId}"></a>
+													<a href=" commodity/deleteById/${commoditys.commodityId}" id="delete${commoditys.commodityId}"></a>
 												</div>
 											</div>
 										</td>
 									</tr>
-
-								</c:forEach>
+								</#list>
 
 
 								</tbody>
@@ -223,11 +214,11 @@
 								<div class="am-fr">
 									<ul class="am-pagination">
 										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/0,${typeOneId}">1</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/1,${typeOneId}">2</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/2,${typeOneId}">3</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/3,${typeOneId}">4</a></li>
-										<li><a href="<%=basePath %>/commodity/commodityList/4,${typeOneId}">5</a></li>
+										<li><a href=" commodity/commodityList/0,${typeOneId}">1</a></li>
+										<li><a href=" commodity/commodityList/1,${typeOneId}">2</a></li>
+										<li><a href=" commodity/commodityList/2,${typeOneId}">3</a></li>
+										<li><a href=" commodity/commodityList/3,${typeOneId}">4</a></li>
+										<li><a href=" commodity/commodityList/4,${typeOneId}">5</a></li>
 										<li><a href="javascript:downPage()">»</a></li>
 
 									</ul>
@@ -255,10 +246,10 @@
 <!-- navbar -->
 <a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 
-<script type="text/javascript" src="../assets/js/jquery-2.1.0.js" ></script>
-<script type="text/javascript" src="../assets/js/amazeui.min.js"></script>
-<script type="text/javascript" src="../assets/js/app.js" ></script>
-<script type="text/javascript" src="../assets/js/blockUI.js" ></script>
+<script type="text/javascript" src=" assets/js/jquery-2.1.0.js" ></script>
+<script type="text/javascript" src=" assets/js/amazeui.min.js"></script>
+<script type="text/javascript" src=" assets/js/app.js" ></script>
+<script type="text/javascript" src=" assets/js/blockUI.js" ></script>
 <script>
     document.getElementById("addBut").onclick=function(){
         document.getElementById("add").click();
@@ -279,7 +270,7 @@
             alert("我已经翻不动了")
 		}else{
             var add = parseInt(first)-1;
-            window.location = "<%=basePath %>/commodity/commodityList/"+add+${typeOneId};
+            window.location = " commodity/commodityList/"+add+${typeOneId};
             $("#first").val(add);
 		}
 
@@ -291,14 +282,14 @@
             alert("我已经翻不动了")
 		}else{
             var jian = parseInt(first)+1;
-            window.location = "<%=basePath %>/commodity/commodityList/"+jian+${typeOneId};
+            window.location = " commodity/commodityList/"+jian+${typeOneId};
             $("#first").val(jian);
 		}
     }
     function selectOnclik(){
         var objS = document.getElementById("doc-select-1");
         var grade = objS.options[objS.selectedIndex].value;
-        window.location = "<%=basePath %>/commodity/commodityList/0,"+grade;
+        window.location = " commodity/commodityList/0,"+grade;
 	}
 
 

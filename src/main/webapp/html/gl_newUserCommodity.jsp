@@ -1,19 +1,12 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/5/8 0008
-  Time: 下午 4:33
-  To change this template use File | Settings | File Templates.
---%>
-<%	String basePath = request.getContextPath();%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-	<base href="<%=request.getContextPath()%>/jsp/"/>
+
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>新人优惠上架管理</title>
+	<#assign base=request.contextPath />
+	<base id="base" href="${base}/"/>
 		<link rel="stylesheet" href="../assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../assets/css/core.css" />
@@ -83,32 +76,32 @@
 			<!-- End User -->
 
 			<ul class="am-list admin-sidebar-list">
-				<li><a href="<%=basePath %>/manager_index.jsp"><span class="am-icon-home"></span> 首页</a></li>
+				<li><a href="<%=basePath %>/manager_index.ftl"><span class="am-icon-home"></span> 首页</a></li>
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-						<li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-						<li><a href="<%=basePath %>/commodity/commodityList/0,1">商品管理</a></li>
-						<li><a href="<%=basePath %>/">订单管理</a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 退换货管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 活动管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 黑名单管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 利息管理</span></a></li>
+						<li><a href="customer/customerList/0" class="am-cf">用户管理</span></a></li>
+						<li><a href="commodity/commodityList/0,1">商品管理</a></li>
+						<li><a href="">订单管理</a></li>
+						<li><a href="" class="am-cf"> 退换货管理</span></a></li>
+						<li><a href="" class="am-cf"> 活动管理</span></a></li>
+						<li><a href="" class="am-cf"> 黑名单管理</span></a></li>
+						<li><a href="" class="am-cf"> 利息管理</span></a></li>
 					</ul>
 				</li>
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-						<li><a href="<%=basePath %>/" class="am-cf"> 优惠券发布</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf">还款信息</span></a></li>
+						<li><a href="" class="am-cf"> 优惠券发布</span></a></li>
+						<li><a href="" class="am-cf">还款信息</span></a></li>
 
 					</ul>
 				</li>
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 上架 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
-						<li><a href="<%=basePath %>/killCommodity/killCommodityList/0" class="am-cf">秒杀商品上架</a></li>
-						<li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/0">新人优惠商品上架</a></li>
+						<li><a href="killCommodity/killCommodityList/0" class="am-cf">秒杀商品上架</a></li>
+						<li><a href="newUserCommodity/newUserCommodityList/0">新人优惠商品上架</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -136,7 +129,7 @@
 						<div class="am-btn-toolbar">
 							<div class="am-btn-group am-btn-group-xs">
 								<button type="button" id="addBut" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-								<a href="<%=basePath %>/newUserCommodity/preAdd/" id="add"></a>
+								<a href="newUserCommodity/preAdd/" id="add"></a>
 								<button id="selectCustomers" type="button" onclick="deleteCustomers()" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
 							</div>
 						</div>
@@ -156,7 +149,7 @@
 				<!-- Row start -->
 				<div class="am-g">
 					<div class="am-u-sm-12">
-						<form class="am-form" action="<%=basePath %>/newUserCommodity/deletes/" method="post">
+						<form class="am-form" action="newUserCommodity/deletes/" method="post">
 							<input type="submit" style="display: none" id="deleteone">
 
 							<table class="am-table am-table-striped am-table-hover table-main">
@@ -172,6 +165,8 @@
 								</tr>
 								</thead>
 								<tbody>
+
+
 
 								<c:forEach  var="newUserCommoditys" items="${newUserCommodityList}">
 									<tr>

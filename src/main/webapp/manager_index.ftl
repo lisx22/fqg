@@ -1,19 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/5/8 0008
-  Time: 下午 4:33
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%	String basePath = request.getContextPath();%>
 <html>
 <head>
-
-        <base href="<%=request.getContextPath()%>/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>后台管理</title>
+		    <title>后台管理</title>
+<#assign base=request.contextPath />
+    <base id="base" href="${base}/"/>
 		<link rel="stylesheet" href="assets/css/amazeui.css" type="text/css"/>
 		<link rel="stylesheet" href="assets/css/core.css" type="text/css" />
 		<link rel="stylesheet" href="assets/css/menu.css" type="text/css"/>
@@ -87,9 +78,9 @@
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-                                    <li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-                                    <li><a href="<%=basePath %>/commodity/commodityList/0,1">商品管理</a></li>
-                                    <li><a href="<%=basePath %>/orders/ordersList/0">订单管理</a></li>
+                                    <li><a href="customer/customerList/0" class="am-cf">用户管理</span></a></li>
+                                    <li><a href=" commodity/commodityList/0,1">商品管理</a></li>
+                                    <li><a href=" orders/ordersList/0">订单管理</a></li>
                                     <li><a href="html/gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>
                                     <li><a href="html/gl_activity.ftl" class="am-cf"> 活动管理</span></a></li>
                                     <li><a href="html/gl_blackCustomer.ftl" class="am-cf"> 黑名单管理</span></a></li>
@@ -99,7 +90,7 @@
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-                                    <li><a href="<%=basePath %>/coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
+                                    <li><a href=" coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
                                     <li><a href="html/qt_repay.ftl" class="am-cf">还款信息</span></a></li>
 
                                 </ul>
@@ -107,8 +98,8 @@
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 上架 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
-                                    <li><a href="<%=basePath %>/killCommodity/killCommodityList/0" class="am-cf">秒杀商品上架</a></li>
-                                    <li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/0">新人优惠商品上架</a></li>
+                                    <li><a href=" killCommodity/killCommodityList/0" class="am-cf">秒杀商品上架</a></li>
+                                    <li><a href=" newUserCommodity/newUserCommodityList/0">新人优惠商品上架</a></li>
                                 </ul>
                             </li>
                         </ul>

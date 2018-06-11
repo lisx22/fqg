@@ -18,8 +18,8 @@ import java.util.List;
 @Service
 @Transactional
 public class AddToCartService implements IAddToCartService{
-    @Resource
-    private Cart cart;
+
+    private Cart cart = new Cart();
     @Resource
     private CartMapper cartMapper;
     @Override

@@ -2,7 +2,6 @@ package com.fqg.controller.manager;
 
 import com.fqg.entity.Brand;
 import com.fqg.entity.Commodity;
-import com.fqg.entity.Customer;
 import com.fqg.entity.TypeOne;
 import com.fqg.service.manager.impl.CommodityServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -64,7 +63,7 @@ public class CommodityController {
         model.addAttribute("typetwos",typetwos);
         model.addAttribute("typethrees",typethrees);
         model.addAttribute("Brands",Brands);
-        return"html/gl_commodity_add.jsp";
+        return "html/gl_commodity_add.ftl";
     }
 
     @RequestMapping("/add")
@@ -107,7 +106,7 @@ public class CommodityController {
     public String preUpdateCustomer(@PathVariable("commodityId")int commodityId, Model model){
         Commodity commodity = commodityService.selectByPrimaryKey(commodityId);
         model.addAttribute("commodity",commodity);
-        return "html/gl_commodity_update.jsp";
+        return "html/gl_commodity_update.ftl";
     }
 
     @RequestMapping("/update")

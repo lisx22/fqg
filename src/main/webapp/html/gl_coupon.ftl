@@ -1,27 +1,19 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/5/8 0008
-  Time: 下午 4:33
-  To change this template use File | Settings | File Templates.
---%>
-<%	String basePath = request.getContextPath();%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-	<base href="<%=request.getContextPath()%>/jsp/"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>商品管理</title>
-		<link rel="stylesheet" href="../assets/css/amazeui.css" />
+<#assign base=request.contextPath />
+    <base id="base" href="${base}/"/>
+		<link rel="stylesheet" href=" assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../assets/css/core.css" />
-		<link rel="stylesheet" href="../assets/css/menu.css" />
-		<link rel="stylesheet" href="../assets/css/index.css" />
-		<link rel="stylesheet" href="../assets/css/admin.css" />
-		<link rel="stylesheet" href="../assets/css/page/typography.css" />
-		<link rel="stylesheet" href="../assets/css/page/form.css" />
+		<link rel="stylesheet" href=" assets/css/core.css" />
+		<link rel="stylesheet" href=" assets/css/menu.css" />
+		<link rel="stylesheet" href=" assets/css/index.css" />
+		<link rel="stylesheet" href=" assets/css/admin.css" />
+		<link rel="stylesheet" href=" assets/css/page/typography.css" />
+		<link rel="stylesheet" href=" assets/css/page/form.css" />
 	</head>
 <body>
 <!-- Begin page -->
@@ -41,7 +33,7 @@
 			<li class="hidden-xs am-hide-sm-only">
 				<form role="search" class="app-search">
 					<input type="text" placeholder="Search..." class="form-control">
-					<a href=""><img src="../assets/img/search.png"></a>
+					<a href=""><img src=" assets/img/search.png"></a>
 				</form>
 			</li>
 		</ul>
@@ -62,7 +54,7 @@
 			<!-- User -->
 			<div class="user-box am-hide-sm-only">
 				<div class="user-img">
-					<img src="../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+					<img src=" assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 					<div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 				</div>
 				<h5><a href="#">Mat Helme</a> </h5>
@@ -83,32 +75,32 @@
 			<!-- End User -->
 
 			<ul class="am-list admin-sidebar-list">
-				<li><a href="<%=basePath %>/manager_index.jsp"><span class="am-icon-home"></span> 首页</a></li>
+				<li><a href="  manager_index.ftl"><span class="am-icon-home"></span> 首页</a></li>
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-						<li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-						<li><a href="<%=basePath %>/commodity/commodityList/0,0">商品管理</a></li>
-						<li><a href="<%=basePath %>/">订单管理</a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 退换货管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 活动管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 黑名单管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 利息管理</span></a></li>
+						<li><a href="  customer/customerList/0" class="am-cf">用户管理</span></a></li>
+						<li><a href="  commodity/commodityList/0,0">商品管理</a></li>
+						<li><a href="  ">订单管理</a></li>
+						<li><a href="  " class="am-cf"> 退换货管理</span></a></li>
+						<li><a href="  " class="am-cf"> 活动管理</span></a></li>
+						<li><a href="  " class="am-cf"> 黑名单管理</span></a></li>
+						<li><a href="  " class="am-cf"> 利息管理</span></a></li>
 					</ul>
 				</li>
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-						<li><a href="<%=basePath %>/coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf">还款信息</span></a></li>
+						<li><a href="  coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
+						<li><a href="  " class="am-cf">还款信息</span></a></li>
 
 					</ul>
 				</li>
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 上架 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
-						<li><a href="<%=basePath %>/" class="am-cf"> 秒杀商品上架</a></li>
-						<li><a href="<%=basePath %>/">新人优惠商品上架</a></li>
+						<li><a href="  " class="am-cf"> 秒杀商品上架</a></li>
+						<li><a href="  ">新人优惠商品上架</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -163,7 +155,8 @@
 						<form>
 
 							<table class="am-table am-table-striped am-table-hover table-main" style="table-layout: fixed;">
-								<c:if test="${ListType==1}">
+<#if ListType?? && ListType == "1">
+
 								<thead>
 								<tr>
 									</th><th class="table-id">ID</th>
@@ -174,7 +167,8 @@
 								</thead>
 								<tbody>
 
-								<c:forEach  var="coupons" items="${CouponList}">
+
+<#list CouponList as coupons>
 									<tr>
 										<td>${coupons.couponId}</td>
 										<td>${coupons.nointerestContent}</td>
@@ -184,18 +178,18 @@
 											<div class="am-btn-toolbar">
 												<div class="am-btn-group am-btn-group-xs">
 													<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-													<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}" id="delete${coupons.couponId}${ListType}"></a>
+													<a href="  coupon/deleteById/${coupons.couponId},${ListType}" id="delete${coupons.couponId}${ListType}"></a>
 												</div>
 											</div>
 										</td>
 									</tr>
-								</c:forEach>
+</#list>
 
 
 								</tbody>
-								</c:if>
+</#if>
 
-								<c:if test="${ListType==2}">
+<#if ListType?? && ListType == "2">
 									<thead>
 									<tr>
 										</th><th class="table-id">ID</th>
@@ -205,7 +199,7 @@
 									</tr>
 									</thead>
 									<tbody>
-									<c:forEach  var="coupons" items="${CouponList}">
+<#list CouponList as coupons>
 										<tr>
 											<td>${coupons.couponId}</td>
 											<td>${coupons.conditionAmount}</td>
@@ -216,16 +210,16 @@
 													<div class="am-btn-group am-btn-group-xs">
 
 														<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-														<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a>
+														<a href="  coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a>
 													</div>
 												</div>
 											</td>
 										</tr>
-									</c:forEach>
+</#list>
 									</tbody>
-								</c:if>
+</#if>
 
-								<c:if test="${ListType==3}">
+<#if ListType?? && ListType == "3">
 									<thead>
 									<tr>
 										</th><th class="table-id">ID</th>
@@ -235,7 +229,7 @@
 									</tr>
 									</thead>
 									<tbody>
-									<c:forEach  var="coupons" items="${CouponList}">
+<#list CouponList as coupons>
 										<tr>
 											<td>${coupons.couponId}</td>
 											<td>${coupons.nointerestContent}</td>
@@ -245,15 +239,15 @@
 												<div class="am-btn-toolbar">
 													<div class="am-btn-group am-btn-group-xs">
 														<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-														<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a>	</div>
+														<a href="  coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a>	</div>
 												</div>
 											</td>
 										</tr>
-									</c:forEach>
+</#list>
 									</tbody>
-								</c:if>
+</#if>
 
-								<c:if test="${ListType==4}">
+	<#if ListType?? && ListType == "4">
 									<thead>
 									<tr>
 										</th><th class="table-id">ID</th>
@@ -264,7 +258,7 @@
 									</tr>
 									</thead>
 									<tbody>
-									<c:forEach  var="coupons" items="${CouponList}">
+<#list CouponList as coupons>
 										<tr>
 											<td>${coupons.couponId}</td>
 											<td>${coupons.conditionAmount}</td>
@@ -275,13 +269,13 @@
 												<div class="am-btn-toolbar">
 													<div class="am-btn-group am-btn-group-xs">
 														<button id="deletebut${coupons.couponId}${ListType}" onclick="deleteById2(${coupons.couponId},${ListType})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-														<a href="<%=basePath %>/coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a></div>
+														<a href="  coupon/deleteById/${coupons.couponId},${ListType}"  id="delete${coupons.couponId}${ListType}"></a></div>
 												</div>
 											</td>
 										</tr>
-									</c:forEach>
+</#list>
 									</tbody>
-								</c:if>
+	</#if>
 							</table>
 
 						</form>
@@ -289,10 +283,10 @@
 								<div class="am-fr">
 									<ul class="am-pagination">
 
-										<li><a href="<%=basePath %>/coupon/couponList/1"> 利息优惠券</a></li>
-										<li><a href="<%=basePath %>/coupon/couponList/2">价格优惠券</a></li>
-										<li><a href="<%=basePath %>/coupon/couponList/3">类型利息优惠券</a></li>
-										<li><a href="<%=basePath %>/coupon/couponList/4">类型价格优惠券</a></li>
+										<li><a href="  coupon/couponList/1"> 利息优惠券</a></li>
+										<li><a href="  coupon/couponList/2">价格优惠券</a></li>
+										<li><a href="  coupon/couponList/3">类型利息优惠券</a></li>
+										<li><a href="  coupon/couponList/4">类型价格优惠券</a></li>
 
 
 									</ul>
@@ -321,16 +315,16 @@
 <!-- navbar -->
 <a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 
-<script type="text/javascript" src="../assets/js/jquery-2.1.0.js" ></script>
-<script type="text/javascript" src="../assets/js/amazeui.min.js"></script>
-<script type="text/javascript" src="../assets/js/app.js" ></script>
-<script type="text/javascript" src="../assets/js/blockUI.js" ></script>
+<script type="text/javascript" src=" assets/js/jquery-2.1.0.js" ></script>
+<script type="text/javascript" src=" assets/js/amazeui.min.js"></script>
+<script type="text/javascript" src=" assets/js/app.js" ></script>
+<script type="text/javascript" src=" assets/js/blockUI.js" ></script>
 <script>
 
 
 
     document.getElementById("addBut2").onclick=function(){
-        window.location = "<%=basePath %>/coupon/preAdd/"+${ListType};
+        window.location = "  coupon/preAdd/"+${ListType};
     }
 
 	function update(cusid){
