@@ -3,6 +3,7 @@ package com.fqg.service.qiantai.impl;
 import com.fqg.dao.TypeOneMapper;
 import com.fqg.entity.TypeOne;
 import com.fqg.service.qiantai.ITypeOneService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
  * @Date 2018/6/11
  * @Time 10:38
  */
+@Service
 public class TypeOneService implements ITypeOneService {
 
     @Resource
