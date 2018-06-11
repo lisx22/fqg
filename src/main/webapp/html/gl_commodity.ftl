@@ -136,7 +136,6 @@
 										<option value="">${typeName!}</option>
 									<#list types as types>
 											<option value="${types.typeOneId!}"  onclick="selectOnclik(${types.typeOneId!})">${types.typeOneName1}</option>
-
 									</#list>
 									</select>
 									<span class="am-form-caret"></span>

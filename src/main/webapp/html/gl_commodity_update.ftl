@@ -168,15 +168,15 @@
 										  <label for="doc-vld-name-2">商品状态：</label>
 										  <input type="text" id="doc-vld-phone-3" name="commodityStatus" placeholder="是否下架"value="${commodity.commodityStatus}" required/>
 									  </div>
-									  <input type="hidden" name="createTime"value="${commodity.createTime}" required/>
-									  <input type="hidden"  name="deleteTime" value="${commodity.deleteTime}" required/>
-									  <input type="hidden"  name="oneTypeId"value="${commodity.oneTypeId}" required/>
-									  <input type="hidden"  name="twoTypeId"value="${commodity.twoTypeId}" required/>
+									  <input type="hidden" name="createTime"value="${commodity.createTime!}" required/>
+									  <input type="hidden"  name="deleteTime" value="${commodity.deleteTime!}" required/>
+									  <input type="hidden"  name="oneTypeId"value="${commodity.oneTypeId!}" required/>
+									  <input type="hidden"  name="twoTypeId"value="${commodity.twoTypeId!}" required/>
 
-									  <input type="hidden"  name="threeTypeId" value="${commodity.threeTypeId}" required/>
-									  <input type="hidden"  name="noInterestStage" value="${commodity.noInterestStage}" required/>
-									  <input type="hidden"  name="brandId" value="${commodity.brandId}" required/>
-									  <input type="hidden"  name="sellNum" value="${commodity.sellNum}" required/>
+									  <input type="hidden"  name="threeTypeId" value="${commodity.threeTypeId!}" required/>
+									  <input type="hidden"  name="noInterestStage" value="${commodity.noInterestStage!}" required/>
+									  <input type="hidden"  name="brandId" value="${commodity.brandId!}" required/>
+									  <input type="hidden"  name="sellNum" value="${commodity.sellNum!}" required/>
 									  <button class="am-btn am-btn-secondary" type="submit">提交</button>
 								  </fieldset>
 								</form>

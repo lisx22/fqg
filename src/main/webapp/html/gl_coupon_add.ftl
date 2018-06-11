@@ -6,14 +6,14 @@
 		<title>新人优惠商品上架</title>
 <#assign base=request.contextPath />
     <base id="base" href="${base}/"/>
-		<link rel="stylesheet" href="../assets/css/amazeui.css" />
+		<link rel="stylesheet" href=" assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../assets/css/core.css" />
-		<link rel="stylesheet" href="../assets/css/menu.css" />
-		<link rel="stylesheet" href="../assets/css/index.css" />
-		<link rel="stylesheet" href="../assets/css/admin.css" />
-		<link rel="stylesheet" href="../assets/css/page/typography.css" />
-		<link rel="stylesheet" href="../assets/css/page/form.css" />
+		<link rel="stylesheet" href=" assets/css/core.css" />
+		<link rel="stylesheet" href=" assets/css/menu.css" />
+		<link rel="stylesheet" href=" assets/css/index.css" />
+		<link rel="stylesheet" href=" assets/css/admin.css" />
+		<link rel="stylesheet" href=" assets/css/page/typography.css" />
+		<link rel="stylesheet" href=" assets/css/page/form.css" />
 	</head>
 	<body>
 		<!-- Begin page -->
@@ -33,7 +33,7 @@
 					<li class="hidden-xs am-hide-sm-only">
                         <form role="search" class="app-search">
                             <input type="text" placeholder="Search..." class="form-control">
-                            <a href=""><img src="../assets/img/search.png"></a>
+                            <a href=""><img src=" assets/img/search.png"></a>
                         </form>
                     </li>
 				</ul>
@@ -54,7 +54,7 @@
 				    	<!-- User -->
 						<div class="user-box am-hide-sm-only">
 	                        <div class="user-img">
-	                            <img src="../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+	                            <img src=" assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 	                            <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 	                        </div>
 	                        <h5><a href="#">Mat Helme</a> </h5>
@@ -138,7 +138,7 @@
 								    </ul>
 								  </li>
 								</ul>
-<#if type?? && type == "1">
+<#if type == 1>
 
 								<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 									<fieldset>
@@ -155,7 +155,7 @@
 									</fieldset>
 								</form>
 </#if>
-							<#if type?? && type == "2">
+							<#if type == 2>
 									<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 										<fieldset>
 											<legend>新增优惠券</legend>
@@ -176,7 +176,7 @@
 									</form>
 							</#if>
 
-<#if type?? && type == "3">
+<#if type == 3>
 									<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 										<fieldset>
 											<legend>新增优惠券</legend>
@@ -199,7 +199,7 @@
 									</form>
 </#if>
 
-<#if type?? && type == "4">
+<#if type == 4>
 									<form action="/fqg/coupon/add${type}" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 										<fieldset>
 											<legend>新增优惠券</legend>
@@ -242,10 +242,10 @@
 		<!-- navbar -->
 		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 		
-		<script type="text/javascript" src="../assets/js/jquery-2.1.0.js" ></script>
-		<script type="text/javascript" src="../assets/js/amazeui.min.js"></script>
-		<script type="text/javascript" src="../assets/js/app.js" ></script>
-		<script type="text/javascript" src="../assets/js/blockUI.js" ></script>
+		<script type="text/javascript" src=" assets/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src=" assets/js/amazeui.min.js"></script>
+		<script type="text/javascript" src=" assets/js/app.js" ></script>
+		<script type="text/javascript" src=" assets/js/blockUI.js" ></script>
 	</body>
 	
 </html>

@@ -1,4 +1,3 @@
-
 <html>
 <head>
 		<meta charset="utf-8" />
@@ -155,7 +154,7 @@
 						<form>
 
 							<table class="am-table am-table-striped am-table-hover table-main" style="table-layout: fixed;">
-<#if ListType?? && ListType == "1">
+<#if ListType == 1>
 
 								<thead>
 								<tr>
@@ -189,7 +188,7 @@
 								</tbody>
 </#if>
 
-<#if ListType?? && ListType == "2">
+<#if ListType == 2>
 									<thead>
 									<tr>
 										</th><th class="table-id">ID</th>
@@ -219,7 +218,7 @@
 									</tbody>
 </#if>
 
-<#if ListType?? && ListType == "3">
+<#if ListType == 3>
 									<thead>
 									<tr>
 										</th><th class="table-id">ID</th>
@@ -247,7 +246,7 @@
 									</tbody>
 </#if>
 
-	<#if ListType?? && ListType == "4">
+	<#if ListType == 4>
 									<thead>
 									<tr>
 										</th><th class="table-id">ID</th>
@@ -305,8 +304,8 @@
 	</div>
 </div>
 
-<input type="hidden" value="${first}" id="first">
-<input type="hidden" value="${pageCount}" id="pageCount">
+<input type="hidden" value="${first!}" id="first">
+<input type="hidden" value="${pageCount!}" id="pageCount">
 <!-- end right Content here -->
 <!--</div>-->
 </div>

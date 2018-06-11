@@ -7,14 +7,14 @@
 		<title>新人优惠上架管理</title>
 	<#assign base=request.contextPath />
 	<base id="base" href="${base}/"/>
-		<link rel="stylesheet" href="../assets/css/amazeui.css" />
+		<link rel="stylesheet" href=" assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../assets/css/core.css" />
-		<link rel="stylesheet" href="../assets/css/menu.css" />
-		<link rel="stylesheet" href="../assets/css/index.css" />
-		<link rel="stylesheet" href="../assets/css/admin.css" />
-		<link rel="stylesheet" href="../assets/css/page/typography.css" />
-		<link rel="stylesheet" href="../assets/css/page/form.css" />
+		<link rel="stylesheet" href=" assets/css/core.css" />
+		<link rel="stylesheet" href=" assets/css/menu.css" />
+		<link rel="stylesheet" href=" assets/css/index.css" />
+		<link rel="stylesheet" href=" assets/css/admin.css" />
+		<link rel="stylesheet" href=" assets/css/page/typography.css" />
+		<link rel="stylesheet" href=" assets/css/page/form.css" />
 	</head>
 <body>
 <!-- Begin page -->
@@ -34,7 +34,7 @@
 			<li class="hidden-xs am-hide-sm-only">
 				<form role="search" class="app-search">
 					<input type="text" placeholder="Search..." class="form-control">
-					<a href=""><img src="../assets/img/search.png"></a>
+					<a href=""><img src=" assets/img/search.png"></a>
 				</form>
 			</li>
 		</ul>
@@ -55,7 +55,7 @@
 			<!-- User -->
 			<div class="user-box am-hide-sm-only">
 				<div class="user-img">
-					<img src="../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+					<img src=" assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 					<div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 				</div>
 				<h5><a href="#">Mat Helme</a> </h5>
@@ -76,7 +76,7 @@
 			<!-- End User -->
 
 			<ul class="am-list admin-sidebar-list">
-				<li><a href="<%=basePath %>/manager_index.ftl"><span class="am-icon-home"></span> 首页</a></li>
+				<li><a href=" manager_index.ftl"><span class="am-icon-home"></span> 首页</a></li>
 				<li class="admin-parent">
 					<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
@@ -167,28 +167,27 @@
 								<tbody>
 
 
-
-								<c:forEach  var="newUserCommoditys" items="${newUserCommodityList}">
+									<#list newUserCommodityList as newUserCommoditys>
 									<tr>
 										<td><input type="checkbox" name="newUserCommodityIds" value="${newUserCommoditys.newUerCommodityId}"/></td>
 										<td>${newUserCommoditys.newUerCommodityId}</td>
-										<td>${newUserCommoditys.commodity.commodityName}</td>
-										<td>${newUserCommoditys.price}</td>
-										<td class="am-hide-sm-only">${newUserCommoditys.createTime}</td>
-										<td class="am-hide-sm-only">${newUserCommoditys.updateTime}</td>
+										<td>${newUserCommoditys.commodity.commodityName!}</td>
+										<td>${newUserCommoditys.price!}</td>
+										<td class="am-hide-sm-only">${newUserCommoditys.createTime!}</td>
+										<td class="am-hide-sm-only">${newUserCommoditys.updateTime!}</td>
 										<td>
 											<div class="am-btn-toolbar">
 												<div class="am-btn-group am-btn-group-xs">
 													<button id="updatebut${newUserCommoditys.newUerCommodityId}" onclick="update(${newUserCommoditys.newUerCommodityId})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-													<a href="<%=basePath %>/newUserCommodity/preUpdate/${newUserCommoditys.newUerCommodityId}" id="update${newUserCommoditys.newUerCommodityId}"></a>
+													<a href=" newUserCommodity/preUpdate/${newUserCommoditys.newUerCommodityId}" id="update${newUserCommoditys.newUerCommodityId}"></a>
 													<button id="deletebut${newUserCommoditys.newUerCommodityId}" onclick="deleteById(${newUserCommoditys.newUerCommodityId})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-													<a href="<%=basePath %>/newUserCommodity/deleteById/${newUserCommoditys.newUerCommodityId}" id="delete${newUserCommoditys.newUerCommodityId}"></a>
+													<a href=" newUserCommodity/deleteById/${newUserCommoditys.newUerCommodityId}" id="delete${newUserCommoditys.newUerCommodityId}"></a>
 												</div>
 											</div>
 										</td>
 									</tr>
 
-								</c:forEach>
+									</#list>
 								</tbody>
 							</table>
 						</form>
@@ -197,11 +196,11 @@
 								<div class="am-fr">
 									<ul class="am-pagination">
 										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/0">1</a></li>
-										<li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/1">2</a></li>
-										<li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/2">3</a></li>
-										<li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/3">4</a></li>
-										<li><a href="<%=basePath %>/newUserCommodity/newUserCommodityList/4">5</a></li>
+										<li><a href=" newUserCommodity/newUserCommodityList/0">1</a></li>
+										<li><a href=" newUserCommodity/newUserCommodityList/1">2</a></li>
+										<li><a href=" newUserCommodity/newUserCommodityList/2">3</a></li>
+										<li><a href=" newUserCommodity/newUserCommodityList/3">4</a></li>
+										<li><a href=" newUserCommodity/newUserCommodityList/4">5</a></li>
 										<li><a href="javascript:downPage()">»</a></li>
 
 									</ul>
@@ -219,8 +218,8 @@
 	</div>
 </div>
 
-<input type="hidden" value="${first}" id="first">
-<input type="hidden" value="${pageCount}" id="pageCount">
+<input type="hidden" value="${first!}" id="first">
+<input type="hidden" value="${pageCount!}" id="pageCount">
 <!-- end right Content here -->
 <!--</div>-->
 </div>
@@ -229,10 +228,10 @@
 <!-- navbar -->
 <a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 
-<script type="text/javascript" src="../assets/js/jquery-2.1.0.js" ></script>
-<script type="text/javascript" src="../assets/js/amazeui.min.js"></script>
-<script type="text/javascript" src="../assets/js/app.js" ></script>
-<script type="text/javascript" src="../assets/js/blockUI.js" ></script>
+<script type="text/javascript" src=" assets/js/jquery-2.1.0.js" ></script>
+<script type="text/javascript" src=" assets/js/amazeui.min.js"></script>
+<script type="text/javascript" src=" assets/js/app.js" ></script>
+<script type="text/javascript" src=" assets/js/blockUI.js" ></script>
 <script>
     document.getElementById("addBut").onclick=function(){
         document.getElementById("add").click();
@@ -253,7 +252,7 @@
             alert("我已经翻不动了")
 		}else{
             var add = parseInt(first)-1;
-            window.location = "<%=basePath %>/newUserCommodity/newUserCommodity/"+add;
+            window.location = " newUserCommodity/newUserCommodity/"+add;
             $("#first").val(add);
 		}
 
@@ -266,7 +265,7 @@
             alert("我已经翻不动了")
 		}else{
             var jian = parseInt(first)+1;
-            window.location = "<%=basePath %>/newUserCommodity/newUserCommodity/"+jian;
+            window.location = " newUserCommodity/newUserCommodity/"+jian;
             $("#first").val(jian);
 		}
 

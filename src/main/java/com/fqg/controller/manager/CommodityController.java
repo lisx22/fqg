@@ -50,7 +50,7 @@ public class CommodityController {
         model.addAttribute("types",types);
         model.addAttribute("typeOneId",typeOneId);
         model.addAttribute("typeName",typeName);
-        return "html/gl_commodity.jsp";
+        return "html/gl_commodity.ftl";
     }
 
     @RequestMapping("/preAdd")

@@ -1,10 +1,8 @@
 package com.fqg.controller.manager;
 
 import com.fqg.entity.Commodity;
-import com.fqg.entity.Customer;
 import com.fqg.entity.KillCommodity;
 import com.fqg.service.manager.CommodityService;
-import com.fqg.service.manager.KillCommodityService;
 import com.fqg.service.manager.impl.KillCommodityServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,12 +41,12 @@ public class KillCommodityController {
         model.addAttribute("first",first);
         model.addAttribute("pageCount",pageCount);
         model.addAttribute("pageSize",KillCommodityList.size());
-        return "html/gl_killCommodity.jsp";
+        return "html/gl_killCommodity.ftl";
     }
 
     @RequestMapping("/preAdd")
     public String preAdd(){
-        return"html/gl_killCommodity_add.jsp";
+        return "html/gl_killCommodity_add.ftl";
     }
 
     @RequestMapping("/add")
@@ -71,7 +69,7 @@ public class KillCommodityController {
     public String preUpdateCommodity(@PathVariable("killCommodityId")int killCommodityId, Model model){
         KillCommodity killCommodity = killCommodityService.selectByPrimaryKey(killCommodityId);
         model.addAttribute("killCommodity",killCommodity);
-        return "html/gl_killCommodity_update.jsp";
+        return "html/gl_killCommodity_update.ftl";
     }
 
     @RequestMapping("/update")

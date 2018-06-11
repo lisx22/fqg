@@ -79,8 +79,8 @@
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
                                     <li><a href="customer/customerList/0" class="am-cf">用户管理</span></a></li>
-                                    <li><a href=" commodity/commodityList/0,1">商品管理</a></li>
-                                    <li><a href=" orders/ordersList/0">订单管理</a></li>
+                                    <li><a href="commodity/commodityList/0,1">商品管理</a></li>
+                                    <li><a href="orders/ordersList/0">订单管理</a></li>
                                     <li><a href="html/gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>
                                     <li><a href="html/gl_activity.ftl" class="am-cf"> 活动管理</span></a></li>
                                     <li><a href="html/gl_blackCustomer.ftl" class="am-cf"> 黑名单管理</span></a></li>
