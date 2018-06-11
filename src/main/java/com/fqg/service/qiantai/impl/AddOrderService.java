@@ -29,6 +29,8 @@ public class AddOrderService implements IAddOrderService{
     private RepayMapper repayMapper;
     @Resource
     private RedisUtil redisUtil;
+
+    @Override
     public boolean addToOrder(Orders orders) {
         Gson gson = new Gson();
         //查询该商品数据
@@ -60,8 +62,8 @@ public class AddOrderService implements IAddOrderService{
             repay.setCustomerId(orders.getCustomerId());
             //还款月数
             repay.setPaidStage(0);
-            //逾期月数
-            repay.setUnpadiStage(0);
+            //未还月数
+            repay.setUnpadiStage(orders.getStage());
             //当月应还
             repay.setWillPayAmount(orders.getPayMoney()/orders.getStage());
             //订单id

@@ -249,4 +249,12 @@
     on c.commodity_id = b.commodity_id
     where b.customer_id = #{customerId}
   </select>
+  <select id="selectByOrder" resultMap="BaseResultMap">
+    select
+    c.commodity_id, commodity_name, commodity_price
+    from commodity c
+    inner join orders o
+    on c.commodity_id = o.commodity_id
+    where o.order_id = #{orderId}
+  </select>
 </mapper>

@@ -18,6 +18,12 @@
     from repay
     where repay_id = #{repayId,jdbcType=INTEGER}
   </select>
+  <select id="selectByCustomer" resultType="java.lang.Integer">
+    select
+    will_pay_amount
+    from repay
+    where customer_id = #{customerId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from repay
     where repay_id = #{repayId,jdbcType=INTEGER}

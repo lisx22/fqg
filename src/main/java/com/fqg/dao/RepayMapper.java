@@ -2,6 +2,8 @@ package com.fqg.dao;
 
 import com.fqg.entity.Repay;
 
+import java.util.List;
+
 public interface RepayMapper {
     int deleteByPrimaryKey(Integer repayId);
 
@@ -14,4 +16,6 @@ public interface RepayMapper {
     int updateByPrimaryKeySelective(Repay record);
 
     int updateByPrimaryKey(Repay record);
+
+    List<Integer> selectByCustomer(Integer customerId);
 }

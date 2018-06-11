@@ -1,10 +1,8 @@
 package com.fqg.controller.qiantai;
 
-import com.fqg.entity.CommoditySelect;
-import com.fqg.entity.CommoditySmallVO;
-import com.fqg.entity.Customer;
-import com.fqg.entity.PageInfo;
+import com.fqg.entity.*;
 import com.fqg.service.qiantai.ICommoditySearchService;
+import com.fqg.service.qiantai.ITypeOneService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +25,9 @@ public class CommoditySmallVOController {
     @Resource
     private ICommoditySearchService iCommoditySearchService;
 
+    @Resource
+    private ITypeOneService typeOneService;
+
     @RequestMapping("/select")
     public String select(Model model,String pageNo,
                          CommoditySelect commoditySelect){
@@ -36,6 +37,8 @@ public class CommoditySmallVOController {
         PageInfo<CommoditySmallVO> pageInfo = iCommoditySearchService.
                 selectByCommoditySelect(commoditySelect, Integer.parseInt(pageNo));
         model.addAttribute("pageInfo",pageInfo);
+        TypeOne typeOne = typeOneService.selectById(commoditySelect.getTypeOneId());
+        model.addAttribute("typeOne",typeOne);
         return "commoditySmallVO";
     }
 
