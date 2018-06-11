@@ -15,7 +15,8 @@
     <import resource="spring-redis.xml"/>
     <import resource="spring-session.xml"/>
     <!-- 扫描包下面的所有的类是否受spring的管理，需要spring创建对象 -->
-    <context:component-scan base-package="com.fqg.entity,com.fqg.service.*,com.fqg.dao,com.fqg.controller.*,com.fqg.cache"/>
+    <context:component-scan
+            base-package="com.fqg.entity,com.fqg.service.*,com.fqg.dao,com.fqg.controller.*,com.fqg.cache"/>
 
 
     <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -42,7 +43,26 @@
     <!--<property name="cache" value="true" />-->
     <!--<property name="order" value="0" />-->
     <!--</bean>-->
+    <!-- ==================================== Th-->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 
+    <!--freemarker视图解析器-->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
+        <property name="requestContextAttribute" value="request"/>
+        <property name="cache" value="true"/>
+        <property name="order" value="0"/>
+    </bean>
+    <!--  ================================Th-->
     <!--&lt;!&ndash;ViewResolver 视图解析器&ndash;&gt;-->
     <!--&lt;!&ndash;用于支持Servlet、JSP视图解析&ndash;&gt;-->
     <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
@@ -50,13 +70,9 @@
     <!--<property name="prefix" value="/html/"/>-->
     <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
-    <!---*******************************************************->
-
-
-
-    <!- 配置config.properties的文件路径 -->
-    <context:property-placeholder location="classpath:config.properties" />
-
+    <!--******************************************************-->
+    <!--<!- 配置config.properties的文件路径 &ndash;&gt;-->
+    <context:property-placeholder location="classpath:config.properties"/>
     <!-- 配置数据库和连接池信息，使用config.properties里面的值 -->
     <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!-- 数据连接信息 -->
@@ -83,15 +99,15 @@
 
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描mapping.xml文件，**表示迭代查找 -->
-        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml" />
+        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.fqg.dao" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <property name="basePackage" value="com.fqg.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <!-- 是过滤器代理类所代理的实体对象 -->
@@ -123,9 +139,6 @@
         </property>
         <!--=============================================================================================-->
     </bean>
-
-
-
     <bean name="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <!--<property name="authenticator" ref="myAuthenticator"/>-->
         <property name="realms">
@@ -150,8 +163,4 @@
         <property name="httpOnly" value="true"/> <!--避免XSS攻击-->
         <property name="maxAge" value="30000"/><!-- 失效时间 -->
     </bean>
-
-    <!--<bean name="mybatisRealm" class="com.fqg.realm.MyBatisRealm"/>-->
-
-
 </beans>
