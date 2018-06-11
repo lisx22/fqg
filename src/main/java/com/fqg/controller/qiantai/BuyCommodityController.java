@@ -5,6 +5,7 @@ import com.fqg.service.qiantai.IBeforeAddOrderService;
 import com.fqg.service.qiantai.ICommodityCoupon;
 import com.fqg.service.qiantai.impl.*;
 //import com.fqg.service.qiantai.impl.Producer;
+import com.fqg.util.EasyGoUtil;
 import com.fqg.util.RedisUtil;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,8 @@ public class BuyCommodityController {
     public String addToOrder(String buyInfo,Customer customer,Model model){
         String str = iBeforeAddOrderService.addToOrder(customer,buyInfo);
         model.addAttribute("msg",str);
+        //后台消息传递
+        new EasyGoUtil().easyGO();
         return "";
     }
     //在购物车页面批量购买

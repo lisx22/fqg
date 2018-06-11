@@ -179,5 +179,21 @@
 		<script type="text/javascript" src=" assets/js/app.js" ></script>
 		<script type="text/javascript" src=" assets/js/blockUI.js" ></script>
 	</body>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: "BC-55d4d6fb978c46468b41e34193467a75"
+    });
+    goEasy.subscribe({
+        channel: "my_channel",
+        onMessage: function (message) {
+            alert("Channel:" + message.channel + " content:" + message.content);
+        }
+    });
+
+
+
+
+</script>
 	
 </html>
