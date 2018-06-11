@@ -17,5 +17,9 @@ public interface RepayMapper {
 
     int updateByPrimaryKey(Repay record);
 
-    List<Integer> selectByCustomer(Integer customerId);
+    List<Integer> selectWillPayAmountByCustomer(Integer customerId);
+
+    List<Repay> selectByCustomer(Integer customerId);
+
+    List<Repay> selectAll();
 }

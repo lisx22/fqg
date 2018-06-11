@@ -151,7 +151,57 @@
         <!--<property name="rememberMeManager" ref="rememberMeManager"/>-->
     </bean>
     <bean id="userRealm" class="com.fqg.realm.UserRealm"/>
-
+    <!-- 配置 定时任务 videoJson.redisbegin Begin  -->
+    <bean id="jobDemo1" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+            <!-- 指定job的名称 -->
+            <property name="name" value="filmHotJob"/>
+            <!-- 指定job的分组 -->
+            <property name="group" value="film_group"/>
+            <!-- 指定具体的job类 -->
+            <property name="jobClass" value="com.fqg.util.quartzutil.MyJob"/>
+            <!-- 必须设置为true，如果为false，当没有活动的触发器与之关联时会在调度器中会删除该任务  -->
+            <property name="durability" value="true"/>
+            <!-- 指定spring容器的key，如果不设定在job中的jobmap中是获取不到spring容器的 -->
+            <property name="applicationContextJobDataKey" value="applicationContext"/>
+        </bean>
+        <!-- 调用正在任务目标(作业)   -->
+    <!-- 配置作业调度的触发方式 -->
+    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDemo1" />
+        <property name="startDelay" value="5000" /><!-- 调度工厂实例化后，经过0秒开始执行调度 -->
+        <property name="repeatInterval" value="86400000" /><!-- 每天调度一次 -->
+    </bean>
+    <bean id="jobDemo2" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+            <!-- 指定job的名称 -->
+            <property name="name" value="filmHotJob"/>
+            <!-- 指定job的分组 -->
+            <property name="group" value="film_group"/>
+            <!-- 指定具体的job类 -->
+            <property name="jobClass" value="com.fqg.util.quartzutil.MyJob2"/>
+            <!-- 必须设置为true，如果为false，当没有活动的触发器与之关联时会在调度器中会删除该任务  -->
+            <property name="durability" value="true"/>
+            <!-- 指定spring容器的key，如果不设定在job中的jobmap中是获取不到spring容器的 -->
+            <property name="applicationContextJobDataKey" value="applicationContext"/>
+        </bean>
+        <!-- 调用正在任务目标(作业)   -->
+    <!-- 配置作业调度的触发方式 -->
+    <bean id="simpleTrigger2" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDemo2" />
+        <property name="startDelay" value="5000" /><!-- 调度工厂实例化后，经过0秒开始执行调度 -->
+        <property name="repeatInterval" value="2592000000" /><!-- 每天调度一次 -->
+    </bean>
+    <!-- 配置调度工厂 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="jobFactory" ref="myJobFactory"/>
+        <property name="triggers">
+            <list>
+                <ref bean="simpleTrigger" />
+                <ref bean="simpleTrigger2" />
+            </list>
+        </property>
+     </bean>
+    <bean id="myJobFactory" class="com.fqg.util.quartzutil.JobFactory"></bean>
+    <!--定时器任务配置（结束）-->
 
     <!--<bean name="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">-->
     <!--<property name="cookie" ref="rememberMeCookie"/>-->

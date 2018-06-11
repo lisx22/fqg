@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: 陈锴鹏
   Date: 2018/6/11
-  Time: 9:55
+  Time: 9:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8"
@@ -14,9 +14,7 @@
     <base href="<%=request.getContextPath()%>/"/>
 </head>
 <body>
-<form action="payment/test">
-    <input type="text" name="body"><br>
-    <input type="submit" value="购买">
-</form>
+${oid}
+<img src="payment/image">
 </body>
 </html>

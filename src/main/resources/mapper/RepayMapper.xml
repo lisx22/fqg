@@ -18,11 +18,22 @@
     from repay
     where repay_id = #{repayId,jdbcType=INTEGER}
   </select>
-  <select id="selectByCustomer" resultType="java.lang.Integer">
+  <select id="selectWillPayAmountByCustomer" resultType="java.lang.Integer">
     select
     will_pay_amount
     from repay
     where customer_id = #{customerId}
+  </select>
+  <select id="selectByCustomer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from repay
+    where customer_id = #{customerId}
+  </select>
+  <select id="selectAll" resultType="com.fqg.entity.Repay">
+    select
+    <include refid="Base_Column_List" />
+    from repay
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from repay

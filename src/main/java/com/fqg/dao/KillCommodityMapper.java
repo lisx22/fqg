@@ -22,4 +22,6 @@ public interface KillCommodityMapper {
     List<KillCommodity> selectByPage(@Param("first")int first, @Param("pageSize")int pageSize);
 
     int selectCount();
+
+    List<KillCommodity> selectAll();
 }

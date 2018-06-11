@@ -17,5 +17,5 @@ public interface CartMapper {
 
     int updateByPrimaryKey(Cart record);
 
-    List<Cart> selectByCustoerId(Integer customerId);
+    List<Cart> selectByCustomerId(Integer customerId);
 }

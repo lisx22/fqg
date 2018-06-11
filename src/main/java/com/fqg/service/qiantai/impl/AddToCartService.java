@@ -28,7 +28,7 @@ public class AddToCartService implements IAddToCartService{
         cart.setCustomerId(customer.getCustomerId());
         cart.setCommodityId(Integer.parseInt(str.subSequence(0, 1).toString()));
         cartMapper.insertSelective(cart);
-        List<Cart> carts = cartMapper.selectByCustoerId(customer.getCustomerId());
+        List<Cart> carts = cartMapper.selectByCustomerId(customer.getCustomerId());
         return carts;
     }
 }
