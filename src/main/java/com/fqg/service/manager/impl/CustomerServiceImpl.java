@@ -38,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService{
         customerDAO.updateByPrimaryKey(record);
         return 0;
     }
+
     public Customer selectByPrimaryKey(Integer customerId){
         return customerDAO.selectByPrimaryKey(customerId);
     }
@@ -57,5 +58,9 @@ public class CustomerServiceImpl implements CustomerService{
         }
         return pageCount;
 
+    }
+
+    public List<Customer> selectByID(String ID){
+        return customerDAO.selectByID(ID);
     }
 }

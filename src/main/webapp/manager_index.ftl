@@ -81,17 +81,13 @@
                                     <li><a href="customer/customerList/0" class="am-cf">用户管理</span></a></li>
                                     <li><a href="commodity/commodityList/0,1">商品管理</a></li>
                                     <li><a href="orders/ordersList/0">订单管理</a></li>
-                                    <li><a href="html/gl_change.ftl" class="am-cf"> 退换货管理</span></a></li>
-                                    <li><a href="html/gl_activity.ftl" class="am-cf"> 活动管理</span></a></li>
-                                    <li><a href="html/gl_blackCustomer.ftl" class="am-cf"> 黑名单管理</span></a></li>
-                                    <li><a href="html/gl_interest.ftl" class="am-cf"> 利息管理</span></a></li>
+                                    <li><a href="blackCustomer/blackCustomerList/0" class="am-cf"> 黑名单管理</span></a></li>
                                 </ul>
                             </li>
                             <li class="admin-parent">
                                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
                                     <li><a href=" coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
-                                    <li><a href="html/qt_repay.ftl" class="am-cf">还款信息</span></a></li>
 
                                 </ul>
                             </li>

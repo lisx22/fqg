@@ -12,4 +12,5 @@ public interface CustomerService {
     Customer selectByPrimaryKey(Integer customerId);
     int deleteByPrimaryKey(Integer customerId);
     int selectCount();
+    public List<Customer> selectByID(String ID);
 }

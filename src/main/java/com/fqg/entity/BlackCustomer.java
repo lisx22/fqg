@@ -6,7 +6,7 @@ import java.util.Date;
 public class BlackCustomer implements Serializable {
     private Integer blackCustomerId;
 
-    private Integer idNumber;
+    private String idNumber;
 
     private String  createTime;
 
@@ -18,11 +18,11 @@ public class BlackCustomer implements Serializable {
         this.blackCustomerId = blackCustomerId;
     }
 
-    public Integer getIdNumber() {
+    public String getIdNumber() {
         return idNumber;
     }
 
-    public void setIdNumber(Integer idNumber) {
+    public void setIdNumber(String idNumber) {
         this.idNumber = idNumber;
     }
 
@@ -33,4 +33,6 @@ public class BlackCustomer implements Serializable {
     public void setCreateTime(String  createTime) {
         this.createTime = createTime;
     }
+
+
 }

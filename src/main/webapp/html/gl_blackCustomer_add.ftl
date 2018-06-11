@@ -1,20 +1,19 @@
 
 <html>
 <head>
-
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>新人优惠商品上架</title>
 <#assign base=request.contextPath />
     <base id="base" href="${base}/"/>
-		<link rel="stylesheet" href="  assets/css/amazeui.css" />
+		<link rel="stylesheet" href=" assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="  assets/css/core.css" />
-		<link rel="stylesheet" href="  assets/css/menu.css" />
-		<link rel="stylesheet" href="  assets/css/index.css" />
-		<link rel="stylesheet" href="  assets/css/admin.css" />
-		<link rel="stylesheet" href="  assets/css/page/typography.css" />
-		<link rel="stylesheet" href="  assets/css/page/form.css" />
+		<link rel="stylesheet" href=" assets/css/core.css" />
+		<link rel="stylesheet" href=" assets/css/menu.css" />
+		<link rel="stylesheet" href=" assets/css/index.css" />
+		<link rel="stylesheet" href=" assets/css/admin.css" />
+		<link rel="stylesheet" href=" assets/css/page/typography.css" />
+		<link rel="stylesheet" href=" assets/css/page/form.css" />
 	</head>
 	<body>
 		<!-- Begin page -->
@@ -34,7 +33,7 @@
 					<li class="hidden-xs am-hide-sm-only">
                         <form role="search" class="app-search">
                             <input type="text" placeholder="Search..." class="form-control">
-                            <a href=""><img src="  assets/img/search.png"></a>
+                            <a href=""><img src=" assets/img/search.png"></a>
                         </form>
                     </li>
 				</ul>
@@ -55,7 +54,7 @@
 				    	<!-- User -->
 						<div class="user-box am-hide-sm-only">
 	                        <div class="user-img">
-	                            <img src="  assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+	                            <img src=" assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 	                            <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 	                        </div>
 	                        <h5><a href="#">Mat Helme</a> </h5>
@@ -135,84 +134,28 @@
 								    </ul>
 								  </li>
 								</ul>
-								
-								<form action="/fqg/commodity/add" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
-								  <fieldset>
-								    <legend>新增商品</legend>
-								    <div class="am-form-group">
-								      <label for="doc-vld-name-2">商品名：</label>
-								      <input type="text" id="doc-vld-name-2" name="commodityName" minlength="1" placeholder="输入商品名" required/>
-								    </div>
 
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">商品价格：</label>
-										  <input type="text" id="doc-vld-name-3" name="commodityPrice" minlength="1" placeholder="输入价格" required/>
-									  </div>
+                                <form action="blackCustomer/add" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
+                                    <fieldset>
+                                        <legend>新增黑名单</legend>
+                                        <div class="am-form-group">
+                                            <label for="doc-vld-name-2">身份证号</label>
+                                            <input type="text" id="doc-vld-name-2" name="idNumber"  placeholder="输入身份证" required/>
+                                            <input type="hidden" id="doc-vld-name-2" value="1" name="cteateTime" required/>
+                                        </div>
 
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">商品描述：</label>
-										  <input type="text" id="doc-vld-idNumber-3" name="commodityDescription"  placeholder="商品描述" required/>
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">库存：</label>
-										  <input type="text" id="doc-vld-phone-3" name="number"  placeholder="输入库存" required/>
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">免息期数：</label>
-										  <input type="text" id="doc-vld-password-2" name="noInterestStage"placeholder="免息期数" required/>
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">类型一：</label>
-									<#list typeones as typeones>
-										  <label class="am-radio-inline">
-											  <input type="radio"  value="${typeones.typeOneId}" name="oneTypeId" required>${typeones.typeOneName}
-										  </label>
-									</#list>
-
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">类型二：</label>
-
-										<#list typetwos as typetwos>
-											  <label class="am-radio-inline">
-												  <input type="radio"  value="${typetwos.typeTwoId}" name="twoTypeId" required>${typetwos.typeTwoName}
-											  </label>
-										</#list>
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">类型三：</label>
-									<#list typethrees as typethrees>
-											  <label class="am-radio-inline">
-												  <input type="radio"  value="${typethrees.typeThreeId}" name="threeTypeId" required>${typethrees.typeThreeName}
-											  </label>
-									</#list>
-									  </div>
-
-									  <div class="am-form-group">
-										  <label for="doc-vld-name-2">品牌：</label>
-										<#list Brands as Brands>
-										  <c:forEach var="Brands" items="${Brands}">
-											  <label class="am-radio-inline">
-												  <input type="radio"  value="${Brands.brandId}" name="brandId" required>${Brands.brandName}
-											  </label>
-										</#list>
-									  </div>
-
-								
-								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
-								  </fieldset>
-								</form>
+										<button class="am-btn am-btn-secondary" type="submit">提交</button>
+                                    </fieldset>
+                                </form>
 								
 								
 							</div>
 						</div>
 					<!-- Row end -->
 				</div>
+			
+			
+			
 			
 			</div>
 		</div>
@@ -224,10 +167,10 @@
 		<!-- navbar -->
 		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 		
-		<script type="text/javascript" src="  assets/js/jquery-2.1.0.js" ></script>
-		<script type="text/javascript" src="  assets/js/amazeui.min.js"></script>
-		<script type="text/javascript" src="  assets/js/app.js" ></script>
-		<script type="text/javascript" src="  assets/js/blockUI.js" ></script>
+		<script type="text/javascript" src=" assets/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src=" assets/js/amazeui.min.js"></script>
+		<script type="text/javascript" src=" assets/js/app.js" ></script>
+		<script type="text/javascript" src=" assets/js/blockUI.js" ></script>
 	</body>
 	
 </html>

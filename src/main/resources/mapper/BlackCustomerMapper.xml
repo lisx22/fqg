@@ -3,18 +3,42 @@
 <mapper namespace="com.fqg.dao.BlackCustomerMapper">
   <resultMap id="BaseResultMap" type="com.fqg.entity.BlackCustomer">
     <id column="black_customer_id" jdbcType="INTEGER" property="blackCustomerId" />
-    <result column="ID_number" jdbcType="INTEGER" property="idNumber" />
+    <result column="ID_number" jdbcType="VARCHAR" property="idNumber" />
     <result column="create_time" jdbcType="VARCHAR" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">
     black_customer_id, ID_number, create_time
   </sql>
+
+  <select id="selectByPage" resultMap="BaseResultMap">
+    select
+    black_customer_id, ID_number, create_time
+    from black_customer
+    limit #{first},#{pageSize}
+  </select>
+
+  <select id="selectByID" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from black_customer
+    where ID_number=#{idNumber}
+  </select>
+
+
+
+  <select id="selectCount"  resultType="java.lang.Integer">
+    select
+    count(black_customer_id)
+    from black_customer
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from black_customer
     where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from black_customer
     where black_customer_id = #{blackCustomerId,jdbcType=INTEGER}

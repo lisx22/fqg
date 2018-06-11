@@ -47,4 +47,6 @@ public interface CustomerMapper {
     int selectCount();
 
     Customer selectByPhoneNumber(String phoneNumber);
+
+    List <Customer> selectByID(String id);
 }

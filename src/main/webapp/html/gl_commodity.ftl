@@ -74,38 +74,34 @@
 			</div>
 			<!-- End User -->
 
-			<ul class="am-list admin-sidebar-list">
-				<li><a href="<%=basePath %>/manager_index.jsp"><span class="am-icon-home"></span> 首页</a></li>
-				<li class="admin-parent">
-					<a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-						<li><a href="<%=basePath %>/customer/customerList/0" class="am-cf">用户管理</span></a></li>
-						<li><a href="<%=basePath %>/commodity/commodityList/0,0">商品管理</a></li>
-						<li><a href="<%=basePath %>/">订单管理</a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 退换货管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 活动管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 黑名单管理</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf"> 利息管理</span></a></li>
-					</ul>
-				</li>
-				<li class="admin-parent">
-					<a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-						<li><a href="<%=basePath %>/" class="am-cf"> 优惠券发布</span></a></li>
-						<li><a href="<%=basePath %>/" class="am-cf">还款信息</span></a></li>
+            <ul class="am-list admin-sidebar-list">
+                <li><a href=""><span class="am-icon-home"></span> 首页</a></li>
+                <li class="admin-parent">
+                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                    <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
+                        <li><a href="customer/customerList/0" class="am-cf">用户管理</span></a></li>
+                        <li><a href="commodity/commodityList/0,1">商品管理</a></li>
+                        <li><a href="orders/ordersList/0">订单管理</a></li>
+                        <li><a href="blackCustomer/blackCustomerList/0" class="am-cf"> 黑名单管理</span></a></li>
+                    </ul>
+                </li>
+                <li class="admin-parent">
+                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 其他 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                    <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
+                        <li><a href=" coupon/couponList/1" class="am-cf"> 优惠券发布</span></a></li>
 
-					</ul>
-				</li>
-				<li class="admin-parent">
-					<a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 上架 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-					<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
-						<li><a href="<%=basePath %>/" class="am-cf"> 秒杀商品上架</a></li>
-						<li><a href="<%=basePath %>/">新人优惠商品上架</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
+                    </ul>
+                </li>
+                <li class="admin-parent">
+                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 上架 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                    <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
+                        <li><a href=" killCommodity/killCommodityList/0" class="am-cf">秒杀商品上架</a></li>
+                        <li><a href=" newUserCommodity/newUserCommodityList/0">新人优惠商品上架</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 	<!-- sidebar end -->
 
 	<!--</div>
@@ -135,7 +131,7 @@
 									<select id="doc-select-1" onchange="selectOnclik()" required>
 										<option value="">${typeName!}</option>
 									<#list types as types>
-											<option value="${types.typeOneId!}"  onclick="selectOnclik(${types.typeOneId!})">${types.typeOneName1}</option>
+											<option value="${types.typeOneId!}"  onclick="selectOnclik(${types.typeOneId!})">${types.typeOneName!}</option>
 									</#list>
 									</select>
 									<span class="am-form-caret"></span>
@@ -181,14 +177,14 @@
 								<tbody>
 								<#list CommodityList as commoditys>
 									<tr>
-										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId1}"/></td>
+										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId!}"/></td>
 										<td>${commoditys.commodityId}</td>
-										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName1}</td>
-										<td>${commoditys.commodityPrice1}</td>
-										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription1}</td>
-										<td class="am-hide-sm-only">${commoditys.number1}</td>
-										<td class="am-hide-sm-only">${commoditys.createTime1}</td>
-										<td class="am-hide-sm-only">${commoditys.updateTime1}</td>
+										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName!}</td>
+										<td>${commoditys.commodityPrice!}</td>
+										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription!}</td>
+										<td class="am-hide-sm-only">${commoditys.number!}</td>
+										<td class="am-hide-sm-only">${commoditys.createTime!}</td>
+										<td class="am-hide-sm-only">${commoditys.updateTime}</td>
 										<td class="am-hide-sm-only">${commoditys.deleteTime1}</td>
 										<td class="am-hide-sm-only">${commoditys.commodityStatus1}</td>
 										<td>

@@ -20,6 +20,8 @@
     all_quota, quota, create_time, company_name, school_name
   </sql>
 
+
+
   <select id="selectByPage" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -31,6 +33,13 @@
     select
     count(customer_id)
     from customer
+  </select>
+
+  <select id="selectByID" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    where ID_number = #{idNumber}
   </select>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
