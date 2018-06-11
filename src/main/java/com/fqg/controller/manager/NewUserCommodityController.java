@@ -1,7 +1,6 @@
 package com.fqg.controller.manager;
 
 import com.fqg.entity.Commodity;
-import com.fqg.entity.KillCommodity;
 import com.fqg.entity.NewUserCommodity;
 import com.fqg.service.manager.CommodityService;
 import com.fqg.service.manager.NewUserCommodityService;
@@ -42,11 +41,11 @@ public class NewUserCommodityController {
         model.addAttribute("first",first);
         model.addAttribute("pageCount",pageCount);
         model.addAttribute("pageSize",newUserCommodityList.size());
-        return "html/gl_newUserCommodity.jsp";
+        return "html/gl_newUserCommodity.ftl";
     }
     @RequestMapping("/preAdd")
     public String preAdd(){
-        return"html/gl_newUserCommodity_add.jsp";
+        return "html/gl_newUserCommodity_add.ftl";
     }
 
     @RequestMapping("/add")
@@ -71,7 +70,7 @@ public class NewUserCommodityController {
     public String preUpdateCommodity(@PathVariable("killCommodityId")int killCommodityId, Model model){
         NewUserCommodity newUserCommodity = newUserCommodityService.selectByPrimaryKey(killCommodityId);
         model.addAttribute("newUserCommodity",newUserCommodity);
-        return "html/gl_newUserCommodity_update.jsp";
+        return "html/gl_newUserCommodity_update.ftl";
     }
 
     @RequestMapping("/update")
