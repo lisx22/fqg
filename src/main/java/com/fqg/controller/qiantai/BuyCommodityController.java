@@ -52,9 +52,15 @@ public class BuyCommodityController {
     }
     //购买商品，加入订单表
     @RequestMapping("/addorder")
-    public String addToOrder(String buyInfo){
-        String str = iBeforeAddOrderService.addToOrder(buyInfo);
-        return str;
+    public String addToOrder(String buyInfo,Customer customer,Model model){
+        String str = iBeforeAddOrderService.addToOrder(customer,buyInfo);
+        model.addAttribute("msg",str);
+        return "";
+    }
+    //在购物车页面批量购买
+    @RequestMapping("/alladdorder")
+    public String allAddOrder(){
+        return "";
     }
     //加入收藏夹
     @RequestMapping("/likecommodity")

@@ -37,19 +37,15 @@ public class BeforeAddOrderService implements IBeforeAddOrderService {
     @Resource
     private AddOrderService service;
     @Override
-    public String addToOrder(String buyInfo) {
+    public String addToOrder(Customer customer,String buyInfo) {
         //第一个值为商品id,第2个值为免息券id，第3个值为价格券id，第4个值为颜色id，第5个值为分期月数对应的利息id
-        //第6个值为 用户id 第7个值为支付密码 第8个值为购买数量，其后值为详情id;
+        //第6个值为支付密码 第7个值为购买数量，其后值为详情id;
         //返回信息的字符串
         String str = "";
         //将客户端传递过来的值拆分为数组
         String[] infos = buyInfo.split("-");
-        //根据用户id查询用户信息
-        Customer customer = customerMapper.selectByPrimaryKey(Integer.parseInt(infos[5]));
-        System.out.println(infos[6]);
-        System.out.println(customer.getPayPassword());
         //判断支付密码是否正确（待修改为md5加密）正确则计算商品价格，不正确则返回支付密码错误
-        if(infos[6].equals(customer.getPayPassword())){
+        if(infos[5].equals(customer.getPayPassword())){
             //查询商品初始价格
             int price = commodityMapper.selectPriceById(Integer.parseInt(infos[0]));
             //查询商品免息月数
@@ -63,12 +59,12 @@ public class BeforeAddOrderService implements IBeforeAddOrderService {
             double fqqs = buyInterest.getPercent();
             // 查询详情折价
             int infoPrice = 0;
-            for (int i = 8;i < infos.length;i++){
+            for (int i = 7;i < infos.length;i++){
                 System.out.println(commodityInfoMapper.selectPriceByCommodityIdAndInfoId(Integer.parseInt(infos[0]),Integer.parseInt(infos[i])));
                 infoPrice += commodityInfoMapper.selectPriceByCommodityIdAndInfoId(Integer.parseInt(infos[0]),Integer.parseInt(infos[i]));
             }
             //购买数量
-            int buyNum = Integer.parseInt(infos[7]);
+            int buyNum = Integer.parseInt(infos[6]);
             // 计算应付价格
             double buyPrice = (price + colorPrice + infoPrice -allPriceCoupon) * (1+fqqs) * buyNum;
             //判断应付价格与可用余额的对比 若可以支付则调用addOrder纯入订单和还款表 若不能支付则返回可用额度不够

@@ -1,6 +1,7 @@
 package com.fqg.controller.qiantai;
 
 import com.fqg.entity.Customer;
+import com.fqg.service.qiantai.impl.KillCommodityServie;
 import com.fqg.service.qiantai.impl.Producer;
 import com.fqg.util.RedisUtil;
 import com.google.gson.Gson;
@@ -26,6 +27,8 @@ public class Killcontroller {
      */
     @Autowired
     RedisUtil redisUtil;
+    @Resource
+    private KillCommodityServie killCommodityServie;
     @RequestMapping("/kill")
     @ResponseBody
     public String testQueue(Customer customer, String killid, Model model) {
@@ -41,7 +44,16 @@ public class Killcontroller {
 
         return "秒杀中";
     }
-
+    @RequestMapping("allkill")
+    public Object allKillCommodities(Model model,Customer customer){
+        model.addAttribute("allkill",killCommodityServie.allKillCommodity());
+        return redisUtil.get("allkillCommodities");
+    }
+    @RequestMapping("killinfo")
+    public String killInfo(Model model,String killId){
+        model.addAttribute("killinfo",killCommodityServie.killCommodity(killId));
+        return "";
+    }
     @RequestMapping("returnkill")
     @ResponseBody
     public String returnKill(Customer customer, String killid, Model model){

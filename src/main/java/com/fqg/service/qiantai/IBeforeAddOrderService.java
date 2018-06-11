@@ -1,5 +1,6 @@
 package com.fqg.service.qiantai;
 
+import com.fqg.entity.Customer;
 import com.fqg.entity.Orders;
 import org.springframework.stereotype.Service;
 
@@ -10,5 +11,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface IBeforeAddOrderService {
-    String addToOrder(String buyInfo);
+    String addToOrder(Customer customer,String buyInfo);
 }

@@ -21,6 +21,12 @@
     limit #{first},#{pageSize}
   </select>
 
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from kill_commodity
+  </select>
+
   <select id="selectCount"  resultType="java.lang.Integer">
     select
     count(kill_commodity_id)
