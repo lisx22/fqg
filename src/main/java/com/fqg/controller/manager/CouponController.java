@@ -56,7 +56,6 @@ public class CouponController {
     @RequestMapping(value="/preAdd/{type}", method = RequestMethod.GET)
     public String preAdd(@PathVariable("type")int type, Model model){
         model.addAttribute("ListType",type);
-        System.out.println("type="+type);
         return"html/gl_coupon_add.jsp";
     }
 

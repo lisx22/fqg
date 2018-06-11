@@ -81,7 +81,6 @@ public class KillCommodityController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        System.out.println(killCommodity.getPrice()+"000");
 
         killCommodity.setUpdateTime(getdata());
         killCommodityService.updateByPrimaryKey(killCommodity);

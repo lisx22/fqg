@@ -51,7 +51,6 @@ public class CommodityController {
         model.addAttribute("types",types);
         model.addAttribute("typeOneId",typeOneId);
         model.addAttribute("typeName",typeName);
-        System.out.println(CommodityList.get(0).getCommodityName());
         return "html/gl_commodity.jsp";
     }
 
@@ -61,7 +60,6 @@ public class CommodityController {
         List<TypeOne> typetwos = commodityService.selectTypeTwo();
         List<TypeOne> typethrees = commodityService.selectTypeThree();
         List<Brand> Brands = commodityService.selectBrand();
-        System.out.println(typeones.size()+typetwos.size()+typethrees.size()+Brands.size());
         model.addAttribute("typeones",typeones);
         model.addAttribute("typetwos",typetwos);
         model.addAttribute("typethrees",typethrees);
