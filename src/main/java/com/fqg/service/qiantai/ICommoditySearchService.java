@@ -3,6 +3,7 @@ package com.fqg.service.qiantai;
 import com.fqg.entity.CommoditySelect;
 import com.fqg.entity.CommoditySmallVO;
 import com.fqg.entity.PageInfo;
+import com.fqg.entity.TypeOne;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface ICommoditySearchService {
     List<CommoditySmallVO> selectOrderByCreateTime();
 
     List<CommoditySmallVO> selectBrowseCommodityByCustomer(Integer customerId);
+
+    TypeOne selectById(Integer typeOneId);
 }

@@ -5,6 +5,7 @@ import com.fqg.dao.CommoditySmallVOMapper;
 import com.fqg.entity.CommoditySelect;
 import com.fqg.entity.CommoditySmallVO;
 import com.fqg.entity.PageInfo;
+import com.fqg.entity.TypeOne;
 import com.fqg.service.qiantai.ICommoditySearchService;
 import com.fqg.util.RedisUtil;
 import com.google.gson.Gson;
@@ -26,6 +27,9 @@ public class CommoditySearchService implements ICommoditySearchService {
 
     @Resource
     private CommoditySmallVOMapper commoditySmallVOMapper;
+
+    @Resource
+    private TypeOneService typeOneService;
 
     @Resource
     private RedisUtil redisUtil;
@@ -71,6 +75,11 @@ public class CommoditySearchService implements ICommoditySearchService {
         List<Integer> commoditySmallVOIdList = commoditySmallVOMapper.selectBrowseCommodityByCustomer(customerId);
         List<CommoditySmallVO> commoditySmallVOList = selectCommoditySmallVOListById(commoditySmallVOIdList);
         return commoditySmallVOList;
+    }
+
+    @Override
+    public TypeOne selectById(Integer typeOneId) {
+        return typeOneService.selectById(typeOneId);
     }
 
 

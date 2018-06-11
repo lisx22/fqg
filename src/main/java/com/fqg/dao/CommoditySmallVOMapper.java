@@ -124,4 +124,6 @@ public interface CommoditySmallVOMapper {
     List<Integer> selectOrderByCreateTime();
 
     List<Integer> selectBrowseCommodityByCustomer(Integer customerId);
+
+    CommoditySmallVO selectByOrder(Integer orderId);
 }

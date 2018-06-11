@@ -4,11 +4,22 @@ import java.io.Serializable;
 import java.util.List;
 
 public class TypeOne implements Serializable {
+
     private Integer typeOneId;
 
     private String typeOneName;
 
+    private List<TypeTwo> typeTwoList;
+
     private List<Brand> brandList;
+
+    public List<TypeTwo> getTypeTwoList() {
+        return typeTwoList;
+    }
+
+    public void setTypeTwoList(List<TypeTwo> typeTwoList) {
+        this.typeTwoList = typeTwoList;
+    }
 
     public List<Brand> getBrandList() {
         return brandList;

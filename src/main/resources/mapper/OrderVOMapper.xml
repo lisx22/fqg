@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.OrderVOMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.OrderVO">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="pay_money" jdbcType="INTEGER" property="payMoney" />
+    <result column="stage" jdbcType="INTEGER" property="totalStage" />
+    <result column="paid_stage" jdbcType="INTEGER" property="paidStage" />
+    <result column="unpadi_stage" jdbcType="INTEGER" property="unPaidStage" />
+    <association property="commoditySmallVO" column="order_id" select="com.fqg.dao.CommoditySmallVOMapper.selectByOrder"></association>
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id,pay_money,stage,paid_stage,unpadi_stage
+  </sql>
+
+  <select id="selectByCustomer" resultMap="BaseResultMap">
+    select
+    o.order_id,pay_money,stage,paid_stage,unpadi_stage
+    from orders o
+    inner join repay r
+    on o.order_id = r.order_id
+    where o.customer_id = #{customerId}
+  </select>
+
+
+</mapper>
