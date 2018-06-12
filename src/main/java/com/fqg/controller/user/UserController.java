@@ -47,6 +47,9 @@ public class UserController {
             }
             userServiceImpl.login(username,password);
             Customer customer = userServiceImpl.selectByPhoneNumber(username);
+            Integer length = customer.getCustomerId();
+            System.out.println("id=========="+length);
+            session.setAttribute("customerId",length);
             session.setAttribute("customer",customer);
             jsonResult = SystemTools.formatJsonResult(SystemParam.Login.CODE_SUCCESS,SystemParam.Login.MSG_SUCCESS);
         } catch (UnknownAccountException e) {
@@ -62,7 +65,7 @@ public class UserController {
     }
 //    注册
     @RequestMapping("/save")
-    public Object save(String username,String password,String loginpasswprd
+    public Object save(String username,String password,String loginpassword
             ,HttpSession httpSession,String inputCode,Model model){
         JsonResult jsonResult = null;
         Customer customer = new Customer();
@@ -78,7 +81,7 @@ public class UserController {
             System.out.println("进入方法");
             customer.setPhoneNumber(username);
             customer.setLoginPassword(password);
-            customer.setPayPassword(loginpasswprd);
+            customer.setPayPassword(loginpassword);
             Customer save = userServiceImpl.save(customer);
             if(save==null){
                 jsonResult = SystemTools.formatJsonResult(SystemParam.Login.CODE_FAIL_UNKOWN_ACCOUNT, SystemParam.Login.MSG_FAIL_UNKOWN_ACCOUNT);

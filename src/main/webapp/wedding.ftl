@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <!-- saved from url=(0050)https://www.fenqile.com/?ad_tag=WWW.MAIN.NAV.INDEX -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html><head>
+    <link rel="icon" href="img/fql.png" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
 <title>分期乐-年轻人信用消费平台</title>
-<meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
+    <meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
 <meta name="description" content="分期乐是国内面向年轻人提供分期消费的金融服务平台，购买商品首付月供全网最低，还款超低手续费，支持网银、支付宝、财付通支付，可使用身份证办理分期；平台提供的手机、电脑、相机等商品均来自京东、易迅直供，100%正品行货。">
 <meta name="channel-id" content="PC">
 <link rel="dns-prefetch" href="https://cecfui.fenqile.cn/">
@@ -38,8 +40,8 @@
             <div class="container fn-clear">
     <div class="site-nav-bd">
         <div class="nav-text">
-                            <a href="login.ftl" style="font-size: 13px;" class="fn-left a17" >登录</a>
-                <a class="fn-left a17" style="font-size: 13px;margin-left: 10px" href="register.ftl" >注册</a>
+                            <a href="login.html" style="font-size: 13px;" class="fn-left a17" >登录</a>
+                <a class="fn-left a17" style="font-size: 13px;margin-left: 10px" href="register.html" >注册</a>
             
     </div>
 </div>                <div class="fn-right top-icon">
@@ -88,13 +90,13 @@
                             <div class="aside-nav-body">
                                 <ul id="category_nav" class="">
                                                                         <li class="first" data-category-id="66">
-                                        <a class="lp" href="/commoditySmallVO/select?typeOneId=1" title="" data-fql-stat="WWW.MAIN.NAV.MOBILE" data-fql-ftag="WWW.MAIN.NAV.MOBILE">
+                                        <a class="lp" href="commoditySmallVO/select?typeOneId=1">
                                             <i class="i-phone"></i>手机通讯<span class="i-right-ico"></span>
                                         </a>
                                         <span class="line"></span>
                                     </li>
                                     <li data-category-id="327">
-                                        <a class="lp" href="https://channel.fenqile.com/88.html" title="" data-fql-stat="WWW.MAIN.NAV.WATCH" data-fql-ftag="WWW.MAIN.NAV.WATCH">
+                                        <a class="lp" href="commoditySmallVO/select?typeOneId=2">
                                             <i class="i-watch"></i>腕表配饰<span class="i-right-ico"></span>
                                         </a>
                                         <span class="line"></span>
