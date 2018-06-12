@@ -41,6 +41,7 @@ public class CommoditySearchService implements ICommoditySearchService {
         Integer total;
         String key1 = String.valueOf(commoditySelect.hashCode());
         try{
+
             total = Integer.parseInt(redisUtil.get(key1).toString());
         } catch (NullPointerException e1) {
             synchronized (key1) {

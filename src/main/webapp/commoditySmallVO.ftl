@@ -465,20 +465,20 @@
                     <#if pageInfo.pageNo==1>
                     <li><a>上一页</a></li>
                     <#else>
-                    <li><a href="/commoditySmallVO/select?typeOneId=1&${pageInfo.pageNo-1}">上一页</a></li>
+                    <li><a href="${base}/commoditySmallVO/select?typeOneId=1&pageNo=${pageInfo.pageNo-1}">上一页</a></li>
                     </#if>
                     <#--循环遍历出页面数-->
                     <#list 1..pageInfo.pageCount as page>
                         <#if page == pageInfo.pageNo>
                         <li><a>${page}</a></li>
                         <#else>
-                        <li id="xuan"><a href="${base}/commoditySmallVO/select/${page}">${page}</a></li>
+                        <li id="xuan"><a href="${base}/commoditySmallVO/select?typeOneId=1&pageNo=${page}">${page}</a></li>
                         </#if>
                     </#list>
                     <#if pageInfo.pageNo==pageInfo.pageCount>
                     <li><a>下一页</a></li>
                     <#else>
-                    <li><a href="${base}commoditySmallVO/select?typeOneId=1&page=${pageInfo.pageNo+1}">下一页</a> </li>
+                    <li><a href="${base}/commoditySmallVO/select?typeOneId=1&pageNo=${pageInfo.pageNo+1}">下一页</a> </li>
                     </#if>
                         <li>当前页面数是第 ${pageInfo.pageNo} 页</li>
                     </ul>
