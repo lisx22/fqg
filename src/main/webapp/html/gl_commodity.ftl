@@ -31,10 +31,13 @@
 		<ul class="am-nav am-navbar-nav am-navbar-right">
 			<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
 			<li class="hidden-xs am-hide-sm-only">
-				<form role="search" class="app-search">
-					<input type="text" placeholder="Search..." class="form-control">
-					<a href=""><img src=" assets/img/search.png"></a>
+				<form role="search" action="seach/commodity" method="get" class="app-search">
+					<input type="text" name="keyword"  class="form-control">
+                    <input class="am-btn am-btn-default" type="submit"><img src=" assets/img/search.png"></input>
 				</form>
+
+
+
 			</li>
 		</ul>
 	</div>
@@ -130,7 +133,7 @@
 								<div class="am-form-group">
 									<select id="doc-select-1" onchange="selectOnclik()" required>
 										<option value="">${typeName!}</option>
-									<#list types as types>
+									<#list types! as types>
 											<option value="${types.typeOneId!}"  onclick="selectOnclik(${types.typeOneId!})">${types.typeOneName!}</option>
 									</#list>
 									</select>
@@ -143,9 +146,8 @@
 
 					<div class="am-u-sm-12 am-u-md-3">
 						<div class="am-input-group am-input-group-sm">
-							<input type="text" class="am-form-field">
-							<span class="am-input-group-btn">
-				            <button class="am-btn am-btn-default" type="button">搜索</button>
+
+
 				          </span>
 						</div>
 					</div>
@@ -184,16 +186,16 @@
 										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription!}</td>
 										<td class="am-hide-sm-only">${commoditys.number!}</td>
 										<td class="am-hide-sm-only">${commoditys.createTime!}</td>
-										<td class="am-hide-sm-only">${commoditys.updateTime}</td>
-										<td class="am-hide-sm-only">${commoditys.deleteTime1}</td>
-										<td class="am-hide-sm-only">${commoditys.commodityStatus1}</td>
+										<td class="am-hide-sm-only">${commoditys.updateTime!}</td>
+										<td class="am-hide-sm-only">${commoditys.deleteTime!}</td>
+										<td class="am-hide-sm-only">${commoditys.commodityStatus!}</td>
 										<td>
 											<div class="am-btn-toolbar">
 												<div class="am-btn-group am-btn-group-xs">
-													<button id="updatebut${commoditys.commodityId}" onclick="update(${commoditys.commodityId})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-													<a href=" commodity/preUpdateCommodity/${commoditys.commodityId}" id="update${commoditys.commodityId}"></a>
-													<button id="deletebut${commoditys.commodityId}" onclick="deleteById(${commoditys.commodityId})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-													<a href=" commodity/deleteById/${commoditys.commodityId}" id="delete${commoditys.commodityId}"></a>
+													<button id="updatebut${commoditys.commodityId!}" onclick="update(${commoditys.commodityId!})" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+													<a href=" commodity/preUpdateCommodity/${commoditys.commodityId!}" id="update${commoditys.commodityId!}"></a>
+													<button id="deletebut${commoditys.commodityId!}" onclick="deleteById(${commoditys.commodityId!})" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+													<a href=" commodity/deleteById/${commoditys.commodityId!}" id="delete${commoditys.commodityId!}"></a>
 												</div>
 											</div>
 										</td>
@@ -205,15 +207,15 @@
 							</table>
 						</form>
 							<div class="am-cf">
-								共 ${pageSize} 条记录
+								共 ${pageSize!} 条记录
 								<div class="am-fr">
 									<ul class="am-pagination">
 										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href=" commodity/commodityList/0,${typeOneId}">1</a></li>
-										<li><a href=" commodity/commodityList/1,${typeOneId}">2</a></li>
-										<li><a href=" commodity/commodityList/2,${typeOneId}">3</a></li>
-										<li><a href=" commodity/commodityList/3,${typeOneId}">4</a></li>
-										<li><a href=" commodity/commodityList/4,${typeOneId}">5</a></li>
+										<li><a href=" commodity/commodityList/0,${typeOneId!}">1</a></li>
+										<li><a href=" commodity/commodityList/1,${typeOneId!}">2</a></li>
+										<li><a href=" commodity/commodityList/2,${typeOneId!}">3</a></li>
+										<li><a href=" commodity/commodityList/3,${typeOneId!}">4</a></li>
+										<li><a href=" commodity/commodityList/4,${typeOneId!}">5</a></li>
 										<li><a href="javascript:downPage()">»</a></li>
 
 									</ul>
@@ -231,8 +233,8 @@
 	</div>
 </div>
 
-<input type="hidden" value="${first}" id="first">
-<input type="hidden" value="${pageCount}" id="pageCount">
+<input type="hidden" value="${first!}" id="first">
+<input type="hidden" value="${pageCount!}" id="pageCount">
 <!-- end right Content here -->
 <!--</div>-->
 </div>
@@ -281,7 +283,7 @@
             alert("我已经翻不动了")
 		}else{
             var add = parseInt(first)-1;
-            window.location = " commodity/commodityList/"+add+${typeOneId};
+            window.location = " commodity/commodityList/"+add+${typeOneId!};
             $("#first").val(add);
 		}
 
@@ -293,7 +295,7 @@
             alert("我已经翻不动了")
 		}else{
             var jian = parseInt(first)+1;
-            window.location = " commodity/commodityList/"+jian+${typeOneId};
+            window.location = " commodity/commodityList/"+jian+${typeOneId!};
             $("#first").val(jian);
 		}
     }

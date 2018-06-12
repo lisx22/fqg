@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Commodity implements Serializable {
 
-    private Integer commodityId;
+        private Integer commodityId;
 
     private String commodityName;
 
