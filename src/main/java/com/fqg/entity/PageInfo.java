@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class PageInfo<T> implements Serializable{
-	public static final int PAGE_SIZE=5;
+	public static final int PAGE_SIZE=2;
 	private List<T> data;
 	private int pageNo;
 	private int pageCount;

@@ -231,7 +231,6 @@
       <if test="endPrice != null">
         and commodity_price &lt; #{endPrice}
       </if>
-      limit #{startPage},#{pageSize}
     </where>
   </select>
   <select id="selectOrderByCreateTime" resultType="java.lang.Integer">

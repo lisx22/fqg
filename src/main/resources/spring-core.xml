@@ -181,7 +181,7 @@
 
     <bean id="simpleTrigger2" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail"  ref="jobDemo2"/>
-        <property name="cronExpression"  value="0 0 0 0 1/1 ? *"/>
+        <property name="cronExpression"  value="0 0 0 L 1/1 ? *"/>
     </bean>
 
     <!-- 配置调度工厂 -->
