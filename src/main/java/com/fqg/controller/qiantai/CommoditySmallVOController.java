@@ -29,17 +29,19 @@ public class CommoditySmallVOController {
     private ITypeOneService typeOneService;
 
     @RequestMapping("/select")
-    public String select(Model model,String pageNo,
+    public String select(Model model,String  page,
                          CommoditySelect commoditySelect){
-        if(pageNo==null){
-            pageNo="1";
+        if(page==null){
+            page="1";
         }
+//        commoditySelect.getStartPage();
+//        commoditySelect.getPageSize();
         PageInfo<CommoditySmallVO> pageInfo = iCommoditySearchService.
-                selectByCommoditySelect(commoditySelect, Integer.parseInt(pageNo));
+                selectByCommoditySelect(commoditySelect,Integer.parseInt(page));
         model.addAttribute("pageInfo",pageInfo);
         TypeOne typeOne = typeOneService.selectById(commoditySelect.getTypeOneId());
         model.addAttribute("typeOne",typeOne);
-        return "commoditySmallVO";
+        return "commoditySmallVO.ftl";
     }
 
     @RequestMapping("/newCommodity")
