@@ -8,6 +8,7 @@ import com.fqg.entity.KillCommodity;
 import com.fqg.entity.Orders;
 import com.fqg.entity.Repay;
 import com.fqg.util.RedisUtil;
+import com.google.gson.Gson;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,15 @@ public class RabbitmqService implements MessageListener {
 
     @Override
     public void onMessage(Message message) {
-       String[] str =  message.toString().split("-fgf-");
+        String[] s = message.toString().split("'");
+        System.out.println(s);
+        String[] str = s[1].toString().substring(6, s[1].toString().length()-1).split("-fgf-");
+        System.out.println("str0"+str[0]);
+        System.out.println("str1"+str[1]);
         Customer customer = JSONObject.parseObject(str[0],Customer.class);
         int kuchun = Integer.parseInt(redisUtil.get("kill"+str[1]).toString());
         if(kuchun > 0){
-            redisUtil.set("kill"+str[1],kuchun-1);
+            redisUtil.set("kill"+str[1],(kuchun-1)+"");
             KillCommodity killCommodity = killCommodityMapper.selectByPrimaryKey(Integer.parseInt(str[1]));
             Orders orders = new Orders();
             orders.setNumber(1);
@@ -71,11 +76,11 @@ public class RabbitmqService implements MessageListener {
                 //订单id
                 repay.setOrderId(ordersMapper.selectByNum(orders.getOrderNum()));
                 repayMapper.insert(repay);
-                redisUtil.set("kill"+customer.getCustomerId()+killCommodity.getKillCommodityId(),1);
+                System.out.println(customer.getCustomerId()+"========================"+killCommodity.getKillCommodityId());
+                redisUtil.set("kill"+customer.getCustomerId()+killCommodity.getKillCommodityId(),"1");
             }else {
-                redisUtil.set("kill"+customer.getCustomerId()+killCommodity.getKillCommodityId(),0);
+                redisUtil.set("kill"+customer.getCustomerId()+killCommodity.getKillCommodityId(),"0");
             }
         }
-       redisUtil.set("消息消费者","haha");
     }
 }

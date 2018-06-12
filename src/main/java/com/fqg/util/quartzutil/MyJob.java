@@ -31,10 +31,14 @@ public class MyJob implements Job{
         //加入缓存
         Gson gson = new Gson();
         String str = gson.toJson(killCommodities);
+        System.out.println(str);
         redisUtil.set("allkillCommodities",str);
+        System.out.println("hahahahahhaha");
         for (KillCommodity killCommodity : killCommodities) {
             redisUtil.set("killcommodity"+killCommodity.getKillCommodityId(), gson.toJson(killCommodity));
             redisUtil.set("kill"+killCommodity.getKillCommodityId(),killCommodity.getNumber().toString());
+
+            System.out.println("ahahahah"+redisUtil.get("killcommodity"+killCommodity.getKillCommodityId()));
         }
     }
 }
