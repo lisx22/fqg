@@ -185,7 +185,12 @@
 										<td class="am-hide-sm-only">${commoditys.createTime!}</td>
 										<td class="am-hide-sm-only">${commoditys.updateTime!}</td>
 										<td class="am-hide-sm-only">${commoditys.deleteTime!}</td>
-										<td class="am-hide-sm-only">${commoditys.commodityStatus!}</td>
+										<#if commoditys.commodityStatus==1>
+                                            <td class="am-hide-sm-only">在售</td>
+										</#if>
+										<#if commoditys.commodityStatus!=1>
+                                            <td class="am-hide-sm-only">已下架</td>
+										</#if>
 										<td>
 											<div class="am-btn-toolbar">
 												<div class="am-btn-group am-btn-group-xs">
