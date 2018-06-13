@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fqg.dao.OverRepayMapper">
+  <resultMap id="BaseResultMap" type="com.fqg.entity.OverRepay">
+    <id column="over_id" jdbcType="INTEGER" property="overId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="over_day" jdbcType="INTEGER" property="overDay" />
+    <result column="over_amount" jdbcType="DOUBLE" property="overAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    over_id, customer_id, over_day,over_amount
+  </sql>
+  <select id="selectByCustomer" resultType="com.fqg.entity.OverRepay">
+    select
+    <include refid="Base_Column_List" />
+    from over_repay
+    where customer_id = #{customerId}
+  </select>
+</mapper>

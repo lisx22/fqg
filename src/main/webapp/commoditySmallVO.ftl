@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" href="img/fql.png" type="image/x-icon"/>
     <title>分期乐-年轻人信用消费平台</title>
-<#assign base=request.contextPath />
+    <#assign base=request.contextPath />
     <base id="base" href="${base}/"/>
     <meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
     <meta name="description"
@@ -31,6 +31,12 @@
     <link charset="utf-8" rel="stylesheet" href="commodity_files/box.css">
     <link charset="utf-8" rel="stylesheet" href="commodity_files/style.css">
     <link charset="utf-8" rel="stylesheet" href="commodity_files/frame_host.css">
+    <style>
+        .ui123 li{
+            float: left;
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body class="list-PAGE_SIZE" data-id="66" youdao="bind">
 <header data-now-year="2018" data-now-month="06" data-now-day="08">
@@ -252,37 +258,13 @@
                     <!--[[二级类目-->
                     <div class="sel-form-li">
                         <div class="sel-form-lable" style="margin-left: -4px">${typeOne.typeOneName}  :</div>
-                    <#--<div class="sel-form-a sel-form-hauto js-filter-line" id="category_2_line" data-type="category_id_2">-->
-                    <#--<a data-id="0" href="javascript:;" class="js-filter-item on" title="">全部</a>-->
-                    <#--<a data-id="99" href="javascript:;" class="js-filter-item">-->
-                    <#--iOS                                        </a>-->
-                    <#--<a data-id="597" href="javascript:;" class="js-filter-item">-->
-                    <#--Android                                        </a>-->
-                    <#--<a data-id="598" href="javascript:;" class="js-filter-item">-->
-                    <#--其他                                        </a>-->
-                    <#--<a data-id="1268" href="javascript:;" class="js-filter-item">-->
-                    <#--二手手机                                        </a>-->
-                    <#--</div>-->
-                    <#--</div>-->
-
                         <div class="sel-form-a sel-form-hauto js-filter-line" id="category_2_line" data-type="category_id_2">
-                            <a data-id="0" href="javascript:;" class="js-filter-item on" title="">全部</a>
+                            <a data-id="0" href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}">全部</a>
                         <#list typeOne.typeTwoList as t>
-                            <a data-id="99" href="javascript:;" class="js-filter-item">
+                            <a data-id="99" href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&typeTwoId=#{t.typeTwoId}" class="js-filter-item">
                             ${t.typeTwoName} </a>
                             </a>
                         </#list>
-                        </div>
-                    </div>
-
-                    <!--二级类目]]-->
-                    <!--[[三级类目-->
-                    <div class="sel-form-li js-category3 fn-hide">
-                        <div class="sel-form-lable">系列：</div>
-                        <div class="sel-form-a sel-form-hauto js-filter-line" data-type="category_id_3">
-                            <a data-id="0" href="javascript:;" class="js-filter-item on" title="">全部</a>
-                            <div id="category_3_list">
-                            </div>
                         </div>
                     </div>
                     <!--三级类目]]-->
@@ -290,142 +272,29 @@
                     <div id="brand_wrap" class="sel-form-li sel-form-li-none sel-form-li-show">
                         <div class="sel-form-lable"><strong>品牌：</strong></div>
                         <div class="sel-form-a js-filter-line sel-form-at" id="brand_line" data-line-height="29" data-type="brand_id"><a
-                                id="brand_line_all" data-id="0" href="javascript:;" class="js-filter-item on" title="">全部</a>
+                                id="brand_line_all" data-id="0" href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}">全部</a>
                             <div id="brand_list">
                             <#list typeOne.brandList as t>
-                                <a href="javascript:;" data-id="12" class="js-filter-item">
+                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&brandId=#{t.brandId}" data-id="12" class="js-filter-item">
                                 ${t.brandName}
                                 </a>
                             </#list>
-                            <#--<a href="javascript:;" data-id="14" class="js-filter-item">诺基亚（NOKIA）</a>-->
-
-                            <#--<a href="javascript:;" data-id="11" class="js-filter-item">苹果（Apple）</a>-->
-
-                            <#--<a href="javascript:;" data-id="15" class="js-filter-item">华为（HUAWEI）</a>-->
-
-                            <#--<a href="javascript:;" data-id="11" class="js-filter-item">苹果（Apple）</a>-->
-
-                            <#--<a href="javascript:;" data-id="12" class="js-filter-item">小米（MI）</a>-->
-
-                            <#--<a href="javascript:;" data-id="15" class="js-filter-item">华为（HUAWEI）</a>-->
-
-                            <#--<a href="javascript:;" data-id="26" class="js-filter-item">华硕（ASUS）</a>-->
-
-                            <#--<a href="javascript:;" data-id="13" class="js-filter-item">HTC</a>-->
                             </div>
                         </div>
-                        <a id="more_brand" href="javascript:;" class="form-a-up" data-fql-stat="MORE_BRAND">展开<i></i></a>
-                        <a id="base_brand" href="javascript:;" class="form-a-down" data-fql-stat="BASIC_BRAND">收起<i></i></a>
-                    </div>
-                    <!--品牌]]-->
-                    <div class="sel-form-li">
-                        <div class="sel-form-lable">售价：</div>
-                        <div class="sel-form-a js-filter-line" id="filter_line_amount" data-type="amount">
-                            <a data-id="0" href="javascript:;" class="js-filter-item on">
-                                全部 </a>
-                            <a data-id="1" href="javascript:;" class="js-filter-item">
-                                999元以下 </a>
-                            <a data-id="2" href="javascript:;" class="js-filter-item">
-                                1000 - 1999元 </a>
-                            <a data-id="3" href="javascript:;" class="js-filter-item">
-                                2000 - 3499元 </a>
-                            <a data-id="4" href="javascript:;" class="js-filter-item">
-                                3500 - 4999元 </a>
-                            <a data-id="5" href="javascript:;" class="js-filter-item">
-                                5000元以上 </a>
-                        </div>
-                    </div>
-                    <div class="sel-form-li-more">
-                        <div class="sel-form-li">
-                            <div class="sel-form-lable">操作系统：</div>
-                            <div class="sel-form-a js-filter-line" data-type="feature_id_1">
-                                <a data-id="0" href="javascript:;" class="js-filter-item on">
-                                    全部 </a>
-                                <a data-id="1" href="javascript:;" class="js-filter-item">
-                                    安卓Android </a>
-                                <a data-id="2" href="javascript:;" class="js-filter-item">
-                                    苹果IOS </a>
-                                <a data-id="3" href="javascript:;" class="js-filter-item">
-                                    WindowsPhone </a>
-                                <a data-id="4" href="javascript:;" class="js-filter-item">
-                                    其他智能手机 </a>
-                                <a data-id="5" href="javascript:;" class="js-filter-item">
-                                    非智能手机 </a>
-                            </div>
-                        </div>
-                        <div class="sel-form-li">
-                            <div class="sel-form-lable">网络：</div>
-                            <div class="sel-form-a js-filter-line" data-type="feature_id_2">
-                                <a data-id="0" href="javascript:;" class="js-filter-item on">
-                                    全部 </a>
-                                <a data-id="1" href="javascript:;" class="js-filter-item">
-                                    4G（TD-LTE） </a>
-                                <a data-id="2" href="javascript:;" class="js-filter-item">
-                                    联通3G（WCDMA） </a>
-                                <a data-id="3" href="javascript:;" class="js-filter-item">
-                                    电信3G（CDMA2000） </a>
-                                <a data-id="4" href="javascript:;" class="js-filter-item">
-                                    移动3G（TD-SCDMA） </a>
-                                <a data-id="5" href="javascript:;" class="js-filter-item">
-                                    移动2G/联通2G（GSM） </a>
-                                <a data-id="6" href="javascript:;" class="js-filter-item">
-                                    电信2G（CDMA） </a>
-                                <a data-id="7" href="javascript:;" class="js-filter-item">
-                                    双模（电信＋移动/联通2G） </a>
-                                <a data-id="8" href="javascript:;" class="js-filter-item">
-                                    双卡 </a>
-                            </div>
-                        </div>
-                        <div class="sel-form-li">
-                            <div class="sel-form-lable">屏幕尺寸：</div>
-                            <div class="sel-form-a js-filter-line" data-type="feature_id_3">
-                                <a data-id="0" href="javascript:;" class="js-filter-item on">
-                                    全部 </a>
-                                <a data-id="1" href="javascript:;" class="js-filter-item">
-                                    2.0英寸以下 </a>
-                                <a data-id="2" href="javascript:;" class="js-filter-item">
-                                    2.1-2.5英寸 </a>
-                                <a data-id="3" href="javascript:;" class="js-filter-item">
-                                    2.6-3.0英寸 </a>
-                                <a data-id="4" href="javascript:;" class="js-filter-item">
-                                    3.1-3.5英寸 </a>
-                                <a data-id="5" href="javascript:;" class="js-filter-item">
-                                    3.6-4.0英寸 </a>
-                                <a data-id="6" href="javascript:;" class="js-filter-item">
-                                    4.1-4.9英寸 </a>
-                                <a data-id="7" href="javascript:;" class="js-filter-item">
-                                    5.0英寸及以上 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fn-text-center sel-form-basic">
-                        <a id="base_filter" href="javascript:;" data-fql-stat="BASIC_FILTER">基本筛选<i></i></a>
-                    </div>
-                    <div class="fn-text-center sel-form-more">
-                        <a id="more_filter" href="javascript:;" data-fql-stat="MORE_FILTER">更多筛选<i></i></a>
                     </div>
                 </div>
             </div>
             <div class="fn-clear list-filter">
                 <div class="fn-left">
                             <span id="sort_bar">
-                                <a href="javascript:;" class="js-sort-bar on">默认排序</a>
-                                <a href="javascript:;" class="js-sort-bar" data-class="desc" data-type="price">价格<i
-                                        class="l-f-up"></i><i class="l-f-down"></i></a>
-                                <a href="javascript:;" class="js-sort-bar" data-class="desc" data-type="sales">销量<i
-                                        class="l-f-up"></i><i class="l-f-down"></i></a>
+                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}" class="js-sort-bar on">默认排序</a>
+                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&orderByPrice=1" class="js-sort-bar">价格由低到高<i class="l-f-up"></i></a>
+                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&orderByPrice=2" class="js-sort-bar">价格由高到低<i class="l-f-up"></i></a>
                             </span>
                     <span class="fn-left">价格：<input type="text" class="filter-input" id="left_amount"> - <input
                             class="filter-input" type="text" id="right_amount"></span>
-                    <a class="filter-btn" id="btn_search" href="javascript:;" data-fql-stat="BTN_SEARCH">搜 索</a>
+                    <a class="filter-btn" id="btn_search">搜 索</a>
                 </div>
-                <span id="filter_PAGE_SIZE_data" class="fn-right list-filter-right">
-                            <span class="pd">共有 <strong class="c-blue" id="pageCount_num">
-        ${pageInfo.pageNo}
-    </strong> 款产品</span>
-                            <span class="pd"><span class="c-red" id="current_PAGE_SIZE">1</span> / <span
-                                    id="pageCount_PAGE_SIZE">17</span></span>
-                        </span>
             </div>
             <div class="lazy-fn fn-hide" id="show_loading"></div>
 
@@ -444,12 +313,6 @@
                         <h3>
                             <a href="https://item.fenqile.com/S201709120586965.html" >${info.name}</a>
                         </h3>
-                    <#--<p>-->
-                    <#--<a href="https://item.fenqile.com/S201709120586965.html" target="_blank">-->
-                    <#--售价<span class="fn-rmb">￥5499</span>-->
-                    <#--<span class="gift-ico">免息</span>-->
-                    <#--</a>-->
-                    <#--</p>-->
                         <div class="index-li-pic">
                             <a href="https://item.fenqile.com/S201709120586965.html" target="_blank">售价: <span class="fn-rmb">￥${info.price} </span><em>起</em>
                             </a>
@@ -461,24 +324,30 @@
             </div>
                 <!-- 分页标签 -->
                 <div id="fenye">
-                    <ul>
+                    <ul class="ui123">
                     <#if pageInfo.pageNo==1>
                     <li><a>上一页</a></li>
                     <#else>
-                    <li><a href="${base}/commoditySmallVO/select?typeOneId=1&pageNo=${pageInfo.pageNo-1}">上一页</a></li>
+                    <li><a href="commoditySmallVO/select?typeOneId=${commoditySelect.typeOneId}&brandId=${commoditySelect.brandId!}
+                                &typeTwoId=${commoditySelect.typeTwoId!}&startPrice=${commoditySelect.startPrice!}
+                                &endPrice=${commoditySelect.endPrice!}&orderByPrice=${commoditySelect.orderByPrice!}&pageNo=${pageInfo.pageNo-1}">上一页</a></li>
                     </#if>
                     <#--循环遍历出页面数-->
                     <#list 1..pageInfo.pageCount as page>
                         <#if page == pageInfo.pageNo>
                         <li><a>${page}</a></li>
                         <#else>
-                        <li id="xuan"><a href="${base}/commoditySmallVO/select?typeOneId=1&pageNo=${page}">${page}</a></li>
+                        <li id="xuan"><a href="commoditySmallVO/select?typeOneId=${commoditySelect.typeOneId}&brandId=${commoditySelect.brandId!}
+                                &typeTwoId=${commoditySelect.typeTwoId!}&startPrice=${commoditySelect.startPrice!}
+                                &endPrice=${commoditySelect.endPrice!}&orderByPrice=${commoditySelect.orderByPrice!}&pageNo=${page}">${page}</a></li>
                         </#if>
                     </#list>
                     <#if pageInfo.pageNo==pageInfo.pageCount>
                     <li><a>下一页</a></li>
                     <#else>
-                    <li><a href="${base}/commoditySmallVO/select?typeOneId=1&pageNo=${pageInfo.pageNo+1}">下一页</a> </li>
+                    <li><a href="commoditySmallVO/select?typeOneId=${commoditySelect.typeOneId}&brandId=${commoditySelect.brandId!}
+                                &typeTwoId=${commoditySelect.typeTwoId!}&startPrice=${commoditySelect.startPrice!}
+                                &endPrice=${commoditySelect.endPrice!}&orderByPrice=${commoditySelect.orderByPrice!}&pageNo=${pageInfo.pageNo+1}">下一页</a> </li>
                     </#if>
                         <li>当前页面数是第 ${pageInfo.pageNo} 页</li>
                     </ul>
@@ -535,76 +404,6 @@
         </div>
     </div>
 </footer>
-<script>
-    //DOM节点加载完成
-    G_SPEED_POINT_TIME['DOM'] = {'ID': 3, 'DATA': [G_PAGE_SIZE_LOAD_TIME, (new Date()).getTime()]};
-</script>
-<script>
-    function G_NAV_GUIDE_CALLBACK(o) {
-        var retcode = o.retcode,
-                retmsg = o.retmsg;
-        if (0 == retcode) {
-            var node = document.getElementById("my_nav_guide");
-            if (node) {
-                node.innerHTML = o.html;
-            }
-        }
-    }
-</script>
-<script src="./分期乐-年轻人信用消费平台_files/nav_guide.jsonp"></script>
-<script>document.domain = "fenqile.com";</script>
-<script charset="utf-8" type="text/javascript" src="./分期乐-年轻人信用消费平台_files/saved_resource"></script>
-<script charset="utf-8" type="text/javascript" src="./分期乐-年轻人信用消费平台_files/saved_resource(1)"></script>
-<script>G_SPEED_POINT_TIME.G_JS = {ID: 4, DATA: [G_PAGE_SIZE_LOAD_TIME, (new Date).getTime()]};</script>
-
-<script>
-    (function () {
-        var asyncLoad = function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.id = 'ebsgovicon';
-            ga.src = 'https://szcert.ebs.org.cn/govicon.js?id=e2530f78-693c-4abf-b9a5-0a9259209b6d&width=41&height=56&type=1';
-            document.body.appendChild(ga);
-        };
-
-        if (window.attachEvent) {
-            window.attachEvent("attachEvent load", asyncLoad);
-        } else {
-            window.addEventListener("load", asyncLoad);
-        }
-    })();
-</script>
-<script type="text/template" id="tpl_nav_tab">
-    <span class="fn-st">&gt;</span>
-    <span class="classa"><%= text;%><a href="javascript:;" class="close js-nav-tab" data-type="<%= filter_type;%>"></a></span>
-</script>
-<script type="text/template" id="tpl_filter_category3">
-    <% for(var i in list) {%>
-    <a href="javascript:;" data-id="<%= list[i].category_id;%>" class="js-filter-item"><%= list[i].category_name;%></a>
-    <% }%>
-</script>
-<script type="text/template" id="tpl_filter_brand">
-    <% for(var i in list) {%>
-    <a href="javascript:;" data-id="<%= list[i].brand_id;%>" class="js-filter-item"><%= list[i].brand_name;%></a>
-    <% }%>
-</script>
-<script type="text/javascript">
-    var G_CATEGORY_ID_1 = 66, // 一级类目ID
-            G_ROUTE_PARAMS = {
-                "category_id_1": 66,
-                "category_id_2": 0,
-                "category_id_3": 0,
-                "brand_id": 0,
-                "amount": 0,
-                "feature_id_1": 0,
-                "feature_id_2": 0,
-                "feature_id_3": 0
-            };
-</script>
-
-<script type="text/javascript" src="./分期乐-年轻人信用消费平台_files/list--14378bb841.js"></script>
-<script type="text/javascript" src="./分期乐-年轻人信用消费平台_files/global--c88295c359.js"></script>
 
 <div tabindex="-1" id="fql_box_152845140820313886"
      style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;">
@@ -642,7 +441,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" async="" id="ebsgovicon" src="./分期乐-年轻人信用消费平台_files/govicon.js"></script>
 <div id="ydNoteExtensionClipper"
      style="position: fixed; right: 10px; top: 10px; padding-bottom: 10px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: 100%; font-family: arial, sans-serif; color: rgb(51, 51, 51); display: none; z-index: 2147483647 !important; height: 230px; width: 300px;">
     <div id="ydNoteExtensionClipper-New" class="ydnwc-dialog" style="width: 292px;">
@@ -670,4 +468,17 @@
                                                                                                        value=""><input
                 type="text" name="e" id="_YNoteContentFormsign" value=""></form>
     </div>
-</div></body></html>
+</div>
+<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+    $("#btn_search").click(function () {
+        var startPrice = $("#left_amount").val();
+        var endPrice = $("#right_amount").val();
+        var typeOneId = ${typeOne.typeOneId};
+        alert(startPrice);
+        alert(endPrice);
+        location.href = "commoditySmallVO/select?typeOneId="+typeOneId+"&startPrice="+startPrice+"&endPrice="+endPrice;
+    });
+</script>
+</body>
+</html>

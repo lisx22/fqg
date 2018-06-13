@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +32,8 @@ public class Killcontroller {
     private KillCommodityServie killCommodityServie;
     @RequestMapping("/kill")
     @ResponseBody
-    public String testQueue(Customer customer, String killid, Model model) {
+    public String testQueue(HttpSession model, String killid) {
+        Customer customer = (Customer)model.getAttribute("customer");
         try {
             String str =new Gson().toJson(customer);
             Map<String, Object> map = new HashMap<String, Object>();
@@ -45,18 +47,20 @@ public class Killcontroller {
         return "秒杀中";
     }
     @RequestMapping("allkill")
-    public Object allKillCommodities(Model model,Customer customer){
-        model.addAttribute("allkill",killCommodityServie.allKillCommodity());
+    public Object allKillCommodities(HttpSession  model){
+        Customer customer = (Customer)model.getAttribute("customer");
+        model.setAttribute("allkill",killCommodityServie.allKillCommodity());
         return redisUtil.get("allkillCommodities");
     }
     @RequestMapping("killinfo")
-    public String killInfo(Model model,String killId){
-        model.addAttribute("killinfo",killCommodityServie.killCommodity(killId));
+    public String killInfo(Model model,String killid){
+        model.addAttribute("killinfo",killCommodityServie.killCommodity(killid));
         return "";
     }
     @RequestMapping("returnkill")
     @ResponseBody
-    public String returnKill(Customer customer, String killid, Model model){
+    public String returnKill(String killid, HttpSession model){
+        Customer customer = (Customer)model.getAttribute("customer");
         Object o= redisUtil.get("kill"+customer.getCustomerId()+killid);
         if (o != null){
             if(o.toString().equals(1)){

@@ -34,6 +34,8 @@ public class MyJob implements Job{
         redisUtil.set("allkillCommodities",str);
         for (KillCommodity killCommodity : killCommodities) {
             redisUtil.set("killcommodity"+killCommodity.getKillCommodityId(), gson.toJson(killCommodity));
+            System.out.println(redisUtil.get("killcommodity"+killCommodity.getKillCommodityId()));
+            System.out.println(killCommodity.getKillCommodityId());
             redisUtil.set("kill"+killCommodity.getKillCommodityId(),killCommodity.getNumber().toString());
         }
     }

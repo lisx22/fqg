@@ -179,10 +179,10 @@
           one_type_id = #{typeOneId}
         </if>
         <if test="typeTwoId != null">
-          two_type_id = #{typeTwoId}
+          and two_type_id = #{typeTwoId}
         </if>
         <if test="typeThreeId != null">
-          three_type_id = #{typeThreeId}
+          and three_type_id = #{typeThreeId}
         </if>
         <if test="brandId != null">
           and brand_id = #{brandId}
@@ -217,10 +217,10 @@
         one_type_id = #{typeOneId}
       </if>
       <if test="typeTwoId != null">
-        two_type_id = #{typeTwoId}
+        and two_type_id = #{typeTwoId}
       </if>
       <if test="typeThreeId != null">
-        three_type_id = #{typeThreeId}
+        and three_type_id = #{typeThreeId}
       </if>
       <if test="brandId != null">
         and brand_id = #{brandId}
