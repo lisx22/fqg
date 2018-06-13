@@ -31,13 +31,10 @@
 		<ul class="am-nav am-navbar-nav am-navbar-right">
 			<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
 			<li class="hidden-xs am-hide-sm-only">
-				<form role="search" action="seach/commodity" method="get" class="app-search">
-					<input type="text" name="keyword"  class="form-control">
+				<form role="search" action="seach/commodity" method="post"  accept-charset="UTF-8"  class="app-search">
+					<input type="text" name="word"  class="form-control">
                     <input class="am-btn am-btn-default" type="submit"><img src=" assets/img/search.png"></input>
 				</form>
-
-
-
 			</li>
 		</ul>
 	</div>
@@ -206,6 +203,8 @@
 								</tbody>
 							</table>
 						</form>
+
+						<#if typeName != "search">
 							<div class="am-cf">
 								共 ${pageSize!} 条记录
 								<div class="am-fr">
@@ -221,6 +220,7 @@
 									</ul>
 								</div>
 							</div>
+					</#if>
 							<hr />
 							<p>注：.....</p>
 
@@ -259,20 +259,15 @@
         }
     });
 
-
-
-
-</script>
-<script>
     document.getElementById("addBut").onclick=function(){
         document.getElementById("add").click();
     }
-	function update(cusid){
-		document.getElementById("update"+cusid).click();
+    function update(cusid){
+        document.getElementById("update"+cusid).click();
     }
     function deleteCustomers(){
         document.getElementById("deleteone").click();
-	}
+    }
     function deleteById(cusid){
         document.getElementById("delete"+cusid).click();
     }
@@ -281,30 +276,29 @@
         var first = $("#first").val();
         if(first=="0"){
             alert("我已经翻不动了")
-		}else{
+        }else{
             var add = parseInt(first)-1;
             window.location = " commodity/commodityList/"+add+${typeOneId!};
             $("#first").val(add);
-		}
+        }
 
-	}
-	function downPage() {
+    }
+    function downPage() {
         var first = $("#first").val();
         var pageCount = $("#pageCount").val();
         if(parseInt(first)>=parseInt(pageCount)-1){
             alert("我已经翻不动了")
-		}else{
+        }else{
             var jian = parseInt(first)+1;
             window.location = " commodity/commodityList/"+jian+${typeOneId!};
             $("#first").val(jian);
-		}
+        }
     }
     function selectOnclik(){
         var objS = document.getElementById("doc-select-1");
         var grade = objS.options[objS.selectedIndex].value;
         window.location = " commodity/commodityList/0,"+grade;
-	}
-
+    }
 
 
 </script>

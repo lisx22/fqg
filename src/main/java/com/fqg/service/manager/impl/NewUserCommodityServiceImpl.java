@@ -1,7 +1,6 @@
 package com.fqg.service.manager.impl;
 
 import com.fqg.dao.NewUserCommodityMapper;
-import com.fqg.entity.KillCommodity;
 import com.fqg.entity.NewUserCommodity;
 import com.fqg.service.manager.NewUserCommodityService;
 import org.apache.ibatis.annotations.Param;
@@ -33,7 +32,6 @@ public class NewUserCommodityServiceImpl implements NewUserCommodityService{
         return 0;
     }
     public int updateByPrimaryKey(NewUserCommodity record){
-        System.out.println(record.toString());
         newUserCommodityDAO.updateByPrimaryKey(record);
         return 0;
     }

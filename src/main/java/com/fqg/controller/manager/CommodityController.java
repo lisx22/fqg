@@ -4,6 +4,7 @@ import com.fqg.entity.Brand;
 import com.fqg.entity.Commodity;
 import com.fqg.entity.TypeOne;
 import com.fqg.service.manager.impl.CommodityServiceImpl;
+import com.fqg.util.SolrUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,8 @@ public class CommodityController {
     @Resource
     private CommodityServiceImpl commodityService;
 
+    private SolrUtil solrUtil = new SolrUtil();
+
     static String getdata(){
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
@@ -32,13 +35,9 @@ public class CommodityController {
 
     @RequestMapping(value="/commodityList/{first},{typeOneId}", method = RequestMethod.GET)
     public String commodityList(@PathVariable("first")int first,@PathVariable("typeOneId")int typeOneId,Model model){
-        System.out.println("first"+first);
+
         List<Commodity> CommodityList =  commodityService.selectByPage(typeOneId,first);
         if(CommodityList==null){
-//            CommodityList = new ArrayList<Commodity>();
-//            model.addAttribute("CommodityList",CommodityList);
-//            model.addAttribute("pageCount",0);
-//            return "html/gl_commodity";
         }
         int pageCount = commodityService.selectCount(typeOneId);
         List<TypeOne> types = commodityService.selectTypeOne();
@@ -68,17 +67,18 @@ public class CommodityController {
 
     @RequestMapping("/add")
     public String add(Commodity commodity, HttpServletRequest req){
-        System.out.println("add");
         try {
             req.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-
         commodity.setCreateTime(getdata());
         commodity.setUpdateTime(getdata());
         commodity.setCommodityStatus(1);
         commodityService.insert(commodity);
+        //solr服务器添加field
+        int id = commodityService.selectBycommodityName(commodity.getCommodityName()).getCommodityId();
+        solrUtil.addDocument(id,commodity.getCommodityName());
         return "redirect:/commodity/commodityList/0,1";
     }
 
@@ -96,8 +96,9 @@ public class CommodityController {
 
     @RequestMapping(value="/deleteById/{commodityId}", method = RequestMethod.GET)
     public String deleteById(@PathVariable("commodityId") int commodityId, Model model){
-        System.out.println("deleteById");
         commodityService.deleteByPrimaryKey(commodityId);
+//删除solr上的数据
+        solrUtil.deleteDocumentByQuery(commodityId);
         return"redirect:/commodity/commodityList/0,1";
     }
 
@@ -116,6 +117,10 @@ public class CommodityController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+
+        //solr服务器修改field 也是调用update方法
+        int id = commodityService.selectBycommodityName(commodity.getCommodityName()).getCommodityId();
+        solrUtil.addDocument(id,commodity.getCommodityName());
 
         commodity.setUpdateTime(getdata());
         commodityService.updateByPrimaryKey(commodity);

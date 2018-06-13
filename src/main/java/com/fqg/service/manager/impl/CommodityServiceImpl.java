@@ -79,7 +79,6 @@ public class CommodityServiceImpl implements CommodityService{
 
     public int deleteByPrimaryKey(Integer commodityId){
         commodityDAO.deleteByPrimaryKey(commodityId);
-        System.out.println("");
         return 0;
     }
 
@@ -137,5 +136,7 @@ public class CommodityServiceImpl implements CommodityService{
     public TypeOne selectTypeName (int id){
         return typeOneDAO.selectByPrimaryKey(id);
     }
+
+    public Commodity selectBycommodityName(String name){return commodityDAO.selectByName(name);}
 
 }

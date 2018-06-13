@@ -2,8 +2,6 @@ package com.fqg.service.manager.impl;
 
 
 import com.fqg.dao.OrdersMapper;
-import com.fqg.entity.Commodity;
-import com.fqg.entity.Customer;
 import com.fqg.entity.Orders;
 import com.fqg.service.manager.OrderService;
 import org.apache.ibatis.annotations.Param;

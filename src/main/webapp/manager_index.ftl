@@ -3,8 +3,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <title>后台管理</title>
-<#assign base=request.contextPath />
-    <base id="base" href="${base}/"/>
+        <#assign base=request.contextPath />
+        <base id="base" href="${base}/"/>
 		<link rel="stylesheet" href="assets/css/amazeui.css" type="text/css"/>
 		<link rel="stylesheet" href="assets/css/core.css" type="text/css" />
 		<link rel="stylesheet" href="assets/css/menu.css" type="text/css"/>

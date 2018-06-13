@@ -25,7 +25,6 @@ public class CouponController {
     @RequestMapping(value="/couponList/{type}", method = RequestMethod.GET)
     public String couponList(@PathVariable("type")int type, Model model){
         CouponList couponList = couponService.selectByPage();
-        System.out.println("coupon");
         switch (type){
             case 1:
                 model.addAttribute("CouponList",couponList.getList1());
@@ -108,7 +107,6 @@ public class CouponController {
 
     @RequestMapping(value="/deleteById/{couponId},{ListType}", method = RequestMethod.GET)
     public String deleteById(@PathVariable("couponId") int couponId,@PathVariable("ListType") int ListType){
-        System.out.println("deleteById");
         couponService.deleteById(couponId,ListType);
         return "redirect:couponList/"+ListType;
     }

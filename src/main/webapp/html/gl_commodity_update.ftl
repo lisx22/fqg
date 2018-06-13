@@ -31,10 +31,7 @@
 				<ul class="am-nav am-navbar-nav am-navbar-right">
 					<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
 					<li class="hidden-xs am-hide-sm-only">
-                        <form role="search" class="app-search">
-                            <input type="text" placeholder="Search..." class="form-control">
-                            <a href=""><img src=" assets/img/search.png"></a>
-                        </form>
+
                     </li>
 				</ul>
 			</div>
@@ -138,31 +135,31 @@
 								<form action="/fqg/commodity/update" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 								  <fieldset>
 								    <legend>商品修改</legend>
-									  <input type="hidden" id="doc-vld-id-2" name="commodityId" value="${commodity.commodityId}" required/>
+									  <input type="hidden" id="doc-vld-id-2" name="commodityId" value="${commodity.commodityId!}" required/>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">商品名称：</label>
-										  <input type="text" id="doc-vld-name-1" name="commodityName"  placeholder="输入名称" value="${commodity.commodityName}" required/>
+										  <input type="text" id="doc-vld-name-1" name="commodityName"  placeholder="输入名称" value="${commodity.commodityName!}" required/>
 									  </div>
 
 									  <div class="am-form-group">
 								      <label for="doc-vld-name-2">商品价格：</label>
-								      <input type="text" id="doc-vld-name-2" name="commodityPrice"  placeholder="输入价格" value="${commodity.commodityPrice}" required/>
+								      <input type="text" id="doc-vld-name-2" name="commodityPrice"  placeholder="输入价格" value="${commodity.commodityPrice!}" required/>
 								    </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">商品描述：</label>
-										  <input type="text" id="doc-vld-name-3" name="commodityDescription" placeholder="描述" value="${commodity.commodityDescription}" required/>
+										  <input type="text" id="doc-vld-name-3" name="commodityDescription" placeholder="描述" value="${commodity.commodityDescription!}" required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">商品库存：</label>
-										  <input type="text" id="doc-vld-idNumber-3" name="number"  placeholder="输入身份证" value="${commodity.number}"required/>
+										  <input type="text" id="doc-vld-idNumber-3" name="number"  placeholder="输入身份证" value="${commodity.number!}"required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">商品状态：</label>
-										  <input type="text" id="doc-vld-phone-3" name="commodityStatus" placeholder="是否下架"value="${commodity.commodityStatus}" required/>
+										  <input type="text" id="doc-vld-phone-3" name="commodityStatus" placeholder="是否下架"value="${commodity.commodityStatus!}" required/>
 									  </div>
 									  <input type="hidden" name="createTime"value="${commodity.createTime!}" required/>
 									  <input type="hidden"  name="deleteTime" value="${commodity.deleteTime!}" required/>

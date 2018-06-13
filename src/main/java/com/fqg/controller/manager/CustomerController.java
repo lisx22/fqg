@@ -27,7 +27,6 @@ public class CustomerController {
 
     @RequestMapping(value="/customerList/{first}", method = RequestMethod.GET)
     public String customerList(@PathVariable("first")int first, Model model){
-        System.out.println("first"+first);
         List<Customer> Customerlist =  customerService.selectByPage(first);
         int pageCount = customerService.selectCount();
         model.addAttribute("Customerlist",Customerlist);
@@ -69,7 +68,6 @@ public class CustomerController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        System.out.println(customer.toString());
         customerService.updateByPrimaryKey(customer);
         return "redirect:/customer/customerList/0";
     }
@@ -88,7 +86,6 @@ public class CustomerController {
 
     @RequestMapping(value="/deleteById/{costomerId}", method = RequestMethod.GET)
     public String deleteById(@PathVariable("costomerId") int costomerId, Model model){
-        System.out.println("deleteById");
         customerService.deleteByPrimaryKey(costomerId);
         return "redirect:/customer/customerList/0";
     }

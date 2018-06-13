@@ -55,6 +55,13 @@
     where commodity_id = #{commodityId,jdbcType=INTEGER}
   </select>
 
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from commodity
+    where commodity_name = #{commodityName}
+  </select>
+
   <select id="selectPriceById" resultType="java.lang.Integer">
     select
     commodity_price

@@ -5,19 +5,18 @@ import com.fqg.dao.AllPriceCouponMapper;
 import com.fqg.dao.TypeInterestCouponMapper;
 import com.fqg.dao.TypePriceCouponMapper;
 import com.fqg.entity.*;
+import com.fqg.service.manager.CouponService;
 import com.fqg.util.utilClasses.Coupon;
 import com.fqg.util.utilClasses.CouponList;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @Transactional
-public class CouponServiceImpl {
+public class CouponServiceImpl implements CouponService{
     @Resource
     private AllInterestCouponMapper allInterestCouponDAO;
     @Resource

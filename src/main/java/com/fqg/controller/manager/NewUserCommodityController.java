@@ -98,7 +98,6 @@ public class NewUserCommodityController {
 
     @RequestMapping(value="/deleteById/{newUserCommodityId}", method = RequestMethod.GET)
     public String deleteById(@PathVariable("newUserCommodityId") int newUserCommodityId, Model model){
-        System.out.println(newUserCommodityId);
         newUserCommodityService.deleteByPrimaryKey(newUserCommodityId);
         return "redirect:/newUserCommodity/newUserCommodityList/0";
     }

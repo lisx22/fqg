@@ -29,4 +29,6 @@ public interface CommodityMapper {
 
     int countByTypeOne(int typeOneId);
 
+    Commodity selectByName(String commodityName);
+
 }

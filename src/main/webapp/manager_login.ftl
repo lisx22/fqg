@@ -3,6 +3,7 @@
 <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base id="base" href="/fqg/"/>
 		<title></title>
 		<link rel="stylesheet" href="assets/css/core.css" />
 		<link rel="stylesheet" href="assets/css/menu.css" />
@@ -15,7 +16,7 @@
 		<div class="account-pages">
 			<div class="wrapper-page">
 				<div class="text-center">
-	                <a href="index.html" class="logo"><span>Admin<span>to</span></span></a>
+	                <a href="" class="logo"><span>Admin<span>to</span></span></a>
 	            </div>
 	            
 	            <div class="m-t-40 card-box">
@@ -34,14 +35,10 @@
 							      <input type="password" class="am-radius"  name="password" placeholder="Password">
 							    </div>
 							    
-							    <div class="am-form-group ">
-		                           	<label style="font-weight: normal;color: #999;">
-								        <input type="checkbox" class="remeber"> Remember me
-								    </label>
-		                        </div>
+
 		                        
 		                        <div class="am-form-group ">
-		                        	<button type="submit" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 100%;">Log In</button>
+		                        	<button type="submit" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 5%;">Log In</button>
 		                        </div>
 		                        
 		                        <div class="am-form-group ">
@@ -53,6 +50,21 @@
 	            </div>
 			</div>
 		</div>
+	<input type="hidden" id="jsonCode" value="${jsonResult.code!}">
+    <input type="hidden" id="jsonMsg" value="${jsonResult.msg!}">
 	</body>
 </html>
+
+<script type="text/javascript" src="assets/js/jquery-2.1.0.js" ></script>
+<script>
+	$(function(){
+	    var code = $("#jsonCode").val();
+        var msg = $("#jsonMsg").val();
+		if(code=="1"){
+            alert(msg)
+		}
+
+//
+    });
+</script>
 

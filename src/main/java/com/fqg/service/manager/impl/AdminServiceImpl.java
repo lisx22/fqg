@@ -4,7 +4,6 @@ import com.fqg.dao.AdminMapper;
 import com.fqg.entity.Admin;
 import com.fqg.service.manager.AdminService;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 
 @Service

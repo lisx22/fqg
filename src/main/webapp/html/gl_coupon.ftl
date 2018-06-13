@@ -30,10 +30,7 @@
 		<ul class="am-nav am-navbar-nav am-navbar-right">
 			<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
 			<li class="hidden-xs am-hide-sm-only">
-				<form role="search" class="app-search">
-					<input type="text" placeholder="Search..." class="form-control">
-					<a href=""><img src=" assets/img/search.png"></a>
-				</form>
+
 			</li>
 		</ul>
 	</div>
@@ -133,12 +130,7 @@
 					</div>
 
 					<div class="am-u-sm-12 am-u-md-3">
-						<div class="am-input-group am-input-group-sm">
-							<input type="text" class="am-form-field">
-							<span class="am-input-group-btn">
-				            <button class="am-btn am-btn-default" type="button">搜索</button>
-				          </span>
-						</div>
+
 					</div>
 				</div>
 				<!-- Row end -->

@@ -31,10 +31,7 @@
 		<ul class="am-nav am-navbar-nav am-navbar-right">
 			<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
 			<li class="hidden-xs am-hide-sm-only">
-				<form role="search" class="app-search">
-					<input type="text" placeholder="Search..." class="form-control">
-					<a href=""><img src=" assets/img/search.png"></a>
-				</form>
+
 			</li>
 		</ul>
 	</div>
@@ -121,12 +118,7 @@
 					</div>
 
 					<div class="am-u-sm-12 am-u-md-3">
-						<div class="am-input-group am-input-group-sm">
-							<input type="text" class="am-form-field">
-							<span class="am-input-group-btn">
-				            <button class="am-btn am-btn-default" type="button">搜索</button>
-				          </span>
-						</div>
+
 					</div>
 				</div>
 				<!-- Row end -->
@@ -149,6 +141,7 @@
 									<th class="table-date am-hide-sm-only">订单编号</th>
 									<th class="table-date am-hide-sm-only">期数</th>
 									<th class="table-date am-hide-sm-only">每期应还金额</th>
+                                    <th class="table-date am-hide-sm-only">订单状态</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -163,6 +156,16 @@
 										<td class="am-hide-sm-only">${orders.orderNum!}</td>
 										<td class="am-hide-sm-only">${orders.stage!}</td>
 										<td class="am-hide-sm-only">${orders.amount!}</td>
+										<#if orders.orderState==1>
+                                            <td class="am-hide-sm-only">未发货</td>
+										</#if>
+										<#if orders.orderState==2>
+                                            <td class="am-hide-sm-only">已发货</td>
+										</#if>
+										<#if orders.orderState==3>
+                                            <td class="am-hide-sm-only">还款中</td>
+										</#if>
+
 									</tr>
 </#list>
 								</tbody>
