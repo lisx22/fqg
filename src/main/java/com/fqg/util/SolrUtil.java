@@ -49,7 +49,6 @@ public class SolrUtil {
         SolrQuery query = new SolrQuery();
         query.setQuery("commodityName:*"+keyWord+"*");
         QueryResponse queryResponse = null;
-        System.out.println(keyWord+"关键字");
         try {
             queryResponse = client.query(query);
         } catch (SolrServerException e) {
@@ -59,10 +58,6 @@ public class SolrUtil {
         }
 
         SolrDocumentList solrDocumentList = queryResponse.getResults();
-        System.out.println("查询到的商品数量:" + solrDocumentList.getNumFound());
-        for (SolrDocument solrDocument : solrDocumentList) {
-            System.out.println( solrDocument.toString());
-        }
         return solrDocumentList;
     }
 

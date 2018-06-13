@@ -1,11 +1,10 @@
-
 <html>
 <head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>修改用户信息</title>
 		<#assign base=request.contextPath />
-        <base id="base" href="${base}/"/>
+        <base id="base" href="${base}/fqg/"/>
 		<link rel="stylesheet" href="../assets/css/amazeui.css" />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../assets/css/core.css" />
@@ -138,52 +137,52 @@
 
 									  <div class="am-form-group">
 								      <label for="doc-vld-name-2">账号名：</label>
-								      <input type="text" id="doc-vld-name-2" name="username" minlength="1" placeholder="输入用户名" value="${customer.username}" required/>
+								      <input type="text" id="doc-vld-name-2" name="username" minlength="1" placeholder="输入用户名" value="${customer.username!}" required/>
 								    </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">姓名：</label>
-										  <input type="text" id="doc-vld-name-3" name="trueName" minlength="2" placeholder="输入姓名" value="${customer.trueName}" required/>
+										  <input type="text" id="doc-vld-name-3" name="trueName" minlength="2" placeholder="输入姓名" value="${customer.trueName!}" required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">身份证号码：</label>
-										  <input type="text" id="doc-vld-idNumber-3" name="idNumber" minlength="18" maxlength="18" placeholder="输入身份证" value="${customer.idNumber}"required/>
+										  <input type="text" id="doc-vld-idNumber-3" name="idNumber" minlength="18" maxlength="18" placeholder="输入身份证" value="${customer.idNumber!}"required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">电话号码：</label>
-										  <input type="text" id="doc-vld-phone-3" name="phoneNumber" minlength="11" maxlength="11" placeholder="输入电话号码"value="${customer.phoneNumber}" required/>
+										  <input type="text" id="doc-vld-phone-3" name="phoneNumber" minlength="11" maxlength="11" placeholder="输入电话号码"value="${customer.phoneNumber!}" required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">密码：</label>
-										  <input type="text" id="doc-vld-password-2" name="loginPassword" minlength="6" placeholder="输入密码"value="${customer.loginPassword}" required/>
+										  <input type="text" id="doc-vld-password-2" name="loginPassword" minlength="6" placeholder="输入密码"value="${customer.loginPassword!}" required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">支付密码：</label>
-										  <input type="text" id="doc-vld-password-3" name="payPassword" minlength="6" placeholder="输入支付密码"value="${customer.payPassword}" required/>
+										  <input type="text" id="doc-vld-password-3" name="payPassword" minlength="6" placeholder="输入支付密码"value="${customer.payPassword!}" required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">学校名：</label>
-										  <input type="text" id="doc-vld-school-3" name="schoolName" minlength="2" placeholder="输入学校名"value="${customer.schoolName}" required/>
+										  <input type="text" id="doc-vld-school-3" name="schoolName" minlength="2" placeholder="输入学校名"value="${customer.schoolName!}" required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">公司：</label>
-										  <input type="text" id="doc-vld-company-3" name="companyName" minlength="1" placeholder="输入公司" value="${customer.companyName}"required/>
+										  <input type="text" id="doc-vld-company-3" name="companyName" minlength="1" placeholder="输入公司" value="${customer.companyName!}"required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">所有额度：</label>
-										  <input type="text" id="doc-vld-allQuota-3" name="allQuota" minlength="1" placeholder="输入额度" value="${customer.allQuota}"required/>
+										  <input type="text" id="doc-vld-allQuota-3" name="allQuota" minlength="1" placeholder="输入额度" value="${customer.allQuota!}"required/>
 									  </div>
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">当前额度：</label>
-										  <input type="text" id="doc-vld-Quota-3" name="quota" minlength="1" placeholder="输入额度" value="${customer.quota}"required/>
+										  <input type="text" id="doc-vld-Quota-3" name="quota" minlength="1" placeholder="输入额度" value="${customer.quota!}"required/>
 									  </div>
 								
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>

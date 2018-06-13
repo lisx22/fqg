@@ -137,7 +137,7 @@
 								<form action="/fqg/newUserCommodity/update" method="post" class="am-form" accept-charset="UTF-8" data-am-validator>
 								  <fieldset>
 								    <legend>修改优惠商品信息</legend>
-									  <input type="hidden" id="doc-vld-id-2" name="newUerCommodityId" value="${newUserCommodity.newUerCommodityId}" required/>
+									  <input type="hidden" id="doc-vld-id-2" name="newUerCommodityId" value="${newUserCommodity.newUerCommodityId!}" required/>
 									  <input type="hidden" id="doc-vld-id-3" name="createTime" value="${newUserCommodity.createTime!}" required/>
 
 									  <div class="am-form-group">

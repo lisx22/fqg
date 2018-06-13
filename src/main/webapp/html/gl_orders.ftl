@@ -145,7 +145,7 @@
 								</tr>
 								</thead>
 								<tbody>
-<#list orderslist as orders>
+<#list orderslist! as orders>
 									<tr>
 										<td></td>
 										<td>${orders.orderId!}</td>

@@ -35,6 +35,7 @@ public class SeachController {
         }
         String keyword = word.getWord();
         List<TypeOne> types = commodityService.selectTypeOne();
+
         SolrDocumentList solrDocuments = solrUtil.queryIndex(keyword);
         ArrayList<Commodity> CommodityList = new ArrayList<>();
         for (SolrDocument solrDocument : solrDocuments){

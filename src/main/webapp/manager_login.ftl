@@ -12,7 +12,6 @@
 		<link rel="stylesheet" href="assets/css/page/form.css" />
 	</head>
 	<body>
-	<img src="assets/img/search.png">
 		<div class="account-pages">
 			<div class="wrapper-page">
 				<div class="text-center">
@@ -35,26 +34,13 @@
 							      <input type="password" class="am-radius"  name="password" placeholder="Password">
 							    </div>
 							    
-<<<<<<< HEAD
+
 
 		                        
 		                        <div class="am-form-group ">
 		                        	<button type="submit" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 5%;">Log In</button>
-=======
-							    <div class="am-form-group ">
-		                           	<label style="font-weight: normal;color: #999;">
-								        <input type="checkbox" class="remeber"> Remember me
-								    </label>
-		                        </div>
-		                        <#--<a href="/user/login/${pageinfo.num-1}"-->
 
-								<div class="am-form-group ">
-		                        	<button type="submit" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 100%;">Log In</button>
->>>>>>> d09a0a788047c19fc311e62015411869ce971fa4
-		                        </div>
-		                        
-		                        <div class="am-form-group ">
-		                        <a href="page-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+							    <div class="am-form-group ">
 		                        </div>
 	                		</div>
 	                	</form>
