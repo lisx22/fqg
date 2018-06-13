@@ -5,6 +5,9 @@
     <meta name="page" content=",HUI,MAIN,INDEX,">
     
 <title>分期乐-年轻人信用消费平台</title>
+    <link rel="icon" href="img/fql.png" type="image/x-icon"/>
+<#assign base=request.contextPath />
+    <base id="base" href="${base}/"/>
 <meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
 <meta name="description" content="分期乐是国内面向年轻人提供分期消费的金融服务平台，购买商品首付月供全网最低，还款超低手续费，支持网银、支付宝、财付通支付，可使用身份证办理分期；平台提供的手机、电脑、相机等商品均来自京东、易迅直供，100%正品行货。">
 <meta name="channel-id" content="PC">
