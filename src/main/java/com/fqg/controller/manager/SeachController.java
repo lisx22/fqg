@@ -29,13 +29,14 @@ public class SeachController {
     public String seachCommodity(String keyword, Model model){
         System.out.println(keyword);
         List<TypeOne> types = commodityService.selectTypeOne();
-//        SolrDocumentList solrDocuments = solrUtil.queryIndex(keyword);
+        SolrDocumentList solrDocuments = solrUtil.queryIndex(keyword);
 //        System.out.println(solrDocuments.toString());
         ArrayList<Commodity> CommodityList = new ArrayList<>();
-//        for (SolrDocument solrDocument : solrDocuments){
-//            Commodity commodity = commodityService.selectByPrimaryKey(Integer.parseInt(solrDocument.get("commodityId").toString()));
-            CommodityList.add(commodityService.selectByPrimaryKey(4));
-//        }
+        for (SolrDocument solrDocument : solrDocuments){
+            Commodity commodity = commodityService.selectByPrimaryKey(Integer.parseInt(solrDocument.get("commodityId").toString()));
+            CommodityList.add(commodityService.selectByPrimaryKey(commodity.getCommodityId()));
+        }
+
 
         model.addAttribute("CommodityList",CommodityList);
         model.addAttribute("first",0);
