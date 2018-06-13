@@ -185,7 +185,7 @@
                 <li>
                     <a class="money" href="https://chong.fenqile.com/phone/charge.html" title="" data-fql-stat="WWW.MAIN.NAV.CONSUME" data-fql-ftag="WWW.MAIN.NAV.CONSUME">信用消费</a>
                 </li>
-                <li><a class="huitime" href="https://hui.fenqile.com/" title="" data-fql-stat="WWW.MAIN.NAV.LIMIT" data-fql-ftag="WWW.MAIN.NAV.LIMIT">限时秒杀</a></li>
+                <li><a class="huitime" href="kill/allkill">限时秒杀</a></li>
                 <li><a class="onezhe" href="https://www.fenqile.com/new/index.html" data-fql-stat="WWW.MAIN.NAV.NEW" data-fql-ftag="WWW.MAIN.NAV.NEW" title="">新人专享</a></li>
             </ul>
             <span class="ball"></span>

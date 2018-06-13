@@ -3,8 +3,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="img/fql.png" type="image/x-icon"/>
+
     <title>分期乐-年轻人信用消费平台</title>
+    <link rel="icon" href="img/fql.png" type="image/x-icon"/>
 <#assign base=request.contextPath />
     <base id="base" href="${base}/"/>
     <meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
