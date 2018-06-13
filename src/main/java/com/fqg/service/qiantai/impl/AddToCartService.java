@@ -24,6 +24,10 @@ public class AddToCartService implements IAddToCartService{
     private CartMapper cartMapper;
     @Override
     public List<Cart> addToCart(Customer customer, String str) {
+        /*PageHelper.startPage(1,5);
+        List<String> list = new ArrayList();
+        PageInfo<String> pageInfo = new PageInfo(list);
+        return pageInfo;*/
         cart.setCommodityInfo(str);
         cart.setCustomerId(customer.getCustomerId());
         cart.setCommodityId(Integer.parseInt(str.subSequence(0, 1).toString()));

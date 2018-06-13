@@ -1,8 +1,11 @@
 package com.fqg.service.qiantai.impl;
 
+import com.fqg.dao.OverRepayMapper;
+import com.fqg.dao.OverTimeInterestMapper;
 import com.fqg.dao.RepayMapper;
 import com.fqg.entity.Customer;
 import com.fqg.entity.Orders;
+import com.fqg.entity.OverRepay;
 import com.fqg.entity.Repay;
 import com.fqg.service.qiantai.IRepayService;
 import org.springframework.stereotype.Service;
@@ -21,7 +24,13 @@ import java.util.List;
 public class RepayService implements IRepayService {
 
     @Resource
+    private OverRepayMapper overRepayMapper;
+
+    @Resource
     private RepayMapper repayMapper;
+
+    @Resource
+    private OverTimeInterestMapper overTimeInterestMapper;
 
     @Resource
     private OrderServiceQT orderService;
@@ -31,11 +40,14 @@ public class RepayService implements IRepayService {
 
     @Override
     public Integer selectWillRepayMoneyByCustomer(Integer customerId) {
+        Double overTimeInterest = overTimeInterestMapper.selectOverTimeInterest();
         Integer repayMoney = 0;
         List<Integer> repayMoneyList = repayMapper.selectWillPayAmountByCustomer(customerId);
         for (Integer integer : repayMoneyList) {
             repayMoney += integer;
         }
+        OverRepay overRepay = overRepayMapper.selectByCustomer(customerId);
+
         return repayMoney;
     }
 

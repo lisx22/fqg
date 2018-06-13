@@ -39,8 +39,9 @@
 								        <input type="checkbox" class="remeber"> Remember me
 								    </label>
 		                        </div>
-		                        
-		                        <div class="am-form-group ">
+		                        <#--<a href="/user/login/${pageinfo.num-1}"-->
+
+								<div class="am-form-group ">
 		                        	<button type="submit" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 100%;">Log In</button>
 		                        </div>
 		                        

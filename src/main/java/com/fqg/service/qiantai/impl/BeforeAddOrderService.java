@@ -5,7 +5,6 @@ import com.fqg.entity.BuyInterest;
 import com.fqg.entity.Customer;
 import com.fqg.entity.Orders;
 import com.fqg.service.qiantai.IBeforeAddOrderService;
-import com.fqg.util.RedisUtil;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Service;
 
@@ -66,12 +65,14 @@ public class BeforeAddOrderService implements IBeforeAddOrderService {
             //购买数量
             int buyNum = Integer.parseInt(infos[6]);
             // 计算应付价格
-            double buyPrice = (price + colorPrice + infoPrice -allPriceCoupon) * (1+fqqs) * buyNum;
+            Integer orginPrice = (price + colorPrice + infoPrice -allPriceCoupon) * buyNum;
+            double buyPrice =  orginPrice * (1+fqqs);
             //判断应付价格与可用余额的对比 若可以支付则调用addOrder纯入订单和还款表 若不能支付则返回可用额度不够
             if (buyPrice < customer.getQuota()){
                 Orders orders = new Orders();
                 orders.setCommodityId(Integer.parseInt(infos[0]));
                 orders.setCustomerId(customer.getCustomerId());
+                orders.setAmount(orginPrice);
                 orders.setPayMoney((int)buyPrice);
                 orders.setStage(buyInterest.getStage());
                 orders.setOrderState(1);

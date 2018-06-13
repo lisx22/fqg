@@ -18,6 +18,8 @@ public class JobFactory extends SpringBeanJobFactory {
         //进行注入
         capableBeanFactory.autowireBean(jobInstance);
         return jobInstance;
+
+
     }
 
 }

@@ -34,13 +34,12 @@ public class CommoditySmallVOController {
         if(pageNo==null){
             pageNo="1";
         }
-//        commoditySelect.getStartPage();
-//        commoditySelect.getPageSize();
         PageInfo<CommoditySmallVO> pageInfo = iCommoditySearchService.
                 selectByCommoditySelect(commoditySelect,Integer.parseInt(pageNo));
         model.addAttribute("pageInfo",pageInfo);
         TypeOne typeOne = typeOneService.selectById(commoditySelect.getTypeOneId());
         model.addAttribute("typeOne",typeOne);
+        model.addAttribute("commoditySelect",commoditySelect);
         return "commoditySmallVO.ftl";
     }
 
