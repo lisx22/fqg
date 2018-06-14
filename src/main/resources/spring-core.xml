@@ -172,16 +172,40 @@
         <property name="repeatInterval" value="86400000" /><!-- 每天调度一次 -->
     </bean>
 
-    <bean id="jobDemo2" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-        <property name="jobClass" value="com.fqg.util.quartzutil.MyJob2" />
+    <bean id="reCalcOverRepayJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.fqg.util.quartzutil.ReCalcOverRepayJob" />
         <property name="durability" value="true"/>
         <!-- 指定spring容器的key，如果不设定在job中的jobmap中是获取不到spring容器的 -->
         <property name="applicationContextJobDataKey" value="applicationContext"/>
     </bean>
 
-    <bean id="simpleTrigger2" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-        <property name="jobDetail"  ref="jobDemo2"/>
-        <property name="cronExpression"  value="0 0 0 L 1/1 ? *"/>
+    <bean id="reCalcOverRepayTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail"  ref="reCalcOverRepayJob"/>
+        <property name="cronExpression"  value="0 0 0 15 * ? "/>
+    </bean>
+
+    <bean id="reCalcThisMonthRepayJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.fqg.util.quartzutil.ReCalcThisMonthRepayJob" />
+        <property name="durability" value="true"/>
+        <!-- 指定spring容器的key，如果不设定在job中的jobmap中是获取不到spring容器的 -->
+        <property name="applicationContextJobDataKey" value="applicationContext"/>
+    </bean>
+
+    <bean id="reCalcThisMonthRepayTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail"  ref="reCalcThisMonthRepayJob"/>
+        <property name="cronExpression"  value="0 0 0 1 * ? "/>
+    </bean>
+
+    <bean id="addOverRepayDayJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.fqg.util.quartzutil.AddOverRepayDayJob" />
+        <property name="durability" value="true"/>
+        <!-- 指定spring容器的key，如果不设定在job中的jobmap中是获取不到spring容器的 -->
+        <property name="applicationContextJobDataKey" value="applicationContext"/>
+    </bean>
+
+    <bean id="addOverRepayDayTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail"  ref="addOverRepayDayJob"/>
+        <property name="cronExpression"  value="0 0 0 * * ? *"/>
     </bean>
 
     <!-- 配置调度工厂 -->
@@ -190,7 +214,9 @@
         <property name="triggers">
             <list>
                 <ref bean="simpleTrigger" />
-                <ref bean="simpleTrigger2" />
+                <ref bean="reCalcOverRepayTrigger" />
+                <ref bean="addOverRepayDayTrigger" />
+                <ref bean="reCalcThisMonthRepayTrigger" />
             </list>
         </property>
     </bean>

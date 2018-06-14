@@ -4,7 +4,6 @@ import com.fqg.service.qiantai.IRepayService;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
@@ -12,17 +11,19 @@ import javax.annotation.Resource;
  * Created by IntelliJ IDEA.
  *
  * @author 陈锴鹏
- * @Date 2018/6/11
- * @Time 17:35
+ * @Date 2018/6/14
+ * @Time 11:29
  */
-@Controller
-public class MyJob2 implements Job {
+public class AddOverRepayDayJob implements Job {
 
     @Resource
     private IRepayService repayService;
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        //repayService.reCalc();
+        repayService.addOverRepayDay();
     }
+
 }
+
+
