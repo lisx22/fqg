@@ -36,4 +36,14 @@ public class RepayController {
         model.addAttribute("orderVOList",orderVOList);
         return "order.ftl";
     }
+
+    @RequestMapping("/selectRepay")
+    public String selectRepay(Model model ,HttpSession httpSession){
+        Customer customer = (Customer)httpSession.getAttribute("customer");
+        Double thisMonthRepay = repayService.selectThisMonthRepay(customer.getCustomerId());
+        Double overRepay = repayService.selectOverRepay(customer.getCustomerId());
+        model.addAttribute("thisMonthRepay",thisMonthRepay);
+        model.addAttribute("overRepay",overRepay);
+        return "repay.ftl";
+    }
 }

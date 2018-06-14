@@ -31,10 +31,10 @@ public class TestServlet extends HttpServlet {
         String orderId = random.nextInt(100000000) + "";
         try {
             String url = PayCommonUtil.weixin_pay(price, body, orderId);
-            BufferedImage image = ZxingUtil.createImage(url, 300, 300);
+            BufferedImage image = ZxingUtil.createImage(url, 186, 186);
             req.getSession().setAttribute("oid",orderId);
             req.getSession().setAttribute("image", image);
-            resp.sendRedirect("payment.jsp");
+            resp.sendRedirect("payment.ftl");
         } catch (Exception e) {
             e.printStackTrace();}
     }

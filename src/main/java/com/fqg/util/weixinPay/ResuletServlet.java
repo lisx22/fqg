@@ -1,5 +1,9 @@
 package com.fqg.util.weixinPay;
 
+import com.fqg.entity.Customer;
+import com.fqg.service.qiantai.IRepayService;
+
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +21,10 @@ import java.util.*;
  */
 @WebServlet("/payment/result")
 public class ResuletServlet extends HttpServlet {
+
+    @Resource
+    private IRepayService repayService;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {
@@ -34,14 +42,6 @@ public class ResuletServlet extends HttpServlet {
 
     public void weixin_notify(HttpServletRequest request,HttpServletResponse
             response) throws Exception{
-        String writeContent="??????";
-        String path = request.getServletContext().getRealPath("file");
-        File file = new File(path);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        FileOutputStream fileOutputStream = new
-                FileOutputStream(path+"/result.txt", true);
         InputStream inputStream ;
         StringBuffer sb = new StringBuffer();
         inputStream = request.getInputStream();
@@ -72,22 +72,16 @@ public class ResuletServlet extends HttpServlet {
         if(PayCommonUtil.isTenpaySign("UTF-8", packageParams,key)) {
             String resXml = "";
             if("SUCCESS".equals((String)packageParams.get("result_code"))){
-                String mch_id = (String)packageParams.get("mch_id");
-                String openid = (String)packageParams.get("openid");
-                String is_subscribe = (String)packageParams.get("is_subscribe");
-                String total_fee = (String)packageParams.get("total_fee");
-                System.err.println("mch_id:"+mch_id);
-                System.err.println("openid:"+openid);
-                System.err.println("is_subscribe:"+is_subscribe);
-                System.err.println("out_trade_no:"+out_trade_no);
-                System.err.println("total_fee:"+total_fee);
-                System.err.println("????");
-                writeContent = "??:" + out_trade_no + "????";
+                Customer customer = (Customer)request.getSession().getAttribute("customer");
+                if ("1".equals((String)packageParams.get("body"))) {
+                    repayService.doOverRepay(customer.getCustomerId());
+                }
+                if ("2".equals((String)packageParams.get("body"))) {
+                    repayService.doThisMonthRepay(customer.getCustomerId());
+                }
                 resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]> </return_code>"
                         + "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
             } else {
-                writeContent = "??"+out_trade_no+"????,?????" +
-                        packageParams.get("err_code");
                 System.err.println("??"+out_trade_no+"????,?????" +
                         packageParams.get("err_code"));
                 resXml = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>"
@@ -99,10 +93,7 @@ public class ResuletServlet extends HttpServlet {
             out.flush();
             out.close();
         } else{
-            writeContent = "??"+out_trade_no+"????????,????";
             System.err.println("123123123");
         }
-        fileOutputStream.write(writeContent.getBytes());
-        fileOutputStream.close();
     }
 }

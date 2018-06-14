@@ -53,7 +53,7 @@
     delete from over_repay
     where customer_id = #{customerId}
   </delete>
-  <select id="selectByCustomer" resultType="com.fqg.entity.OverRepay">
+  <select id="selectByCustomer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from over_repay
