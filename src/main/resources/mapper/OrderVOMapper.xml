@@ -3,25 +3,20 @@
 <mapper namespace="com.fqg.dao.OrderVOMapper">
   <resultMap id="BaseResultMap" type="com.fqg.entity.OrderVO">
     <id column="order_id" jdbcType="INTEGER" property="orderId" />
-    <result column="repay_id" jdbcType="INTEGER" property="repayId" />
+    <result column="create_time" jdbcType="INTEGER" property="createTime" />
+    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
     <result column="pay_money" jdbcType="INTEGER" property="payMoney" />
-    <result column="stage" jdbcType="INTEGER" property="totalStage" />
-    <result column="paid_stage" jdbcType="INTEGER" property="paidStage" />
-    <result column="unpadi_stage" jdbcType="INTEGER" property="unPaidStage" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="stage" jdbcType="INTEGER" property="stage" />
+    <result column="order_state" jdbcType="INTEGER" property="state"/>
     <association property="commoditySmallVO" column="order_id" select="com.fqg.dao.CommoditySmallVOMapper.selectByOrder"></association>
   </resultMap>
-  <sql id="Base_Column_List">
-    order_id,repay_id,pay_money,stage,paid_stage,unpadi_stage
-  </sql>
 
   <select id="selectByCustomer" resultMap="BaseResultMap">
     select
-    o.order_id,repay_id, pay_money,stage,paid_stage,unpadi_stage
-    from orders o
-    inner join repay r
-    on o.order_id = r.order_id
-    where o.order_state = 3 and o.customer_id = #{customerId}
+    order_id,create_time,order_num,stage,pay_money,amount,stage,order_state
+    from orders
+    where customer_id = #{customerId}
   </select>
-
 
 </mapper>

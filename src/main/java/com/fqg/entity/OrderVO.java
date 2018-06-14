@@ -11,26 +11,34 @@ public class OrderVO {
 
     private Integer orderId;
 
-    private Integer repayId;
+    private String createTime;
+
+    private String orderNum;
 
     private CommoditySmallVO commoditySmallVO;
 
     private Integer payMoney;
 
-    private Integer totalStage;
+    private Integer amount;
 
-    private Integer paidStage;
+    private Integer stage;
 
-    private Integer unPaidStage;
+    private Integer state;
 
-    private Integer unPaidMoney;
-
-    public Integer getRepayId() {
-        return repayId;
+    public Integer getStage() {
+        return stage;
     }
 
-    public void setRepayId(Integer repayId) {
-        this.repayId = repayId;
+    public void setStage(Integer stage) {
+        this.stage = stage;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public Integer getOrderId() {
@@ -57,50 +65,28 @@ public class OrderVO {
         this.payMoney = payMoney;
     }
 
-    public Integer getTotalStage() {
-        return totalStage;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setTotalStage(Integer totalStage) {
-        this.totalStage = totalStage;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public Integer getPaidStage() {
-        return paidStage;
+    public String getOrderNum() {
+        return orderNum;
     }
 
-    public void setPaidStage(Integer paidStage) {
-        this.paidStage = paidStage;
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
     }
 
-    public Integer getUnPaidStage() {
-        return unPaidStage;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setUnPaidStage(Integer unPaidStage) {
-        this.unPaidStage = unPaidStage;
-    }
-
-    public Integer getUnPaidMoney() {
-        return unPaidMoney;
-    }
-
-    public void setUnPaidMoney(Integer unPaidMoney) {
-        this.unPaidMoney = unPaidMoney;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderVO{" +
-                "orderId=" + orderId +
-                ", repayId=" + repayId +
-                ", commoditySmallVO=" + commoditySmallVO +
-                ", payMoney=" + payMoney +
-                ", totalStage=" + totalStage +
-                ", paidStage=" + paidStage +
-                ", unPaidStage=" + unPaidStage +
-                ", unPaidMoney=" + unPaidMoney +
-                '}';
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 }
 

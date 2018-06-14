@@ -39,20 +39,25 @@ public class RepayService implements IRepayService {
     private CustomerServiceQT customerService;
 
     @Override
-    public Integer selectWillRepayMoneyByCustomer(Integer customerId) {
-        Double overTimeInterest = overTimeInterestMapper.selectOverTimeInterest();
-        Integer repayMoney = 0;
+    public Double selectThisMonthRepay(Integer customerId) {
+        Double repayMoney = 0.0;
         List<Integer> repayMoneyList = repayMapper.selectWillPayAmountByCustomer(customerId);
         for (Integer integer : repayMoneyList) {
             repayMoney += integer;
         }
-        OverRepay overRepay = overRepayMapper.selectByCustomer(customerId);
-
         return repayMoney;
     }
 
     @Override
-    public void doWillRepay(Integer customerId) {
+    public Double selectOverRepay(Integer customerId) {
+        OverRepay overRepay = overRepayMapper.selectByCustomer(customerId);
+        Double overTimeInterest = overTimeInterestMapper.selectOverTimeInterest();
+        Double repayMoney = overRepay.getOverAmount() * (1+overRepay.getOverDay() * overTimeInterest);
+        return repayMoney;
+    }
+
+    @Override
+    public void doThisMonthRepay(Integer customerId) {
         Customer customer = customerService.selectById(customerId);
         List<Repay> repayList = repayMapper.selectByCustomer(customerId);
         for (Repay repay : repayList) {
@@ -71,21 +76,65 @@ public class RepayService implements IRepayService {
     }
 
     @Override
-    public void reCalc() {
+    public void reCalcOverRepay() {
+        Double overTimeInterest = overTimeInterestMapper.selectOverTimeInterest();
+        List<Integer> customerIdList = overRepayMapper.selectCustomerId();
+        List<OverRepay> overRepayList = overRepayMapper.selectAll();
+        for (OverRepay overRepay : overRepayList) {
+            overRepay.setOverAmount(overRepay.getOverAmount() * (1 + overRepay.getOverDay() * overTimeInterest));
+            overRepay.setOverDay(0);
+            overRepayMapper.updateByPrimaryKeySelective(overRepay);
+        }
         List<Repay> repayList = repayMapper.selectAll();
         for (Repay repay : repayList) {
-            Orders orders = orderService.selectById(repay.getOrderId());
-            Integer willPayAmount = orders.getPayMoney()/orders.getStage();
-            repay.setWillPayAmount(willPayAmount);
+            if (repay.getWillPayAmount() != 0) {
+                Integer customerId = repay.getCustomerId();
+                if (customerIdList.contains(customerId)) {
+                    OverRepay overRepay = overRepayMapper.selectByCustomer(customerId);
+                    overRepay.setOverAmount(overRepay.getOverAmount() + repay.getWillPayAmount());
+                    overRepayMapper.updateByPrimaryKeySelective(overRepay);
+                }
+                if (!customerIdList.contains(customerId)) {
+                    OverRepay overRepay = new OverRepay();
+                    overRepay.setCustomerId(customerId);
+                    overRepay.setOverAmount(repay.getWillPayAmount().doubleValue());
+                    overRepay.setOverDay(0);
+                    overRepayMapper.insertSelective(overRepay);
+                }
+                if (repay.getUnpadiStage() == 1){
+                    repayMapper.deleteByPrimaryKey(repay.getRepayId());
+                    orderService.completeOrder(repay.getOrderId());
+                }
+                if (repay.getUnpadiStage() != 1){
+                    repay.setUnpadiStage(repay.getUnpadiStage()-1);
+                    repay.setPaidStage(repay.getPaidStage()+1);
+                    repay.setWillPayAmount(0);
+                    repayMapper.updateByPrimaryKeySelective(repay);
+                }
+            }
         }
     }
 
     @Override
-    public void doOneOrderRepay(Integer repayId,Integer unPaidMoney) {
-        Repay repay = repayMapper.selectByPrimaryKey(repayId);
-        Customer customer = customerService.selectById(repay.getCustomerId());
-        customer.setQuota(customer.getQuota() + unPaidMoney);
-        orderService.completeOrder(repay.getOrderId());
-        repayMapper.deleteByPrimaryKey(repayId);
+    public void doOverRepay(Integer customerId) {
+        overRepayMapper.deleteByCustomer(customerId);
+    }
+
+    @Override
+    public void reCalcThisMonthRepay() {
+        List<Repay> repayList = repayMapper.selectAll();
+        for (Repay repay : repayList) {
+            Orders orders = orderService.selectById(repay.getOrderId());
+            repay.setWillPayAmount(orders.getAmount());
+        }
+    }
+
+    @Override
+    public void addOverRepayDay() {
+        List<OverRepay> overRepayList = overRepayMapper.selectAll();
+        for (OverRepay overRepay : overRepayList) {
+            overRepay.setOverDay(overRepay.getOverDay()+1);
+            overRepayMapper.updateByPrimaryKeySelective(overRepay);
+        }
     }
 }

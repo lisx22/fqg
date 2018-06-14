@@ -12,6 +12,7 @@
   <sql id="Base_Column_List">
     repay_id, customer_id, order_id, paid_stage, unpadi_stage, will_pay_amount
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

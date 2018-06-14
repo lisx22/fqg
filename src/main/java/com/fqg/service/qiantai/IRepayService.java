@@ -8,11 +8,18 @@ package com.fqg.service.qiantai;
  * @Time 11:09
  */
 public interface IRepayService {
-    Integer selectWillRepayMoneyByCustomer(Integer customerId);
 
-    void doWillRepay(Integer customerId);
+    Double selectThisMonthRepay(Integer customerId);
 
-    void reCalc();
+    Double selectOverRepay(Integer customerId);
 
-    void doOneOrderRepay(Integer repayId,Integer unPaidMoney);
+    void doThisMonthRepay(Integer customerId);
+
+    void doOverRepay(Integer customerId);
+
+    void reCalcThisMonthRepay();
+
+    void addOverRepayDay();
+
+    void reCalcOverRepay();
 }

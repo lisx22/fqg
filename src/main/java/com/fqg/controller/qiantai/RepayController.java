@@ -32,10 +32,8 @@ public class RepayController {
     @RequestMapping("/listOrder")
     public String listOrder(Model model, HttpSession httpSession){
         Customer customer = (Customer)httpSession.getAttribute("customer");
-        Integer willRepayMoney = repayService.selectWillRepayMoneyByCustomer(customer.getCustomerId());
         List<OrderVO> orderVOList = orderVOService.selectByCustomer(customer.getCustomerId());
-        model.addAttribute("willRepayMoney",willRepayMoney);
         model.addAttribute("orderVOList",orderVOList);
-        return "";
+        return "order.ftl";
     }
 }

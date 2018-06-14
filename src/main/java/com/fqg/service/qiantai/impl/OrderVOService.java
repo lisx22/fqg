@@ -23,12 +23,7 @@ public class OrderVOService implements IOrderVOService {
 
     @Override
     public List<OrderVO> selectByCustomer(Integer customerId) {
-        Integer unPaidMoney;
         List<OrderVO> orderVOList = orderVOMapper.selectByCustomer(customerId);
-        for (OrderVO orderVO : orderVOList) {
-            unPaidMoney = orderVO.getPayMoney()*(orderVO.getUnPaidStage()/orderVO.getTotalStage());
-            orderVO.setUnPaidMoney(unPaidMoney);
-        }
         return orderVOList;
     }
 

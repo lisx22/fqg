@@ -23,6 +23,6 @@ public class MyJob2 implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        repayService.reCalc();
+        //repayService.reCalc();
     }
 }

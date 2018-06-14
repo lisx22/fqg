@@ -67,13 +67,14 @@ public class BeforeAddOrderService implements IBeforeAddOrderService {
             // 计算应付价格
             Integer orginPrice = (price + colorPrice + infoPrice -allPriceCoupon) * buyNum;
             double buyPrice =  orginPrice * (1+fqqs);
+            double amount = buyPrice/buyInterest.getStage();
             //判断应付价格与可用余额的对比 若可以支付则调用addOrder纯入订单和还款表 若不能支付则返回可用额度不够
             if (buyPrice < customer.getQuota()){
                 Orders orders = new Orders();
                 orders.setCommodityId(Integer.parseInt(infos[0]));
                 orders.setCustomerId(customer.getCustomerId());
-                orders.setAmount(orginPrice);
-                orders.setPayMoney((int)buyPrice);
+                orders.setAmount((int)amount);
+                orders.setPayMoney(orginPrice);
                 orders.setStage(buyInterest.getStage());
                 orders.setOrderState(1);
                 Date d = new Date();

@@ -453,19 +453,13 @@
         <form id="_YNoteContentForm" name="_YNoteContentForm"
               action="https://note.youdao.com/yws/mapi/wcp?method=putfile&amp;keyfrom=wcp&amp;from=chrome&amp;confirm=false&amp;e=true&amp;vendor=ChromeStore&amp;vn=2"
               target="1ContentFrame&amp;ChromeStore" enctype="multipart/form-data" method="POST"><input type="text"
-                                                                                                        name="tl"
-                                                                                                        id="_YNoteContentFormtitle"
-                                                                                                        value=""><input
+                                                                                                   value=""><input
                 type="text" name="p" id="_YNoteContentFormpath" value=""><textarea name="bs"
                                                                                    id="_YNoteContentFormcontent"></textarea><input
                 type="text" name="src" id="_YNoteContentFormsource" value=""><input type="text" name="type"
                                                                                     id="_YNoteContentFormtype" value=""><input
                 type="text" name="userid" id="_YNoteContentFormuserid" value=""><input type="text" name="len"
-                                                                                       id="_YNoteContentFormlen"
-                                                                                       value=""><input type="text"
-                                                                                                       name="cs"
-                                                                                                       id="_YNoteContentFormcharset"
-                                                                                                       value=""><input
+                                                                                                      value=""><input
                 type="text" name="e" id="_YNoteContentFormsign" value=""></form>
     </div>
 </div>
