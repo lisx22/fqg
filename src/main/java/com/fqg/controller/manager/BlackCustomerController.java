@@ -62,12 +62,6 @@ public class BlackCustomerController {
         if(list1.isEmpty() && !list2.isEmpty()){
             blackCustomer.setCreateTime(getdata());
             blackCustomerService.insert(blackCustomer);
-        }else{
-            if(list1==null){
-                System.out.println(11111);
-            }else if(list2!=null){
-                System.out.println(22222);
-            }
         }
         return "redirect:/blackCustomer/blackCustomerList/0";
     }
