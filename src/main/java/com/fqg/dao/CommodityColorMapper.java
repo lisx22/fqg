@@ -2,9 +2,10 @@ package com.fqg.dao;
 
 import com.fqg.entity.CommodityColor;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface CommodityColorMapper {
     int deleteByPrimaryKey(Integer commodityColorId);
 

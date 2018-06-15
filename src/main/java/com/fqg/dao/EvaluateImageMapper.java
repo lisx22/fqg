@@ -1,7 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.EvaluateImage;
+import org.mybatis.spring.annotation.MapperScan;
 
+@MapperScan
 public interface EvaluateImageMapper {
     int deleteByPrimaryKey(Integer evaluateImageId);
 

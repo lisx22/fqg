@@ -1,7 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.CustomerAddress;
+import org.mybatis.spring.annotation.MapperScan;
 
+@MapperScan
 public interface CustomerAddressMapper {
     int deleteByPrimaryKey(Integer addressId);
 

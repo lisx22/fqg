@@ -1,7 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.NoInterest;
+import org.mybatis.spring.annotation.MapperScan;
 
+@MapperScan
 public interface NoInterestMapper {
     int deleteByPrimaryKey(Integer nointerestId);
 

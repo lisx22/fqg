@@ -1,9 +1,10 @@
 package com.fqg.dao;
 
 import com.fqg.entity.LikeCommodity;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface LikeCommodityMapper {
     int deleteByPrimaryKey(Integer likeId);
 

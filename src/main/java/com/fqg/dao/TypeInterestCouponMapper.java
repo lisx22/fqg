@@ -1,10 +1,10 @@
 package com.fqg.dao;
 
 import com.fqg.entity.TypeInterestCoupon;
-import com.fqg.entity.TypePriceCoupon;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface TypeInterestCouponMapper {
     int deleteByPrimaryKey(Integer couponId);
 

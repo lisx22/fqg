@@ -1,7 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.CustomerTypeInterestCoupon;
+import org.mybatis.spring.annotation.MapperScan;
 
+@MapperScan
 public interface CustomerTypeInterestCouponMapper {
     int deleteByPrimaryKey(Integer customerCouponId);
 

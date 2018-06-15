@@ -1,9 +1,8 @@
 package com.fqg.dao;
 
 import com.fqg.entity.Color;
-
-import java.util.List;
-
+import org.mybatis.spring.annotation.MapperScan;
+@MapperScan
 public interface ColorMapper {
     int deleteByPrimaryKey(Integer colorId);
 

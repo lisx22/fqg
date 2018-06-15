@@ -2,9 +2,10 @@ package com.fqg.dao;
 
 import com.fqg.entity.Customer;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface CustomerMapper {
     int deleteByPrimaryKey(Integer customerId);
     /**

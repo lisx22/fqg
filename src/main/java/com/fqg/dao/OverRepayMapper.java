@@ -1,6 +1,7 @@
 package com.fqg.dao;
 
 import com.fqg.entity.OverRepay;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @Date 2018/6/12
  * @Time 14:20
  */
+@MapperScan
 public interface OverRepayMapper {
 
     List<OverRepay> selectAll();

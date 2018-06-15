@@ -1,7 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.CommodityInterest;
+import org.mybatis.spring.annotation.MapperScan;
 
+@MapperScan
 public interface CommodityInterestMapper {
     int deleteByPrimaryKey(Integer commodityInterestId);
 

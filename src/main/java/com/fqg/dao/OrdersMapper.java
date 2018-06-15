@@ -1,11 +1,11 @@
 package com.fqg.dao;
 
-import com.fqg.entity.Customer;
 import com.fqg.entity.Orders;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface OrdersMapper {
     int deleteByPrimaryKey(Integer orderId);
 

@@ -1,9 +1,10 @@
 package com.fqg.dao;
 
 import com.fqg.entity.Repay;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface RepayMapper {
     int deleteByPrimaryKey(Integer repayId);
 

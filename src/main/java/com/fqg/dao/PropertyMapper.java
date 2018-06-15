@@ -1,7 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.Property;
+import org.mybatis.spring.annotation.MapperScan;
 
+@MapperScan
 public interface PropertyMapper {
     int deleteByPrimaryKey(Integer propertyId);
 

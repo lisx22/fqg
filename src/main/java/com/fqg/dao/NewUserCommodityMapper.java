@@ -1,11 +1,11 @@
 package com.fqg.dao;
 
-import com.fqg.entity.KillCommodity;
 import com.fqg.entity.NewUserCommodity;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface NewUserCommodityMapper {
     int deleteByPrimaryKey(Integer newUerCommodityId);
 

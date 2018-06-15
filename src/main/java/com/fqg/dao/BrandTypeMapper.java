@@ -1,7 +1,9 @@
 package com.fqg.dao;
 
 import com.fqg.entity.BrandType;
+import org.mybatis.spring.annotation.MapperScan;
 
+@MapperScan
 public interface BrandTypeMapper {
     int deleteByPrimaryKey(Integer brandTypeId);
 

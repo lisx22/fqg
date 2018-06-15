@@ -2,9 +2,10 @@ package com.fqg.dao;
 
 import com.fqg.entity.TypeOne;
 import com.fqg.entity.TypeTwo;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface TypeTwoMapper {
     int deleteByPrimaryKey(Integer typeTwoId);
 

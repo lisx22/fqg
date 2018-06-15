@@ -2,9 +2,10 @@ package com.fqg.dao;
 
 import com.fqg.entity.Evaluate;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface EvaluateMapper {
     int deleteByPrimaryKey(Integer evaluateId);
 

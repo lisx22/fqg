@@ -1,9 +1,10 @@
 package com.fqg.dao;
 
 import com.fqg.entity.CommodityExhibitionImage;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface CommodityExhibitionImageMapper {
     int deleteByPrimaryKey(Integer exhibitionImageId);
 

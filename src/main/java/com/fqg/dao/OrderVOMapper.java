@@ -1,12 +1,12 @@
 package com.fqg.dao;
 
 import com.fqg.entity.OrderVO;
-import org.springframework.stereotype.Repository;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
 
-@Repository
+@MapperScan
 public interface OrderVOMapper {
     List<OrderVO> selectByCustomer(Integer customerId);
 }

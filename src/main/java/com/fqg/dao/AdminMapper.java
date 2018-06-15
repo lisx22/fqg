@@ -2,10 +2,10 @@ package com.fqg.dao;
 
 import com.fqg.entity.Admin;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
+import org.mybatis.spring.annotation.MapperScan;
 
 
-@Repository
+@MapperScan
 public interface AdminMapper {
     Admin login(@Param("adminName")String adminName, @Param("adminPassword")String adminPassword);
 

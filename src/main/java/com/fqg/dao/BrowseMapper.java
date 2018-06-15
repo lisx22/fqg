@@ -1,6 +1,7 @@
 package com.fqg.dao;
 
 import com.fqg.entity.Browse;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @Date 2018/6/8
  * @Time 15:30
  */
+@MapperScan
 public interface BrowseMapper {
 
     int insert(Browse browse);

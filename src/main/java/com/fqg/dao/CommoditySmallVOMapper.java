@@ -2,6 +2,7 @@ package com.fqg.dao;
 
 import com.fqg.entity.CommoditySelect;
 import com.fqg.entity.CommoditySmallVO;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @Date 2018/6/7
  * @Time 11:14
  */
+@MapperScan
 public interface CommoditySmallVOMapper {
 
     CommoditySmallVO selectByPrimaryKey(Integer commodityId);

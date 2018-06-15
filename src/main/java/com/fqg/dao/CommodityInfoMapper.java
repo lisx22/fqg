@@ -2,9 +2,10 @@ package com.fqg.dao;
 
 import com.fqg.entity.CommodityInfo;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
+@MapperScan
 public interface CommodityInfoMapper {
     int deleteByPrimaryKey(Integer commodityInfoId);
 
