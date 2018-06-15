@@ -16,7 +16,7 @@
     <import resource="spring-session.xml"/>
     <!-- 扫描包下面的所有的类是否受spring的管理，需要spring创建对象 -->
     <context:component-scan
-            base-package="com.fqg.entity,com.fqg.service.*,com.fqg.dao,com.fqg.controller.*,com.fqg.cache"/>
+            base-package="com.fqg"/>
 
 
     <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -19,7 +19,7 @@ import java.util.*;
  * @Date 2018/6/11
  * @Time 11:04
  */
-@WebServlet("/payment/result")
+@WebServlet("/payment/result1")
 public class ResuletServlet extends HttpServlet {
 
     @Resource
@@ -42,6 +42,7 @@ public class ResuletServlet extends HttpServlet {
 
     public void weixin_notify(HttpServletRequest request,HttpServletResponse
             response) throws Exception{
+        System.out.println("into result");
         InputStream inputStream ;
         StringBuffer sb = new StringBuffer();
         inputStream = request.getInputStream();
@@ -67,7 +68,7 @@ public class ResuletServlet extends HttpServlet {
             packageParams.put(parameter, v);
         }
         String key = PayConfigUtil.API_KEY;
-        System.err.println(packageParams);
+        System.out.println(packageParams);
         String out_trade_no = (String)packageParams.get("out_trade_no");
         if(PayCommonUtil.isTenpaySign("UTF-8", packageParams,key)) {
             String resXml = "";
