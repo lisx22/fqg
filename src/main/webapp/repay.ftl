@@ -145,10 +145,10 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <span class="fn-rmb c-red"><a href="payment/test?body=1"><em>¥</em>${overRepay}</a></span>
+                                                    <span class="fn-rmb c-red"><a href="payment/test?body=分期购：还款逾期"><em>¥</em>${overRepay}</a></span>
                                                 </td>
                                                 <td>
-                                                    <span class="fn-rmb c-blue"><a href="payment/test?body=2"><em>¥</em>${thisMonthRepay}</a></span>
+                                                    <span class="fn-rmb c-blue"><a href="payment/test2?body=分期购：还款当月"><em>¥</em>${thisMonthRepay}</a></span>
                                                 </td>
                                             </tr>
                                             <tr>

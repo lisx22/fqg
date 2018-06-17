@@ -50,9 +50,12 @@ public class RepayService implements IRepayService {
 
     @Override
     public Double selectOverRepay(Integer customerId) {
+        Double repayMoney = 0.0;
         OverRepay overRepay = overRepayMapper.selectByCustomer(customerId);
         Double overTimeInterest = overTimeInterestMapper.selectOverTimeInterest();
-        Double repayMoney = overRepay.getOverAmount() * (1+overRepay.getOverDay() * overTimeInterest);
+        if (overRepay != null){
+            repayMoney = overRepay.getOverAmount() * (1+overRepay.getOverDay() * overTimeInterest);
+        }
         return repayMoney;
     }
 

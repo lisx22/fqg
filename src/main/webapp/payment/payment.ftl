@@ -116,6 +116,7 @@
                             <div class="c-pic">
                                 <img src="../payment/image" alt="账单二维码">
                             </div>
+                            <a class="use-link" id="close_app_show" href="/fqg/repay/selectRepay">支付完成 &gt;&gt;</a>
                         </div>
                     </div>
                     <!-- 底部山丘 -->

@@ -120,4 +120,37 @@ public class PayCommonUtil {
         String urlCode = (String) map.get("code_url");
         return urlCode;
     }
+
+    public static String weixin_pay2( String order_price,String body,String
+            out_trade_no) throws Exception {
+        String appid = PayConfigUtil.APP_ID;
+        String mch_id = PayConfigUtil.MCH_ID;
+        String key = PayConfigUtil.API_KEY;
+        String currTime = PayCommonUtil.getCurrTime();
+        String strTime = currTime.substring(8, currTime.length());
+        String strRandom = PayCommonUtil.buildRandom(4) + "";
+        String nonce_str = strTime + strRandom;
+        String spbill_create_ip = PayConfigUtil.CREATE_IP;
+        String notify_url = PayConfigUtil.NOTIFY_URL2;
+        String trade_type = "NATIVE";
+        SortedMap<Object,Object> packageParams = new TreeMap<>();
+        packageParams.put("appid", appid);
+        packageParams.put("mch_id", mch_id);
+        packageParams.put("nonce_str", nonce_str);
+        packageParams.put("body", body);
+        packageParams.put("out_trade_no", out_trade_no);
+        packageParams.put("total_fee", order_price);
+        packageParams.put("spbill_create_ip", spbill_create_ip);
+        packageParams.put("notify_url", notify_url);
+        packageParams.put("trade_type", trade_type);
+        String sign = PayCommonUtil.createSign("UTF-8", packageParams,key);
+        packageParams.put("sign", sign);
+        String requestXML = PayCommonUtil.getRequestXml(packageParams);
+        System.out.println(requestXML);
+        String resXml = HttpUtil.postData(PayConfigUtil.UFDOOER_URL, requestXML);
+        System.out.println(resXml);
+        Map map = XMLUtil.doXMLParse(resXml);
+        String urlCode = (String) map.get("code_url");
+        return urlCode;
+    }
 }
