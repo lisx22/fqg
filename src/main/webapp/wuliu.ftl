@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)https://order.fenqile.com/ -->
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>分期乐-深受全国年轻人喜爱的分期购物商城</title>
+<!-- saved from url=(0065)https://trade.fenqile.com/order/detail/O20161010710551701060.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<title>分期乐-深受全国年轻人喜爱的分期购物商城</title>
     <#assign base=request.contextPath />
     <base id="base" href="${base}/"/>
 <meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
@@ -20,13 +19,16 @@
 <link rel="dns-prefetch" href="https://cres2.fenqile.cn/">
 <link rel="dns-prefetch" href="https://cstatic.fenqile.com/">
 <link rel="dns-prefetch" href="https://r.fenqile.com/">
-<link rel="stylesheet" href="order_files/global.css" type="text/css">
-    <meta name="page" content=",ORDER_WWW,ORDER,LIST">
-    <link rel="stylesheet" href="order_files/public--b13210b82d.css">
-    <link rel="stylesheet" href="order_files/order--572c08396b.css">
-<link charset="utf-8" rel="stylesheet" href="order_files/box.css"><link charset="utf-8" rel="stylesheet" href="order_files/frame_host.css"><link charset="utf-8" rel="stylesheet" href="order_files/tooltip.css"></head>
+<link rel="stylesheet" href="wuliu_files/global.css" type="text/css">
+   <meta name="page" content=",TRADE,ORDER,DETAIL">
+    <meta name="biz" content=",O20161010710551701060,">
+    <link rel="stylesheet" href="wuliu_files/public--b100d06a4c.css">
+    <link rel="stylesheet" href="wuliu_files/order--fc4e65b841.css">
+<style type="text/css" abt="234"></style>
+    <style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style>
+    <link charset="utf-8" rel="stylesheet" href="wuliu_files/box.css"><link charset="utf-8" rel="stylesheet" href="wuliu_files/frame_host.css"><link charset="utf-8" rel="stylesheet" href="wuliu_files/tooltip.css"></head>
 <body class="body-c-eb">
-    <header data-now-year="2018" data-now-month="06" data-now-day="04">
+<header data-now-year="2018" data-now-month="06" data-now-day="18">
     <div class="header">
         <div class="top">
             <div class="container fn-clear">
@@ -35,7 +37,7 @@
         <div class="nav-text">
                             <span class="fn-left">你好，</span>
                 <div id="mini" class="nav-name nav-name-show1">
-                    <div class="nav-name-top"><div class="user-name">136****7156261</div><i class="i-nav-name"></i></div>
+                    <div class="nav-name-top"><div class="user-name">陈锴鹏</div><i class="i-nav-name"></i></div>
                     <div id="mini_content" class="nav-name-box">
                         <div class="global-load">
                             <span class="global-load-ico"></span>加载中...
@@ -56,7 +58,7 @@
                     <!--<a style="color:red;" target="_blank" href="//dreamclub.fenqile.com/" data-fql-stat="WWW.MAIN.HEADER.ZHAOPIN">梦创俱乐部</a> -->
                     <a target="_blank" href="https://b.fenqile.com/" data-fql-stat="WWW.MAIN.HEADER.MERCH">商家服务</a>
                     <a target="_blank" href="https://help.fenqile.com/" data-fql-stat="WWW.MAIN.HEADER.HELP">帮助中心</a>
-                    <a target="_blank" href="https://mall.fenqile.com/intro/detail.html" data-fql-stat="WWW.MAIN.HEADER.DETAIL">分期介绍</a><span class="line">|</span><a style="color:red;" href="https://order.fenqile.com/order.ftl###" class="js-g-report-price">举报有奖</a>
+                    <a target="_blank" href="https://mall.fenqile.com/intro/detail.html" data-fql-stat="WWW.MAIN.HEADER.DETAIL">分期介绍</a><span class="line">|</span><a style="color:red;" href="https://trade.fenqile.com/order/detail/O20161010710551701060.html###" class="js-g-report-price">举报有奖</a>
                 </div>
             </div>
         </div>
@@ -86,7 +88,7 @@
         </div>
     </div>
 </header>
-    <nav>
+<nav>
     <div class="nav">
         <div class="container fn-pr fn-clear">
                                     <!--城市页导航栏-->
@@ -103,15 +105,15 @@
         </div>
     </div>
 </nav>
-    <main>
-        <!-- 个人中心 -->
-        <div class="container fn-pr  fn-clear">
-            <h2 class="aside-nav-h2">
-                <span class="aside-nav-individual-ico"></span>
-            </h2>
-            <div class="individual">
-                <!-- 左边导航 begin -->
-                
+<main>
+    <!-- 个人中心 -->
+    <div class="container fn-pr fn-clear">
+        <h2 class="aside-nav-h2">
+            <span class="aside-nav-individual-ico"></span>
+        </h2>
+        <div class="individual">
+            <!-- 左边导航 -->
+            
 <div class="aside-nav aside-nav-individual">
     <div class="individual-face">
         <ul class="individual-face-ov">
@@ -121,7 +123,7 @@
             </li>
             <li>
                 <span class="hover-mask-i"></span>
-                <img class="js-g-user-icon" src="./order_files/face2.png" width="76" height="76">
+                <img class="js-g-user-icon" src="wuliu_files/face2.png" width="76" height="76">
             </li>
         </ul>
         <p>
@@ -133,7 +135,7 @@
             <li><a href="https://mall.fenqile.com/my/index.html" title=""><i class="i-indiv"></i>个人中心</a></li>
             <li><a href="https://mall.fenqile.com/my/safe.html" title=""><i class="i-safe"></i>安全中心</a></li>
             <li class="on"><a href="https://order.fenqile.com/order/list.html" title=""><i class="i-order"></i>我的订单</a></li>
-            <li><a href="repay/selectRepay" title=""><i class="i-bill"></i>我的还款</a></li>
+            <li><a href="https://mall.fenqile.com/my/bill.html" title=""><i class="i-bill"></i>我的账单</a></li>
             <li><a href="https://home.fenqile.com/coupon/list.html" title=""><i class="i-cash"></i>我的优惠券</a></li>
             <li><a href="https://www.fenqile.com/my/book.html" title=""><i class="i-dock"></i>我的预约</a></li>
             <li><a href="https://www.fenqile.com/my/favorite.html" title=""><i class="i-add"></i>我的收藏</a></li>
@@ -141,143 +143,55 @@
             <li><a href="https://mall.fenqile.com/my/appeal.html" title=""><i class="i-con"></i>我的申诉</a></li>
             <li><a href="https://mall.fenqile.com/my/refund.html" title=""><i class="i-ti"></i>为他还款</a></li>
             <li><a href="https://mall.fenqile.com/my/address.html" title=""><i class="i-address"></i>收货地址</a></li>
+            <!--<li ><a href="//mall.fenqile.com/my/financial.html?_ctag=F3B7331-B7B8D76" title=""><i class="i-licai"></i>我要理财</a></li>-->
         </ul>
     </div>
 </div>
-                <!-- 左边导航 end -->
-                <div class="individual-main">
-                                        <div class="individual-title fn-clear">
-                        <strong>我的订单</strong>
-                    </div>
-
-                    <div class="order-body" id="order_wrap">
-                        <!-- 订单状态切换 begin -->
-                        <div class="order-type-tab fn-clear">
-                            <ul class="fn-left">
-                                <li class="on js-state-tab" id="all_tab" data-type="all" data-fql-stat="STATE_TAB_ALL">全部订单</li>
-                                <#--<li class="js-state-tab" id="unapprove_tab" data-type="unapprove" data-fql-stat="STATE_TAB_UNAPPROVE">待审核</li>
-                                <li class="js-state-tab" id="unconfirm_tab" data-type="unconfirm" data-fql-stat="STATE_TAB_UNCONFIRM">待收货</li>
-                                <li class="js-state-tab" id="unevaluate_tab" data-type="unevaluate" data-fql-stat="STATE_TAB_UNEVALUATE">待评价</li>-->
-                            </ul>
-                        </div>
-                        <!-- 订单状态切换 end -->
-
-                        <div class="order-list-title fn-clear">
-                            <div class="td td1">订单信息</div>
-                            <div class="td td2">金额</div>
-                            <div class="td td3">状态</div>
-                            <div class="td td4">操作</div>
-                        </div>
-
-                        <!-- 订单列表 begin -->
-                        <ul class="ul-order-list js-list-item" id="order_list_wrap">
-                        <#list orderVOList as orderVO>
-    <li>
-        <!-- 订单头部信息 begin -->
-        <div class="order-li-title">
-                <span class="c-gray bor-r">${orderVO.createTime}</span>
-                <span class="order-num">
-                    <span class="c-gray">订单号：</span>
-                    <span>${orderVO.orderNum}</span>
-                </span>
-        </div>
-        <!-- 订单头部信息 end -->
-        <table class="order-li">
-            <tbody>
-                <tr class="order-li-text">
-                    <td class="td1">
-                        <!-- 商品信息 begin -->
-                        <table class="li-pro-table">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="pro-img">
-                                            <div class="pro-img-over">
-                                                <div class="pro-img-tb">
-                                                    <div>
-                                                        <a href="" target="_blank">
-                                                            <img width="60" src="order_files/hBoGAFm5G0OAfvlyAAF9KvYVQsM170.jpg">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td width="309">
-                                        <div class="">
-                                            <div class="pro-name">
-                                                ${orderVO.commoditySmallVO.name}
-                                            </div>
-                                            
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!-- 商品信息 end -->
-                    </td>
-                    <td class="td2">
-                        <!-- 订单金额信息 begin -->
-                        <div class="td-list-price">
-                            <p>订单金额：${orderVO.payMoney}元</p>
-                            
-
-                            
-                            <p>
-                                
-                                月供金额：${orderVO.amount}元 X ${orderVO.stage}
-                                
-                            </p>
-                        </div>
-                        <!-- 订单金额信息 end -->
-                    </td>
-                    <td class="td3">
-                        <div class="order-state">
-                            <!-- 订单状态和跟踪信息 begin -->
-                            <div class="show-li" id="show_info">
-                                <span class="td3-txt-w">
-                                    <span class="td3-txt">
-                                        <#if orderVO.state == 1>
-                                            待发货
-                                        </#if>
-                                        <#if orderVO.state == 2>
-                                            已发货
-                                        </#if>
-                                        <#if orderVO.state == 3>
-                                            待还款
-                                        </#if>
-                                        <#if orderVO.state == 4>
-                                            已完成
-                                        </#if>
-                                    </span>
-                                    <i class="i-order-sj"></i>
-                                </span>
-</div>
+            <!-- 左边导航 -->
+            <div class="individual-main">
+                <div class="order-body order-detail-body">
+                    <!-- 订单相关配送信息 begin -->
+                                        <!-- 订单相关配送信息 end -->
+                                            <!-- 订单跟踪信息 begin -->
+                                                     <!-- //非待支付状态默认或非关闭订单展示订单跟踪默认的loading -->
+                                                <div class="detail-box express-box" id="express_box">
+                            <div class="ui-tab">
+                                <ul class="ui-tab-items fn-clear">
+                                    <!--当前选中状态是ui-tab-item-current-->
+                                    <li class="fn-left ui-tab-item ui-tab-item-current js-track-tab" id="order_track_tab" data-init="1" data-type="track">
+                                        <a href="https://trade.fenqile.com/order/detail/O20161010710551701060.html###">订单跟踪</a>
+                                    </li>
+                                    <li class="fn-left ui-tab-item js-track-tab fn-hide" id="refund_track_tab" data-type="refund">
+                                        <a href="https://trade.fenqile.com/order/detail/O20161010710551701060.html###">退款进度</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <!-- 订单状态和跟踪信息 end -->
-                        </div>
-                    </td>
-                    <td class="td4">
-                        <!-- 订单操作区域 begin-->
-                        <div class="td-operation">
-                                <a href="wuliu/to" class="js-cancel-order">查看物流</a>
-                        </div>
-                        <!-- 订单操作区域 end-->
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </li>
-                        </#list>
-</ul>
-                        <!-- 订单列表 end -->
-                    </div>
+                                <div class="box-express">
+                                    <ul class="express-ul fn-clear js-express-wrap" id="track_wrap"><!-- 订单详情的跟踪信息 begin -->
+                                        <#list traces as trace>
+                                            <li class="on">
+                                                <i></i>
+                                                <div class="litext">${trace.getAcceptStation()}</div>
+                                                <div class="li-time">${trace.getAcceptTime()}</div>
+                                            </li>
+                                        </#list>
+                                        <!-- 订单详情的跟踪信息 end --></ul>
+                                    <ul class="express-ul fn-clear js-express-wrap fn-hide" id="refund_wrap">
+                                    </ul>
+                                </div>
+                        <#--<div class="express-btn js-switch" id="track_switch">
+        <span class="js-switch-name">展开详情</span>
+        <span class="select-jt"></span>
+    </div></div>-->
+                        <!-- 订单跟踪信息 end -->
+                    <!-- 合同 发票 信息 end-->
+                    <#--<p class="mt23">随时随地查看申请进度，<a href="https://mall.fenqile.com/intro/app.html" target="_blank">下载分期乐手机APP</a></p>-->
                 </div>
             </div>
         </div>
-    </main>
-</script>
-    <footer>
+    </div>
+</main>
+<footer>
     <div class="footer passport-footer">
         <div class="container fn-clear">
             <div class="fn-left">
@@ -290,7 +204,7 @@
             </div>
             <div class="fn-right">
                 <div class="fn-right">
-                    <script id="ebsgovicon" src="./order_files/govicon.js.下载" type="text/javascript" charset="utf-8"></script><a href="http://szcert.ebs.org.cn/e2530f78-693c-4abf-b9a5-0a9259209b6d" target="_blank"><img src="./order_files/govIcon.gif" title="深圳市市场监督管理局企业主体身份公示" alt="深圳市市场监督管理局企业主体身份公示" width="41" height="56" border="0" style="border-width:0px;border:hidden; border:none;"></a><script type="text/javascript" src="./order_files/iplookup.php"></script>
+                    <a href="http://szcert.ebs.org.cn/e2530f78-693c-4abf-b9a5-0a9259209b6d" target="_blank"><img src="./分期乐-深受全国年轻人喜爱的分期购物商城_files/govIcon.gif" title="深圳市市场监督管理局企业主体身份公示" alt="深圳市市场监督管理局企业主体身份公示" width="41" height="56" border="0" style="border-width:0px;border:hidden; border:none;"></a>
                 </div>
                 <div class="fn-right footer-phone">
                     <p>客服电话：<span>400-005-9151</span></p>
@@ -298,7 +212,5 @@
             </div>
         </div>
     </div>
-</footer><div tabindex="-1" id="fql_box_152809896773458508" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div>
-
-
-</body></html>
+</footer>
+<div tabindex="-1" id="fql_box_152930209563372795" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div><div tabindex="-1" id="fql_box_152930209565122514" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div></body></html>

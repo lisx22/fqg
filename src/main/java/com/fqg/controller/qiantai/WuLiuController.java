@@ -1,9 +1,14 @@
 package com.fqg.controller.qiantai;
 
-import com.fqg.util.wuLiu;
+import com.alibaba.fastjson.JSON;
+import com.fqg.entity.Traces;
+import com.fqg.entity.WuLiuInfo;
+import com.fqg.util.WuLiu.FegineApi;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * 物流查询
@@ -14,10 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/wuliu")
 public class WuLiuController {
 
-    @RequestMapping("/")
-    public String wuliu(Model model,String danhao,String kd){
-        wuLiu wuLiu = new wuLiu();
-        String str = wuLiu.wuliu(kd,danhao);
-        return str;
+    @RequestMapping("/to")
+    public String to(Model model){
+        String string = FegineApi.getwuliu();
+        WuLiuInfo wuLiuInfo = JSON.parseObject(string, WuLiuInfo.class);
+        System.out.println(wuLiuInfo);
+        List<Traces> traces = wuLiuInfo.getTraces();
+        model.addAttribute("traces",traces);
+        return "wuliu.ftl";
     }
+
 }
