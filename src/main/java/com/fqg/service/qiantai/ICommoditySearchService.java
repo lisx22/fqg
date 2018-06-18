@@ -23,4 +23,6 @@ public interface ICommoditySearchService {
     List<CommoditySmallVO> selectBrowseCommodityByCustomer(Integer customerId);
 
     TypeOne selectById(Integer typeOneId);
+
+    CommoditySmallVO selectByCommodityId(Integer commodityId);
 }

@@ -181,7 +181,7 @@
 
     <bean id="reCalcOverRepayTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail"  ref="reCalcOverRepayJob"/>
-        <property name="cronExpression"  value="0 0 0 15 * ? "/>
+        <property name="cronExpression"  value="0 1/2 * * * ? *"/>
     </bean>
 
     <bean id="reCalcThisMonthRepayJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
@@ -193,7 +193,7 @@
 
     <bean id="reCalcThisMonthRepayTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail"  ref="reCalcThisMonthRepayJob"/>
-        <property name="cronExpression"  value="0 0 0 1 * ? "/>
+        <property name="cronExpression"  value="0 0/2 * * * ? *"/>
     </bean>
 
     <bean id="addOverRepayDayJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
@@ -205,7 +205,7 @@
 
     <bean id="addOverRepayDayTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail"  ref="addOverRepayDayJob"/>
-        <property name="cronExpression"  value="0 0 0 * * ? *"/>
+        <property name="cronExpression"  value="0/4 * * * * ? *"/>
     </bean>
 
     <!-- 配置调度工厂 -->

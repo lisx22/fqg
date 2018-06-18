@@ -31,7 +31,7 @@
     from repay
     where customer_id = #{customerId}
   </select>
-  <select id="selectAll" resultType="com.fqg.entity.Repay">
+  <select id="selectAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from repay

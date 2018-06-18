@@ -129,6 +129,7 @@ public class RepayService implements IRepayService {
         for (Repay repay : repayList) {
             Orders orders = orderService.selectById(repay.getOrderId());
             repay.setWillPayAmount(orders.getAmount());
+            repayMapper.updateByPrimaryKeySelective(repay);
         }
     }
 

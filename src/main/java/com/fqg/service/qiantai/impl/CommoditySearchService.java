@@ -82,6 +82,11 @@ public class CommoditySearchService implements ICommoditySearchService {
         return typeOneService.selectById(typeOneId);
     }
 
+    @Override
+    public CommoditySmallVO selectByCommodityId(Integer commodityId) {
+        return commoditySmallVOMapper.selectByPrimaryKey(commodityId);
+    }
+
 
     private List<CommoditySmallVO> selectCommoditySmallVOListById(List<Integer> commoditySmallVOIdList) {
         Gson gson = new Gson();

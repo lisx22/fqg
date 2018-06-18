@@ -12,7 +12,7 @@
   </sql>
 
   <select id="selectCustomerId" resultType="java.lang.Integer">
-    select
+    select distinct
     customer_id
     from over_repay
   </select>
@@ -59,7 +59,7 @@
     from over_repay
     where customer_id = #{customerId}
   </select>
-  <select id="selectAll" resultType="com.fqg.entity.OverRepay">
+  <select id="selectAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from over_repay

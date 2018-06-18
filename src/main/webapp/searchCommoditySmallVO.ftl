@@ -240,9 +240,6 @@
         <div class="list-content fn-right">
             <div class="list-sel">
                 <div id="sel_nav" class="list-sel-top">
-                    <a href="https://www.fenqile.com/">首页</a><span class="fn-st">&gt;</span>
-                    <a href="${base}/commoditySmallVO/select?typeOneId=1">
-                    ${typeOne.typeOneName} </a>
                     <span id="nav_tab_category_id_2"></span>
                     <span id="nav_tab_category_id_3"></span>
                     <span id="nav_tab_brand_id"></span>
@@ -251,54 +248,11 @@
                     <span id="nav_tab_feature_id_2"></span>
                     <span id="nav_tab_feature_id_3"></span>
                 </div>
-                <div id="filter_box" class="list-sel-form">
-                    <!--[[二级类目-->
-                    <div class="sel-form-li">
-                        <div class="sel-form-lable" style="margin-left: -4px">${typeOne.typeOneName}  :</div>
-                        <div class="sel-form-a sel-form-hauto js-filter-line" id="category_2_line" data-type="category_id_2">
-                            <a data-id="0" href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}">全部</a>
-                        <#list typeOne.typeTwoList as t>
-                            <a data-id="99" href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&typeTwoId=#{t.typeTwoId}" class="js-filter-item">
-                            ${t.typeTwoName} </a>
-                            </a>
-                        </#list>
-                        </div>
-                    </div>
-                    <!--三级类目]]-->
-                    <!--[[品牌-->
-                    <div id="brand_wrap" class="sel-form-li sel-form-li-none sel-form-li-show">
-                        <div class="sel-form-lable"><strong>品牌：</strong></div>
-                        <div class="sel-form-a js-filter-line sel-form-at" id="brand_line" data-line-height="29" data-type="brand_id"><a
-                                id="brand_line_all" data-id="0" href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}">全部</a>
-                            <div id="brand_list">
-                            <#list typeOne.brandList as t>
-                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&brandId=#{t.brandId}" data-id="12" class="js-filter-item">
-                                ${t.brandName}
-                                </a>
-                            </#list>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="fn-clear list-filter">
-                <div class="fn-left">
-                            <span id="sort_bar">
-                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}" class="js-sort-bar on">默认排序</a>
-                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&orderByPrice=1" class="js-sort-bar">价格由低到高<i class="l-f-up"></i></a>
-                                <a href="commoditySmallVO/select?typeOneId=#{typeOne.typeOneId}&orderByPrice=2" class="js-sort-bar">价格由高到低<i class="l-f-up"></i></a>
-                            </span>
-                    <span class="fn-left">价格：<input type="text" class="filter-input" id="left_amount"> - <input
-                            class="filter-input" type="text" id="right_amount"></span>
-                    <a class="filter-btn" id="btn_search">搜 索</a>
-                </div>
-            </div>
-            <div class="lazy-fn fn-hide" id="show_loading"></div>
-
             <div id="sku_list" class="list-li-ov" >
                 <ul class="list-li fn-clear js-noraml-li">
                 <#---->
-        <#list pageInfo.data as info>
+        <#list commoditySmallVOList as commodity>
                     <li  style="float: left;">
                         <div class="am-img-box">
                             <div class="fn-text-center am-img">
@@ -308,10 +262,10 @@
                             </div>
                         </div>
                         <h3>
-                            <a href="https://item.fenqile.com/S201709120586965.html" >${info.name}</a>
+                            <a href="https://item.fenqile.com/S201709120586965.html" >${commodity.name!}</a>
                         </h3>
                         <div class="index-li-pic">
-                            <a href="https://item.fenqile.com/S201709120586965.html" target="_blank">售价: <span class="fn-rmb">￥${info.price} </span><em>起</em>
+                            <a href="https://item.fenqile.com/S201709120586965.html" target="_blank">售价: <span class="fn-rmb">￥${commodity.price!} </span><em>起</em>
                             </a>
                         </div>
                     </li>
@@ -319,36 +273,6 @@
                 <#---->
                 </ul>
             </div>
-                <!-- 分页标签 -->
-                <div id="fenye">
-                    <ul class="ui123">
-                    <#if pageInfo.pageNo==1>
-                    <li><a>上一页</a></li>
-                    <#else>
-                    <li><a href="commoditySmallVO/select?typeOneId=${commoditySelect.typeOneId}&brandId=${commoditySelect.brandId!}
-                                &typeTwoId=${commoditySelect.typeTwoId!}&startPrice=${commoditySelect.startPrice!}
-                                &endPrice=${commoditySelect.endPrice!}&orderByPrice=${commoditySelect.orderByPrice!}&pageNo=${pageInfo.pageNo-1}">上一页</a></li>
-                    </#if>
-                    <#--循环遍历出页面数-->
-                    <#list 1..pageInfo.pageCount as page>
-                        <#if page == pageInfo.pageNo>
-                        <li><a>${page}</a></li>
-                        <#else>
-                        <li id="xuan"><a href="commoditySmallVO/select?typeOneId=${commoditySelect.typeOneId}&brandId=${commoditySelect.brandId!}
-                                &typeTwoId=${commoditySelect.typeTwoId!}&startPrice=${commoditySelect.startPrice!}
-                                &endPrice=${commoditySelect.endPrice!}&orderByPrice=${commoditySelect.orderByPrice!}&pageNo=${page}">${page}</a></li>
-                        </#if>
-                    </#list>
-                    <#if pageInfo.pageNo==pageInfo.pageCount>
-                    <li><a>下一页</a></li>
-                    <#else>
-                    <li><a href="commoditySmallVO/select?typeOneId=${commoditySelect.typeOneId}&brandId=${commoditySelect.brandId!}
-                                &typeTwoId=${commoditySelect.typeTwoId!}&startPrice=${commoditySelect.startPrice!}
-                                &endPrice=${commoditySelect.endPrice!}&orderByPrice=${commoditySelect.orderByPrice!}&pageNo=${pageInfo.pageNo+1}">下一页</a> </li>
-                    </#if>
-                        <li>当前页面数是第 ${pageInfo.pageNo} 页</li>
-                    </ul>
-                </div>
         </div>
     </div>
     <div class="js-bangbanggou js-g-PAGE_SIZElet lazy-hidden lazy-fn-done" data-path="/product/PAGE_SIZElet/bangbanggou"
@@ -460,16 +384,5 @@
                 type="text" name="e" id="_YNoteContentFormsign" value=""></form>
     </div>
 </div>
-<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
-<script type="text/javascript">
-    $("#btn_search").click(function () {
-        var startPrice = $("#left_amount").val();
-        var endPrice = $("#right_amount").val();
-        var typeOneId = ${typeOne.typeOneId};
-        alert(startPrice);
-        alert(endPrice);
-        location.href = "commoditySmallVO/select?typeOneId="+typeOneId+"&startPrice="+startPrice+"&endPrice="+endPrice;
-    });
-</script>
 </body>
 </html>
