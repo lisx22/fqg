@@ -65,11 +65,11 @@ public class RepayService implements IRepayService {
         List<Repay> repayList = repayMapper.selectByCustomer(customerId);
         for (Repay repay : repayList) {
             customer.setQuota(customer.getQuota() + repay.getWillPayAmount());
-            if (repay.getUnpadiStage() == 1){
+            if (repay.getUnpadiStage() <= 1){
                 repayMapper.deleteByPrimaryKey(repay.getRepayId());
                 orderService.completeOrder(repay.getOrderId());
             }
-            if (repay.getUnpadiStage() != 1){
+            if (repay.getUnpadiStage() > 1){
                 repay.setUnpadiStage(repay.getUnpadiStage()-1);
                 repay.setPaidStage(repay.getPaidStage()+1);
                 repay.setWillPayAmount(0);
@@ -104,11 +104,11 @@ public class RepayService implements IRepayService {
                     overRepay.setOverDay(0);
                     overRepayMapper.insertSelective(overRepay);
                 }
-                if (repay.getUnpadiStage() == 1){
+                if (repay.getUnpadiStage() <= 1){
                     repayMapper.deleteByPrimaryKey(repay.getRepayId());
                     orderService.completeOrder(repay.getOrderId());
                 }
-                if (repay.getUnpadiStage() != 1){
+                if (repay.getUnpadiStage() > 1){
                     repay.setUnpadiStage(repay.getUnpadiStage()-1);
                     repay.setPaidStage(repay.getPaidStage()+1);
                     repay.setWillPayAmount(0);
