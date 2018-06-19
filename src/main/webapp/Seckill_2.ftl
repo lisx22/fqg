@@ -7632,25 +7632,29 @@
     $(function () {
         var str = ${killinfo.killCommodityId};
         $("#btn_buy").click(function () {
-            alert(str);
             $.post(
                 "${base}/kill/kill",
                     {"killid":str},
                     function (data) {
-                        alert(data)
+                    if(data=="0")
+                        alert("秒杀中");
                         add();
                     }
             );
         });
         function add() {
             $.post(
-                    "${base}/kill/killinfo",
+                    "${base}/kill/returnkill",
                     {"killid":str},
                     function (data) {
+                        alert(data);
                         if(data=="0"){
+                            alert(data);
                             add();
+                        }else if(data=="1"){
+                            alert("秒杀成功");
                         }else{
-                            alert(data)
+                            alert("秒杀失败")
                         }
                     }
             );

@@ -74,7 +74,7 @@
                     <label class="fl tit">短信验证码</label>
                     <div class="fl">
                         <input class="fl js-g-module-form-el" type="text" name="sms_code" id="inputCode" placeholder="请输入验证码" data-type="smsCode" maxlength="6" data-required="" data-behavior-collection="true" data-collection-key="sms_code" minlength="6">
-                        <button type="button" class="btn js-g-module-countdown-button-1528078066434a436264603161990340" id="sendCode">获取验证码</button>
+                        <button type="button" class="btn js-g-module-countdown-button-1528078066434a436264603161990340" onclick="invokeSettime(this)" id="sendCode">获取验证码</button>
                     </div>
                 </li>
                 <li class="form-input clear js-input-wrap">
@@ -217,9 +217,30 @@
                 async: true,
             });
         });
-    $(function () {
-        $("#sendCode").click(function () {
-          alert("已发送");
-        });
-    });
+//    $(function () {
+//        $("#sendCode").click(function () {
+//          alert("已发送");
+//        });
+//    });
+</script>
+<script>
+    function invokeSettime(obj){
+        var countdown=60;
+        settime(obj);
+        function settime(obj) {
+            if (countdown == 0) {
+                $(obj).attr("disabled",false);
+                $(obj).text("获取验证码");
+                countdown = 60;
+                return;
+            } else {
+                $(obj).attr("disabled",true);
+                $(obj).text("(" + countdown + ") s 重新发送");
+                countdown--;
+            }
+            setTimeout(function() {
+                    settime(obj) }
+                ,1000)
+        }
+    }
 </script>

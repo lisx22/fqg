@@ -66,7 +66,7 @@ public class RabbitmqService implements MessageListener {
                 //还款月数
                 repay.setPaidStage(0);
                 //逾期月数
-                repay.setUnpadiStage(0);
+                repay.setUnpadiStage(orders.getStage());
                 //当月应还
                 repay.setWillPayAmount(orders.getPayMoney()/orders.getStage());
                 //订单id

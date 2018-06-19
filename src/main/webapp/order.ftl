@@ -225,7 +225,7 @@
                             
                             <p>
                                 
-                                月供金额：${orderVO.amount}元 X ${orderVO.stage}
+                                月供金额：${orderVO.amount!}元 X ${orderVO.stage!}
                                 
                             </p>
                         </div>

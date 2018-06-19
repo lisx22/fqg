@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("kill")
+@RequestMapping("/kill")
 public class Killcontroller {
     @Resource
     private Producer producer;
@@ -33,6 +33,7 @@ public class Killcontroller {
     @RequestMapping("/kill")
     @ResponseBody
     public String testQueue(HttpSession model, String killid) {
+        System.out.println(killid+"Th");
         Customer customer = (Customer)model.getAttribute("customer");
         try {
             String str =new Gson().toJson(customer);
@@ -43,31 +44,33 @@ public class Killcontroller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return "秒杀中";
+        return "0";
     }
-    @RequestMapping("allkill")
-    public Object allKillCommodities(HttpSession  model){
-        Customer customer = (Customer)model.getAttribute("customer");
-        model.setAttribute("allkill",killCommodityServie.allKillCommodity());
-        return redisUtil.get("allkillCommodities");
+    @RequestMapping("/allkill")
+    public Object allKillCommodities(HttpSession  httpSession,Model model){
+        Customer customer = (Customer)httpSession.getAttribute("customer");
+        model.addAttribute("allkill",killCommodityServie.allKillCommodity());
+        return "Seckill.ftl";
     }
-    @RequestMapping("killinfo")
+//    点击购买加循环
+    @RequestMapping("/killinfo")
     public String killInfo(Model model,String killid){
         model.addAttribute("killinfo",killCommodityServie.killCommodity(killid));
-        return "";
+        System.out.println(killid+"=="+killCommodityServie.killCommodity(killid));
+        return "Seckill_2.ftl";
     }
-    @RequestMapping("returnkill")
+    @RequestMapping("/returnkill")
     @ResponseBody
     public String returnKill(String killid, HttpSession model){
         Customer customer = (Customer)model.getAttribute("customer");
         Object o= redisUtil.get("kill"+customer.getCustomerId()+killid);
         if (o != null){
-            if(o.toString().equals(1)){
+            if(o.toString().equals("1")){
+                redisUtil.del("kill"+customer.getCustomerId()+killid);
+                return "1";
 
-                return "秒杀成功";
             }else {
-                return "秒杀失败";
+                return "2";
             }
         }else{
             return "0";

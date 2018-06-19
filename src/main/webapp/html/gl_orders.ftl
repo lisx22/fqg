@@ -165,6 +165,9 @@
 										<#if orders.orderState==3>
                                             <td class="am-hide-sm-only">还款中</td>
 										</#if>
+										<#if orders.orderState==4>
+                                            <td class="am-hide-sm-only">订单完成</td>
+										</#if>
 
 									</tr>
 </#list>
