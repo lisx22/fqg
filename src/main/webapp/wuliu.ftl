@@ -166,6 +166,7 @@
                                     </li>
                                 </ul>
                             </div>
+                                                    <br/>
                                 <div class="box-express">
                                     <ul class="express-ul fn-clear js-express-wrap" id="track_wrap"><!-- 订单详情的跟踪信息 begin -->
                                         <#list traces as trace>
@@ -174,6 +175,7 @@
                                                 <div class="litext">${trace.getAcceptStation()}</div>
                                                 <div class="li-time">${trace.getAcceptTime()}</div>
                                             </li>
+                                            <br/>
                                         </#list>
                                         <!-- 订单详情的跟踪信息 end --></ul>
                                     <ul class="express-ul fn-clear js-express-wrap fn-hide" id="refund_wrap">
