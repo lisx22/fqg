@@ -71,7 +71,8 @@ public class SolrUtil {
                 .withBaseSolrUrl("http://120.79.150.29:8080/mysolr/collection1").build();
 
         try {
-            client.deleteByQuery("commodityId:"+commodityId+"");
+            System.out.println("commodityId:"+commodityId);
+            client.deleteByQuery("commodityId:"+commodityId);
             client.commit();
         } catch (SolrServerException e) {
             e.printStackTrace();
