@@ -53,7 +53,7 @@
     select
     <include refid="Base_Column_List" />
     from customer
-    where phone_number = #{customerId,jdbcType=VARCHAR}
+    where phone_number = #{phoneNumber,jdbcType=VARCHAR}
   </select>
   <select id="selectTrueNameById" resultType="java.lang.String">
     select
@@ -63,7 +63,7 @@
   </select>
   <select id="selectByPhoneNumber" resultMap="BaseResultMap">
     select
-    customer_id, phone_number, username, true_name, ID_number,
+    customer_id, phone_number, username, login_password, pay_password, true_name, ID_number,
     all_quota, quota, create_time, company_name, school_name
     from customer
     where phone_number = #{phoneNumber}
