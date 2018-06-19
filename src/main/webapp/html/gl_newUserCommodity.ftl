@@ -160,7 +160,7 @@
 										<td><input type="checkbox" name="newUserCommodityIds" value="${newUserCommoditys.newUerCommodityId}"/></td>
 										<td>${newUserCommoditys.newUerCommodityId}</td>
 										<td>${newUserCommoditys.commodity.commodityName!}</td>
-										<td>${newUserCommoditys.price!}</td>
+										<td>${newUserCommoditys.price!?c}</td>
 										<td class="am-hide-sm-only">${newUserCommoditys.createTime!}</td>
 										<td class="am-hide-sm-only">${newUserCommoditys.updateTime!}</td>
 										<td>
@@ -183,13 +183,8 @@
 								共 ${pageSize} 条记录
 								<div class="am-fr">
 									<ul class="am-pagination">
-										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href=" newUserCommodity/newUserCommodityList/0">1</a></li>
-										<li><a href=" newUserCommodity/newUserCommodityList/1">2</a></li>
-										<li><a href=" newUserCommodity/newUserCommodityList/2">3</a></li>
-										<li><a href=" newUserCommodity/newUserCommodityList/3">4</a></li>
-										<li><a href=" newUserCommodity/newUserCommodityList/4">5</a></li>
-										<li><a href="javascript:downPage()">»</a></li>
+										<li><a href="javascript:upPage()">«上一页</a></li>
+										<li><a href="javascript:downPage()">»下一页</a></li>
 
 									</ul>
 								</div>

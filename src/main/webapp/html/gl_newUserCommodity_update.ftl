@@ -147,7 +147,7 @@
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">优惠价格</label>
-										  <input type="text" id="doc-vld-name-3" name="price"  value="${newUserCommodity.price!}" required/>
+										  <input type="text" id="doc-vld-name-3" name="price"  value="${newUserCommodity.price!?c}" required/>
 									  </div>
 
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>

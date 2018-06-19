@@ -48,6 +48,7 @@ public class CustomerController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        System.out.println(customer.getCompanyName()+"aaaaaa");
         customer.setQuota(customer.getAllQuota());
         customerService.insert(customer);
 
@@ -57,17 +58,20 @@ public class CustomerController {
     @RequestMapping(value="/preUpdateCustomer/{costomerId}", method = RequestMethod.GET)
     public String preUpdateCustomer(@PathVariable("costomerId")int costomerId, Model model){
         Customer customer = customerService.selectByPrimaryKey(costomerId);
-        model.addAttribute("customer",customer);
+        model.addAttribute("customer1",customer);
         return "html/gl_user_update.ftl";
     }
 
+
     @RequestMapping("/update")
     public String updateCustomer(Customer customer, HttpServletRequest req){
+        System.out.println(customer.getCompanyName()+"aaaa");
         try {
             req.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        System.out.println(customer.getCompanyName()+"aaaaaa");
         customerService.updateByPrimaryKey(customer);
         return "redirect:/customer/customerList/0";
     }

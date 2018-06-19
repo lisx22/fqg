@@ -168,8 +168,8 @@
                                     <td class="am-hide-sm-only">${customers.payPassword!}</td>
                                     <td class="am-hide-sm-only">${customers.schoolName!}</td>
                                     <td class="am-hide-sm-only">${customers.companyName!}</td>
-                                    <td class="am-hide-sm-only">${customers.quota!}</td>
-                                    <td class="am-hide-sm-only">${customers.allQuota!}</td>
+                                    <td class="am-hide-sm-only">${customers.quota!?c}</td>
+                                    <td class="am-hide-sm-only">${customers.allQuota!?c}</td>
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
@@ -218,13 +218,8 @@
 								共 ${pageSize} 条记录
 								<div class="am-fr">
 									<ul class="am-pagination">
-										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href="customer/customerList/0">1</a></li>
-										<li><a href="customer/customerList/1">2</a></li>
-										<li><a href="customer/customerList/2">3</a></li>
-										<li><a href="customer/customerList/3">4</a></li>
-										<li><a href="customer/customerList/4">5</a></li>
-										<li><a href="javascript:downPage()">»</a></li>
+										<li><a href="javascript:upPage()">«上一页</a></li>
+										<li><a href="javascript:downPage()">»下一页</a></li>
 
 									</ul>
 								</div>

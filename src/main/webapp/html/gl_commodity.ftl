@@ -179,7 +179,7 @@
 										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId!}"/></td>
 										<td>${commoditys.commodityId}</td>
 										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName!}</td>
-										<td>${commoditys.commodityPrice!}</td>
+										<td>${commoditys.commodityPrice!?c}</td>
 										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription!}</td>
 										<td class="am-hide-sm-only">${commoditys.number!}</td>
 										<td class="am-hide-sm-only">${commoditys.createTime!}</td>
@@ -214,13 +214,9 @@
 								共 ${pageSize!} 条记录
 								<div class="am-fr">
 									<ul class="am-pagination">
-										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href=" commodity/commodityList/0,${typeOneId!}">1</a></li>
-										<li><a href=" commodity/commodityList/1,${typeOneId!}">2</a></li>
-										<li><a href=" commodity/commodityList/2,${typeOneId!}">3</a></li>
-										<li><a href=" commodity/commodityList/3,${typeOneId!}">4</a></li>
-										<li><a href=" commodity/commodityList/4,${typeOneId!}">5</a></li>
-										<li><a href="javascript:downPage()">»</a></li>
+										<li><a href="javascript:upPage()">«上一页</a></li>
+
+										<li><a href="javascript:downPage()">»下一页</a></li>
 
 									</ul>
 								</div>

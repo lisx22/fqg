@@ -151,9 +151,9 @@
 										<td>${orders.orderId!}</td>
 										<td>${orders.customer.username!}</td>
 										<td>${orders.commodity.commodityName!}</td>
-										<td>${orders.payMoney!}</td>
-										<td class="am-hide-sm-only">${orders.number!}</td>
-										<td class="am-hide-sm-only">${orders.orderNum!}</td>
+										<td>${orders.payMoney!?c}</td>
+										<td class="am-hide-sm-only">${orders.number!?c}</td>
+										<td class="am-hide-sm-only">${orders.orderNum!?c}</td>
 										<td class="am-hide-sm-only">${orders.stage!}</td>
 										<td class="am-hide-sm-only">${orders.amount!}</td>
 										<#if orders.orderState==1>
@@ -175,13 +175,8 @@
 								共 ${pageSize!} 条记录
 								<div class="am-fr">
 									<ul class="am-pagination">
-										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href=" orders/ordersList/0">1</a></li>
-										<li><a href=" orders/ordersList/1">2</a></li>
-										<li><a href=" orders/ordersList/2">3</a></li>
-										<li><a href=" orders/ordersList/3">4</a></li>
-										<li><a href=" orders/ordersList/4">5</a></li>
-										<li><a href="javascript:downPage()">»</a></li>
+										<li><a href="javascript:upPage()">«上一页</a></li>
+										<li><a href="javascript:downPage()">»下一页</a></li>
 
 									</ul>
 								</div>
