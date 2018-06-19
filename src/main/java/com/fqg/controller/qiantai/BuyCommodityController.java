@@ -8,6 +8,7 @@ import com.fqg.service.qiantai.impl.*;
 import com.fqg.util.EasyGoUtil;
 import com.fqg.util.RedisUtil;
 import com.google.gson.Gson;
+import javafx.scene.media.SubtitleTrack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,21 +48,30 @@ public class BuyCommodityController {
 
     //商品详情接口
     @RequestMapping("/commodityinfo")
-    public String commodityInfo(String id, Model model){
+    public String commodityInfo(String id, Model model,HttpServletRequest httpSession){
         Commodity commodity = infoService.commodityInfo(Integer.parseInt(id));
         CommodityCoupon commodityCoupon = iCommodityCoupon.coupon(commodity.getOneTypeId(),commodity.getCommodityPrice());
+//       内存
+        String price_ = httpSession.getParameter("price_");
+        httpSession.getSession().setAttribute("price",price_);
         model.addAttribute("coupon",commodityCoupon);
+//        显示详情
         model.addAttribute("commodityInfo",commodity);
-        return "Buy";
+        return "Buy.ftl";
     }
     //购买商品，加入订单表
     @RequestMapping("/addorder")
-    public String addToOrder(String buyInfo,Customer customer,Model model){
+    @ResponseBody
+    public String addToOrder(String buyInfo,Customer customer,Model model,HttpSession httpSession){
+        customer =(Customer) httpSession.getAttribute("customer");
+        if (customer == null) {
+            return "1";
+        }
         String str = iBeforeAddOrderService.addToOrder(customer,buyInfo);
         model.addAttribute("msg",str);
-        //后台消息传递
+        //后台消息传递6
         new EasyGoUtil().easyGO();
-        return "";
+        return "redirect:/repay/listOrder/";
     }
     //在购物车页面批量购买
     @RequestMapping("/alladdorder")

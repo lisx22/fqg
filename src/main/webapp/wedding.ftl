@@ -3,7 +3,7 @@
 <html><head>
     <link rel="icon" href="img/fql.png" type="image/x-icon"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
 <title>分期乐-年轻人信用消费平台</title>
     <meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
 <meta name="description" content="分期乐是国内面向年轻人提供分期消费的金融服务平台，购买商品首付月供全网最低，还款超低手续费，支持网银、支付宝、财付通支付，可使用身份证办理分期；平台提供的手机、电脑、相机等商品均来自京东、易迅直供，100%正品行货。">
@@ -32,7 +32,6 @@
         location.href = '//m.fenqile.com';
     }
 </script><link charset="utf-8" rel="stylesheet" href="./wedding_files/box.css"><link charset="utf-8" rel="stylesheet" href="./wedding_files/style.css"><link charset="utf-8" rel="stylesheet" href="./wedding_files/frame_host.css"></head>
-
 <body>
     <header data-now-year="2018" data-now-month="06" data-now-day="06">
     <div class="header">
@@ -40,9 +39,9 @@
             <div class="container fn-clear">
     <div class="site-nav-bd">
         <div class="nav-text">
-                            <a href="login.html" style="font-size: 13px;" class="fn-left a17" >登录</a>
+            <a id="id_123" class="fn-left a17" style="font-size: 13px;margin-left: 10px" >登录</a>
                 <a class="fn-left a17" style="font-size: 13px;margin-left: 10px" href="register.html" >注册</a>
-            
+            <a id="tui_123"  class="fn-left a17" style="font-size: 13px;margin-left: 10px" >退出</a>
     </div>
 </div>                <div class="fn-right top-icon">
                     <!--判断是否为首页-->
@@ -2224,3 +2223,36 @@
 </script>    <script type="text/javascript" src="./wedding_files/index--cb748ea5df.js.下载"></script>
 
 <div tabindex="-1" id="fql_box_152828497100326219" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div><div tabindex="-1" id="fql_box_152828497103987693" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div><script type="text/javascript" async="" id="ebsgovicon" src="./wedding_files/govicon.js.下载"></script></body></html>
+
+<script>
+    $(function () {
+        $("#id_123").click(function () {
+            $.post(
+                    "user/user",
+                    function (data) {
+                        if (data=="0"){
+                            window.location.href = "login.html";
+                        } else {
+                            alert("您已登陆")
+                        }
+                    }
+            );
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $("#tui_123").click(function () {
+            $.post(
+                    "user/tui",
+                    function (data) {
+                        if (data=="0") {
+                            alert("成功退出");
+                        }else{
+                            alert("您还没登陆");
+                        }
+                    }
+            );
+        });
+    });
+</script>

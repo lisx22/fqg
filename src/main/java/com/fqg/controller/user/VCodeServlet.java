@@ -20,7 +20,7 @@ public class VCodeServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = -7094244787531735800L;
-	private static final String CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+	private static final String CODES = "ABCDEFGHIJKLMNPQRSTUVWXYZ1234567890";
 	private static final int WIDTH = 80;
 	private static final int HEIGHT =40;
 	private static final Color[]COLOR = {Color.BLUE,Color.RED,Color.GREEN,Color.PINK,Color.YELLOW,Color.CYAN,Color.BLACK,
@@ -32,7 +32,7 @@ public class VCodeServlet extends HttpServlet {
 		//获得绘图对象
 		Graphics g = image.getGraphics();
 		//设置背景颜色
-		g.setColor(Color.GRAY);
+		g.setColor(Color.white);
 		//填充颜色
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		//验证码数组
