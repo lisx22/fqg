@@ -695,34 +695,34 @@
                                     <div class="detail-pay-money clear">
                                         <span class="price ui-top label-pol">分期月数 ：</span>
                                         <ul class="detail-sel-list detail-sel-month clear" id="fq_list_item">
-                                            <li value="1" class="id_1"><span class="cl_1">不分期</span><i></i>
+                                            <li value="1" class="id_1"><span class="cl_1">不分期</span>
                                             </li>
 
-                                            <li value="2"><span class="cl_1">2个月</span><i></i>
+                                            <li value="2"><span class="cl_1">2个月</span>
                                             </li>
 
-                                            <li value="3"><span class="cl_1">3个月</span><i></i>
+                                            <li value="3"><span class="cl_1">3个月</span>
                                             </li>
 
-                                            <li value="6"><span class="cl_1">6个月</span><i></i>
+                                            <li value="6"><span class="cl_1">6个月</span>
                                             </li>
 
-                                            <li value="9"><span class="cl_1">9个月</span><i></i>
+                                            <li value="9"><span class="cl_1">9个月</span>
                                             </li>
 
-                                            <li value="12"><span class="cl_1">12个月</span><i></i>
+                                            <li value="12"><span class="cl_1">12个月</span>
                                             </li>
 
-                                            <li value="15"><span class="cl_1">15个月</span><i></i>
+                                            <li value="15"><span class="cl_1">15个月</span>
                                             </li>
 
-                                            <li value="18"><span class="cl_1">18个月</span><i></i>
+                                            <li value="18"><span class="cl_1">18个月</span>
                                             </li>
 
-                                            <li value="24"><span class="cl_1">24个月</span><i></i>
+                                            <li value="24"><span class="cl_1">24个月</span>
                                             </li>
 
-                                            <li value="36"><span class="cl_1">36个月</span><i></i></li>
+                                            <li value="36"><span class="cl_1">36个月</span></li>
                                         </ul>
                                     </div>
 
@@ -8996,6 +8996,7 @@
                                 alert("您还未登录");
                                 window.location.href = "login.html";
                             }else{
+                                window.location.href = "repay/listOrder";
                             }
                         }
                 )

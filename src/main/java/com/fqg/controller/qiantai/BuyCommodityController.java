@@ -71,7 +71,7 @@ public class BuyCommodityController {
         model.addAttribute("msg",str);
         //后台消息传递6
         new EasyGoUtil().easyGO();
-        return "redirect:/repay/listOrder/";
+        return "0";
     }
     //在购物车页面批量购买
     @RequestMapping("/alladdorder")
