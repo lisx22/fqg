@@ -48,6 +48,7 @@ public class CustomerController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        System.out.println(customer.getCompanyName()+"aaaaaa");
         customer.setQuota(customer.getAllQuota());
         customerService.insert(customer);
 

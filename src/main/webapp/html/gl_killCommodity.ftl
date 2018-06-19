@@ -183,13 +183,9 @@
 								共 ${pageSize!} 条记录
 								<div class="am-fr">
 									<ul class="am-pagination">
-										<li><a href="javascript:upPage()">«</a></li>
-										<li><a href=" killCommodity/killCommodityList/0">1</a></li>
-										<li><a href=" killCommodity/killCommodityList/1">2</a></li>
-										<li><a href=" killCommodity/killCommodityList/2">3</a></li>
-										<li><a href=" killCommodity/killCommodityList/3">4</a></li>
-										<li><a href=" killCommodity/killCommodityList/4">5</a></li>
-										<li><a href="javascript:downPage()">»</a></li>
+										<li><a href="javascript:upPage()">«上一页</a></li>
+
+										<li><a href="javascript:downPage()">»下一页</a></li>
 
 									</ul>
 								</div>

@@ -130,7 +130,7 @@
 								  </li>
 								</ul>
 								
-								<form action="/fqg/customer/update" class="am-form" accept-charset="UTF-8" data-am-validator>
+								<form action="/fqg/customer/update" class="am-form" accept-charset="UTF-8" method="post" data-am-validator>
 								  <fieldset>
 								    <legend>修改用户</legend>
 									  <input type="hidden" id="doc-vld-id-2" name="customerId" value="${customer1.customerId}" required/>
