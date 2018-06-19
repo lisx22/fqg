@@ -2,9 +2,7 @@
 <!-- saved from url=(0074)https://passport.fenqile.com/register.html?ad_tag=WWW.MAIN.HEADER.REGISTER -->
 <html><head>    <link rel="icon" href="img/fql.png" type="image/x-icon"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script id="_1528078066397_9393" src="./register_files/detect.json"></script>
-    
 <title>分期乐-深受年轻人喜爱的分期购物商城</title>
-
     <meta name="keywords" content="分期乐,分期付款,年轻人分期,分期购物,电脑分期付款,手机分期付款,相机分期付款,fenqile">
 <meta name="description" content="分期乐是国内面向年轻人提供分期消费的金融服务平台，购买商品首付月供全网最低，还款超低手续费，支持网银、支付宝、财付通支付，办理分期仅需提供身份证；平台提供的手机、电脑、相机等商品均来自京东、易迅直供，100%正品行货。">
 <meta name="channel-id" content="PC">
@@ -34,7 +32,7 @@
         <div class="passport-ui-main">
             <div class="container header-main clear">
                                     <div class="fr header-login">
-                        已有账号？  <a href="https://passport.fenqile.com/">立即登录</a>
+                        没有账号？  <a href="register.html">立即注册</a>
                     </div>
                                 <div class="fl clear header-headline">
                     <div class="fl header-logo">
@@ -184,30 +182,27 @@
         s.parentNode.insertBefore(fm, s);
     })();
 </script>
-<div tabindex="-1" id="fql_box_152807806640147290" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div><div tabindex="-1" id="fql_box_152807806642243274" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div></body></html>
+<div tabindex="-1" id="fql_box_152807806640147290" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">        <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div><div tabindex="-1" id="fql_box_152807806642243274" style="display: none; position: fixed; left: 0px; top: 0px; bottom: auto; right: auto; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent;"><div class="fui-ui-box" data-key="box">    <div class="fui-ui-box-title js-g-module-box-title" data-key="title-cls-ctrl"><span data-key="title">分期乐</span><button data-id="close" class="fui-ui-box-close"></button></div>    <div class="fui-ui-box-body js-g-module-box-body" data-key="body">
+    <div data-key="content" class="js-g-module-box-content"></div>        <div data-key="button" class="fui-ui-box-btn fui-ui-box-btn-sm js-g-module-box-button"></div>    </div></div></div></body></html>
     <script type="text/javascript">
         function login() {
-            alert("123");
             var name = $("#username").val();
             var password = $("#password").val();
             var vcode = $("#vocd").val();
-
             $.post(
                 "user/login",
                 {"username":name,"password":password,"vcode":vcode},
                 function (data) {
-                    alert(data.code);
                     if (data.code==0){
                         window.location.href = "wedding.ftl";
                     } else {
-                        alert("手机号或密码错误");
-                        alert("请重新输入手机号和密码");
+                        alert(data.msg)
                     }
                 }
-            );
+        );
         }
 </script>
-<script type="text/javascript">
+<script>
     function changeCode(){
         vcode.src = "vcode.do?"+Math.random();
     }

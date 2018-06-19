@@ -42,7 +42,7 @@ public class UserController {
         try {
 //            验证验证码
             if(vcode==null||!vcode.equals(req.getSession().getAttribute("vcode"))) {
-                jsonResult = SystemTools.formatJsonResult(SystemParam.Login.CODE_FAIL_UNKOWN_ACCOUNT, SystemParam.Login.MSG_FAIL_UNKOWN_ACCOUNT);
+                jsonResult = SystemTools.formatJsonResult(SystemParam.Login.SAVE3, SystemParam.Login.SAVE4);
                 return jsonResult;
             }
             userServiceImpl.login(username,password);
@@ -73,8 +73,8 @@ public class UserController {
         String userTel=(String)httpSession.getAttribute("userTel");
         System.out.println(sendCode+"===="+userTel+"-------"+inputCode);
         if (!inputCode.equals(sendCode)||!userTel.equals(username)){
-            model.addAttribute("msg","验证码错误");
-            jsonResult = SystemTools.formatJsonResult(SystemParam.Login.CODE_FAIL_UNKOWN_ACCOUNT, SystemParam.Login.MSG_FAIL_UNKOWN_ACCOUNT);
+            model.addAttribute("msg","短信验证码错误");
+            jsonResult = SystemTools.formatJsonResult(SystemParam.Login.SAVE3, SystemParam.Login.SAVE4);
             return jsonResult;
         }
         try {
@@ -83,10 +83,10 @@ public class UserController {
             customer.setLoginPassword(password);
             customer.setPayPassword(loginpassword);
             Customer save = userServiceImpl.save(customer);
-            if(save==null){
-                jsonResult = SystemTools.formatJsonResult(SystemParam.Login.CODE_FAIL_UNKOWN_ACCOUNT, SystemParam.Login.MSG_FAIL_UNKOWN_ACCOUNT);
-                return jsonResult;
-            }
+                if (save == null && password == "" && loginpassword == ""&& username=="") {
+                    jsonResult = SystemTools.formatJsonResult(SystemParam.Login.SAVE, SystemParam.Login.SAVE2);
+                    return jsonResult;
+                }
             jsonResult = SystemTools.formatJsonResult(SystemParam.Login.CODE_SUCCESS,SystemParam.Login.MSG_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
@@ -137,5 +137,23 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @RequestMapping("/user")
+    public String denglu(HttpSession httpSession){
+        Object customer = httpSession.getAttribute("customer");
+        if (customer == null) {
+        }else{
+            return "1";
+        }
+        return "0";
+    }
+    @RequestMapping("/tui")
+    public String tuichu(HttpSession httpSession){
+        Object customer = httpSession.getAttribute("customer");
+        if(customer!=null){
+            httpSession.setAttribute("customer",null);
+            return "0";
+        }
+        return "1";
     }
 }

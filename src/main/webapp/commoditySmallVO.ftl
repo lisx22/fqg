@@ -302,16 +302,16 @@
                     <li  style="float: left;">
                         <div class="am-img-box">
                             <div class="fn-text-center am-img">
-                                <a href="" target="_blank">
+                                <a href="${base}/buy/commodityinfo?id=${info.id}&price_=${info.price}" target="_blank">
                                     <img width="180px" src="img/fql.png" style="display: inline;"></a>
                                 <em></em>
                             </div>
                         </div>
                         <h3>
-                            <a href="https://item.fenqile.com/S201709120586965.html" >${info.name}</a>
+                            <a href="${base}/buy/commodityinfo?id=${info.id}&price_=${info.price}" >${info.name}</a>
                         </h3>
                         <div class="index-li-pic">
-                            <a href="https://item.fenqile.com/S201709120586965.html" target="_blank">售价: <span class="fn-rmb">￥${info.price} </span><em>起</em>
+                            <a href="${base}/buy/commodityinfo?id=${info.id}&price_=${info.price}" target="_blank">售价: <span class="fn-rmb">￥${info.price} </span><em>起</em>
                             </a>
                         </div>
                     </li>

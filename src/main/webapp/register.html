@@ -33,7 +33,7 @@
         <div class="passport-ui-main">
             <div class="container header-main clear">
                                     <div class="fr header-login">
-                        已有账号？  <a href="https://passport.fenqile.com/">立即登录</a>
+                        已有账号？  <a href="login.html">立即登录</a>
                     </div>
                                 <div class="fl clear header-headline">
                     <div class="fl header-logo">
@@ -204,13 +204,11 @@
                 if (data.code==0){
                     window.location.href = "login.html";
                 } else {
-                    alert(data.msg);
+                    alert(data.msg)
                 }
             }
         );
     }
-</script>
-<script>
         $("#sendCode").click(function () {
             var tel=$("#username").val();
             $.ajax({
@@ -219,10 +217,8 @@
                 async: true,
             });
         });
-</script>
-<script>
     $(function () {
-        $("button").click(function () {
+        $("#sendCode").click(function () {
           alert("已发送");
         });
     });
