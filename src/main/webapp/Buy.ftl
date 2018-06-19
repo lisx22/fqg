@@ -42,7 +42,7 @@
     <link charset="utf-8" rel="stylesheet" href="./Buy_files/form.css">
     <style>
         .id_1 {
-           border-bottom-color: #ff4a78;
+            border-color: red;
         }
     </style>
 </head>
@@ -502,7 +502,7 @@
                                         <td>
                                             <ul class="detail-sel-list detail-sel-color clear">
                                             <#list commodityInfo.ccList as color1>
-                                                <li class="js-sku-key" data-value="芭比粉">
+                                                <li class="js-sku-key" id="li_1" data-value="芭比粉" value="${color1.color.colorId}">
                                                     <img src="./Buy_files/hRoGAFomReuAUDQZAAC5E53tycw374.jpg" alt="芭比粉"
                                                          width="31" height="31" align="absmiddle">
                                                     <span id="color"
@@ -519,7 +519,7 @@
                                         <td>
                                             <ul class="detail-sel-list fn-left renew-price">
                                             <#list commodityInfo.ciList as cList>
-                                                <li class="on js-sku-key">
+                                                <li class="on js-sku-key" id="va_1" value="${cList.info.infoId}">
                                                     <span class="js-key-value" id="c_info">${cList.info.infoName}</span><i></i>
                                                 </li>
                                             </#list>
@@ -8978,20 +8978,23 @@
         $(function () {
             $("#btn_buy").click(function () {
 //               点击购买
-                var idd = ${commodityInfo.commodityId};
+                var id = ${commodityInfo.commodityId};
+                var color = $("#li_1").val();
                 var str = $(".id_1").val();
-                var color = $("#color").html();
-                var pay = $("#mon_pay").html();
+                alert(str);
+                var len = $("#va_1").val();
                 var result = "1";
+                var result2= "1";
+                var result3 = "2";
                 var pass = prompt("请输入支付密码","");
-                var buyInfo = idd+"-"+str+"-"+color+"-"+pay+"-"+result+"-"+pass;
+                var buyInfo = id+"-"+result3+"-"+result2+"-"+color+"-"+str+"-"+pass+"-"+result+"-"+len;
                 $.post(
                         "buy/addorder",
                         {"buyInfo":buyInfo},
                         function (data) {
                             if(data=="1"){
                                 alert("您还未登录");
-                                window.location.href = "Buy.ftl";
+                                window.location.href = "login.html";
                             }else{
                             }
                         }
