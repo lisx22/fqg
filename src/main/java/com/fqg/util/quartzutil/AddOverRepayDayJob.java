@@ -23,7 +23,6 @@ public class AddOverRepayDayJob implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        System.out.println("do addOverRepayDay");
         repayService.addOverRepayDay();
     }
 

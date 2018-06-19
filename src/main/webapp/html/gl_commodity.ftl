@@ -179,7 +179,7 @@
 										<td><input type="checkbox" name="commodityIds" value="${commoditys.commodityId!}"/></td>
 										<td>${commoditys.commodityId}</td>
 										<td style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityName!}</td>
-										<td>${commoditys.commodityPrice!}</td>
+										<td>${commoditys.commodityPrice!?c}</td>
 										<td class="am-hide-sm-only" style="text-overflow: ellipsis; white-space:nowrap;overflow: hidden;">${commoditys.commodityDescription!}</td>
 										<td class="am-hide-sm-only">${commoditys.number!}</td>
 										<td class="am-hide-sm-only">${commoditys.createTime!}</td>

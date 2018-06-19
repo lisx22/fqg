@@ -138,7 +138,7 @@
 
 									  <div class="am-form-group">
 										  <label for="doc-vld-name-2">秒杀价格</label>
-										  <input type="text" id="doc-vld-name-3" name="price"  value="${killCommodity.price!}" required/>
+										  <input type="text" id="doc-vld-name-3" name="price"  value="${killCommodity.price!?c}" required/>
 									  </div>
 
 									  <div class="am-form-group">

@@ -168,8 +168,8 @@
                                     <td class="am-hide-sm-only">${customers.payPassword!}</td>
                                     <td class="am-hide-sm-only">${customers.schoolName!}</td>
                                     <td class="am-hide-sm-only">${customers.companyName!}</td>
-                                    <td class="am-hide-sm-only">${customers.quota!}</td>
-                                    <td class="am-hide-sm-only">${customers.allQuota!}</td>
+                                    <td class="am-hide-sm-only">${customers.quota!?c}</td>
+                                    <td class="am-hide-sm-only">${customers.allQuota!?c}</td>
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">

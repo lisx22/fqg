@@ -144,7 +144,7 @@
 
 									  <div class="am-form-group">
 								      <label for="doc-vld-name-2">商品价格：</label>
-								      <input type="text" id="doc-vld-name-2" name="commodityPrice"  placeholder="输入价格" value="${commodity.commodityPrice!}" required/>
+								      <input type="text" id="doc-vld-name-2" name="commodityPrice"  placeholder="输入价格" value="${commodity.commodityPrice!?c}" required/>
 								    </div>
 
 									  <div class="am-form-group">

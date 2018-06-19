@@ -151,9 +151,9 @@
 										<td>${orders.orderId!}</td>
 										<td>${orders.customer.username!}</td>
 										<td>${orders.commodity.commodityName!}</td>
-										<td>${orders.payMoney!}</td>
-										<td class="am-hide-sm-only">${orders.number!}</td>
-										<td class="am-hide-sm-only">${orders.orderNum!}</td>
+										<td>${orders.payMoney!?c}</td>
+										<td class="am-hide-sm-only">${orders.number!?c}</td>
+										<td class="am-hide-sm-only">${orders.orderNum!?c}</td>
 										<td class="am-hide-sm-only">${orders.stage!}</td>
 										<td class="am-hide-sm-only">${orders.amount!}</td>
 										<#if orders.orderState==1>

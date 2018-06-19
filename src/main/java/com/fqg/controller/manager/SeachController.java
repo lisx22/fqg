@@ -39,7 +39,9 @@ public class SeachController {
         SolrDocumentList solrDocuments = solrUtil.queryIndex(keyword);
         ArrayList<Commodity> CommodityList = new ArrayList<>();
         for (SolrDocument solrDocument : solrDocuments){
+            System.out.println(Integer.parseInt(solrDocument.get("commodityId").toString())+"aaaaaa");
             Commodity commodity = commodityService.selectByPrimaryKey(Integer.parseInt(solrDocument.get("commodityId").toString()));
+
             CommodityList.add(commodityService.selectByPrimaryKey(commodity.getCommodityId()));
         }
         model.addAttribute("CommodityList",CommodityList);

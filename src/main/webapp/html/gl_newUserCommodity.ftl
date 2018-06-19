@@ -160,7 +160,7 @@
 										<td><input type="checkbox" name="newUserCommodityIds" value="${newUserCommoditys.newUerCommodityId}"/></td>
 										<td>${newUserCommoditys.newUerCommodityId}</td>
 										<td>${newUserCommoditys.commodity.commodityName!}</td>
-										<td>${newUserCommoditys.price!}</td>
+										<td>${newUserCommoditys.price!?c}</td>
 										<td class="am-hide-sm-only">${newUserCommoditys.createTime!}</td>
 										<td class="am-hide-sm-only">${newUserCommoditys.updateTime!}</td>
 										<td>

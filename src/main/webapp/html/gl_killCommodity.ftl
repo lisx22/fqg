@@ -159,7 +159,7 @@
 										<td><input type="checkbox" name="killCommodityIds" value="${killCommoditys.killCommodityId}"/></td>
 										<td>${killCommoditys.killCommodityId}</td>
 										<td>${killCommoditys.commodity.commodityName!}</td>
-										<td>${killCommoditys.price!}</td>
+										<td>${killCommoditys.price!?c}</td>
 										<td>${killCommoditys.number!}</td>
 										<td class="am-hide-sm-only">${killCommoditys.createTime!}</td>
 										<td class="am-hide-sm-only">${killCommoditys.updateTime!}</td>
